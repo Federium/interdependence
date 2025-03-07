@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Animato</title>
+    <style>
+
+@font-face {
+        font-family: 'milligram';
+        src: url('font/Milligram-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+
+@font-face {
+        font-family: 'milligram';
+        src: url('font/Milligram-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+}
+
+:root {
+  --gradient: linear-gradient(rgb(81, 81, 81),rgba(26, 26, 26, 0.5));
+}
+
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            height: 100vh;
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: width 0.3s ease-in-out;
+            overflow: hidden;
+        }
+
+        .left-sidebar {left: 0; align-items: flex-start;font-size: 1em;}
+        .right-sidebar {right: 0; align-items: flex-end;font-size: 2em;}
+
+
+        .sidebar div {
+            writing-mode: sideways-lr;
+            padding: 1vh;
+            
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.8s ease;
+        }
+
+        .sidebar:hover div {
+            text-align: left;
+            flex-grow: 1;
+            transition: all 0.6s ease;
+
+        }
+        
+        .sidebar div:hover {
+            color: red;
+            flex-grow: 18;
+            transition: all 0.6s ease;
+
+        }
+
+        .button p {
+          margin: 0;
+          background-image: var(--gradient);
+          color: transparent;
+          background-clip: text;
+          font-family: 'milligram';
+          font-weight: bold;
+          transition: color 0.6s ease;
+          mix-blend-mode: difference;
+        }
+
+        .button p:hover {
+          color: rgb(54, 54, 54);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar left-sidebar">
+        <div class="button">
+          <p style="text-align: right;">Salone Satellite</p>
+        </div>
+        <div class="button">
+          <p style="text-align: center;">Design x Designers</p>
+        </div>
+        <div class="button">
+          <p style="text-align: left;">Fabbrica del Vapore</p>
+        </div>
+    </div>
+    <div class="sidebar right-sidebar">
+        <div class="button">
+          <p>Interdependence</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
