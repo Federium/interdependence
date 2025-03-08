@@ -8,46 +8,14 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="js/p5.min.js"></script>
     <script src="js/p5.sound.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/scroll.js"></script>
 </head>
 <body>
-<!-- HEADER DESKTOP-->
-  <div class="header_desktop">
-    <div class="sidebar left-sidebar">
-      <div class="button left-button" style="text-align: right;">
-        <a href="x">Salone Satellite</a>
-      </div>
-      <div class="button" style="text-align: center;">
-        <a href="x">Design x Designers</a>
-      </div>
-      <div class="button" style="text-align: left;">
-        <a href="x">Fabbrica del Vapore</a>
-      </div>
-  </div>
-  <div class="sidebar right-sidebar">
-      <div class="button right-button">
-        <a href="x">Interdependence</a>
-      </div>
-  </div>
-  </div>
 
-<!-- HEADER MOBILE -->
+<!-- HEADER -->
+<header-component></header-component>
 
-<header class="header_mobile">
-  <div class="header__content">
-    <a class="header__logo" href="#">
-      interdependence
-    </a>
-    <ul class="header__menu">
-      <li><a href="#">Salone Satellite</a></li>
-      <li><a href="#">Design x Designers</a></li>
-      <li><a href="#">Fabbrica del Vapore</a></li>
-    </ul>
-      <div class="icon-hamburger">
-        <span></span>
-        <span></span>
-      </div>
-  </div>
-</header>
 
 <!-- HERO -->
     <section id="hero">
@@ -92,6 +60,12 @@
             document.body.classList.toggle('menu-open');
       });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
 </body>
 </html>
