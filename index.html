@@ -10,6 +10,46 @@
     <script src="js/p5.sound.min.js"></script>
 </head>
 <body>
+<!-- HEADER DESKTOP-->
+  <div class="header_desktop">
+    <div class="sidebar left-sidebar">
+      <div class="button left-button" style="text-align: right;">
+        <a href="x">Salone Satellite</a>
+      </div>
+      <div class="button" style="text-align: center;">
+        <a href="x">Design x Designers</a>
+      </div>
+      <div class="button" style="text-align: left;">
+        <a href="x">Fabbrica del Vapore</a>
+      </div>
+  </div>
+  <div class="sidebar right-sidebar">
+      <div class="button right-button">
+        <a href="x">Interdependence</a>
+      </div>
+  </div>
+  </div>
+
+<!-- HEADER MOBILE -->
+
+<header class="header_mobile">
+  <div class="header__content">
+    <a class="header__logo" href="#">
+      interdependence
+    </a>
+    <ul class="header__menu">
+      <li><a href="#">Salone Satellite</a></li>
+      <li><a href="#">Design x Designers</a></li>
+      <li><a href="#">Fabbrica del Vapore</a></li>
+    </ul>
+      <div class="icon-hamburger">
+        <span></span>
+        <span></span>
+      </div>
+  </div>
+</header>
+
+<!-- HERO -->
     <section id="hero">
         <!-- <canvas id="p5-canvas"></canvas> -->
         <h1 class="title">interdependence</h1>
@@ -42,6 +82,26 @@
     </footer>
     <!-- <script src="js/controls.js" type="module"></script> -->
 
-    <script src="js/sketch.js" type="module"></script>
+<!--     <script src="js/sketch.js" type="module"></script>
+ -->
+
+    <!-- MENU HAMBURGER -->
+    <script>
+      let item = document.querySelector('.icon-hamburger');
+      item.addEventListener("click", function() {
+            document.body.classList.toggle('menu-open');
+      });
+    </script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
