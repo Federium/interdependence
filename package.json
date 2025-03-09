@@ -9,8 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.12",
     "astro": "^5.4.2",
-    "p5": "^1.11.3"
+    "gasp": "^0.0.2",
+    "p5": "^1.11.3",
+    "tailwindcss": "^4.0.12"
   },
   "devDependencies": {
     "@types/p5": "^1.7.6"
