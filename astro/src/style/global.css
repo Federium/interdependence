@@ -273,7 +273,7 @@ section {
 
 #hero {
     position: relative;
-    background: black;
+   /* background: black; */
     color: white;
 }
 
