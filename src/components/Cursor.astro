@@ -28,6 +28,7 @@
   const cursor = document.querySelector(".custom-cursor") as HTMLElement;
   const links = document.querySelectorAll("a");
   const buttonAreas = document.querySelectorAll(".button-area");
+  const themes = document.querySelectorAll(".theme-title");
 
   document.addEventListener("mousemove", (e) => {
     if (cursor) {
@@ -55,5 +56,11 @@
   buttonAreas.forEach((buttonArea) => {
     buttonArea.addEventListener("mouseenter", () => handleCursorScale(buttonArea, true));
     buttonArea.addEventListener("mouseleave", () => handleCursorScale(buttonArea, false));
+  });
+
+  // Add event listeners to button-areas
+  themes.forEach((theme) => {
+    theme.addEventListener("mouseenter", () => handleCursorScale(theme, true));
+    theme.addEventListener("mouseleave", () => handleCursorScale(theme, false));
   });
 </script>
