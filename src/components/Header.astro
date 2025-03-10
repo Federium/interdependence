@@ -244,7 +244,7 @@ console.log(areaButtonsS);
     .header__menu li {
       width: 100%;
     }
-    .menu-open .header__menu {
+    :global(.menu-open) .header__menu {
       height: 100vh;
       z-index: 9999999;
     }
@@ -272,10 +272,10 @@ console.log(areaButtonsS);
       transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
-    .menu-open .icon-hamburger span:nth-child(1) {
+    :global(.menu-open) .icon-hamburger span:nth-child(1) {
       transform: rotate(45deg) translateY(12px);
     }
-    .menu-open .icon-hamburger span:nth-child(2) {
+    :global(.menu-open) .icon-hamburger span:nth-child(2) {
       transform: rotate(-45deg) translateY(-12px);
     }
   }
