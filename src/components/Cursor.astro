@@ -1,0 +1,59 @@
+---
+
+
+---
+
+
+
+<div class="custom-cursor"></div>
+
+<style>
+.custom-cursor {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50%;
+  filter: blur(10px);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-out;
+  z-index: 9999999 !important;
+}
+
+</style>
+
+<script>
+  const cursor = document.querySelector(".custom-cursor") as HTMLElement;
+  const links = document.querySelectorAll("a");
+  const buttonAreas = document.querySelectorAll(".button-area");
+
+  document.addEventListener("mousemove", (e) => {
+    if (cursor) {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    }
+  });
+
+  // Function to handle cursor scale
+  const handleCursorScale = (element: Element, isEntering: boolean) => {
+    if (isEntering) {
+      cursor.style.transform = "scale(2) translate(-25%, -25%)";
+    } else {
+      cursor.style.transform = "scale(1) translate(-50%, -50%)";
+    }
+  };
+
+  // Add event listeners to links
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => handleCursorScale(link, true));
+    link.addEventListener("mouseleave", () => handleCursorScale(link, false));
+  });
+
+  // Add event listeners to button-areas
+  buttonAreas.forEach((buttonArea) => {
+    buttonArea.addEventListener("mouseenter", () => handleCursorScale(buttonArea, true));
+    buttonArea.addEventListener("mouseleave", () => handleCursorScale(buttonArea, false));
+  });
+</script>

@@ -50,40 +50,6 @@
 
 
 
-<!-- ANIMAZIONE HEADER DESKTOP -->
-<script>
-const areaButtonsS = document.querySelectorAll('.button-area');
-  const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
-    const targetId = div.getAttribute("target-id");
-    const targetDiv = document.getElementById(targetId);
-
-    if (targetDiv) {
-        div.addEventListener("mouseenter", () => targetDiv.classList.add("active"));
-        div.addEventListener("mouseleave", () => targetDiv.classList.remove("active"));
-    }
-
-})
-console.log(areaButtonsS);
-</script>
-
-<!-- ---------- MENU HEADER MOBILE ---------- -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.querySelector('.icon-hamburger');
-    const body = document.body;
-    
-    if (hamburger) {
-      hamburger.addEventListener("click", function() {
-        body.classList.toggle('menu-open');
-        // Add logging to check if the click is registered
-        console.log("Menu state:", body.classList.contains('menu-open'));
-      });
-    }
-  });
-</script>
-
-
-
 <!-- ---------- CSS STYLE ---------- -->
 <style>
   .sidebar {
@@ -186,7 +152,7 @@ console.log(areaButtonsS);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999999;
+    z-index: 9999;
     width: 100%;
     padding: 10px 15px;
     mix-blend-mode: difference;
@@ -246,7 +212,7 @@ console.log(areaButtonsS);
     }
     :global(.menu-open) .header__menu {
       height: 100vh;
-      z-index: 9999999;
+      z-index: 99999;
     }
     .header__menu li a {
       color: var(--gradient);
@@ -298,6 +264,43 @@ console.log(areaButtonsS);
 
 </style>
 
+
+
+
+
+<!-- ANIMAZIONE HEADER DESKTOP -->
+<script>
+  const areaButtonsS = document.querySelectorAll('.button-area');
+    const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
+      const targetId = div.getAttribute("target-id");
+      if (targetId) {
+        const targetDiv = document.getElementById(targetId);
+    
+        if (targetDiv) {
+            div.addEventListener("mouseenter", () => targetDiv.classList.add("active"));
+            div.addEventListener("mouseleave", () => targetDiv.classList.remove("active"));
+        }
+      }
+  
+  })
+  console.log(areaButtonsS);
+  </script>
+  
+  <!-- ---------- MENU HEADER MOBILE ---------- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const hamburger = document.querySelector('.icon-hamburger');
+      const body = document.body;
+      
+      if (hamburger) {
+        hamburger.addEventListener("click", function() {
+          body.classList.toggle('menu-open');
+          // Add logging to check if the click is registered
+          console.log("Menu state:", body.classList.contains('menu-open'));
+        });
+      }
+    });
+  </script>
 
 
 
