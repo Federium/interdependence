@@ -9,4 +9,155 @@ import Hero from '../components/Hero.astro';
 <Layout>
 	<Hero></Hero>
 	<Header></Header>
+
+
+    <section class="text-section">
+        <div class="container" style="background-color: blue">
+            <div class="col-6">
+                <p>Testo introduttivo con sfondo neutro.</p>
+            </div>
+            <div class="col-6">
+                <p>Seconda colonna di contenuti.</p>
+            </div>
+        </div>
+    </section>
+    <section id="map-section">
+        <div id="map"></div>
+    </section>
+    <section class="text-section" style="background-color: yellow">
+        <div class="container">
+            <div class="col-4">
+                <p>Ulteriore sezione di testo.</p>
+            </div>
+            <div class="col-8">
+                <p>Seconda colonna più grande di contenuti.</p>
+            </div>
+        </div>
+    </section>
+
 </Layout>
+
+
+<script>
+	import gsap from 'gsap';
+	import { Observer } from "gsap/Observer";
+	import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+
+	gsap.registerPlugin(Observer,ScrollToPlugin);
+
+
+  
+  let sections = document.querySelectorAll("section"),
+      currentSection = 0,
+      animating = false;
+  
+  // Imposta l'altezza di ogni sezione al 100% del viewport
+  gsap.set("section", {
+    height: "100vh"
+  });
+  
+  function gotoSection(index, direction) {
+	console.log("gsap index "+index+" direction"+ direction);
+    // Limita l'indice al numero di sezioni
+    index = Math.min(Math.max(index, 0), sections.length - 1);
+    
+    if (currentSection !== index) {
+      animating = true;
+      let fromTop = direction === -1,
+          dFactor = fromTop ? -1 : 1,
+          tl = gsap.timeline({
+            defaults: {duration: 1.25, ease: "power1.inOut"},
+            onComplete: () => {
+				animating = false
+			}
+          });
+      
+      tl.to(window, {
+        scrollTo: {y: sections[index], autoKill: false},
+        duration: 1
+      });
+      
+      currentSection = index;
+    }
+  }
+  
+  // Imposta la prima sezione come attiva all'avvio
+  gsap.set(window, {scrollTo: 0});
+
+    
+  Observer.create({
+    target: window,
+    type: "wheel,touch,pointer",
+    onDown: () => !animating && gotoSection(currentSection + 1, 1),
+    onUp: () => !animating && gotoSection(currentSection - 1, -1),
+    tolerance: 10
+  });
+
+
+</script>
+
+
+<style>
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 85%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+
+
+
+
+.text-section {
+    background: #f4f4f4;
+    color: #333;
+    padding: 50px;
+}
+
+#map-section {
+    background: url('map-placeholder.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+</style>
