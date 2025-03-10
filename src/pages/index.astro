@@ -38,6 +38,10 @@ import Hero from '../components/Hero.astro';
 </Layout>
 
 
+<!-- ---------- SCROLL ---------- -->
+<!-- ---------- SCROLL ---------- -->
+<!-- ---------- SCROLL ---------- -->
+
 <script>
 	import gsap from 'gsap';
 	import { Observer } from "gsap/Observer";
@@ -98,6 +102,54 @@ import Hero from '../components/Hero.astro';
 </script>
 
 
+
+<!-- ---------- ANIMAZIONE HEADER ---------- -->
+<!-- ---------- ANIMAZIONE HEADER ---------- -->
+<!-- ---------- ANIMAZIONE HEADER ---------- -->
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".left-sidebar", {
+    x: -100,
+    opacity: 1,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 50%",
+      toggleActions: "restart none none reverse",
+      /* markers: true, */
+    },
+  }); 
+
+  gsap.from(".right-sidebar", {
+    x: 100,
+    opacity: 1,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 50%",
+      toggleActions: "restart none none reverse",
+      /* markers: true, */
+    },
+  }); 
+
+
+
+
+
+});
+</script>
+
+
+
+
+
 <style>
 
 section {
@@ -154,8 +206,10 @@ section {
     padding: 50px;
 }
 
+
+/* ho tolto il link perchè non ho l'immagine e mi dava fastidio vedere l'errore */
 #map-section {
-    background: url('map-placeholder.jpg') no-repeat center center;
+    background: url(#) no-repeat center center;
     background-size: cover;
     color: white;
 }

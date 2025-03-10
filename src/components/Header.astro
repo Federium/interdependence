@@ -30,6 +30,27 @@
   </div>
 </div>
 
+
+
+<!-- HEADER MOBILE -->
+<header class="header_mobile">
+  <div class="header__content">
+    <a class="header__logo" href="index.html">interdependence</a>
+    <ul class="header__menu">
+      <li><a href="#">Salone Satellite</a></li>
+      <li><a href="#">Design x Designers</a></li>
+      <li><a href="#">Fabbrica del Vapore</a></li>
+    </ul>
+    <div class="icon-hamburger">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- ANIMAZIONE HEADER DESKTOP -->
 <script>
 const areaButtonsS = document.querySelectorAll('.button-area');
   const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
@@ -45,6 +66,26 @@ const areaButtonsS = document.querySelectorAll('.button-area');
 console.log(areaButtonsS);
 </script>
 
+<!-- ---------- MENU HEADER MOBILE ---------- -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.querySelector('.icon-hamburger');
+    const menu = document.querySelector('.header__menu');
+    const body = document.body;
+    
+    if (hamburger) {
+      hamburger.addEventListener("click", function(e) {
+        e.preventDefault();
+        body.classList.toggle('menu-open');
+        console.log("Menu clicked");
+      });
+    }
+  });
+</script>
+
+
+
+<!-- ---------- CSS STYLE ---------- -->
 <style>
   .sidebar {
     position: fixed;
@@ -77,6 +118,10 @@ console.log(areaButtonsS);
     cursor: pointer;
     flex: 0;
     transition: all 1s ease;
+  }
+
+  .right-button {
+    width: auto;
   }
 
 
@@ -142,7 +187,7 @@ console.log(areaButtonsS);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 999999;
     width: 100%;
     padding: 10px 15px;
     mix-blend-mode: difference;
@@ -180,25 +225,25 @@ console.log(areaButtonsS);
     font-size: 15px;
   }
 
-  .header_mobile {
-      display: none;
-    }
-
   @media (max-width: 768px) {
 
     .header_desktop {
       display: none;
     }
     .header__menu {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      background-color: rgb(255, 255, 255);
-      width: 100%;
-      height: 100vh;
-      height: 0vh;
-      overflow: hidden;
-      transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+      position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
     }
 
     .header__menu li {
@@ -206,6 +251,7 @@ console.log(areaButtonsS);
     }
     .menu-open .header__menu {
       height: 100vh;
+      z-index: 9999999;
     }
     .header__menu li a {
       color: var(--gradient);
@@ -238,4 +284,28 @@ console.log(areaButtonsS);
       transform: rotate(-45deg) translateY(-12px);
     }
   }
+
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header_mobile {
+      display: none;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .header_mobile {
+      display: none;
+    }
+}
+
+
 </style>
+
+
+
+
+
+
+
