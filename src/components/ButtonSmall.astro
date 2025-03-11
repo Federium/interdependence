@@ -1,0 +1,82 @@
+---
+const arrow = 'src/assets/icons/arrow-right-black.svg'
+
+export interface Props {
+  label: string;
+  href: string;
+}
+
+const { label, href } = Astro.props as Props;
+
+---
+
+
+<div class="button-container">
+    <a href={href}>
+        <label>{label}</label>
+        <span><img src = {arrow}/></span>
+    </a>
+</div>
+
+
+<style>
+
+.button-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+a {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    transition: all 0.5s ease-out;
+}
+
+.button-container:hover * {
+    color: black;
+}
+
+.button-container:hover span {
+    transition: all 0.5s ease;
+
+}
+
+
+label {
+    font-size: 24px;
+    color: grey;
+    text-decoration: none;
+}
+
+span {
+    padding-left: 10px;
+    transition: all 0.5s ease;
+
+}
+
+img {
+    height: 100%;
+}
+
+</style>
+
+<script>
+    document.querySelectorAll(".button-container").forEach(box => {
+        const span = box.querySelector("span"); // Trova lo span dentro il bottone specifico
+  
+        box.addEventListener("mouseenter", function() {
+            const spanX = span.offsetLeft; // Posizione attuale dell'elemento
+            const centerX = window.innerWidth / 2; // Centro dello schermo
+            const distance = centerX - spanX; // Quanto deve spostarsi
+  
+            span.style.transform = `translateX(${distance}px)`;
+        });
+  
+        box.addEventListener("mouseleave", function() {
+            span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
+        });
+    });
+  </script>
+  
