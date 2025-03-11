@@ -1,6 +1,6 @@
 import { frag, vert } from "./shader.js";
 
-export const mySketch = (p) => {
+export const mySketch = (width, height) => (p) => {
   let capturer;
 
   let n = 50;
@@ -13,14 +13,12 @@ export const mySketch = (p) => {
   let goingBackwards = false;
   let speedMultiplier = 0.002;
 
-  let width = p.windowWidth;
-  let height;
 
   //da settings
   let settings = {
     canvas: {
-      width: p.windowWidth,
-      height: p.windowHeight,
+      width: width,
+      height: height,
     },
     number: n,  // valore iniziale di n
     zDistribution: 1,
@@ -53,8 +51,8 @@ export const mySketch = (p) => {
   }
 
   function setup() {
-    width = p.windowWidth;
-    height = p.windowHeight;
+   // width = p.windowWidth;
+   // height = p.windowHeight;
     canvas = p.createCanvas(width, height, p.WEBGL);
     canvas.parent("p5-canvas");
 

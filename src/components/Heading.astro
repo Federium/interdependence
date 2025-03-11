@@ -1,0 +1,85 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  background?: boolean;
+}
+
+const { title, subtitle, description, background=false } = Astro.props as Props;
+---
+
+{
+background && <>
+<div class="animated-background">
+    <div id="p5-canvas"></div>
+    <div class = "header-gradient"></div>
+</div>
+</>
+}
+
+<div class="header-container">
+    <h2 class="title">{title}</h2>
+    {
+    subtitle && <>
+        <h2 class="subtitle">{subtitle}</h3>
+    </>
+    }
+</div>
+
+<slot/>
+
+
+
+<style>
+    .animated-background,
+    .header-gradient {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100vw;
+        height: 30vh;
+        z-index: -2 !important;
+    }
+
+    .header-gradient {
+        z-index: 0 !important;
+        background: linear-gradient(to top, white 5%, rgba(255, 255, 255, 0.5) 70%);
+    }
+
+    #p5-canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    #p5-canvas * {
+        opacity: 0.1;
+    }
+
+    .header-container {
+        position: sticky;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .title {
+        margin: 0;
+    }
+    .subtitle {
+        margin-top: 5px;
+        font-weight: normal;
+    }
+</style>
+
+
+
+{background && <>
+<script>
+    import p5 from 'p5'
+    import { mySketch } from '../scripts/sketch.js'
+    
+    console.log('Hello from JavaScript!')
+    
+    new p5(mySketch(window.innerWidth,0.3*window.innerHeight), document.getElementById('p5-canvas'))
+</script>
+
+</>}

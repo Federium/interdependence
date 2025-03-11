@@ -1,0 +1,30 @@
+---
+import '../style/global.css';
+import Cursor from '../components/Cursor.astro';
+import Layout from './Layout.astro';
+import type { string } from 'astro:schema';
+
+export interface Props {
+  name: string;
+}
+const { name } = Astro.props as Props;
+
+const title = name + " – interdependence"; 
+
+---
+
+<Layout title = {title}>
+    <div class="main-container">
+        <slot/>
+    </div>
+
+</Layout>
+
+<style>
+    .main-container {
+        position: relative;
+        width: 80%;
+        margin: auto;
+        max-width: 1200px;
+    }
+</style>

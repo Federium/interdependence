@@ -13,7 +13,7 @@ import { mySketch } from '../scripts/sketch.js'
 
 console.log('Hello from JavaScript!')
 
-new p5(mySketch, document.getElementById('p5-canvas'))
+new p5(mySketch(window.innerWidth,window.innerHeight), document.getElementById('p5-canvas'))
 </script>
 
 <style>
