@@ -34,15 +34,54 @@ import Hero from '../components/Hero.astro';
     <section class="text-section">
         <div class="container">
             <div class="col-4">
-                <p>Ulteriore sezione di testo.</p>
-            </div>
-            <div class="col-8">
-                <p>Seconda colonna più grande di contenuti.</p>
+                <p>
+                  At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives. The opening of the exhibition will be on Tuesday, April 16, at 18:30.
+                  The Campus Bovisa Durando hosts the DesignXDesigners exhibition, with a display of works by students from the Polimi Design System.
+                  At the Salone Satellite, a dedicated stand presents the study programs of the School of Design and showcases student’s works through an interactive installation.
+                </p>
+                <h2>
+                  How can design deal with opposites and polarizations? How can design deal with the nuances in-between polarities?
+                </h2>
+                <p>
+                  We may consider a few pairs of polarities that recur in design research and practice, such as:
+                </p>
+                <div class="themes-row">
+                  <div class="theme">
+                    <div class="theme-title">
+                      <span class="word1">INDIVIDUAL</span>
+                      <span class="separator">/</span>
+                      <span class="word2">COLLECTIVE</span>
+                    </div>
+                    <p class="theme-description">How can design foster individual expression while building collective identity?</p>
+                  </div>
+                </div>
             </div>
         </div>
     </section>
 
 </Layout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const themes = document.querySelectorAll('.theme');
+    
+    themes.forEach(theme => {
+      theme.addEventListener('mouseenter', () => {
+        const description = theme.querySelector('.theme-description');
+        if (description) {
+          (description as HTMLElement).style.height = `${description.scrollHeight}px`;
+        }
+      });
+      
+      theme.addEventListener('mouseleave', () => {
+        const description = theme.querySelector('.theme-description');
+        if (description) {
+          (description as HTMLElement).style.height = '0';
+        }
+      });
+    });
+  });
+</script>
 
 
 <!-- ---------- SCROLL ---------- -->
@@ -218,5 +257,66 @@ section {
     background-size: cover;
     color: white;
 }
+
+
+
+.themes-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .theme {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .theme-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Milligram', sans-serif;
+    font-size: 1.5rem;
+    line-height: normal;
+    font-weight: bold;
+  }
+
+  .separator {
+    opacity: 1;
+  }
+
+  .word2 {
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-description {
+    position: relative;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--gradient);
+  }
+
+  .theme:hover .word2 {
+    transform: translateX(calc(50vw - 100%));
+  }
+
+  .theme:hover .theme-description {
+    height: auto;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 1rem;
+  }
+
+
+
 
 </style>
