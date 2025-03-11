@@ -3,6 +3,9 @@
 import Contenuto from "../../layouts/Contenuto.astro";
 import Heading from "../../components/Heading.astro";
 
+import categories from "../../assets/data/categories.json";
+const arrow = 'src/assets/icons/arrow-right-black.svg'
+
 ---
 
 <Contenuto name="Catalogue">
@@ -13,10 +16,57 @@ import Heading from "../../components/Heading.astro";
             At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives.
         </p>
     </div>
+
+    <div class = "categories-container">
+        {
+            categories.map(category => (
+                <div class = "category-container">
+                    <span>
+                        {category.opposite1} /
+                    </span>
+                    <span class="opposite2">
+                        &#160;{category.opposite2}
+                        
+                    </span>
+                </div>
+        ))}
+    </div>
+
 </Contenuto>
 
 <style>
     .text-container {
         max-width: 900px;
+    }
+    .categories-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+    
+    .category-container {
+        display: flex;
+        margin-bottom: 20px;
+        color: gray;
+    }
+
+    .opposite2 {
+        text-align: right;
+        flex: 0;
+        transition: all 0.3s ease;
+
+    }
+
+    .category-container:hover .opposite2 {
+        flex: 1;
+        transition: all 0.3s ease;
+    }
+
+    .category-container:hover {
+        color: black;
+    }
+
+    .category-container span {
+        font-size: 2.2em;
     }
 </style>
