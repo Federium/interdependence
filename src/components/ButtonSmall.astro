@@ -1,5 +1,9 @@
 ---
-const arrow = 'src/assets/icons/arrow-right-black.svg'
+
+import { Image } from 'astro:assets';
+
+import arrow from '/src/assets/icons/arrow-right-black.svg';
+
 
 export interface Props {
   label: string;
@@ -14,7 +18,7 @@ const { label, href } = Astro.props as Props;
 <div class="button-container">
     <a href={href}>
         <label>{label}</label>
-        <span><img src = {arrow}/></span>
+        <span><Image src={arrow} alt = "Freccia a destra"/></span>
     </a>
 </div>
 
