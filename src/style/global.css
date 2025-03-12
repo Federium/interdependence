@@ -86,13 +86,40 @@ h2 {
   text-align: left;
 }
 
-h3 {
+h3, .category {
+  margin: 0;
   font-family: 'Milligram', sans-serif;
   font-size: 1.5rem;
   line-height: normal;
   font-weight: bold;
   color: var(--gradient);
   margin-bottom: 1rem;
+  text-align: left;
+}
+
+h4, .description {
+  margin: 0;
+  font-family: 'Milligram', sans-serif;
+  font-size: 1rem;
+  line-height: normal;
+  font-weight: bold;
+  color: var(--gradient);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+
+
+
+/* Font testo due versioni */
+
+h6 {
+  margin: 0;
+  font-family: 'Milligram-text', sans-serif;
+  font-size: 0.8rem;
+  line-height: normal;
+  font-weight: normal;
+  color: var(--gradient);
   text-align: left;
 }
 
