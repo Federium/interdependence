@@ -9,9 +9,12 @@ import location from "../assets/data/location.json";
 
 
 <Layout>
-	<Hero></Hero>
+	
+  <div class="section">
+    <Hero></Hero>
+  </div>
 
-  <div class="big-container">
+
     <!-- SECTION 1 -->
     <section class="text-section section">
       <div class="container">
@@ -32,9 +35,10 @@ import location from "../assets/data/location.json";
   </section>
   <!-- MAP SECTION -->
   <section class="map-section section">
+    <div class="map-1">
       <div class="map-bg">
         <div class="pointer-blur"></div>
-        <img src="/src/assets/img/MapImage.png" id="map" alt="">
+        <!-- <img src="/src/assets/img/MapImage.png" id="map" alt=""> -->
       </div>
       <div class="paragraph-container">
         <div class="paragraph-box">
@@ -52,7 +56,8 @@ import location from "../assets/data/location.json";
             <h4 style="text-align: center; margin: 10px 0 0 0;">{location[0].title}</h4>
           }
         </div>
-      </div>
+      </div>      
+    </div>
   </section>
   <!-- SECTION 3 -->
   <section class="text-section section">
@@ -88,35 +93,57 @@ import location from "../assets/data/location.json";
           </div>
       </div>
   </section>
-  </div>
 
 
 </Layout>
 
 
-<script>
-const map = document.getElementById("map");
+<!-- ---------- MAP ---------- -->
+<!-- ---------- MAP ---------- -->
+<!-- ---------- MAP ---------- -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Funzione per centrare un punto specifico della mappa
-function centerOnPoint(pointX, pointY) {
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-
-  const mapWidth = map.width;
-  const mapHeight = map.height;
-
-  // Calcola il nuovo offset in modo che il punto scelto sia al centro della viewport
-  const offsetX = viewportWidth / 2 - pointX;
-  const offsetY = viewportHeight / 2 - pointY;
-
-  // Applica la trasformazione per spostare la mappa
-  map.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-}
-
-// Esempio: centra la mappa sul punto (750, 500)
-centerOnPoint(100, 400);
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const map = document.getElementById("map");
+  
+      // Create timeline for map animation
+      const mapTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".map-section",
+          start: "top top",
+          end: "+=200%", // Controls how long the animation takes to complete
+          pin: true,
+          pinSpacing: true,
+          scrub: 1, // Links animation progress to scroll position
+          anticipatePin: 1
+        }
+      });
+      
+      // Add animations to timeline
+      mapTimeline
+        .fromTo(map, {
+          scale: 1,
+          x: 0,
+          y: 0
+        }, {
+          scale: 1.5,
+          x: -200,
+          y: -100,
+          ease: "none" // Remove easing for smoother scroll control
+        })
+        .to(map, {
+          scale: 2,
+          x: 200,
+          y: 100,
+          ease: "none"
+        });
+  });
 </script>
-
+ -->
 
 
 
@@ -130,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryContainers = document.querySelectorAll('.category-container');
   
   categoryContainers.forEach((container, index) => {
-    const description = container.querySelector('.description');
+    const description = container.querySelector('.description') as HTMLElement;
     if (description) {
       // Hide description initially
       description.style.display = 'none';
@@ -154,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Push down all subsequent containers
         const descriptionHeight = description.offsetHeight;
         for (let i = index + 1; i < categoryContainers.length; i++) {
-          categoryContainers[i].style.transition = 'transform 0.3s ease';
-          categoryContainers[i].style.transform = `translateY(${descriptionHeight}px)`;
+          (categoryContainers[i] as HTMLElement).style.transition = 'transform 0.3s ease';
+          (categoryContainers[i] as HTMLElement).style.transform = `translateY(${descriptionHeight}px)`;
         }
       });
       
@@ -184,12 +211,44 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- ---------- SCROLL ---------- -->
 <!-- ---------- SCROLL ---------- -->
 
-<script>
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
+  document.addEventListener("DOMContentLoaded", () => {
+    // Register plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+    // Get all sections
+    const sections = gsap.utils.toArray<HTMLElement>('.section');
+    
+    // Create ScrollTrigger for each section
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 95%", 
+        end: "bottom 5%",
+        markers: false,
+        onEnter: () => goToSection(i),
+        onEnterBack: () => goToSection(i)
+      });
+    });
 
-
+    // Function to animate to a specific section
+    function goToSection(index) {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: sections[index],
+          autoKill: true
+        },
+        ease: "power2.inOut"
+      });
+    }
+  });
 </script>
+ -->
 
 
 
@@ -257,6 +316,7 @@ section {
     text-align: center;
     padding: 50px;
     z-index: 1;
+    mix-blend-mode: difference;
 }
 
 .container {
@@ -401,7 +461,6 @@ section {
 
   .theme {
     position: relative;
-    cursor: pointer;
     overflow: hidden;
   }
 

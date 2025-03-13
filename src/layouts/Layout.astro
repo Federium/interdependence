@@ -23,13 +23,14 @@ const { title = 'interdependence – exploring opposites'} = Astro.props as Prop
   </head>
 <body>
 
-  <slot />
-
-  <Footer></Footer>
-  <Header></Header>
+  <div class="content-wrapper">
+    <slot />
+    <Footer></Footer>
+    <Header></Header>
+  </div>
   <Cursor></Cursor>
 
- 
+
 
 </body>
 </html>

@@ -43,8 +43,11 @@
   </div>
 
   <div class="website-container poli">
-    <div class="text-container">from an idea by</div>
-    <img src="./images/footer/loghi-sistema-desktop.svg" alt="" srcset="">
+    <div class="text-container section">from an idea by</div>
+    <div class="logo-container">
+      <img src="/src/assets/logos/Poli.design.svg" alt="" srcset="">
+    <img src="/src/assets/logos/Polimi.svg" alt="" srcset="">
+    </div>
   </div>
 </div>
 
@@ -56,13 +59,13 @@
   display: flex;
   width: 100vw;
   height: fit-content;
-  padding: 4vh 16vw 8vh 16vw;
+  padding: 4vh 14vw 8vh 14vw;
   background-color: black;
   /* margin-left: auto;
   margin-right: auto; */
   overflow-x: hidden;
   font-family: 'milligram';
-  z-index: -3 !important;
+  z-index: 99;
  }
  
  .website-container {
@@ -79,6 +82,7 @@
 
  .section{
   font-family: 'milligram';
+  font-weight: bold;
  }
  .credits{
   padding-right: 6vw;
@@ -128,10 +132,23 @@
  
 .footer-text{
   margin-top: 2vh;
-  color: white;
+  color: white !important;
+}
+
+.footer-text a{
+  margin-top: 2vh;
+  color: white !important;
 }
 
 #credits{
   display: none;
+}
+
+.logo-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  gap: 2vw;
 }
 </style>

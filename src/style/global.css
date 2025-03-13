@@ -39,7 +39,8 @@
 
 
 :root {
-  --gradient: linear-gradient(rgb(81, 81, 81),rgba(26, 26, 26, 0.5));
+  --gradient: white;
+  --hover: rgb(148, 97, 97);
 }
 
 

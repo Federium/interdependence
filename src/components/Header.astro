@@ -65,6 +65,9 @@
     justify-content: flex-start;
     transition: width 0.3s ease-in-out;
     overflow: hidden;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    cursor: none;
   }
 
   .left-sidebar {
@@ -82,9 +85,7 @@
     writing-mode: vertical-rl; 
     transform: rotate(180deg);
     padding: 1vh;
-    width: 100%;
     font-weight: bold;
-    cursor: pointer;
     flex: 0;
     transition: all 1s ease;
   }
@@ -118,7 +119,7 @@
   }
 
   .button.active a  {
-    color: rgb(54, 54, 54);
+    color: var(--hover);
     text-decoration: none;
   }
   /* .sidebar div:hover {
@@ -128,13 +129,10 @@
 
   .button a {
     margin: 0;
-    background-image: var(--gradient);
-    color: transparent;
-    background-clip: text;
+    color: var(--gradient);
     font-family: "Milligram";
     font-weight: bold;
     transition: color 0.6s ease;
-    mix-blend-mode: difference;
     text-decoration: none;
     white-space: nowrap;
 
@@ -142,7 +140,7 @@
 
   /* diventa superfluo*/
   .button a:hover {
-    color: rgb(54, 54, 54);
+    color: var(--hover);
     text-decoration: none;
   }
 
@@ -178,7 +176,7 @@
   .header__logo {
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--gradient);
     font-family: "Milligram Macro";
     font-weight: bold;
     font-size: 2em;

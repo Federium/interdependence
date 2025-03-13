@@ -12,16 +12,24 @@
   position: fixed;
   width: 50px;
   height: 50px;
-  background-color: black;
-  border-radius: 50%;
-  filter: blur(10px);
+  background-color: white;
+  border-radius: 50px;
+  filter: blur(0.5rem);
   pointer-events: none;
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
   transition: transform 0.2s ease-out;
-  z-index: 9999999 !important;
+  z-index: 999999999;
+  isolation: isolate;
 }
 
+/* Aggiunta per garantire che il cursore sia sempre visibile */
+@supports (mix-blend-mode: difference) {
+  .custom-cursor {
+    will-change: transform;
+    contain: layout style;
+  }
+}
 </style>
 
 <script>
