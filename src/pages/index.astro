@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
         // Reset all subsequent containers
         for (let i = index + 1; i < categoryContainers.length; i++) {
-          categoryContainers[i].style.transform = 'translateY(0)';
+          (categoryContainers[i] as HTMLElement).style.transform = 'translateY(0)';
         }
         
         // Hide after animation
@@ -314,7 +314,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 50px;
+    padding: min(5rem, 8%);
     z-index: 1;
     mix-blend-mode: difference;
 }

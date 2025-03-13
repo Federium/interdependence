@@ -59,7 +59,7 @@
   display: flex;
   width: 100vw;
   height: fit-content;
-  padding: 4vh 14vw 8vh 14vw;
+  padding: 4vh 5rem 8vh 5rem;
   background-color: black;
   /* margin-left: auto;
   margin-right: auto; */
@@ -69,6 +69,7 @@
  }
  
  .website-container {
+  width: 25%;
   font-family: "Milligram Text";
   display: flex;
   flex-direction: column;
@@ -102,12 +103,6 @@
   display: flex;
   flex-direction: column;
  } */
-
- .poli img {
-  width: 100%; /* Makes the image responsive */
-  padding-top: 2vh;
-  /* background-color: aqua; */
- }
 
  
  /* Add this to make the .website divs on the same line and evenly spaced */
@@ -144,11 +139,21 @@
   display: none;
 }
 
-.logo-container{
+.logo-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 50%;
-  gap: 2vw;
+  width: 100%;
+  gap: 2rem;
+  padding-top: 2rem;
+  align-items: center;
 }
+
+.logo-container img {
+  width: 100%;
+  min-width: 0; /* Allows image to shrink */
+  object-fit: contain;
+  max-width: 150px; /* Prevents logos from getting too large */
+}
+
+
 </style>

@@ -2,8 +2,17 @@
   <!-- <canvas id="p5-canvas"></canvas> -->
   <section id="hero">
     <div id="p5-canvas"></div>
+    <div class="overlay"></div>
+    <div class="logo-container">
+      <div class="logo-left">
+        <img src="/src/assets/logos/Polimi.svg" alt="" srcset="">
+        <img src="/src/assets/logos/Poli.design.svg" alt="" srcset="">
+      </div>
+      <div class="logo-right">
+        <img src="/src/assets/logos/logo-design-week.png" alt="" srcset="">
+      </div>
+    </div>
     <h1 class="title">interdependence</h1>
-
   </section>
 
 
@@ -13,13 +22,37 @@ import { mySketch } from '../scripts/sketch.js'
 
 console.log('Hello from JavaScript!')
 
-new p5(mySketch(window.innerWidth,window.innerHeight), document.getElementById('p5-canvas'))
+const canvasElement = document.getElementById('p5-canvas');
+if (canvasElement) {
+  new p5(mySketch(window.innerWidth, window.innerHeight), canvasElement);
+}
 </script>
 
 <style>
     #hero {
     position: relative;
     color: white;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        z-index: 2; /* Above p5-canvas but below other content */
+        pointer-events: none; /* Allows clicking through to elements below */
+    }
+
+    .gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(164, 18, 18, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
     }
 
 
@@ -29,15 +62,48 @@ new p5(mySketch(window.innerWidth,window.innerHeight), document.getElementById('
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
 }
 
     .title {
     font-family: 'Milligram Macro';
     mix-blend-mode: difference;
-    font-size: 14vw;
+    font-size: 12rem;
+    margin: 0;
     }
-    
+
+    .logo-container {
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: clamp(1rem, 2vw, 2rem);
+        }
+        
+        .logo-left {
+          display: flex;
+          align-items: center;
+          gap: clamp(1rem, 2vw, 2rem);
+          width: 60%;
+        }
+        
+        .logo-right {
+          width: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        
+        /* Shared styles for all logos */
+        .logo-left img,
+        .logo-right img {
+          height: clamp(3rem, 4vw, 8rem); /* Responsive height using clamp */
+          width: auto; /* Width will adjust based on aspect ratio */
+          object-fit: contain;
+          max-width: 100%; /* Prevent overflow */
+        }
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -45,6 +111,10 @@ new p5(mySketch(window.innerWidth,window.innerHeight), document.getElementById('
 
     .title {
         font-size: 2rem;
+    }
+
+    .logo-container {
+        top: 12vh;
     }
     
 }
