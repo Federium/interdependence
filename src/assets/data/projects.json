@@ -1,53 +1,237 @@
-import os
-import pandas as pd
-
-# 📂 Percorso del file CSV e della cartella di output
-CSV_FILE = "projects.csv"
-OUTPUT_DIR = "src/content/projects/"
-
-# 📁 Crea la cartella di output se non esiste
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-# 📖 Legge il CSV
-df = pd.read_csv(CSV_FILE, sep=";", encoding="latin1")  # Oppure prova encoding="utf-8"
-
-# 🔄 Converte ogni riga in un file .md
-for _, row in df.iterrows():
-    project_id = int(row["global_id"])  # Converte in intero
-    category_id = int(row["category_id"])  # Converte in intero
-    filename = f"{OUTPUT_DIR}{project_id}.md"
-
-    # 📄 Struttura del Markdown con frontmatter YAML
-    # Gestione del campo 'team' come array
-    team_list = row["team"].split(',') if pd.notna(row["team"]) else []
-    team_array = ', '.join([f'"{member.strip()}"' for member in team_list])
-
-    # Gestione del campo 'faculty' come array
-    faculty_list = row["faculty"].split(',') if pd.notna(row["faculty"]) else []
-    faculty_array = ', '.join([f'"{member.strip()}"' for member in faculty_list])
-
-    content = f"""---
-id: {project_id}
-category_id: {category_id}
-title: "{row["title"]}"
-subtitle: "{row["subtitle"]}"
-description: "{row["description"]}"
-project_website: "{row["project_website"]}"
-degree: "{row["degree"]}"
-course: "{row["course"]}"
-ay: "{row["ay"]}"
-team: [{team_array}]
-faculty: [{faculty_array}]
-university: "{row["university"]}"
-department: "{row["department"]}"
-city: "{row["city"]}"
-state: "{row["state"]}"
-school_website: "{row["school_website"]}"
-school_instagram: "{row["school_instagram"]}"
----
-"""
-    # ✍️ Scrive il file
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(content)
-
-print(f"✅ Conversione completata! {len(df)} file creati in {OUTPUT_DIR}")
+{
+  "categories": [
+    {
+      "id": 0,
+      "opposite1": "Center",
+      "opposite2": "Boundaries",
+      "description": "Il centro rispetto ai confini."
+    },
+    {
+      "id": 1,
+      "opposite1": "Human",
+      "opposite2": "More Than Human",
+      "description": "L'umano rispetto al più che umano."
+    },
+    {
+      "id": 2,
+      "opposite1": "Artificial",
+      "opposite2": "Natural",
+      "description": "L'artificiale rispetto al naturale."
+    },
+    {
+      "id": 3,
+      "opposite1": "Materialistic",
+      "opposite2": "Spiritual",
+      "description": "Il materialistico rispetto allo spirituale."
+    },
+    {
+      "id": 4,
+      "opposite1": "Enabling",
+      "opposite2": "Relieving",
+      "description": "L'abilitazione rispetto al sollievo."
+    },
+    {
+      "id": 5,
+      "opposite1": "Individual",
+      "opposite2": "Collective",
+      "description": "L'individuale rispetto al collettivo."
+    },
+    {
+      "id": 6,
+      "opposite1": "For-Few",
+      "opposite2": "For-All",
+      "description": "Per pochi rispetto a per tutti."
+    },
+    {
+      "id": 7,
+      "opposite1": "Selfness",
+      "opposite2": "Otherness",
+      "description": "L'essere se stessi rispetto all'essere altro."
+    },
+    {
+      "id": 8,
+      "opposite1": "Harmony",
+      "opposite2": "Discord",
+      "description": "L'armonia rispetto alla discordia."
+    },
+    {
+      "id": 9,
+      "opposite1": "Obedience",
+      "opposite2": "Disobedience",
+      "description": "L'obbedienza rispetto alla disobbedienza."
+    }
+  ],
+  "projects": [
+    {
+      "global_id": 1,
+      "category_id": 6,
+      "title": "Space for Others",
+      "subtitle": "Intuitive Grammars for Inclusive Space-Making",
+      "description": "Space for Others is an interdisciplinary design research studio studying the dynamics of co-creating spaces, balancing individual agency and collective collaboration. The project uses aggregate building systems and intuitive assembly grammars to explore this dichotomy. Through computational modeling, digital fabrication, and participatory play scenarios, the studio developed toy-scale 3D printed prototypes for collaborative studies. These experiments informed a full-scale kit, now tested in public play workshops to refine approaches to inclusivity, accessibility, and shared authorship.",
+      "project_website": "https://www.materialpropositions.org/space-for-others",
+      "degree": "Bachelor of Science, Design + Environmental Analysis",
+      "course": "DEA 2201",
+      "ay": "A.Y. 2024/2025",
+      "team": ["Riya Verma", "Kalven Owen", "Tioluwani Fabunmi", "Keira Huffman", "Andrea Porubcin", "Iason Diogenous", "Chloe Jung", "Alice Huiwen Ho"],
+      "faculty": "Leighton Beaman",
+      "university": "Cornell University",
+      "department": "Department of Human Centered Design, College of Human Ecology",
+      "city": "Ithaca",
+      "state": "United States of America",
+      "school_website": "https://www.human.cornell.edu/hcd",
+      "school_instagram": "@cornell.design"
+    },
+    {
+      "global_id": 2,
+      "category_id": 7,
+      "title": "Civic Playground Project",
+      "subtitle": "Version 01",
+      "description": "The Civic Playground Project is a speculative research initiative centered on civic toys—manipulable, community-oriented 3D objects that encourage collaborative creativity and problem-solving. The first iteration aims to enable individuals from diverse backgrounds, skills, and abilities to engage in shared making while easing tensions inherent in collaborative processes. By balancing individual contributions with collective configurations, civic toys provide inclusive frameworks that foster imaginative exploration, cooperative interaction, and participatory expression.",
+      "project_website": "https://www.materialpropositions.org/civic-playground-project-v01",
+      "degree": "Design & Environmental Analysis - Laboratory for Material Propositions",
+      "course": "",
+      "ay": "2024",
+      "team": ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan", "Elena Sabinson"],
+      "faculty": "Leighton Beaman, Zaneta Hong",
+      "university": "Cornell University",
+      "department": "Department of Human Centered Design, College of Human Ecology",
+      "city": "Ithaca",
+      "state": "United States of America",
+      "school_website": "https://www.human.cornell.edu/hcd",
+      "school_instagram": "@cornell.design"
+    },
+    {
+      "global_id": 3,
+      "category_id": 2,
+      "title": "Autograft Runners",
+      "subtitle": "Biotechnological processes and body-hacking have evolved. Now, individuals customise their physiology to meet their specific needs.",
+      "description": "Biotechnological processes and body-hacking have evolved. Now, individuals customise their physiology to meet their specific needs. The Autograft Runners are designed to push the athletic boundaries of long-distance running. This footwear is crafted through tissue engineering and utilises the wearer's own biomaterials to enhance the feet for long runs. It is the tool of choice for elite athletes who temporarily hack their bodies to optimise them specifically for their races.",
+      "project_website": "https://konstfack2024.se/en/master-en/ma-de-en/wolfgang-laimer/",
+      "degree": "Design Ecologies",
+      "course": "Degree Work",
+      "ay": "2024",
+      "team": ["Wolfgang Laimer"],
+      "faculty": "Charles Windlin, Katja Pettersson, Bettina Schwalm",
+      "university": "Konstfack",
+      "department": "Department of Design, Interior Architecture and Visual Communication",
+      "city": "Stockholm",
+      "state": "Sweden",
+      "school_website": "https://www.konstfack.se/sv/",
+      "school_instagram": "@konstfack_industrialdesign"
+    },
+    {
+      "global_id": 4,
+      "category_id": 1,
+      "title": "Biodivercities II",
+      "subtitle": "Bringing back wilderness in urban regenerated green areas",
+      "description": "The Problem: The decline of insect pollinators in urban areas is a growing global issue. Rapid urbanization and large-scale agriculture reduce food sources and nesting areas, threatening wild insects. Yet, humans depend on biodiversity for clean air, water, and food. What the project is about: Cities can support insects by creating wildlife areas within their boundaries. This project promotes urban biodiversity through educational DIY toolkits for nesting sites. This 'ground unit' was developed at KTU Design Centre, within the Product Design course.",
+      "project_website": "biodivercities.eu",
+      "degree": "Bachelor",
+      "course": "Product Design",
+      "ay": "A.Y. 2023/2024 - Spring Semester",
+      "team": ["Justina Klėjytė", "Niccolò Lelli", "Kotryna Lenkauskaitė", "Hari Prasanna", "Justė Motuzaitė", "Giuseppe Donvito"],
+      "faculty": "Lorenzo Piazzi",
+      "university": "Kaunas University of Technology",
+      "department": "Faculty of Mechanical Engineering and Design, KTU Design Centre",
+      "city": "Kaunas",
+      "state": "Lithuania",
+      "school_website": "https://fmed.ktu.edu/dc/",
+      "school_instagram": "@olabas_kaunas"
+    },
+    {
+      "global_id": 5,
+      "category_id": 9,
+      "title": "Deepfakes & Misinformation",
+      "subtitle": "Countering AI-Driven Deception in the Digital Age",
+      "description": "The rapid rise of Artificial Intelligence has fuelled the spread of deepfakes and misinformation in the digital age, eroding trust and distorting reality. This project introduces 'Artificial Alerts,' a solution to expose the risks of digital deception and highlight the need for transparency. Through a visual campaign and innovative metadata UI concept, the project raises awareness of AI-driven misinformation, empowering audiences to navigate the digital world confidently while exploring how design can rebuild trust between artificial systems and natural human perception.",
+      "project_website": "https://youtu.be/k3HYSOvIML0",
+      "degree": "BA Graphic Design",
+      "course": "Graphic Design",
+      "ay": "A.Y. 2024/2025",
+      "team": ["Fraser Rollafson"],
+      "faculty": "Rhiannon Payne, Charlie Henshaw, Jem Robinson",
+      "university": "Loughborough University",
+      "department": "School of Design and Creative Arts",
+      "city": "Loughborough",
+      "state": "United Kingdom",
+      "school_website": "https://www.lboro.ac.uk/",
+      "school_instagram": "@lborouniversity"
+    },
+    {
+      "global_id": 6,
+      "category_id": 8,
+      "title": "Re-Viewing the Gaze",
+      "subtitle": "Bridging interdependent discourse by unveiling polarised views on Gender, Sex, and Sexuality in psychosocial contexts",
+      "description": "'Re-Viewing the Gaze' challenges the polarised constructions of gender and identity, by critiquing expected societal norms and biases. Employing an interactive exhibition design, the cognitive tension between opposing worldviews is explored. This provokes viewers to rethink their rigid expectations, through facilitated visual and narrative means. The project's requirement of viewers to actively shift their gaze, reveals the cognitive dissonance which would usually blind them to alternative thought.",
+      "project_website": "https://josflint.github.io/RE-VIEWING_THE_GAZE/",
+      "degree": "Master of Arts",
+      "course": "Master of Arts: Graphic Design and Visualisation",
+      "ay": "2024",
+      "team": ["Jo Flint"],
+      "faculty": "Simon Downs, Alis Iacob",
+      "university": "Loughborough University",
+      "department": "School of Design and Creative Arts",
+      "city": "Loughborough",
+      "state": "United Kingdom",
+      "school_website": "https://www.lboro.ac.uk/",
+      "school_instagram": "@lborouniversity"
+    },
+    {
+      "global_id": 7,
+      "category_id": 5,
+      "title": "Wheele",
+      "subtitle": "An inclusive autonomous car-sharing that helps you organize your daily life.",
+      "description": "Wheele is a UX design project sparked by Model 5's concept car, redefining digital interaction in autonomous car-sharing. It choreographs seamless experiences across public (in-car screens) and private (personal mobile) interfaces, enabling inclusive, smart urban mobility. By merging personal devices with shared screens, Wheele enhances both individual control and collective accessibility, creating a fluid, user-centered experience that adapts to diverse needs in the evolving landscape of transportation.",
+      "project_website": "https://www.figma.com/proto/8jc2iTDP0qhJ58Ua3i8nGx/G6---UXD-16?page-id=7291%3A18405&type=design&node-id=7291-21044&viewport=630%2C540%2C0.02&t=gRmtThZK4Zw5XJDC-1&scaling=min-zoom&starting-point-node-id=7291%3A21044&mode=design",
+      "degree": "Executive Course in User Experience Design",
+      "course": "Altro corso / other",
+      "ay": "2024",
+      "team": ["Francescopaolo Amendola", "Sofia Bernardini", "Federica Ciarallo", "Giuditta Alevtina Pini", "Gabriele Rabbito"],
+      "faculty": "Venanzio Arquilla, Davide Genco, Federica Caruso, Gabriele Malaspina, Roberta Tassi",
+      "university": "POLI.design",
+      "department": "",
+      "city": "Milano",
+      "state": "Italy",
+      "school_website": "https://www.polidesign.net/it/formazione/digital-and-interaction/corso--user-experience-design/",
+      "school_instagram": ""
+    },
+    {
+      "global_id": 8,
+      "category_id": 6,
+      "title": "Raranga | Weaving our Tangata Tiriti Journeys",
+      "subtitle": "Kotahi te aho ka whati, ki te kāpuia e kore e whati. One strand of flax is easy to break, but many strands together will stand strong.",
+      "description": "How might we facilitate kaimahi (employees) on their tangata tiriti (treaty partnership) journeys in order to improve Māori workplace satisfaction for better systemic outcomes? Raranga is an educational gamified toolkit developed to equip kaimahi with the skills and knowledge to assist them as Tangata Tiriti. The kēmu (game) centres learning through collaboration, reflecting the traditional Māori art of Raranga (weaving). The practice weaves together individual strands of harakeke to create something stronger, symbolising the collective journey towards understanding and embodying Te Tiriti. Raranga breaks down the hierarchical power dynamics that exist within workplaces, creating a safe environment for collaboration and knowledge sharing.",
+      "project_website": "https://redesign.ac.nz/projects/raranga-weaving-our-tangata-tiriti-journeys",
+      "degree": "Bachelor in Design",
+      "course": "Capstone Project",
+      "ay": "2024",
+      "team": ["Leah Kampkes"],
+      "faculty": "Diana Albarran Gonzalez, Mairi Gunn, Ayla Hoeta, Gabriela Baron, Xin Cheng",
+      "university": "The University of Auckland - Waipapa Taumata Rau",
+      "department": "Faculty of Engineering and Design",
+      "city": "Auckland",
+      "state": "New Zealand",
+      "school_website": "https://www.auckland.ac.nz/en/creative/about-the-faculty/design-programme.html",
+      "school_instagram": "https://www.instagram.com/design.uoa/"
+    },
+    {
+      "global_id": 9,
+      "category_id": 2,
+      "title": "A-Life",
+      "subtitle": "This project is a practical design challenge on the theme of exclusion and inclusion. In particular, in graduation research, which tends to remain in an academic setting, this project tackled the theme of exclusion and inclusion in a more practical way by collaborating with people who are actually facing the issue in Japan. Three students each approached a different problem in Japan.",
+      "description": "Speculative Design Study for Future Life-Afterlife. In contemporary Japan, technology and views of life and death have become incompatible. In addition, with the development of generative AI technology, it is beginning to happen that the dead can be brought back to life by technology, regardless of their will. The majority of the living no longer have rights over the dead, and society is heading toward dystopia. Therefore, using speculative design, we speculated on a desirable life-afterlife for the future formation of an AI society. As a scenario, we set up a future society in which unwanted resurrections occur, and created a dystopian image of the dead in an elevator. To avoid this, we proposed A-Life, a platform for realizing a better life-afterlife. We produced a device for both the dead and the living to meet face to face in the way they desire. Based on these proposals, workshops were held for citizens at the temple. Speculation about the future was conducted, and sympathy for the activities of A-Life by the priests was obtained.",
+      "project_website": "",
+      "degree": "Industrial Design Course",
+      "course": "",
+      "ay": "2024",
+      "team": ["Sachika Kiyama", "Yutaro Miyake", "Sara Nakano"],
+      "faculty": "Yasuyuki Hirai",
+      "university": "Kyushu University",
+      "department": "School of Design",
+      "city": "Fukuoka",
+      "state": "Japan",
+      "school_website": "https://www.auckland.ac.nz/en/creative/about-the-faculty/design-programme.html",
+      "school_instagram": "https://www.instagram.com/design.uoa/"
+    }
+  ]
+}
