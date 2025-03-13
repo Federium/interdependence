@@ -1,0 +1,53 @@
+import os
+import pandas as pd
+
+# 📂 Percorso del file CSV e della cartella di output
+CSV_FILE = "projects.csv"
+OUTPUT_DIR = "src/content/projects/"
+
+# 📁 Crea la cartella di output se non esiste
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# 📖 Legge il CSV
+df = pd.read_csv(CSV_FILE, sep=";", encoding="latin1")  # Oppure prova encoding="utf-8"
+
+# 🔄 Converte ogni riga in un file .md
+for _, row in df.iterrows():
+    project_id = int(row["global_id"])  # Converte in intero
+    category_id = int(row["category_id"])  # Converte in intero
+    filename = f"{OUTPUT_DIR}{project_id}.md"
+
+    # 📄 Struttura del Markdown con frontmatter YAML
+    # Gestione del campo 'team' come array
+    team_list = row["team"].split(',') if pd.notna(row["team"]) else []
+    team_array = ', '.join([f'"{member.strip()}"' for member in team_list])
+
+    # Gestione del campo 'faculty' come array
+    faculty_list = row["faculty"].split(',') if pd.notna(row["faculty"]) else []
+    faculty_array = ', '.join([f'"{member.strip()}"' for member in faculty_list])
+
+    content = f"""---
+id: {project_id}
+category_id: {category_id}
+title: "{row["title"]}"
+subtitle: "{row["subtitle"]}"
+description: "{row["description"]}"
+project_website: "{row["project_website"]}"
+degree: "{row["degree"]}"
+course: "{row["course"]}"
+ay: "{row["ay"]}"
+team: [{team_array}]
+faculty: [{faculty_array}]
+university: "{row["university"]}"
+department: "{row["department"]}"
+city: "{row["city"]}"
+state: "{row["state"]}"
+school_website: "{row["school_website"]}"
+school_instagram: "{row["school_instagram"]}"
+---
+"""
+    # ✍️ Scrive il file
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(content)
+
+print(f"✅ Conversione completata! {len(df)} file creati in {OUTPUT_DIR}")

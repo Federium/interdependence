@@ -3,7 +3,7 @@
 import Contenuto from "../../layouts/Contenuto.astro";
 import Heading from "../../components/Heading.astro";
 
-import categories from "../../assets/data/categories.json";
+import data from "../../assets/data/projects.json";
 const arrow = 'src/assets/icons/arrow-right-black.svg'
 
 ---
@@ -19,7 +19,7 @@ const arrow = 'src/assets/icons/arrow-right-black.svg'
 
     <div class = "categories-container">
         {
-            categories.map(category => (
+            data.categories.map(category => (
                 <div class = "category-container">
                     <span>
                         {category.opposite1} /

@@ -1,42 +1,42 @@
 [
   {
-    "index": 1,
+    "id": 1,
     "opposite1": "CENTER",
     "opposite2": "BOUNDARIES",
     "description": "Il centro rispetto ai confini."
   },
   {
-    "index": 2,
+    "id": 2,
     "opposite1": "INDIVIDUAL",
     "opposite2": "COLLECTIVE",
     "description": "L'individuale rispetto al collettivo."
   },
   {
-    "index": 3,
+    "id": 3,
     "opposite1": "SELFNESS",
     "opposite2": "OTHERNESS",
     "description": "L'essere se stessi rispetto all'essere altro."
   },
   {
-    "index": 4,
+    "id": 4,
     "opposite1": "OBEDIENCE",
     "opposite2": "DISOBEDIENCE",
     "description": "L'obbedienza rispetto alla disobbedienza."
   },
   {
-    "index": 5,
+    "id": 5,
     "opposite1": "HARMONY",
     "opposite2": "DISCORD",
     "description": "L'armonia rispetto alla discordia."
   },
   {
-    "index": 6,
+    "id": 6,
     "opposite1": "ARTIFICIAL",
     "opposite2": "NATURAL",
     "description": "L'artificiale rispetto al naturale."
   },
   {
-    "index": 7,
+    "id": 7,
     "opposite1": "ENABLING",
     "opposite2": "RELIEVING",
     "description": "L'abilitazione rispetto al sollievo."

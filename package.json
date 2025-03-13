@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:images": "node src/scripts/generateImages.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",
