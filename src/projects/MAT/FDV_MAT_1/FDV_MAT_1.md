@@ -1,6 +1,7 @@
 ---
 category: MAT
 id: 1
+slug: raranga-weaving-our-tangata-tiriti-journeys
 title: "Raranga | Weaving our Tangata Tiriti Journeys"
 subtitle: "Kotahi te aho ka whati, ki te k_puia e kore e whati  One strand of flax is easy to break, but many strands together will stand strong."
 project_website: "https://redesign.ac.nz/projects/raranga-weaving-our-tangata-tiriti-journeys"

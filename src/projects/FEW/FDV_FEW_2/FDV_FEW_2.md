@@ -1,6 +1,7 @@
 ---
 category: FEW
 id: 2
+slug: balanc
 title: "Balanc"
 subtitle: "Body extensions, espression of identity, and well-being of the elderly"
 project_website: "nan"

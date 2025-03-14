@@ -1,6 +1,7 @@
 ---
 category: HAR
 id: 1
+slug: pal-hybrid-arm-prosthetics
 title: "PAL: Hybrid Arm Prosthetics"
 subtitle: "Exploring how recent developments in techNOlogy, new 3D printing methods for example, could help create low-cost prostheses that offer higher user benefits while making them more accessible."
 project_website: "https://www.umu.se/en/umea-institute-of-design/education/student-work/masters-programme-in-advanced-product-design/2024/heinrich-zaunschirm/"

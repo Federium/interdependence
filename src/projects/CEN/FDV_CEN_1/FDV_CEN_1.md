@@ -1,6 +1,7 @@
 ---
 category: CEN
 id: 1
+slug: civic-playground-project
 title: "Civic Playground Project"
 subtitle: "Version 01"
 project_website: "https://www.materialpropositions.org/civic-playground-project-v01"

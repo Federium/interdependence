@@ -1,6 +1,7 @@
 ---
 category: CEN
 id: 3
+slug: a-life
 title: "A-Life"
 subtitle: "This project is a practical design challenge on the theme of exclusion and inclusion. In particular, in graduation research, which tends to remain in an academic setting, this project tackled the theme of exclusion and inclusion in a more practical way by collaborating with people who are actually facing the issue in Japan. Three students each approached a different problem in Japan."
 project_website: "nan"

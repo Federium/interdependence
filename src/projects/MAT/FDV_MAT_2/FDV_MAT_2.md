@@ -1,6 +1,7 @@
 ---
 category: MAT
 id: 2
+slug: virtx-haptic-interface-product-ecosystem
 title: "VirtX Haptic Interface Product Ecosystem"
 subtitle: "Fabric Electro-Haptic Interface Design for Somatosensory Interaction"
 project_website: "nan"

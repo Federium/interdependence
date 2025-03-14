@@ -6,6 +6,7 @@ const projects = defineCollection({
     loader: glob({pattern: "***/**/*.{md,mdx}", base: "src/projects"}),
     schema: z.object({
     id: z.number(),
+    slug: z.string(),
     category: z.string(), // Categoria estratta dal percorso
     title: z.string(),
     subtitle: z.string(),

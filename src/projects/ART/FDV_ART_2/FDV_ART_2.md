@@ -1,6 +1,7 @@
 ---
 category: ART
 id: 2
+slug: plnta
 title: "Plnta"
 subtitle: "Community powered coastal protection"
 project_website: "https://readymag.website/u1772937991/4650793/planta/"

@@ -1,6 +1,7 @@
 ---
 category: IND
 id: 2
+slug: biodivercities-ii
 title: "Biodivercities II"
 subtitle: "Bringing back wilderness in urban regenerated green areas"
 project_website: "biodivercities.eu"

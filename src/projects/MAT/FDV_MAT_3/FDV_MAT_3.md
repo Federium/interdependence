@@ -1,6 +1,7 @@
 ---
 category: MAT
 id: 3
+slug: vision-crafters
 title: "VISION CRAFTERS"
 subtitle: "Eye testing for everyone!"
 project_website: "nan"

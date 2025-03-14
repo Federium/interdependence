@@ -1,6 +1,7 @@
 ---
 category: IND
 id: 1
+slug: autograft-runners
 title: "Autograft Runners"
 subtitle: "Biotechnological processes and body-hacking have evolved. Now, individuals customise their physiology to meet their specific needs."
 project_website: "https://konstfack2024.se/en/master-en/ma-de-en/wolfgang-laimer/"

@@ -1,6 +1,7 @@
 ---
 category: ART
 id: 3
+slug: a-life
 title: "A-Life"
 subtitle: "Opportunities for reconstruction following the 2023 Marrakech-Safi earthquake"
 project_website: "https://www.politesi.polimi.it/handle/10589/223532"

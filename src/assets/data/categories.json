@@ -1,60 +1,70 @@
 [
   {
     "id": "CEN",
+    "slug": "center-boundaries",
     "opposite1": "CENTER",
     "opposite2": "BOUNDARIES",
     "description": "Il centro rispetto ai confini."
   },
   {
     "id": "IND",
+    "slug": "individual-collective",
     "opposite1": "INDIVIDUAL",
     "opposite2": "COLLECTIVE",
     "description": "L'individuale rispetto al collettivo."
   },
   {
     "id": "SEL",
+    "slug": "selfness-otherness",
     "opposite1": "SELFNESS",
     "opposite2": "OTHERNESS",
     "description": "L'essere se stessi rispetto all'essere altro."
   },
   {
     "id": "OBE",
+    "slug": "obedience-disobedience",
     "opposite1": "OBEDIENCE",
     "opposite2": "DISOBEDIENCE",
     "description": "L'obbedienza rispetto alla disobbedienza."
   },
   {
     "id": "HAR",
+    "slug": "harmony-discord",
     "opposite1": "HARMONY",
     "opposite2": "DISCORD",
     "description": "L'armonia rispetto alla discordia."
   },
   {
     "id": "ART",
+    "slug": "artificial-natural",
     "opposite1": "ARTIFICIAL",
     "opposite2": "NATURAL",
     "description": "L'artificiale rispetto al naturale."
   },
   {
     "id": "ENA",
+    "slug": "enabling-relieving",
     "opposite1": "ENABLING",
     "opposite2": "RELIEVING",
     "description": "L'abilitazione rispetto al sollievo."
   },
   {
     "id": "MAT",
+    "slug": "materialistic-spiritual",
     "opposite1": "MATERIALISTIC",
     "opposite2": "SPIRITUAL",
     "description": "Il materialistico rispetto allo spirituale."
   },
   {
     "id": "FEW",
+    "slug": "forfew-forall",
     "opposite1": "FOR-FEW",
     "opposite2": "FOR-ALL",
     "description": "Per pochi rispetto al per tanti."
   },
   {
     "id": "HUM",
+    "slug": "human-morethanhuman",
     "opposite1": "HUMAN",
     "opposite2": "MORE-THAN-HUMAN",
     "description": "L'umano rispetto al più-che-umano."

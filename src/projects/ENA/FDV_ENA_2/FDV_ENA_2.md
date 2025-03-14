@@ -1,6 +1,7 @@
 ---
 category: ENA
 id: 2
+slug: re-viewing-the-gaze
 title: "Re-Viewing the Gaze"
 subtitle: "Bridging interdependent discourse by unveiling polarised views on Gender, Sex, and Sexuality in psychosocial contexts"
 project_website: "https://josflint.github.io/RE-VIEWING_THE_GAZE/"

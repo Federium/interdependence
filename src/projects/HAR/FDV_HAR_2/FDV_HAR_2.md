@@ -1,6 +1,7 @@
 ---
 category: HAR
 id: 2
+slug: investigation
 title: "Investigation#"
 subtitle: "Research and application of engineering drawing in jewelry design"
 project_website: "https://exhibition.ad.tsinghua.edu.cn/2023/"

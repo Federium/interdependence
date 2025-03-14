@@ -1,6 +1,7 @@
 ---
 category: HUM
 id: 2
+slug: myoceaneye
 title: "MyOceanEye"
 subtitle: "Sustainable Interaction Design"
 project_website: "nan"

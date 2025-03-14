@@ -1,6 +1,7 @@
 ---
 category: SEL
 id: 1
+slug: apu-changing-the-climate-of-play
 title: "Apu: Changing the Climate of Play"
 subtitle: "Apu is a toy brand that fosters environmental empathy through play, inspiring future generations to protect the Earth."
 project_website: "https://www.youtube.com/watch?v=rNJgLphC3dQ"

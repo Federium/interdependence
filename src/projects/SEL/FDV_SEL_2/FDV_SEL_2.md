@@ -1,6 +1,7 @@
 ---
 category: SEL
 id: 2
+slug: commonplace
 title: "Commonplace"
 subtitle: "Spatial Tactics for the Urban Interior"
 project_website: "nan"

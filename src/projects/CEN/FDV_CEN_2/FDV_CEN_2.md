@@ -1,6 +1,7 @@
 ---
 category: CEN
 id: 2
+slug: liquo-filter-syringe-for-dry-vaccines
 title: "Liquo: Filter Syringe for Dry Vaccines"
 subtitle: "A syringe with an integrated filter for water activated vaccines, improving vaccination access in the periphery"
 project_website: "-"

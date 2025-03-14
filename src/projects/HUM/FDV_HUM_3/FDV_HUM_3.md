@@ -1,6 +1,7 @@
 ---
 category: HUM
 id: 3
+slug: a-life
 title: "A-Life"
 subtitle: "Sound as a social and spiritual bond"
 project_website: "nan"

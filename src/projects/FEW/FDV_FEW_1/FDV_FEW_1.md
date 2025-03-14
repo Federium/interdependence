@@ -1,6 +1,7 @@
 ---
 category: FEW
 id: 1
+slug: bio-diverse-enclaves
 title: "Bio-diverse Enclaves"
 subtitle: "Returning urban spaces to the local bioceNOse"
 project_website: "nan"

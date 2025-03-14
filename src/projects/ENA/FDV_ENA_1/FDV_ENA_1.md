@@ -1,6 +1,7 @@
 ---
 category: ENA
 id: 1
+slug: space-for-others
 title: "Space for Others"
 subtitle: "Intuitive Grammars for Inclusive Space-Making"
 project_website: "https://www.materialpropositions.org/space-for-others"

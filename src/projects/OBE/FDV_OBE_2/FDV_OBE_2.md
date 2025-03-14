@@ -1,6 +1,7 @@
 ---
 category: OBE
 id: 2
+slug: wheele
 title: "Wheele"
 subtitle: "An inclusive autonomous car-sharing that helps you organize your daily life."
 project_website: "https://www.figma.com/proto/8jc2iTDP0qhJ58Ua3i8nGx/G6---UXD-16?page-id=7291%3A18405&type=design&node-id=7291-21044&viewport=630%2C540%2C0.02&t=gRmtThZK4Zw5XJDC-1&scaling=min-zoom&starting-point-node-id=7291%3A21044&mode=design"

@@ -1,6 +1,7 @@
 ---
 category: OBE
 id: 1
+slug: deepfakes-misinformation
 title: "Deepfakes & Misinformation "
 subtitle: "Countering AI-Driven Deception in the Digital Age "
 project_website: "https://youtu.be/k3HYSOvIML0"

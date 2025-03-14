@@ -1,6 +1,7 @@
 ---
 category: ART
 id: 1
+slug: deceiving-happiness
 title: "Deceiving Happiness"
 subtitle: "This collection explores social protection mechanisms and translates them into physical space. "
 project_website: "nan"
