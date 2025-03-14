@@ -1,44 +1,62 @@
 [
   {
-    "id": 1,
+    "id": "CEN",
     "opposite1": "CENTER",
     "opposite2": "BOUNDARIES",
     "description": "Il centro rispetto ai confini."
   },
   {
-    "id": 2,
+    "id": "IND",
     "opposite1": "INDIVIDUAL",
     "opposite2": "COLLECTIVE",
     "description": "L'individuale rispetto al collettivo."
   },
   {
-    "id": 3,
+    "id": "SEL",
     "opposite1": "SELFNESS",
     "opposite2": "OTHERNESS",
     "description": "L'essere se stessi rispetto all'essere altro."
   },
   {
-    "id": 4,
+    "id": "OBE",
     "opposite1": "OBEDIENCE",
     "opposite2": "DISOBEDIENCE",
     "description": "L'obbedienza rispetto alla disobbedienza."
   },
   {
-    "id": 5,
+    "id": "HAR",
     "opposite1": "HARMONY",
     "opposite2": "DISCORD",
     "description": "L'armonia rispetto alla discordia."
   },
   {
-    "id": 6,
+    "id": "ART",
     "opposite1": "ARTIFICIAL",
     "opposite2": "NATURAL",
     "description": "L'artificiale rispetto al naturale."
   },
   {
-    "id": 7,
+    "id": "ENA",
     "opposite1": "ENABLING",
     "opposite2": "RELIEVING",
     "description": "L'abilitazione rispetto al sollievo."
+  },
+  {
+    "id": "MAT",
+    "opposite1": "MATERIALISTIC",
+    "opposite2": "SPIRITUAL",
+    "description": "Il materialistico rispetto allo spirituale."
+  },
+  {
+    "id": "FEW",
+    "opposite1": "FOR-FEW",
+    "opposite2": "FOR-ALL",
+    "description": "Per pochi rispetto al per tanti."
+  },
+  {
+    "id": "HUM",
+    "opposite1": "HUMAN",
+    "opposite2": "MORE-THAN-HUMAN",
+    "description": "L'umano rispetto al più-che-umano."
   }
 ]

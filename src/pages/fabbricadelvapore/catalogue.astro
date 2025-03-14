@@ -3,8 +3,15 @@
 import Contenuto from "../../layouts/Contenuto.astro";
 import Heading from "../../components/Heading.astro";
 
-import data from "../../assets/data/projects.json";
-const arrow = 'src/assets/icons/arrow-right-black.svg'
+import { Image } from 'astro:assets';
+import arrow from '/src/assets/icons/arrow-right-black.svg';
+
+import { getCollection } from "astro:content";
+import categoriesData from "../../assets/data/categories.json";
+
+const projects = await getCollection("projects");
+const categoriesMap = new Map(categoriesData.map(category => [category.id, category]));
+const categories = [...new Set(projects.map(project => project.data.category))];
 
 ---
 
@@ -17,26 +24,44 @@ const arrow = 'src/assets/icons/arrow-right-black.svg'
         </p>
     </div>
 
-    <div class = "categories-container">
-        {
-            data.categories.map(category => (
-                <div class = "category-container">
+     
+        
+        <!-- <ul>
+            {categories.map((category) => (
+            <li>
+                <a href={`/catalogue/${category}/`}>{category}</a>
+            </li>
+            ))}
+        </ul> -->
+
+        
+
+    <div class="categories-container">
+        {categories.map(categoryId => {
+            const category = categoriesMap.get(categoryId);
+            return (
+                <div class="category-container">
+                    
                     <span>
                         {category.opposite1} /
                     </span>
                     <span class="opposite2">
                         &#160;{category.opposite2}
-                        
+                        <Image src={arrow} alt = "Freccia a destra"/>
+
                     </span>
+
                 </div>
-        ))}
+            )
+        })}
+    </div>
     </div>
 
 </Contenuto>
 
 <style>
     .text-container {
-        max-width: 900px;
+        max-width: 1200px;
     }
     .categories-container {
         margin-top: 20px;
@@ -52,6 +77,8 @@ const arrow = 'src/assets/icons/arrow-right-black.svg'
 
     .opposite2 {
         text-align: right;
+        white-space: nowrap;
+
         flex: 0;
         transition: all 0.3s ease;
 
