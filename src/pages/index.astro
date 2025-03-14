@@ -247,10 +247,78 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+</script> -->
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { Observer } from "gsap/Observer";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Register plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
+
+    let sections = document.querySelectorAll(".section");
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    // Prevent default scroll
+    document.body.style.overflow = 'hidden';
+
+    function goToSection(index, direction) {
+      if (isAnimating) return;
+      
+      isAnimating = true;
+      currentIndex = index;
+
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: sections[index],
+          autoKill: false
+        },
+        ease: "power2.inOut",
+        onComplete: () => {
+          isAnimating = false;
+        }
+      });
+    }
+
+    // Set up Observer for scroll and touch events
+    Observer.create({
+      type: "wheel,touch,pointer",
+      wheelSpeed: -1,
+      onDown: () => {
+        if (currentIndex > 0) {
+          goToSection(currentIndex - 1, -1);
+        }
+      },
+      onUp: () => {
+        if (currentIndex < sections.length - 1) {
+          goToSection(currentIndex + 1, 1);
+        }
+      },
+      tolerance: 10,
+      preventDefault: true
+    });
+
+    // Initialize first section
+    goToSection(0, 1);
+  });
 </script>
- -->
 
+<style>
+  body {
+    overflow: hidden;
+  }
 
+  .section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+  }
+</style>
 
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
