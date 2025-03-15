@@ -1,0 +1,52 @@
+---
+
+import Contenuto from "../../../layouts/Contenuto.astro";
+import Heading from "../../../components/Heading.astro";
+
+import { getCollection } from 'astro:content';
+import categories from '../../../assets/data/categories.json'; 
+
+// Funzione per generare i percorsi statici per ogni categoria a partire dallo slug
+export async function getStaticPaths() { 
+  return categories.map(category => ({
+    params: { opposites: category.slug },
+    props: { category },
+  }));
+}
+
+const { opposites } = Astro.params; // prende lo slug dalla URL
+
+const category = categories.find(cat => cat.slug === opposites);
+
+if (!category) {
+  throw new Error(`Categoria non trovata per slug: ${opposites}`);
+}
+
+// Prendiamo tutti i progetti che appartengono a questa categoria
+const projects = await getCollection('projects', (entry) => entry.data.category === category.id);
+
+---
+
+<Contenuto name="Catalogue">
+  <Heading title="Catalogue" subtitle={category.opposite1} background={true}>
+  </Heading>
+  <div class="text-container">
+      <p>
+          {category.description}
+      </p>
+  </div>
+
+
+   <!-- inserire path reverse -->
+
+  <div class="categories-container"> 
+    {projects.map((project) => (
+      <li>
+        <a href={`/fabbricadelvapore/catalogue/${opposites}/${project.id}`}>{project.data.title}</a>
+      </li>
+    ))}
+
+  </div>
+  </div>
+
+</Contenuto>

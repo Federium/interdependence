@@ -40,6 +40,7 @@
 
 :root {
   --gradient: white;
+  --textColor: black;
   --hover: rgb(148, 97, 97);
 }
 

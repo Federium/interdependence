@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import categories from '../../../../assets/data/categories.json';
+
+// 1. Generiamo correttamente i percorsi con entrambi i parametri
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map(project => {
+    const categoryInfo = categories.find(cat => cat.id === project.data.category);
+    if (!categoryInfo) throw new Error(`Categoria non trovata per ID: ${project.data.category}`);
+    
+    return {
+      params: { 
+        opposites: categoryInfo.slug,
+        project: project.data.slug 
+      },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+const { opposites } = Astro.params;
+
+const { data } = project;
+---
+
+<html>
+  <head>
+    <title>{data.title}</title>
+  </head>
+  <body>
+    <h1>{data.title}</h1>
+    <p><strong>Categoria:</strong> {data.category}</p>
+    <p><strong>Anno:</strong> {data.ay}</p>
+    
+    {data.project_website && (
+      <p><a href={data.project_website} target="_blank">Sito del progetto</a></p>
+    )}
+
+    {data.school_website && (
+      <p><a href={data.school_website} target="_blank">Sito della scuola</a></p>
+    )}
+
+    <article>
+    </article>
+  </body>
+</html>
