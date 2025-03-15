@@ -153,56 +153,50 @@ import location from "../assets/data/location.json";
 <!-- ---------- CATEGORY ---------- -->
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const categoryContainers = document.querySelectorAll('.category-container');
-  
+  document.addEventListener("DOMContentLoaded", () => {
+  const categoryContainers = document.querySelectorAll(".category-container");
+
   categoryContainers.forEach((container, index) => {
-    const description = container.querySelector('.description') as HTMLElement;
+    const description = container.querySelector(".description");
     if (description) {
-      // Hide description initially
-      description.style.display = 'none';
-      description.style.width = '100%';
-      
-      container.addEventListener('mouseenter', () => {
-        // Show and position description
-        description.style.position = 'absolute';
-        description.style.top = '100%';
-        description.style.display = 'block';
-        description.style.opacity = '0';
-        
-        // Force reflow
-        description.offsetHeight;
-        
-        // Animate in
-        description.style.transition = 'all 0.3s ease';
-        description.style.opacity = '1';
-        description.style.transform = 'translateY(0)';
-        
-        // Push down all subsequent containers
+      description.style.visibility = "hidden";
+      description.style.opacity = "0";
+      description.style.width = "100%";
+      description.style.position = "absolute";
+      description.style.top = "100%";
+      description.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+
+      container.addEventListener("mouseenter", () => {
+        description.style.visibility = "visible";
+        description.style.opacity = "1";
+        description.style.transform = "translateY(0)";
+
         const descriptionHeight = description.offsetHeight;
-        for (let i = index + 1; i < categoryContainers.length; i++) {
-          (categoryContainers[i] as HTMLElement).style.transition = 'transform 0.3s ease';
-          (categoryContainers[i] as HTMLElement).style.transform = `translateY(${descriptionHeight}px)`;
-        }
+        requestAnimationFrame(() => {
+          for (let i = index + 1; i < categoryContainers.length; i++) {
+            categoryContainers[i].style.transform = `translateY(${descriptionHeight}px)`;
+          }
+        });
       });
-      
-      container.addEventListener('mouseleave', () => {
-        // Animate out
-        description.style.opacity = '0';
-                
-        // Reset all subsequent containers
-        for (let i = index + 1; i < categoryContainers.length; i++) {
-          (categoryContainers[i] as HTMLElement).style.transform = 'translateY(0)';
-        }
-        
-        // Hide after animation
+
+      container.addEventListener("mouseleave", () => {
+        description.style.opacity = "0";
+        description.style.transform = "translateY(-5px)";
+
         setTimeout(() => {
-          description.style.display = 'none';
+          description.style.visibility = "hidden";
         }, 300);
+
+        requestAnimationFrame(() => {
+          for (let i = index + 1; i < categoryContainers.length; i++) {
+            categoryContainers[i].style.transform = "translateY(0)";
+          }
+        });
       });
     }
   });
 });
+
 </script>
 
 
@@ -236,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Function to animate to a specific section
-    function goToSection(index) {
+    function goToSection(index: number) {
       gsap.to(window, {
         duration: 1,
         scrollTo: {
@@ -250,74 +244,72 @@ document.addEventListener('DOMContentLoaded', () => {
 </script> -->
 
 <script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-  import { Observer } from "gsap/Observer";
+  import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Register plugins
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollToPlugin);
 
-    let sections = document.querySelectorAll(".section");
-    let currentIndex = 0;
-    let isAnimating = false;
+  const sections = document.querySelectorAll(".section");
+  let currentIndex = 0;
+  let isAnimating = false;
 
-    // Prevent default scroll
-    document.body.style.overflow = 'hidden';
+  function goToSection(index) {
+    if (isAnimating) return;
 
-    function goToSection(index, direction) {
-      if (isAnimating) return;
-      
-      isAnimating = true;
-      currentIndex = index;
+    isAnimating = true;
+    currentIndex = index;
 
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: sections[index],
-          autoKill: false
-        },
-        ease: "power2.inOut",
-        onComplete: () => {
-          isAnimating = false;
-        }
-      });
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: {
+        y: sections[index],
+        autoKill: false
+      },
+      ease: "power2.inOut",
+      onComplete: () => {
+        isAnimating = false;
+      }
+    });
+  }
+
+  function handleWheel(event) {
+    if (isAnimating) return;
+
+    const currentSection = sections[currentIndex];
+    const isScrollingDown = event.deltaY > 0;
+    const scrollTop = window.scrollY;
+    const sectionTop = currentSection.offsetTop;
+    const sectionBottom = sectionTop + currentSection.offsetHeight;
+    const viewportBottom = scrollTop + window.innerHeight;
+
+    if (currentSection.offsetHeight > window.innerHeight) {
+      // Sezione più alta del viewport → permette lo scroll fino ai limiti
+      if ((isScrollingDown && viewportBottom < sectionBottom) || (!isScrollingDown && scrollTop > sectionTop)) {
+        return; // Permette lo scroll naturale
+      }
     }
 
-    // Set up Observer for scroll and touch events
-    Observer.create({
-      type: "wheel,touch,pointer",
-      wheelSpeed: -1,
-      onDown: () => {
-        if (currentIndex > 0) {
-          goToSection(currentIndex - 1, -1);
-        }
-      },
-      onUp: () => {
-        if (currentIndex < sections.length - 1) {
-          goToSection(currentIndex + 1, 1);
-        }
-      },
-      tolerance: 10,
-      preventDefault: true
-    });
+    // Cambia sezione solo quando si arriva ai limiti
+    if (isScrollingDown && currentIndex < sections.length - 1) {
+      event.preventDefault();
+      goToSection(currentIndex + 1);
+    } else if (!isScrollingDown && currentIndex > 0) {
+      event.preventDefault();
+      goToSection(currentIndex - 1);
+    }
+  }
 
-    // Initialize first section
-    goToSection(0, 1);
-  });
+  window.addEventListener("wheel", handleWheel, { passive: false });
+
+  // Vai alla prima sezione all'inizio
+  goToSection(0);
+});
+
 </script>
 
-<style>
-  body {
-    overflow: hidden;
-  }
 
-  .section {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-  }
+
 </style>
 
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
