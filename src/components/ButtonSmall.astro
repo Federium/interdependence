@@ -72,16 +72,16 @@ img {
         if (!span) return;
   
         box.addEventListener("mouseenter", function() {
+            console.log("mouse enter");
+            console.log(span)
             const spanX = span.offsetLeft; // Posizione attuale dell'elemento
             const centerX = window.innerWidth / 2; // Centro dello schermo
             const distance = centerX - spanX; // Quanto deve spostarsi
             if (span) {
                 span.style.transform = `translateX(${distance}px)`;
+                console.log("distance", distance);
             }
-            span.style.transform = `translateX(${distance}px)`;
-            if (span) {
-                span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
-            }
+          
   
         box.addEventListener("mouseleave", function() {
             span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
