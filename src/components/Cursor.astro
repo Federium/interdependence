@@ -46,8 +46,9 @@
 }
 </style>
 
-<script>
-  const cursor = document.querySelector(".custom-cursor") as HTMLElement;
+<script  >
+    // document.addEventListener("astro:page-load", () => {
+      const cursor = document.querySelector(".custom-cursor") as HTMLElement;
   const links = document.querySelectorAll("a");
   const buttonAreas = document.querySelectorAll(".button-area");
   const themes = document.querySelectorAll(".theme-title");
@@ -85,4 +86,6 @@
     theme.addEventListener("mouseenter", () => handleCursorScale(theme, true));
     theme.addEventListener("mouseleave", () => handleCursorScale(theme, false));
   });
+  // });
+ 
 </script>
