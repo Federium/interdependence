@@ -65,12 +65,15 @@ if (canvasElement) {
     z-index: 1;
 }
 
-    .title {
+.title {
     font-family: 'Milligram Macro';
     mix-blend-mode: difference;
-    font-size: 12rem;
+    font-size: clamp(2rem, 12vw, 12rem);
     margin: 0;
-    }
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+}
 
     .logo-container {
           display: flex;
