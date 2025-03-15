@@ -2,9 +2,12 @@
 
 import Contenuto from "../../../layouts/Contenuto.astro";
 import Heading from "../../../components/Heading.astro";
+import ProjectsLayout from "../../../layouts/ProjectsLayout.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
 
 import { getCollection } from 'astro:content';
 import categories from '../../../assets/data/categories.json'; 
+import Project from "./[opposites]/[project].astro";
 
 // Funzione per generare i percorsi statici per ogni categoria a partire dallo slug
 export async function getStaticPaths() { 
@@ -27,26 +30,31 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
 
 ---
 
-<Contenuto name="Catalogue">
-  <Heading title="Catalogue" subtitle={category.opposite1} background={true}>
+ <Contenuto name="Catalogue">
+  <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
   </Heading>
-  <div class="text-container">
-      <p>
-          {category.description}
-      </p>
-  </div>
+  <ProjectsLayout category={category} isSingleProject = {false}>
 
 
-   <!-- inserire path reverse -->
-
-  <div class="categories-container"> 
+  <div class="cards-container"> 
     {projects.map((project) => (
-      <li>
-        <a href={`/fabbricadelvapore/catalogue/${opposites}/${project.id}`}>{project.data.title}</a>
-      </li>
+      <ProjectCard folder={opposites} projectId={project.data.id} title={project.data.title} slug={project.data.slug} />
     ))}
+
+
+  </ProjectsLayout>
+ 
 
   </div>
   </div>
 
 </Contenuto>
+
+<style>
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+</style>
+

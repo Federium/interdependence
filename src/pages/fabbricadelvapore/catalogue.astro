@@ -2,6 +2,7 @@
 
 import Contenuto from "../../layouts/Contenuto.astro";
 import Heading from "../../components/Heading.astro";
+import CategoryItem from "../../components/CategoryItem.astro";
 
 import { Image } from 'astro:assets';
 import arrow from '/src/assets/icons/arrow-right-black.svg';
@@ -27,6 +28,14 @@ const categories = [...new Set(projects.map(project => project.data.category))];
          
 
     <div class="categories-container">
+        {categories.map(categoryId => (
+          <CategoryItem category={categoriesMap.get(categoryId)} isHeading={false} />
+        ))}
+      </div>
+
+      
+
+      <!-- <div class="categories-container">
         {categories.map(categoryId => {
             const category = categoriesMap.get(categoryId);
             return (
@@ -44,7 +53,13 @@ const categories = [...new Set(projects.map(project => project.data.category))];
 
                 </div>
             )
-        })}
+        })} -->
+      <style>
+        .categories-container {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+      </style>
     </div>
     </div>
 
@@ -65,26 +80,5 @@ const categories = [...new Set(projects.map(project => project.data.category))];
         margin-bottom: 20px;
         color: gray;
     }
-
-    .opposite2 {
-        text-align: right;
-        white-space: nowrap;
-
-        flex: 0;
-        transition: all 0.3s ease;
-
-    }
-
-    .category-container:hover .opposite2 {
-        flex: 1;
-        transition: all 0.3s ease;
-    }
-
-    .category-container:hover {
-        color: black;
-    }
-
-    .category-container span {
-        font-size: 2.2em;
-    }
+    
 </style>

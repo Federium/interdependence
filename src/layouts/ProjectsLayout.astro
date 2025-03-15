@@ -1,0 +1,29 @@
+---
+// filepath: /Users/filippo/Documents/GitHub/interdependence/src/layouts/ProjectsLayout.astro
+import CategoryItem from "../components/CategoryItem.astro";
+
+export interface Props {
+  category: { id: string, slug: string, opposite1: string, opposite2: string, description: string };
+  isSingleProject?: boolean;
+}
+
+const { category, isSingleProject="false" } = Astro.props as Props;
+---
+
+<div class="projects-layout">
+  <CategoryItem category={category} isHeading={true} />
+  <p class="description">{category.description}</p>
+  <slot />
+</div>
+
+<style>
+  .projects-layout {
+    width: 100%;
+  }
+  .description {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 50px;
+  }
+</style>

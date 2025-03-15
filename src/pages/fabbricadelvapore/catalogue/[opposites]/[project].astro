@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import categories from '../../../../assets/data/categories.json';
+import Contenuto from '../../../../layouts/Contenuto.astro';
+import Heading from '../../../../components/Heading.astro';
+import ProjectsLayout from '../../../../layouts/ProjectsLayout.astro';
 
 // 1. Generiamo correttamente i percorsi con entrambi i parametri
 export async function getStaticPaths() {
@@ -24,13 +27,20 @@ const { project } = Astro.props;
 const { opposites } = Astro.params;
 
 const { data } = project;
+
+const category = categories.find(cat => cat.id === data.category);
+if (!category) {
+  throw new Error(`Categoria non trovata per ID: ${data.category}`);
+} 
 ---
 
-<html>
-  <head>
-    <title>{data.title}</title>
-  </head>
-  <body>
+
+<Contenuto name="Catalogue">
+  <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
+  </Heading>
+  <ProjectsLayout category={category} isSingleProject = {true}>
+
+
     <h1>{data.title}</h1>
     <p><strong>Categoria:</strong> {data.category}</p>
     <p><strong>Anno:</strong> {data.ay}</p>
@@ -45,5 +55,14 @@ const { data } = project;
 
     <article>
     </article>
-  </body>
-</html>
+
+  </ProjectsLayout>
+
+</Contenuto>
+
+
+<style>
+  h1,p {
+    color: black;
+  }
+</style>
