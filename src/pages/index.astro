@@ -88,15 +88,17 @@ import location from "../assets/data/location.json";
                 {
                     categories.map(category => (
                         <div class = "category-container">
-                            <span class="category">
+                            <div class="category-name">
+                              <span class="category">
                                 {category.opposite1} /
-                            </span>
-                            <span class="opposite2 category">
+                              </span>
+                              <span class="opposite2 category">
                                 &#160;{category.opposite2}
                             </span>
-                            <span class="description">
+                            </div>
+                            <div class="category-description">
                                 &#160;{category.description}
-                            </span>
+                            </div>
                         </div>
                 ))}
             </div>
@@ -167,41 +169,14 @@ import location from "../assets/data/location.json";
   const categoryContainers = document.querySelectorAll(".category-container");
 
   categoryContainers.forEach((container, index) => {
-    const description = container.querySelector(".description");
+    const description = container.querySelector(".category-description");
     if (description) {
-      description.style.visibility = "hidden";
-      description.style.opacity = "0";
-      description.style.width = "100%";
-      description.style.position = "absolute";
-      description.style.top = "100%";
-      description.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-
       container.addEventListener("mouseenter", () => {
-        description.style.visibility = "visible";
-        description.style.opacity = "1";
-        description.style.transform = "translateY(0)";
-
-        const descriptionHeight = description.offsetHeight;
-        requestAnimationFrame(() => {
-          for (let i = index + 1; i < categoryContainers.length; i++) {
-            categoryContainers[i].style.transform = `translateY(${descriptionHeight}px)`;
-          }
-        });
+        description.classList.add("show");
       });
 
       container.addEventListener("mouseleave", () => {
-        description.style.opacity = "0";
-        description.style.transform = "translateY(-5px)";
-
-        setTimeout(() => {
-          description.style.visibility = "hidden";
-        }, 300);
-
-        requestAnimationFrame(() => {
-          for (let i = index + 1; i < categoryContainers.length; i++) {
-            categoryContainers[i].style.transform = "translateY(0)";
-          }
-        });
+        description.classList.remove("show");
       });
     }
   });
@@ -596,8 +571,10 @@ h1,h2,h3,h4,h5,h6, p{
         text-align: right;
         flex: 0;
         transition: all 0.3s ease;
+        white-space: nowrap;
 
     }
+    
 
     .category-container:hover .opposite2 {
         flex: 1;
@@ -612,18 +589,41 @@ h1,h2,h3,h4,h5,h6, p{
 .categories-container {
     margin-top: 20px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .category-container {
     position: relative;
     display: flex;
+    flex-direction: column;
     color: gray;
 }
 
-.description {
+
+.category-name {
+  display: flex;
+    width: 100%;
+}
+
+.category-description {
+  width: 100%;
     color: var(--gradient);
     text-align: left;
+height: auto;
+max-height: 0;
+opacity: 0;
+transition: all 1s ease;
+
 }
+.category-description.show {
+  opacity: 1;
+  max-height: 500px;
+
+  height: calc-size(auto);
+
+  transition: all 1s ease;
+} 
 
 
 
