@@ -190,7 +190,7 @@ import location from "../assets/data/location.json";
 <!-- ---------- SCROLL ---------- -->
 <!-- ---------- SCROLL ---------- -->
 
-<!-- <script>
+<script>
   import gsap from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -206,9 +206,11 @@ import location from "../assets/data/location.json";
     sections.forEach((section, i) => {
       ScrollTrigger.create({
         trigger: section,
-        start: "top 95%", 
-        end: "bottom 5%",
-        markers: false,
+        start: "5% 95%", 
+        end: "95% 5%",
+        markers: true,
+        preventOverlaps: true,
+        fastScrollEnd: true, // Better handling of fast scrolling
         onEnter: () => goToSection(i),
         onEnterBack: () => goToSection(i)
       });
@@ -226,9 +228,9 @@ import location from "../assets/data/location.json";
       });
     }
   });
-</script> -->
+</script>
 
-<script>
+<!-- <script>
   import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -291,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
   goToSection(0);
 });
 
-</script>
+</script> -->
 
 
 
@@ -575,7 +577,6 @@ h1,h2,h3,h4,h5,h6, p{
         text-align: right;
         flex: 0;
         transition: all 0.3s ease;
-        white-space: nowrap;
 
     }
     
