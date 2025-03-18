@@ -37,13 +37,7 @@
     font-weight: bold;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-adra
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 :root {
   --gradient: white;
   --textColor: black;
@@ -73,15 +67,8 @@ a {
 
 }
 
-h1,h2,h3,h4,h5,h6, p{
-    color:var(--textColor);
-}
-
-<<<<<<< Updated upstream
 
 
-=======
->>>>>>> Stashed changes
 
 h1 {
   font-family: 'Milligram', sans-serif;
