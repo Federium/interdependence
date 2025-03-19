@@ -5,6 +5,12 @@ import Hero from '../components/Hero.astro';
 import categories from "../assets/data/categories.json";
 import location from "../assets/data/location.json";
 
+/* const textContent = location.map(loc => ({
+  title: loc.title,
+  place: loc.place,
+  description: loc.description
+})); */
+
 ---
 
 
@@ -111,7 +117,9 @@ import location from "../assets/data/location.json";
 <!-- ---------- MAP ---------- -->
 <!-- ---------- MAP ---------- -->
 <!-- ---------- MAP ---------- -->
-<script>
+
+<!-- Script vecchio -->
+<!-- <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -152,10 +160,194 @@ import location from "../assets/data/location.json";
           ease: "none"
         });
   });
+</script> -->
+
+<!-- Script meno vecchio con animazioni testo -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const map = document.getElementById("map");
+    const paragraphBox = document.querySelector(".paragraph-box");
+    const titleBox = document.querySelector(".title-box");
+    
+    // Array of text content for each snap point
+    const textContent = [
+      { title: "Location 1", place: "Place 1", description: "Description 1" },
+      { title: "Location 2", place: "Place 2", description: "Description 2" },
+      { title: "Location 3", place: "Place 3", description: "Description 3" },
+      { title: "Location 4", place: "Place 4", description: "Description 4" }
+    ];
+
+    // Create timeline for map animation
+    const mapTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".map-section",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: true,
+        scrub: 1,
+        anticipatePin: 1,
+        markers: true,
+        snap: {
+          snapTo: [0, 0.33, 0.66, 1],
+          duration: { min: 0.2, max: 0.8 },
+          delay: 0,
+          onSnap: (progress) => updateText(Math.round(progress * 3)) // Calculate snap index
+        }
+      }
+    });
+
+    // Function to update text content with animation
+    function updateText(index) {
+      const content = textContent[index];
+      
+      // Animate out current text
+      gsap.to([paragraphBox, titleBox], {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        onComplete: () => {
+          // Update text content
+          titleBox.querySelector('h3').textContent = content.place;
+          titleBox.querySelector('h4').textContent = content.title;
+          paragraphBox.querySelector('h3').textContent = content.title;
+          paragraphBox.querySelector('h4').textContent = content.place;
+          paragraphBox.querySelector('h6').textContent = content.description;
+          
+          // Animate in new text
+          gsap.to([paragraphBox, titleBox], {
+            opacity: 1,
+            y: 0,
+            duration: 0.3
+          });
+        }
+      });
+    }
+    
+    // Add map animations to timeline
+    mapTimeline
+      .fromTo(map, {
+        scale: 1,
+        x: 0,
+        y: 0,
+        opacity: 1
+      },{
+        scale: 1.2,
+        x: 100,
+        y: 0,
+        opacity: 1
+      })
+      .to(map, {
+        scale: 1.5,
+        x: -200,
+        y: -100,
+        opacity: 1
+      })
+      .to(map, {
+        scale: 2,
+        x: 600,
+        y: 200,
+        opacity: 1
+      });
+  });
+</script> -->
+
+
+<script>
+  import gsap from 'gsap';
+  import { Observer } from "gsap/Observer";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(Observer);
+
+    const map = document.getElementById("map");
+    const paragraphBox = document.querySelector(".paragraph-box");
+    const titleBox = document.querySelector(".title-box");
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    // Map positions for each snap point
+    const mapPositions = [
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.5, x: -200, y: -100 },
+      { scale: 2, x: 200, y: 100 }
+    ];
+
+    function updateContent(index) {
+      const locations = window._location; // Accessing the data we made global
+      const content = locations[index];
+
+      gsap.to([paragraphBox, titleBox], {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        onComplete: () => {
+          // Update text content
+          titleBox.querySelector('h3').textContent = content.place;
+          titleBox.querySelector('h4').textContent = content.title;
+          paragraphBox.querySelector('h3').textContent = content.title;
+          paragraphBox.querySelector('h4').textContent = content.place;
+          paragraphBox.querySelector('h6').textContent = content.description;
+
+          gsap.to([paragraphBox, titleBox], {
+            opacity: 1,
+            y: 0,
+            duration: 0.3
+          });
+        }
+      });
+
+      // Animate map position
+      gsap.to(map, {
+        scale: mapPositions[index].scale,
+        x: mapPositions[index].x,
+        y: mapPositions[index].y,
+        duration: 1,
+        ease: "power2.inOut"
+      });
+    }
+
+    Observer.create({
+      type: "wheel,touch,pointer",
+      wheelSpeed: -1,
+      onDown: () => {
+        if (!isAnimating && currentIndex > 0) {
+          isAnimating = true;
+          currentIndex--;
+          updateContent(currentIndex);
+          setTimeout(() => isAnimating = false, 1000);
+        }
+      },
+      onUp: () => {
+        if (!isAnimating && currentIndex < mapPositions.length - 1) {
+          isAnimating = true;
+          currentIndex++;
+          updateContent(currentIndex);
+          setTimeout(() => isAnimating = false, 1000);
+        }
+      },
+      tolerance: 10,
+      preventDefault: true
+    });
+
+    // Make location data available globally
+    const locationData = JSON.parse(document.querySelector('#location-data').textContent);
+    window._location = locationData;
+
+    // Initialize first position
+    updateContent(0);
+  });
 </script>
 
-
-
+<!-- Add this in your frontmatter section -->
+<script id="location-data" type="application/json">
+  {JSON.stringify(location)}
+</script>
 
 
 <!-- ---------- CATEGORY ---------- -->
