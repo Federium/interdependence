@@ -1,0 +1,89 @@
+---
+
+---
+
+<div class="word-container">
+    <span class="opposite-1">PAROLONA!!!</span>
+</div>
+
+<style>
+    .word-container {
+        margin-top: 20px;
+        width: 100%;
+        span {
+        font-size: 2em;
+        transition: all 0.5s cubic-bezier(0.16, 1.1, 0.76, 0.98);  
+    }
+    }
+</style>
+
+<script>
+    window.addEventListener("load", () => {
+        const container = document.querySelector(".word-container");
+        const elements = document.querySelectorAll(".opposite-1");
+        let previousMouseX = 0;
+
+        document.onmousemove = (event) => {
+            const containerRect = container.getBoundingClientRect();
+            const containerWidth = containerRect.width;
+            const mouseX = event.clientX - containerRect.left; // Posizione del mouse rispetto al container
+            let percentageX = (mouseX / containerWidth); // Calcola la percentuale
+
+            const direction = mouseX > previousMouseX ? 'right' : 'left';
+            previousMouseX = mouseX;
+            const windowHeight = window.innerHeight;
+
+            elements.forEach((element) => {
+                element.style.position = "relative";
+                const elementRect = element.getBoundingClientRect();
+                const elementWidth = elementRect.width;
+                const elementWidthPercentage = (elementWidth / containerWidth); 
+                const elementLeft = elementRect.left;
+                const elementRight = elementRect.right;
+                const elementRightPercentage = (elementRight / containerWidth);
+                const elementTop = elementRect.top;
+                let threshold = 0.25;
+                let movement = true;
+                if (movement && Math.abs(event.clientY - elementTop) < 100) {
+                    // se mouse è a dx della parola
+                    if (element.classList.contains("inverti")) threshold = 1 - threshold;
+                    console.log(threshold);
+                    if (percentageX > threshold) {
+                        if (element.classList.contains("inverti")) element.classList.remove("inverti");
+                        if (percentageX > 1) percentageX = 1;
+                        const posizionamento = (percentageX - threshold) / (1 - threshold);
+                        console.log(threshold, percentageX, posizionamento);
+                        let translateX = (1 - posizionamento) * threshold - elementWidthPercentage;
+                        if (translateX < 0) {
+                            translateX = 0;
+                        }
+                        element.style.left = translateX * 100 + "%"
+                        element.style.transform = ``;
+
+                    } else { // mouse a sx
+                        if (!element.classList.contains("inverti")) element.classList.add("inverti");
+                        //threshold = 1 - threshold;
+                        if (percentageX < 0) percentageX = 0;
+                        const posizionamento = percentageX / threshold;
+                        console.log(threshold, percentageX, posizionamento);
+                        
+                        let translateX = threshold + (1 - elementWidthPercentage - threshold) * (1-posizionamento);
+                        if (translateX < 0) {
+                            translateX = 0;
+                        }
+                        element.style.left = translateX * 100 + "%"
+                        // element.style.left = 0;
+
+                        console.log("traslato di " + translateX * 100 + "%");
+                    }
+                } else {
+                    element.style.left = 0;
+                    element.classList.remove("inverti");
+                }
+            });
+        };
+    });
+
+</script>
+
+
