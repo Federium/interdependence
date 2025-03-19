@@ -97,6 +97,7 @@ h2 {
   padding: 0.5rem 0 1rem 0;
   text-align: left;
   margin: 0;
+  margin-bottom: 1em;
 }
 
 h3{
@@ -144,6 +145,7 @@ p {
     color: var(--textColor);
     margin: 0;
     text-align: left;
+    margin-bottom: 0.5em;
 }
 
 
