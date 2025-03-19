@@ -14,20 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Define precise positions for each step
   const mapPositions = [
-    { scale: 1, x: 70, y: -240 },          // Initial position
-    { scale: 1, x: 670, y: 20 },  // First location
-    { scale: 1, x: 180, y: -100 }       // Second location
+    { scale: 1.5, x: 70, y: -240 },          // Initial position
+    { scale: 1.5, x: 670, y: 20 },  // First location
+    { scale: 1.5, x: 180, y: -100 }       // Second location
   ];
 
   const updateContent = (step) => {
     console.log(step);
     paragraphBox.innerHTML = `
-      <h3>${locations[step].title}</h3>
-      <h4>${locations[step].place}</h4>
+      <h2>${locations[step].title}</h2>
       <h6>${locations[step].description}</h6>
+      <h3>SEE MORE ></h3>
     `;
     titleBox.innerHTML = `
-      <h3 style="text-align: center; margin: 0;">${locations[step].place}</h3>
+      <h3 style="text-align: center; margin: 0; padding: 0;">${locations[step].place}</h3>
     `;
 
     // Animate to precise position

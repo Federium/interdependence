@@ -64,8 +64,7 @@ import mappa from  '../assets/img/MapImage.png';
       <div class="paragraph-container">
         <div class="paragraph-box">
           {
-              <h3>{locations[0].title}</h3>
-              <h4>{locations[0].place}</h4>
+              <h2>{locations[0].title}</h2>
               <h6>{locations[0].description}</h6>
           }
         </div>
@@ -560,7 +559,7 @@ h1,h2,h3,h4,h5,h6, p{
   mix-blend-mode: normal;
 }
 
-.map-bg img {
+#map {
   width: 200%;
   height: auto;
   transform-origin: center;
@@ -581,7 +580,7 @@ h1,h2,h3,h4,h5,h6, p{
 
 .paragraph-box {
   background-color: #ffffff;
-  width: 50%;
+  width: 60%;
   height: auto;
   padding: 2vh;
   box-shadow: -5px 8px 40px;
@@ -604,7 +603,7 @@ h1,h2,h3,h4,h5,h6, p{
   background-color: #ffffff;
   width: auto;
   height: auto;
-  padding: 1vh 2vh;
+  padding: 1.5vh 4vh;
   position: relative;
   z-index: 2;
   color: black;
