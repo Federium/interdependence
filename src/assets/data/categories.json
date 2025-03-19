@@ -4,69 +4,79 @@
     "slug": "center-boundaries",
     "opposite1": "CENTER",
     "opposite2": "BOUNDARIES",
-    "description": "Il centro rispetto ai confini."
-  },
-  {
-    "id": "IND",
-    "slug": "individual-collective",
-    "opposite1": "INDIVIDUAL",
-    "opposite2": "COLLECTIVE",
-    "description": "L'individuale rispetto al collettivo."
-  },
-  {
-    "id": "SEL",
-    "slug": "selfness-otherness",
-    "opposite1": "SELFNESS",
-    "opposite2": "OTHERNESS",
-    "description": "L'essere se stessi rispetto all'essere altro."
-  },
-  {
-    "id": "OBE",
-    "slug": "obedience-disobedience",
-    "opposite1": "OBEDIENCE",
-    "opposite2": "DISOBEDIENCE",
-    "description": "L'obbedienza rispetto alla disobbedienza."
-  },
-  {
-    "id": "HAR",
-    "slug": "harmony-discord",
-    "opposite1": "HARMONY",
-    "opposite2": "DISCORD",
-    "description": "L'armonia rispetto alla discordia."
-  },
-  {
-    "id": "ART",
-    "slug": "artificial-natural",
-    "opposite1": "ARTIFICIAL",
-    "opposite2": "NATURAL",
-    "description": "L'artificiale rispetto al naturale."
-  },
-  {
-    "id": "ENA",
-    "slug": "enabling-relieving",
-    "opposite1": "ENABLING",
-    "opposite2": "RELIEVING",
-    "description": "L'abilitazione rispetto al sollievo."
-  },
-  {
-    "id": "MAT",
-    "slug": "materialistic-spiritual",
-    "opposite1": "MATERIALISTIC",
-    "opposite2": "SPIRITUAL",
-    "description": "Il materialistico rispetto allo spirituale."
-  },
-  {
-    "id": "FEW",
-    "slug": "forfew-forall",
-    "opposite1": "FOR-FEW",
-    "opposite2": "FOR-ALL",
-    "description": "Per pochi rispetto al per tanti."
+    "description": "How can design address the tension between a central point and its edges?",
+    "description-extra": "For example, the relation between the center and periphery of a place, the core and margins of a group, the established knowledge and the cutting-edge experimentation, or the advantage and the disadvantage?"
   },
   {
     "id": "HUM",
     "slug": "human-morethanhuman",
     "opposite1": "HUMAN",
     "opposite2": "MORE-THAN-HUMAN",
-    "description": "L'umano rispetto al più-che-umano."
+    "description": "How can design consider the needs, agency, and competences of non-human agents, which imply coexistence with humans in the same system?",
+    "description-extra": " For example, the relation with other intelligences, rights and interests that overlap, compete or collide with those of humans?"
+  },
+  {
+    "id": "ART",
+    "slug": "artificial-natural",
+    "opposite1": "ARTIFICIAL",
+    "opposite2": "NATURAL",
+    "description": "How can design manage the interplay between the artificial and natural worlds and the interaction we have with them?",
+    "description-extra": "For example, the collaboration or competition with AI and technology, our relationship with digital life and artificial environments, or with natural, biologic, wild systems?"
+  },
+  {
+    "id": "MAT",
+    "slug": "materialistic-spiritual",
+    "opposite1": "MATERIALISTIC",
+    "opposite2": "SPIRITUAL",
+    "description": "How can design contribute to the development of both material and spiritual wellbeing and sustainability?",
+    "description-extra": "For example, the relation between materialistic and spiritual fulfillment, physical and mental practices and skills, ownership and access, or between sustainability and wealth?"
+  },
+  {
+    "id": "ENA",
+    "slug": "enabling-relieving",
+    "opposite1": "ENABLING",
+    "opposite2": "RELIEVING",
+    "description": "How can design empower people and environments to make things happen while reducing the burden of action?",
+    "description-extra": "For example, the balance between learning to do something and having it done, caring and being cared for, choosing and having something selected for you, or representing and being represented?"
+  },
+  {
+    "id": "IND",
+    "slug": "individual-collective",
+    "opposite1": "INDIVIDUAL",
+    "opposite2": "COLLECTIVE",
+    "description": "How can design account for the needs of the individual and of the community?",
+    "description-extra": "For example, the consideration for singular voices or for aggregated agency, the focus on the self or the group, the pursuit of one's own interests while respecting common goods, the importance of conviviality, the opportunities of doing alone or doing together?"
+  },
+  {
+    "id": "FEW",
+    "slug": "forfew-forall",
+    "opposite1": "FOR-FEW",
+    "opposite2": "FOR-ALL",
+    "description": "How can design navigate the tension between exclusivity and inclusivity?",
+    "description-extra": "For example, the balance between limiting or guaranteeing access to opportunities and resources for everyone, the management of scarcity, the dilemma of privilege or inclusivity, or the gap between disparities?"
+  },
+  {
+    "id": "SEL",
+    "slug": "selfness-otherness",
+    "opposite1": "SELFNESS",
+    "opposite2": "OTHERNESS",
+    "description": "How can design focus on one's own identity, without neglecting what is external or different?",
+    "description-extra": "For example, the awareness of biases, discriminations and privileges, the capability to learn from everyone and everywhere, or the recognition of the complexity of the intersection of the different aspects of a person's social and political identities?"
+  },
+  {
+    "id": "HAR",
+    "slug": "harmony-discord",
+    "opposite1": "HARMONY",
+    "opposite2": "DISCORD",
+    "description": "How can design deal with conflicts and dissonances?",
+    "description-extra": "For example, the dilemmas posed by controversial issues, peace and war, the quiet coexistence and the restless activisms, the consensus-seeking and the thought-provoking stances?"
+  },
+  {
+    "id": "OBE",
+    "slug": "obedience-disobedience",
+    "opposite1": "OBEDIENCE",
+    "opposite2": "DISOBEDIENCE",
+    "description": "How can design address the need for compliance with rules while encouraging resistance to foster their evolution?",
+    "description-extra": "For example, the management of power dynamics, the respect of authority or the conformity to standards, the top-down and bottom-up forces?"
   }
 ]

@@ -70,6 +70,21 @@ a {
 }
 
 
+.gradient-text {
+    background-image: linear-gradient(to bottom, #545454, #1e1e1e);
+    &.right {
+        background-image: linear-gradient(to right, #545454, #1e1e1e);
+    }
+    &.light {
+        background-image: linear-gradient(to right, #969696, #424242);
+    }
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+
 
 
 h1 {
@@ -92,6 +107,7 @@ h2 {
   padding: 0.5rem 0 1rem 0;
   text-align: left;
   margin: 0;
+  margin-bottom: 1em;
 }
 
 h3{
@@ -139,6 +155,7 @@ p {
     color: var(--textColor);
     margin: 0;
     text-align: left;
+    margin-bottom: 0.5em;
 }
 
 

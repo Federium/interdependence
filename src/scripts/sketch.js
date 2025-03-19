@@ -1,10 +1,9 @@
 import { frag, vert } from "./shader.js";
 
 export const mySketch = (width, height) => (p) => {
-  console.log(width);
   let capturer;
 
-  let n = 50;
+  let n = 30;
   let points = [];
   let worleyShader;
   let observationPoint;
@@ -19,13 +18,13 @@ export const mySketch = (width, height) => (p) => {
   //da settings
   let settings = {
     canvas: {
-      width: width,
-      height: height,
+      width: p.windowWidth,
+        height: p.windowHeight * 1.2,
     },
     number: n,  // valore iniziale di n
     zDistribution: 1,
-    size: 0.5,
-    range: [0.15, 0.7],
+    size: 0.4,
+    range: [0.2, 0.8],
     speed: 0.3,
     animate: true,
     duration: 10,
@@ -36,8 +35,10 @@ export const mySketch = (width, height) => (p) => {
 
   function createPoints() {
     points = [];
+    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
 
-    for (let i = 0; i < n; i++) {
+    points.push(new Point({ pos: p.createVector(normalizedMouse[0],normalizedMouse[1], 0.8) }));
+    for (let i = 1; i < n; i++) {
       let randomPos = p.createVector(
         p.random(),
         p.random(),
@@ -55,6 +56,8 @@ export const mySketch = (width, height) => (p) => {
   function setup() {
    // width = p.windowWidth;
    // height = p.windowHeight;
+   height = p.windowHeight * 1.2;
+   width = p.windowWidth;
 
     canvas = p.createCanvas(width, height, p.WEBGL);
     canvas.parent("p5-canvas");
@@ -66,6 +69,8 @@ export const mySketch = (width, height) => (p) => {
     createPoints();
 
     observationPoint = 0;
+    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
+
   }
 
   function draw() {
@@ -89,6 +94,11 @@ export const mySketch = (width, height) => (p) => {
 
     const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
 
+    points[0].pos.x = normalizedMouse[0];
+    points[0].pos.y = normalizedMouse[1];
+    
+
+
     worleyShader.setUniform("u_z", observationPoint);
     worleyShader.setUniform("u_ratio", width / height);
     worleyShader.setUniform("u_points", [
@@ -101,7 +111,7 @@ export const mySketch = (width, height) => (p) => {
     worleyShader.setUniform("u_n", n);
     worleyShader.setUniform("u_exposure", settings.exposure);
     worleyShader.setUniform("u_range", settings.range);
-
+  
     p.shader(worleyShader);
 
     // Draw a plane that fills the canvas
@@ -117,20 +127,20 @@ export const mySketch = (width, height) => (p) => {
       p.line(i, 0, i, height);
     }
 
-    if (recording) {
-      if (recordedFrames === timeLimit) {
-        toggleRecord();
-        return;
-      }
-      p.requestAnimationFrame(draw);
-      capturer.capture(canvas.elt);
-      recordedFrames++;
+    // if (recording) {
+    //   if (recordedFrames === timeLimit) {
+    //     toggleRecord();
+    //     return;
+    //   }
+    //   p.requestAnimationFrame(draw);
+    //   capturer.capture(canvas.elt);
+    //   recordedFrames++;
 
-      progressPercentageEl.innerHTML = `${Math.round(
-        (recordedFrames / timeLimit) * 100
-      )}%`;
-      progressEl.style = `--progress: ${(recordedFrames / timeLimit) * 100}%`;
-    }
+    //   progressPercentageEl.innerHTML = `${Math.round(
+    //     (recordedFrames / timeLimit) * 100
+    //   )}%`;
+    //   progressEl.style = `--progress: ${(recordedFrames / timeLimit) * 100}%`;
+    // }
   }
 
   function resize() {
@@ -156,7 +166,7 @@ export const mySketch = (width, height) => (p) => {
   function windowResized() {
     console.log("ciao");
     width = p.windowWidth;
-    height = p.windowHeight;
+    height = p.windowHeight*1.2;
     p.resizeCanvas(width, height);
   }
 
