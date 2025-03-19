@@ -69,7 +69,13 @@ a {
 }
 
 
-
+.gradient-text {
+    background-image: linear-gradient(to bottom, #545454, #1e1e1e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 
 h1 {
   font-family: 'Milligram', sans-serif;

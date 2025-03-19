@@ -18,8 +18,8 @@ export const mySketch = (width, height) => (p) => {
   //da settings
   let settings = {
     canvas: {
-      width: width,
-      height: height,
+      width: p.windowWidth,
+        height: p.windowHeight * 1.2,
     },
     number: n,  // valore iniziale di n
     zDistribution: 1,
@@ -36,7 +36,6 @@ export const mySketch = (width, height) => (p) => {
   function createPoints() {
     points = [];
     const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
-    console.log(normalizedMouse);
 
     points.push(new Point({ pos: p.createVector(normalizedMouse[0],normalizedMouse[1], 0.8) }));
     for (let i = 1; i < n; i++) {
@@ -57,6 +56,8 @@ export const mySketch = (width, height) => (p) => {
   function setup() {
    // width = p.windowWidth;
    // height = p.windowHeight;
+   height = p.windowHeight * 1.2;
+   width = p.windowWidth;
 
     canvas = p.createCanvas(width, height, p.WEBGL);
     canvas.parent("p5-canvas");
@@ -69,7 +70,7 @@ export const mySketch = (width, height) => (p) => {
 
     observationPoint = 0;
     const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
-    console.log(normalizedMouse);
+
   }
 
   function draw() {
@@ -97,7 +98,6 @@ export const mySketch = (width, height) => (p) => {
     points[0].pos.y = normalizedMouse[1];
     
 
-    console.log(points[0].pos);
 
     worleyShader.setUniform("u_z", observationPoint);
     worleyShader.setUniform("u_ratio", width / height);
@@ -165,6 +165,8 @@ export const mySketch = (width, height) => (p) => {
 
   function windowResized() {
     console.log("ciao");
+    width = p.windowWidth;
+    height = p.windowHeight*1.2;
     p.resizeCanvas(width, height);
   }
 

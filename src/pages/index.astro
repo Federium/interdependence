@@ -25,11 +25,13 @@ import mappa from  '../assets/img/MapImage.png';
 	
   <div class="section mostra">
     <Hero></Hero>
+    <div class="gradient-head"></div>
+
   </div>
 
 
     <!-- SECTION 1 -->
-    <section class="text-section section">
+    <section class="text-section section" id="section-1">
       <!-- LOGOS -->
       <div class="logo-container">
         <div class="logo-left">
@@ -42,7 +44,7 @@ import mappa from  '../assets/img/MapImage.png';
       </div>
       <div class="container">
           <div class="col-6">
-              <h1>
+              <h1 class="gradient-text">
                 In a world where everything is in a relationship, what is the role of design?
               </h1>
               <p>The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents “INTERDEPENDENCE - Designing Relationships”, a set of initiatives to reflect on relationships and connections through a selection of projects by design students.
@@ -483,7 +485,6 @@ section {
     text-align: center;
     padding: min(5rem, 8%);
     z-index: 1;
-    mix-blend-mode: difference;
 }
 
 .container {
@@ -496,7 +497,7 @@ section {
 }
 
 h1,h2,h3,h4,h5,h6, p{
-    color:var(--gradient);
+    color:var(--text-color);
 }
 
 
@@ -529,8 +530,13 @@ h1,h2,h3,h4,h5,h6, p{
     /* background: #f4f4f4; */
     color: #333;
 }
-
-
+.gradient-head {
+  position: relative;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  width: 100vw;
+  height: 20vh;
+}
 
 /* ---------- MAP SECTION ---------- */
 /* ---------- MAP SECTION ---------- */
