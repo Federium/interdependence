@@ -1,6 +1,7 @@
 import { frag, vert } from "./shader.js";
 
 export const mySketch = (width, height) => (p) => {
+  console.log(width);
   let capturer;
 
   let n = 50;
@@ -13,6 +14,7 @@ export const mySketch = (width, height) => (p) => {
   let goingBackwards = false;
   let speedMultiplier = 0.002;
 
+  p.windowResized = windowResized;
 
   //da settings
   let settings = {
@@ -53,6 +55,7 @@ export const mySketch = (width, height) => (p) => {
   function setup() {
    // width = p.windowWidth;
    // height = p.windowHeight;
+
     canvas = p.createCanvas(width, height, p.WEBGL);
     canvas.parent("p5-canvas");
 
@@ -131,6 +134,7 @@ export const mySketch = (width, height) => (p) => {
   }
 
   function resize() {
+    console.log("resize");
     const { width, height } = settings.canvas;
 
     const wRatio = p.windowWidth / width;
@@ -149,6 +153,13 @@ export const mySketch = (width, height) => (p) => {
     p.resizeCanvas(width, height);
   }
 
+  function windowResized() {
+    console.log("ciao");
+    width = p.windowWidth;
+    height = p.windowHeight;
+    p.resizeCanvas(width, height);
+  }
+
   async function restart() {
     n = settings.number;
 
@@ -162,47 +173,6 @@ export const mySketch = (width, height) => (p) => {
     paused = false;
   }
 
-  function dowload() {
-    if (recording) return;
-    if (!settings.animate) {
-      p.saveCanvas("worley.jpg");
-    } else {
-      toggleRecord();
-    }
-  }
-
-  function toggleRecord(shouldSave = true) {
-    progressEl.style = "--progress: 0px";
-    progressPercentageEl.innerHTML = "";
-
-    if (recording) {
-      downloadBtn.classList.remove("disabled");
-      capturer.stop();
-      if (shouldSave) {
-        capturer.save();
-      }
-      abortBtn.classList.add("hidden");
-    } else {
-      setTimeout(() => {
-        draw();
-      }, 0);
-
-      abortBtn.classList.remove("hidden");
-
-      recordedFrames = 0;
-      capturer.start();
-      downloadBtn.classList.add("disabled");
-    }
-
-    recording = !recording;
-    controls.classList.toggle("disabled");
-
-    abortBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      toggleRecord(false);
-    });
-  }
-
   function toggleAnimation() {}
 
   class Point {
@@ -214,6 +184,7 @@ export const mySketch = (width, height) => (p) => {
   p.preload = preload;
   p.setup = setup;
   p.draw = draw;
+
 
   return { n, resize, restart, toggleAnimation, recording };
 };

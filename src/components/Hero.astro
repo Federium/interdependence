@@ -1,15 +1,26 @@
-  
+---
+
+import {Image} from 'astro:assets';
+import logoPolimi from '../assets/logos/Polimi.svg';
+import logoPoliDesign from '../assets/logos/Poli.design.svg';
+import logoDesignWeek from '../assets/logos/logo-design-week.png';
+import mappa from  '../assets/img/MapImage.png';
+
+---
+
+
+
   <!-- <canvas id="p5-canvas"></canvas> -->
   <section id="hero">
     <div id="p5-canvas"></div>
     <div class="overlay"></div>
     <div class="logo-container">
       <div class="logo-left">
-        <img src="/src/assets/logos/Polimi.svg" alt="" srcset="">
-        <img src="/src/assets/logos/Poli.design.svg" alt="" srcset="">
+        <Image src={logoPolimi} alt="Logo del Politecnico di Milano" />
+        <Image src={logoPoliDesign} alt="Logo di Poli.design" />
       </div>
       <div class="logo-right">
-        <img src="/src/assets/logos/logo-design-week.png" alt="" srcset="">
+        <Image src={logoDesignWeek} alt="Logo Milano Design Week" />
       </div>
     </div>
     <h1 class="title">interdependence</h1>
@@ -73,6 +84,7 @@ if (canvasElement) {
     width: 100%;
     text-align: center;
     line-height: 1;
+    color: var(--gradient);
 }
 
     .logo-container {

@@ -9,3 +9,5 @@ console.log('Hello from JavaScript!')
 // Initialize p5.js
 // p5 requires two arguments: new p5(sketch function, target DOM element)
 new p5(mySketch, document.getElementById('p5-canvas'))
+
+// Call the resize function of mySketch when the window is resized
