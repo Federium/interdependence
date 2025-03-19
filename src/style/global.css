@@ -71,11 +71,20 @@ a {
 
 .gradient-text {
     background-image: linear-gradient(to bottom, #545454, #1e1e1e);
+    &.right {
+        background-image: linear-gradient(to right, #545454, #1e1e1e);
+    }
+    &.light {
+        background-image: linear-gradient(to right, #969696, #424242);
+    }
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+
+
+
 
 h1 {
   font-family: 'Milligram', sans-serif;
