@@ -1,5 +1,8 @@
 ---
 
+import {Image} from 'astro:assets';
+import logoPolimi from '../assets/logos/Polimi.svg';
+import logoPoliDesign from '../assets/logos/Poli.design.svg';
 
 ---
 
@@ -8,7 +11,7 @@
   <div class="website-container">
     <div class="website-spacer credits"> Interdependence is the result of a team work, in the true spirit of the initiative. </div>
     <div class="website-spacer footer-text credits"> <a href="./pages/credits.html">All credits.</a></div>
-    <div class="website-spacer footer-text">©️2024 Politecnico di Milano </div>
+    <div class="website-spacer footer-text">©️2025 Politecnico di Milano </div>
   </div>
 
   <div class="website-container website">
@@ -24,7 +27,7 @@
       <a href="https://www.polidesign.net/en/" target="_blank">polidesign.net</a>
     </div>
     <div class="website-spacer footer-text">
-      <a href="https://www.design.polimi.it/it/salonedelmobile2024" target="_blank">Milano Design Week 2024</a>
+      <a href="https://www.design.polimi.it/it/salonedelmobile2024" target="_blank">Milano Design Week 2025</a>
     </div>
   </div>
   
@@ -45,8 +48,8 @@
   <div class="website-container poli">
     <div class="text-container section">from an idea by</div>
     <div class="logo-container">
-      <img src="/src/assets/logos/Poli.design.svg" alt="" srcset="">
-    <img src="/src/assets/logos/Polimi.svg" alt="" srcset="">
+      <Image src={logoPolimi} alt="Politecnico di Milano" class="img"></Image>
+      <Image src={logoPoliDesign} alt="Poli.Design" class="img"></Image>
     </div>
   </div>
 </div>
@@ -55,105 +58,122 @@
 
 <style>
   .footer-desktop {
-  position: relative;
-  display: flex;
-  width: 100vw;
-  height: fit-content;
-  padding: 4vh 5rem 8vh 5rem;
-  background-color: black;
-  /* margin-left: auto;
-  margin-right: auto; */
-  overflow-x: hidden;
-  font-family: 'milligram';
-  z-index: 99;
- }
- 
- .website-container {
-  width: 25%;
-  font-family: "Milligram Text";
-  display: flex;
-  flex-direction: column;
-  width: 100%; /* Each container takes up half the width of the footer */
-  position: relative;
-  color: white;
-  /* margin-right: 2vw; /* Centers the containers within the footer 
-  margin-left: 2vw; */
-  /* background-color: aqua; */
- }
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: clamp(2rem, 4vh, 4rem) clamp(2rem, 5vw, 5rem) clamp(4rem, 8vh, 8rem);
+    background-color: black;
+    overflow-x: hidden;
+    font-family: 'milligram';
+    z-index: 99;
+  }
 
- .section{
-  font-family: 'milligram';
-  font-weight: bold;
- }
- .credits{
-  padding-right: 6vw;
-  /* background-color: aquamarine; */
- }
- /* .website {
-  font-family: "Milligram Text";
-  display: flex;
- }
- .social {
-  font-family: "Milligram Text";
-  display: flex;
- }
+  .website-container {
+    width: 25%;
+    font-family: "Milligram Text";
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: white;
+  }
 
- .poli {
-  font-family: "Milligram Text";
-  display: flex;
-  flex-direction: column;
- } */
+  .section {
+    font-family: 'milligram';
+    font-weight: bold;
+  }
 
- 
- /* Add this to make the .website divs on the same line and evenly spaced */
- .website-spacer {
-  position: relative;
-  display: flex;
-  width: auto;
-  height: fit-content;
-  text-align: left;
- }
-/*    
- .website-spacer > div {
-  position: relative;
-  width: fit-content;
- }
-  */
- /* Additional CSS for the text container to make it fit the entire width */
+  .credits {
+    padding-right: clamp(1rem, 6vw, 6rem);
+  }
+
+  .website-spacer {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: fit-content;
+    text-align: left;
+  }
+
   .text-container {
-  width: fit-content;
-  text-align: left; /* Centers the text horizontally */
- }
- 
-.footer-text{
-  margin-top: 2vh;
-  color: white !important;
-}
+    width: fit-content;
+    text-align: left;
+  }
 
-.footer-text a{
-  margin-top: 2vh;
-  color: white !important;
-}
+  .footer-text {
+    margin-top: clamp(1rem, 2vh, 2rem);
+    color: white !important;
+  }
 
-#credits{
-  display: none;
-}
+  .footer-text a {
+    color: white !important;
+    transition: opacity 0.3s ease;
+  }
 
-.logo-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 2rem;
-  padding-top: 2rem;
-  align-items: center;
-}
+  .footer-text a:hover {
+    opacity: 0.8;
+  }
 
-.logo-container img {
-  width: 100%;
-  min-width: 0; /* Allows image to shrink */
-  object-fit: contain;
-  max-width: 150px; /* Prevents logos from getting too large */
-}
+  .logo-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: clamp(1rem, 2vw, 2rem);
+    padding-top: clamp(1rem, 2vh, 2rem);
+    align-items: center;
+  }
 
+  .img {
+    width: 100%;
+    min-width: 0;
+    object-fit: contain;
+    max-width: 150px;
+    height: auto;
+  }
 
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .footer-desktop {
+      padding: 3vh 3rem 6vh;
+      gap: 2rem;
+    }
+
+    .website-container {
+      width: 50%;
+    }
+
+    .footer-desktop {
+      flex-wrap: wrap;
+    }
+
+    .img {
+      max-width: 120px;
+    }
+
+    .credits {
+      padding-right: 2rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .footer-desktop {
+      padding: 4vh 2rem 8vh;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .website-container {
+      width: 100%;
+      margin: 0;
+    }
+
+    .logo-container {
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .img {
+      max-width: 100px;
+    }
+  }
 </style>
