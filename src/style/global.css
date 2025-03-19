@@ -41,7 +41,8 @@
 :root {
   --gradient: white;
   --textColor: black;
-  --hover: rgb(148, 97, 97);
+  /* --hover: rgb(148, 97, 97); */
+  --hover: rgb(0, 0, 0);
 }
 
 

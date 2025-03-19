@@ -9,19 +9,19 @@
   <div class="sidebar left-sidebar">
 
     <div class="button left-button" id="button-1" style="text-align: right;">
-      <a href="/salonesatellite">Salone Satellite</a>
+      <a href="/designxdesigners">Design x Designers</a>
     </div>
     <div class="button" id="button-2" style="text-align: center;">
-      <a href="/designxdesigners">Design x Designers</a>
+      <a href="/salonesatellite">Salone Satellite</a>
     </div>
     <div class="button" id="button-3" style="text-align: left;">
       <a href="/fabbricadelvapore">Fabbrica del Vapore</a>
     </div>
-    <div class="sidebar-area">
+    <!-- <div class="sidebar-area">
       <div class="button-area" target-id="button-1" ><a href="/salonesatellite"></a></div>
       <div class="button-area" target-id="button-2" ><a href="/designxdesigners"></a></div>
       <div class="button-area" target-id="button-3" ><a href="/fabbricadelvapore"></a></div>
-    </div>
+    </div> -->
   </div>
   <div class="sidebar right-sidebar">
     <div class="button right-button">
@@ -37,8 +37,8 @@
   <div class="header__content">
     <a class="header__logo" href="index.html">interdependence</a>
     <ul class="header__menu">
-      <li><a href="#">Salone Satellite</a></li>
       <li><a href="#">Design x Designers</a></li>
+      <li><a href="#">Salone Satellite</a></li>
       <li><a href="#">Fabbrica del Vapore</a></li>
     </ul>
     <div class="icon-hamburger">
@@ -75,7 +75,7 @@
     left: 0;
     align-items: flex-start;
     font-size: 1.3em;
-    gap: 2vh;
+   /* gap: 2vh; */
   }
   .right-sidebar {
     right: 0;
@@ -90,6 +90,7 @@
     font-weight: bold;
     flex: 0;
     transition: all 0.5s ease;
+    width: 100%;
   }
 
   .right-button {
@@ -110,9 +111,9 @@
     display: flex;
     flex-direction: column;
   }
-  .button-area {
-    width: 100%;
-    flex: 1;
+
+  #button-1 {
+    text-align: right;
   }
   
   /* .button.active {
@@ -120,20 +121,31 @@
     transition: all 1.6s ease;
   }
 */
-  .button.active a  {
-    color: white;
+  .button:hover a  { 
     text-decoration: none;
+    color: white;
+  }
+
+  #button-1,
+  #button-2 {
+    padding-top: 1vh;
+  }
+
+  #button-2,
+  #button-3 {
+    padding-bottom: 1vh;
   }
 
 
-  #button-1.active,
-  #button-2.active {
-    margin-bottom: 6vh;
+
+  #button-1:hover,
+  #button-2:hover {
+    padding-top: 7vh;
   }
 
-  #button-2.active,
-  #button-3.active {
-    margin-top: 6vh;
+  #button-2:hover,
+  #button-3:hover {
+    padding-bottom: 7vh;
   }
 
   /* .sidebar div:hover {
@@ -143,7 +155,7 @@
 
   .button a {
     margin: 0;
-    color: #777777;
+    color: #3e3e3e;
     font-family: "Milligram";
     font-weight: bold;
     transition: color 0.6s ease;
@@ -153,11 +165,11 @@
   }
 
   /* diventa superfluo*/
-  .button a:hover {
-    color: var(--hover);
-    text-decoration: none;
+  .button:hover a {
+  
   }
 
+  
   .right-button a {
     font-family: "Milligram Macro";
     font-weight: bold;
