@@ -74,7 +74,6 @@ import mappa from  '../assets/img/MapImage.png';
         <div class="title-box">
           {
             <h3 style="text-align: center; margin: 0;">{locations[0].place}</h3>
-            <h4 style="text-align: center; margin: 10px 0 0 0;">{locations[0].title}</h4>
           }
         </div>
       </div>      
@@ -299,6 +298,7 @@ import mappa from  '../assets/img/MapImage.png';
 <!-- ---------- SCROLL ---------- -->
 <!-- ---------- SCROLL ---------- -->
 
+<!-- scroll con scrolltrigger -->
 <!-- <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -351,6 +351,7 @@ import mappa from  '../assets/img/MapImage.png';
   });
 </script> -->
 
+<!-- scroll con scroll to -->
 <!-- <script>
   import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -418,8 +419,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-</style>
-
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
@@ -440,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".text-section",
       start: "left 50%",
       toggleActions: "restart none none reverse",
-       markers: true,
+       markers: false,
     },
   }); 
 
@@ -452,7 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".text-section",
       start: "left 50%",
       toggleActions: "restart none none reverse",
-      markers: true,
+      markers: false,
     },
   }); 
 
