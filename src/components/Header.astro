@@ -8,15 +8,15 @@
 <div class="header_desktop">
   <div class="sidebar left-sidebar">
 
-    <div class="button left-button" id="button-1" style="text-align: right;">
-      <a href="/designxdesigners">Design x Designers</a>
-    </div>
-    <div class="button" id="button-2" style="text-align: center;">
-      <a href="/salonesatellite">Salone Satellite</a>
-    </div>
-    <div class="button" id="button-3" style="text-align: left;">
-      <a href="/fabbricadelvapore">Fabbrica del Vapore</a>
-    </div>
+    <a href="/designxdesigners" class="button left-button" id="button-1" style="text-align: right;">
+      <div>Design x Designers</div>
+      </a>
+    <a href="/salonesatellite" class="button" id="button-2" style="text-align: center;">
+      <div>SaloneSatellite</div>
+      </a>
+    <a href="/fabbricadelvapore" class="button" id="button-3" style="text-align: left;">
+      <div >Fabbrica del Vapore</div>
+      </a>
     <!-- <div class="sidebar-area">
       <div class="button-area" target-id="button-1" ><a href="/salonesatellite"></a></div>
       <div class="button-area" target-id="button-2" ><a href="/designxdesigners"></a></div>
@@ -24,9 +24,9 @@
     </div> -->
   </div>
   <div class="sidebar right-sidebar">
-    <div class="button right-button">
-      <a href="index.html">interdependence</a>
-    </div>
+    <a href="/" class="button right-button">
+      <div>interdependence</div>
+    </a>
   </div>
 </div>
 
@@ -121,7 +121,7 @@
     transition: all 1.6s ease;
   }
 */
-  .button:hover a  { 
+  .button:hover div  { 
     text-decoration: none;
     color: white;
   }
@@ -153,7 +153,7 @@
     transition: all 1.6s ease;
   } */
 
-  .button a {
+  .button div {
     margin: 0;
     color: #3e3e3e;
     font-family: "Milligram";
@@ -165,18 +165,18 @@
   }
 
   /* diventa superfluo*/
-  .button:hover a {
+  .button:hover div {
   
   }
 
   
-  .right-button a {
+  .right-button div {
     font-family: "Milligram Macro";
     font-weight: bold;
     font-size: 2.5rem;
   }
 
-  .button-area a {
+  .button-area div {
     display: block;
     width: 100%;
     height: 100%;
