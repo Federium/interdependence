@@ -258,95 +258,53 @@ import location from "../assets/data/location.json";
 </script> -->
 
 
-<script>
-  import gsap from 'gsap';
-  import { Observer } from "gsap/Observer";
+<script define:vars={{ location }}>
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(Observer);
+document.addEventListener("DOMContentLoaded", async () => {
+  
 
-    const map = document.getElementById("map");
-    const paragraphBox = document.querySelector(".paragraph-box");
-    const titleBox = document.querySelector(".title-box");
-    let currentIndex = 0;
-    let isAnimating = false;
+  let mapElement = document.getElementById("map");
+  let paragraphBox = document.querySelector(".paragraph-box");
+  let titleBox = document.querySelector(".title-box");
+  
+  let index = 0;
+  const totalSteps = location.length;
 
-    // Map positions for each snap point
-    const mapPositions = [
-      { scale: 1, x: 0, y: 0 },
-      { scale: 1.5, x: -200, y: -100 },
-      { scale: 2, x: 200, y: 100 }
-    ];
+  const updateContent = (step) => {
+    console.log("update"+step);
+    paragraphBox.innerHTML = `
+      <h3>${location[step].title}</h3>
+      <h4>${location[step].place}</h4>
+      <h6>${location[step].description}</h6>
+    `;
+    titleBox.innerHTML = `
+      <h3 style="text-align: center; margin: 0;">${location[step].place}</h3>
+      <h4 style="text-align: center; margin: 10px 0 0 0;">${location[step].title}</h4>
+    `;
+    gsap.to(mapElement, { x: step * -100, duration: 1, ease: 'power2.out' });
+  };
 
-    function updateContent(index) {
-      const locations = window._location; // Accessing the data we made global
-      const content = locations[index];
-
-      gsap.to([paragraphBox, titleBox], {
-        opacity: 0,
-        y: 20,
-        duration: 0.3,
-        onComplete: () => {
-          // Update text content
-          titleBox.querySelector('h3').textContent = content.place;
-          titleBox.querySelector('h4').textContent = content.title;
-          paragraphBox.querySelector('h3').textContent = content.title;
-          paragraphBox.querySelector('h4').textContent = content.place;
-          paragraphBox.querySelector('h6').textContent = content.description;
-
-          gsap.to([paragraphBox, titleBox], {
-            opacity: 1,
-            y: 0,
-            duration: 0.3
-          });
-        }
-      });
-
-      // Animate map position
-      gsap.to(map, {
-        scale: mapPositions[index].scale,
-        x: mapPositions[index].x,
-        y: mapPositions[index].y,
-        duration: 1,
-        ease: "power2.inOut"
-      });
+  ScrollTrigger.create({
+    trigger: ".map-section",
+    start: "top top",
+    end: "+=300%",
+    pin: true,
+    scrub: true,
+    onUpdate: (self) => {
+      console.log("in");
+      let newIndex = Math.min(Math.floor(self.progress * totalSteps), totalSteps - 1);
+      if (newIndex !== index) {
+        index = newIndex;
+        updateContent(index);
+      }
     }
-
-    Observer.create({
-      type: "wheel,touch,pointer",
-      wheelSpeed: -1,
-      onDown: () => {
-        if (!isAnimating && currentIndex > 0) {
-          isAnimating = true;
-          currentIndex--;
-          updateContent(currentIndex);
-          setTimeout(() => isAnimating = false, 1000);
-        }
-      },
-      onUp: () => {
-        if (!isAnimating && currentIndex < mapPositions.length - 1) {
-          isAnimating = true;
-          currentIndex++;
-          updateContent(currentIndex);
-          setTimeout(() => isAnimating = false, 1000);
-        }
-      },
-      tolerance: 10,
-      preventDefault: true
-    });
-
-    // Make location data available globally
-    const locationData = JSON.parse(document.querySelector('#location-data').textContent);
-    window._location = locationData;
-
-    // Initialize first position
-    updateContent(0);
   });
-</script>
+});
 
-<!-- Add this in your frontmatter section -->
-<script id="location-data" type="application/json">
-  {JSON.stringify(location)}
+
 </script>
 
 
