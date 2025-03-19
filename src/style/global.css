@@ -41,7 +41,8 @@
 :root {
   --gradient: white;
   --textColor: black;
-  --hover: rgb(148, 97, 97);
+  /* --hover: rgb(148, 97, 97); */
+  --hover: rgb(0, 0, 0);
 }
 
 
@@ -75,7 +76,7 @@ h1 {
   font-size: 3rem;
   line-height: normal;
   font-weight: bold;
-  color: var(--gradient);
+  color: var(--textColor);
   margin-bottom: 1rem;
   text-align: left;
 
@@ -86,31 +87,32 @@ h2 {
   font-size: 2rem;
   line-height: normal;
   font-weight: bold;
-  color: var(--gradient);
+  color: var(--textColor);
   margin-bottom: 1rem;
   text-align: left;
 
 }
 
-h3, .category {
+h3{
   margin: 0;
   font-family: 'Milligram', sans-serif;
   font-size: 1.5rem;
   line-height: normal;
   font-weight: bold;
-  color: var(--gradient);
+  color: var(--textColor);
   margin-bottom: 1rem;
   text-align: left;
 
 }
 
-h4, .description {
+
+h4 {
   margin: 0;
   font-family: 'Milligram', sans-serif;
   font-size: 1rem;
   line-height: normal;
   font-weight: bold;
-  color: var(--gradient);
+  color: var(--textColor);
   margin-bottom: 1rem;
   text-align: left;
 
@@ -127,7 +129,7 @@ h6 {
   font-size: 0.8rem;
   line-height: normal;
   font-weight: normal;
-  color: var(--gradient);
+  color: var(--textColor);
   text-align: left;
 }
 
@@ -135,29 +137,10 @@ p {
     font-family: 'Milligram Text', sans-serif;
     font-size: 1.5rem;
     line-height: 1.4;
-    color: var(--gradient);
+    color: var(--textColor);
     margin: 0;
     text-align: left;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

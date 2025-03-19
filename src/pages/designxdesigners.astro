@@ -1,6 +1,7 @@
 ---
 import PaginaLuogo from '../layouts/PaginaLuogo.astro'
 import bckImg from "/src/assets/img/designxdesigners.jpg";
+import ChasingWord from '../components/ChasingWord.astro';
 
 const info = {
     index: 2, // Valore da usare per settare l'header
@@ -15,4 +16,8 @@ const info = {
 ---
 
 <PaginaLuogo index = {info.index} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} backgroundImg = {info.backgroundImg.src}>
+
+<ChasingWord></ChasingWord>
+
+
 </PaginaLuogo>

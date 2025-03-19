@@ -10,7 +10,7 @@ import location from "../assets/data/location.json";
 
 <Layout>
 	
-  <div class="section mostra">
+  <div class="section">
     <Hero></Hero>
   </div>
 
@@ -38,6 +38,20 @@ import location from "../assets/data/location.json";
                 The recognition of interdependence fosters cooperation, collaboration, and the acknowledgement of shared responsibilities. It underscores the importance of considering the broader implications of actions and decisions, as they often have ripple effects that extend beyond immediate boundaries.
                 Design, as a discipline interconnected with a variety of systems, acts as a catalyst and inherently has the potential and responsibility to foster and shape innovative, conscious, and collaborative relationships.
                 
+                
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+                The Polimi Design System organizes a widespread event taking place in three main venues in Milan - Fabbrica del Vapore, Campus Bovisa Durando, and Salone Satellite - plus a constellation of other locations populating the city.</p>
+
           </div>
       </div>
   </section>
@@ -46,7 +60,7 @@ import location from "../assets/data/location.json";
     <div class="map-1">
       <div class="map-bg">
         <div class="pointer-blur"></div>
-          <img src="/src/assets/img/MapImage.png" id="map" alt="">
+        <!-- <img src="/src/assets/img/MapImage.png" id="map" alt=""> -->
       </div>
       <div class="paragraph-container">
         <div class="paragraph-box">
@@ -111,7 +125,7 @@ import location from "../assets/data/location.json";
 <!-- ---------- MAP ---------- -->
 <!-- ---------- MAP ---------- -->
 <!-- ---------- MAP ---------- -->
-<script>
+<!-- <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -153,7 +167,7 @@ import location from "../assets/data/location.json";
         });
   });
 </script>
-
+ -->
 
 
 
@@ -206,23 +220,13 @@ import location from "../assets/data/location.json";
         trigger: section,
         start: "5% 95%", 
         end: "95% 5%",
-        // markers: true,
+        markers: true,
         preventOverlaps: true,
         fastScrollEnd: true, // Better handling of fast scrolling
         onEnter: () => goToSection(i),
         onEnterBack: () => goToSection(i)
       });
     });
-
-    function mostra(index: number){
-      sections.forEach((section, i) => {
-        if (i === index) {
-          section.classList.add("mostra");
-        } else {
-          section.classList.remove("mostra");
-        }
-      });
-    }
 
     // Function to animate to a specific section
     function goToSection(index: number) {
@@ -580,7 +584,6 @@ h1,h2,h3,h4,h5,h6, p{
         display: flex;
         margin-bottom: 10px;
         color: gray;
-        text-wrap: nowrap;
     }
 
     .category {
