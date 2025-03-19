@@ -3,7 +3,14 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import categories from "../assets/data/categories.json";
-import location from "../assets/data/location.json";
+import locations from '../assets/data/location.json';
+import Map from '../components/Map.astro';
+
+import {Image} from 'astro:assets';
+import logoPolimi from '../assets/logos/Polimi.svg';
+import logoPoliDesign from '../assets/logos/Poli.design.svg';
+import logoDesignWeek from '../assets/logos/logo-design-week.png';
+import mappa from  '../assets/img/MapImage.png';
 
 /* const textContent = location.map(loc => ({
   title: loc.title,
@@ -26,11 +33,11 @@ import location from "../assets/data/location.json";
       <!-- LOGOS -->
       <div class="logo-container">
         <div class="logo-left">
-          <img src="/src/assets/logos/Polimi.svg" alt="" srcset="">
-          <img src="/src/assets/logos/Poli.design.svg" alt="" srcset="">
+          <Image src={logoPolimi} alt="Politecnico di Milano">
+          <Image src={logoPoliDesign} alt="Poli.Design">
         </div>
         <div class="logo-right">
-          <img src="/src/assets/logos/logo-design-week.png" alt="" srcset="">
+          <Image src={logoDesignWeek} alt="Design Week">
         </div>
       </div>
       <div class="container">
@@ -52,27 +59,28 @@ import location from "../assets/data/location.json";
     <div class="map-1">
       <div class="map-bg">
         <div class="pointer-blur"></div>
-          <img src="/src/assets/img/MapImage.png" id="map" alt="">
+        <Image src={mappa}  id="map" alt="Mappa" />
       </div>
       <div class="paragraph-container">
         <div class="paragraph-box">
           {
-              <h3>{location[0].title}</h3>
-              <h4>{location[0].place}</h4>
-              <h6>{location[0].description}</h6>
+              <h3>{locations[0].title}</h3>
+              <h4>{locations[0].place}</h4>
+              <h6>{locations[0].description}</h6>
           }
         </div>
       </div>
       <div class="title-container">
         <div class="title-box">
           {
-            <h3 style="text-align: center; margin: 0;">{location[0].place}</h3>
-            <h4 style="text-align: center; margin: 10px 0 0 0;">{location[0].title}</h4>
+            <h3 style="text-align: center; margin: 0;">{locations[0].place}</h3>
+            <h4 style="text-align: center; margin: 10px 0 0 0;">{locations[0].title}</h4>
           }
         </div>
       </div>      
     </div>
   </section>
+  
   <!-- SECTION 3 -->
   <section class="text-section section">
       <div class="container">
@@ -258,54 +266,7 @@ import location from "../assets/data/location.json";
 </script> -->
 
 
-<script define:vars={{ location }}>
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-
-document.addEventListener("DOMContentLoaded", async () => {
-  
-
-  let mapElement = document.getElementById("map");
-  let paragraphBox = document.querySelector(".paragraph-box");
-  let titleBox = document.querySelector(".title-box");
-  
-  let index = 0;
-  const totalSteps = location.length;
-
-  const updateContent = (step) => {
-    console.log("update"+step);
-    paragraphBox.innerHTML = `
-      <h3>${location[step].title}</h3>
-      <h4>${location[step].place}</h4>
-      <h6>${location[step].description}</h6>
-    `;
-    titleBox.innerHTML = `
-      <h3 style="text-align: center; margin: 0;">${location[step].place}</h3>
-      <h4 style="text-align: center; margin: 10px 0 0 0;">${location[step].title}</h4>
-    `;
-    gsap.to(mapElement, { x: step * -100, duration: 1, ease: 'power2.out' });
-  };
-
-  ScrollTrigger.create({
-    trigger: ".map-section",
-    start: "top top",
-    end: "+=300%",
-    pin: true,
-    scrub: true,
-    onUpdate: (self) => {
-      console.log("in");
-      let newIndex = Math.min(Math.floor(self.progress * totalSteps), totalSteps - 1);
-      if (newIndex !== index) {
-        index = newIndex;
-        updateContent(index);
-      }
-    }
-  });
-});
-
-
-</script>
+<script src="../scripts/map.js"></script>
 
 
 <!-- ---------- CATEGORY ---------- -->
@@ -338,18 +299,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 <!-- ---------- SCROLL ---------- -->
 <!-- ---------- SCROLL ---------- -->
 
-<script>
+<!-- <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
+  
   document.addEventListener("DOMContentLoaded", () => {
     // Register plugins
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     // Get all sections
     const sections = gsap.utils.toArray<HTMLElement>('.section');
-    
+      function goToSection(index: number) {
+      console.log(index);
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: sections[index],
+          autoKill: true
+        },
+        ease: "power2.inOut"
+      });
+    }
     // Create ScrollTrigger for each section
     sections.forEach((section, i) => {
       ScrollTrigger.create({
@@ -372,22 +344,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           section.classList.remove("mostra");
         }
       });
-    }
 
     // Function to animate to a specific section
-    function goToSection(index: number) {
-      console.log(index);
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: sections[index],
-          autoKill: true
-        },
-        ease: "power2.inOut"
-      });
-    }
+    
+  }
   });
-</script>
+</script> -->
 
 <!-- <script>
   import gsap from "gsap";
@@ -478,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".text-section",
       start: "left 50%",
       toggleActions: "restart none none reverse",
-      /* markers: true, */
+       markers: true,
     },
   }); 
 
@@ -490,7 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".text-section",
       start: "left 50%",
       toggleActions: "restart none none reverse",
-      /* markers: true, */
+      markers: true,
     },
   }); 
 
@@ -646,9 +608,17 @@ h1,h2,h3,h4,h5,h6, p{
   padding: 1vh 2vh;
   position: relative;
   z-index: 2;
-  color: var(--text);
+  color: black;
 }
 
+.map-section h1,
+.map-section h2,
+.map-section h3,
+.map-section h4,
+.map-section h5,
+.map-section h6 {
+  color: black;
+}
 
 
 
