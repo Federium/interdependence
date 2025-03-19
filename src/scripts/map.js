@@ -1,20 +1,23 @@
-
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import locations from '../assets/data/location.json';
 
 gsap.registerPlugin(ScrollTrigger);
-let mapElement = document.getElementById("map");
 
 document.addEventListener("DOMContentLoaded", () => {
-//   const locations = JSON.parse(`` + JSON.stringify(Astro.props.locations) + ``); // Passiamo i dati in modo sicuro
-
   let mapElement = document.getElementById("map");
   let paragraphBox = document.querySelector(".paragraph-box");
   let titleBox = document.querySelector(".title-box");
-console.log(mapElement);
+  
   let index = 0;
   const totalSteps = locations.length;
+
+  // Define precise positions for each step
+  const mapPositions = [
+    { scale: 1, x: 70, y: -240 },          // Initial position
+    { scale: 1, x: 670, y: 20 },  // First location
+    { scale: 1, x: 180, y: -100 }       // Second location
+  ];
 
   const updateContent = (step) => {
     console.log(step);
@@ -25,17 +28,31 @@ console.log(mapElement);
     `;
     titleBox.innerHTML = `
       <h3 style="text-align: center; margin: 0;">${locations[step].place}</h3>
-      <h4 style="text-align: center; margin: 10px 0 0 0;">${locations[step].title}</h4>
     `;
-    gsap.to(mapElement, { x: step * -100, duration: 1, ease: 'power2.out' });
+
+    // Animate to precise position
+    gsap.to(mapElement, {
+      x: mapPositions[step].x,
+      y: mapPositions[step].y,
+      scale: mapPositions[step].scale,
+      duration: 1,
+      ease: 'power2.inOut'
+    });
   };
 
   ScrollTrigger.create({
     trigger: ".map-section",
     start: "top top",
-    end: "+=300%",
+    end: "+=200%",
     pin: true,
-    scrub: true,
+    pinSpacing: true,
+    scrub: 1,
+    anticipatePin: 1,
+    snap: {
+      snapTo: [0, 0.5, 1], // Snap points for each position
+      duration: { min: 0.2, max: 0.8 },
+      ease: "power1.inOut"
+    },
     onUpdate: (self) => {
       let newIndex = Math.min(Math.floor(self.progress * totalSteps), totalSteps - 1);
       if (newIndex !== index) {
@@ -44,4 +61,7 @@ console.log(mapElement);
       }
     }
   });
+
+  // Initialize first position
+  updateContent(0);
 });
