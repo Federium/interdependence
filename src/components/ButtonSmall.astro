@@ -15,8 +15,8 @@ const { label, href } = Astro.props as Props;
 ---
 
 
-<div class="button-container">
-    <a href={href}>
+<div >
+    <a class="button-container" href={href}>
         <label>{label}</label>
         <span><Image src={arrow} alt = "Freccia a destra"/></span>
     </a>
