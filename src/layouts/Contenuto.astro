@@ -6,14 +6,16 @@ import type { string } from 'astro:schema';
 
 export interface Props {
   name: string;
+  subsection?: boolean;
+  subsectionActive?: number;
 }
-const { name } = Astro.props as Props;
+const { name, subsection = false, subsectionActive = 0 } = Astro.props as Props;
 
 const title = name + " – interdependence"; 
 
 ---
 
-<Layout title = {title}>
+<Layout subsection={subsection} subsectionActive={subsectionActive} title = {title}>
     <div class="main-container">
         <slot/>
     </div>

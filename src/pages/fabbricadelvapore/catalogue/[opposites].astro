@@ -33,17 +33,33 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
  <Contenuto name="Catalogue">
   <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
   </Heading>
+  
   <ProjectsLayout category={category} isSingleProject = {false}>
 
 
-  <div class="cards-container"> 
+  <div class="projects-container"> 
     {projects.map((project) => (
-      <ProjectCard folder={opposites} projectId={project.data.id} title={project.data.title} slug={project.data.slug} />
+      <ProjectCard 
+        projectId={project.id}
+        title={project.data.title}
+        folder={opposites}
+        slug={project.data.slug}
+      />
     ))}
+  </div>
 
 
   </ProjectsLayout>
- 
+
+  
+
+
+  <div class="categories-container"> 
+    {projects.map((project) => (
+      <li>
+        <a href={`/fabbricadelvapore/catalogue/${opposites}/${project.id}`}>{project.data.title}</a>
+      </li>
+    ))}
 
   </div>
   </div>
@@ -51,10 +67,7 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
 </Contenuto>
 
 <style>
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
+  .projects-container {
+    display: flex;
+  }
 </style>
-
