@@ -9,9 +9,10 @@ export interface Props {
   subsection?: boolean;
   title?: string;
   active?: string;
-  subsectionActive?: number;}
+  subsectionActive?: number;
+  headerBg?:boolean}
 
-const { subsection = false, title = 'interdependence – exploring opposites', active="0", subsectionActive = 0  } = Astro.props as Props;
+const { subsection = false, title = 'interdependence – exploring opposites', active="0", subsectionActive = 0, headerBg=false  } = Astro.props as Props;
 
 ---
 
@@ -31,7 +32,7 @@ const { subsection = false, title = 'interdependence – exploring opposites', a
   <div class="content-wrapper">
     <slot />
     <Footer></Footer>
-    <Header subsection={subsection} active={active} subsectionActive={subsectionActive}></Header>
+    <Header subsection={subsection} active={active} subsectionActive={subsectionActive} background={headerBg}></Header>
   </div>
   <Cursor></Cursor>
 

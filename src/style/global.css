@@ -87,6 +87,11 @@ a {
 
 
 
+hr {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(70, 70, 70) ;
+}
 
 h1 {
   font-family: 'Milligram', sans-serif;

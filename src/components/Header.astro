@@ -5,16 +5,17 @@ import { number } from 'astro:schema';
 export interface Props {
     subsection?: boolean;
     subsectionActive?: number;
-   active:string
+   active:string;
+   background?: boolean;
 }
 
-const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
+const { subsection = false, subsectionActive=0, active, background=false} = Astro.props as Props;
 ---
 
 
 
 <div class="header_desktop">
-  <div class="sidebar left-sidebar">
+  <div class={`sidebar left-sidebar ${background ? 'background' : ''}`}>
     <a href="/designxdesigners" class={`button left-button ${active === "1" ? 'active' : ''}`} id="button-1" style="text-align: right;">
       <div>Design x Designers</div>
     </a>
@@ -96,11 +97,13 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
     cursor: none;
     padding: 2vh 1vh;
   }
-
   .left-sidebar {
     left: 0;
     align-items: flex-start;
     font-size: 1.3em;
+    &.background {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.674), transparent); }
+    mix-blend-mode: normal;
    /* gap: 2vh; */
   }
   .right-sidebar {
@@ -169,12 +172,12 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
 */
   .button:hover div  { 
     text-decoration: none;
-    color: white;
+    color: black;
   }
 
   .button.active:not(.disactive) div  { 
     text-decoration: none;
-    color: white;
+    color: black;
   }
 
   #button-3 a {
@@ -225,13 +228,13 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
 
   .button div {
     margin: 0;
-    color: #3e3e3e;
+    color: #9c9c9c;
     font-family: "Milligram";
     font-weight: bold;
     transition: color 0.6s ease;
     text-decoration: none;
     white-space: nowrap;
-    text-shadow: 0 0 20px rgb(0, 0, 0);
+    /* text-shadow: 0 0 20px rgb(0, 0, 0); */
   }
 
   /* diventa superfluo*/
@@ -259,16 +262,16 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
 
     span a{
       font-weight: normal; 
-      color:rgb(45, 45, 45);
+      color: #9c9c9c;
       transition: color 0.2s ease;
       padding-left: 100%; /*per aumentare area cliccabile*/
     }
     span a:hover {
-      color:white
+      color:black
     }
 
     span a.active:not(.disactive ){
-      color:white
+      color:black
     }
   }
 
