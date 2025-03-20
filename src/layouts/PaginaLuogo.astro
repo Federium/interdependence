@@ -20,9 +20,10 @@ export interface Props {
     locationUrl: string;
     backgroundImg: string;
     hours?: object;
+    subsectionActive?: number;
 }
 
-const {subsection = false, index, place, name, opening, location, dates, description, locationUrl, backgroundImg, hours} = Astro.props as Props;
+const {subsection = false, index, place, name, opening, location, dates, description, locationUrl, backgroundImg, hours, subsectionActive = 0 } = Astro.props as Props;
 const title = place + " – interdependence"; 
 const infos = [
     opening && {
@@ -43,7 +44,7 @@ const infos = [
 ].filter(Boolean);
 ---
 
-<Layout subsection = {subsection} title = {title} active = {index}>
+<Layout subsection = {subsection} title = {title} active = {index} subsectionActive = {subsectionActive}>
     <div class="background-image"></div>
     <div class="content">
         <div class="gradient-overlay">

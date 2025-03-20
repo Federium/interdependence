@@ -1,11 +1,14 @@
 ---
+import { number } from 'astro:schema';
+
 
 export interface Props {
     subsection?: boolean;
+    subsectionActive?: number;
    active:string
 }
 
-const { subsection = false, active} = Astro.props as Props;
+const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
 ---
 
 
@@ -22,8 +25,8 @@ const { subsection = false, active} = Astro.props as Props;
       <div  class="button active" id="button-3" >
         <a href="/fabbricadelvapore"><div >Fabbrica del Vapore</div></a>
         <div class="secondary-menu">
-        <span><a class="button" href="/fabbricadelvapore/catalogue">Catalogue</a></span>
-        <span><a class="button" href="/fabbricadelvapore/program">Program</a></span>
+        <span><a class={`button ${subsectionActive === 1 ? 'active' : ''}`} href="/fabbricadelvapore/catalogue">Catalogue</a></span>
+        <span><a class={`button ${subsectionActive === 2 ? 'active' : ''}`} href="/fabbricadelvapore/program">Program</a></span>
         </div>
       </div>
       ) : (
@@ -39,10 +42,15 @@ const { subsection = false, active} = Astro.props as Props;
     </div> -->
   </div>
   <div class="sidebar right-sidebar">
-    <a href="/" class="button right-button">
+    <a href="/" class="button " id="interdependence-button">
        <div>interdependence</div>
-     
     </a>
+    <a href="/about" class="button" id="about-button">
+      <div>About</div>
+   </a>
+   <a href="/credits" class="button" id="credits-button">
+    <div>Credits</div>
+ </a>
   </div>
 </div>
 
@@ -98,7 +106,7 @@ const { subsection = false, active} = Astro.props as Props;
   .right-sidebar {
     right: 0;
     align-items: flex-end;
-    font-size: 2em;
+    font-size: 1.3em;
   }
 
   .button {
@@ -111,10 +119,30 @@ const { subsection = false, active} = Astro.props as Props;
     width: 100%;
   }
 
-  .right-button {
-    width: auto;
+  .right-sidebar .button {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+ 
   }
 
+  .right-sidebar a {
+    width: auto;
+    &:not(#interdependence-button) {
+      opacity: 0;
+      pointer-events: none;
+      padding-bottom: 1em;
+      &.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+
+  .right-sidebar a.show {
+ 
+  }
+  
 
   /* .sidebar:hover div {
     text-align: left;
@@ -212,7 +240,7 @@ const { subsection = false, active} = Astro.props as Props;
   }
 
   
-  .right-button div {
+  #interdependence-button div{
     font-family: "Milligram Macro";
     font-weight: bold;
     font-size: 2.5rem;
@@ -236,6 +264,10 @@ const { subsection = false, active} = Astro.props as Props;
       padding-left: 100%; /*per aumentare area cliccabile*/
     }
     span a:hover {
+      color:white
+    }
+
+    span a.active:not(.disactive ){
       color:white
     }
   }
@@ -405,6 +437,26 @@ const { subsection = false, active} = Astro.props as Props;
     });
   });
 // });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const rightSidebar = document.querySelector('.right-sidebar');
+      const creditsButton = document.getElementById('credits-button');
+      const aboutButton = document.getElementById('about-button');
+
+      if (rightSidebar) {
+        rightSidebar.addEventListener('mouseenter', () => {
+          creditsButton.classList.add('show');
+          aboutButton.classList.add('show');
+        });
+
+        rightSidebar.addEventListener('mouseleave', () => {
+          creditsButton.classList.remove('show');
+          aboutButton.classList.remove('show');
+        });
+      }
+    });
   </script>
   
   <!-- ---------- MENU HEADER MOBILE ---------- -->
