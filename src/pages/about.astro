@@ -2,14 +2,19 @@
 import Contenuto from "../layouts/Contenuto.astro";
 import Heading from "../components/Heading.astro";
 import ButtonSmall from "../components/ButtonSmall.astro";
+import {Image} from "astro:assets";
+
+import logoDesktop from "../assets/logos/interdependence-white-long.svg";
 
 ---
-<Contenuto title="About">
-    <Heading title="About" background={true}></Heading>
-
-    <div class="content-main">
+<Contenuto name="About">
+    <Heading title="" background={true}></Heading>
+    <div class="logo-container">
+        <Image src={logoDesktop} alt="interdependence - exploring opposites"></Image>
 
     </div>
+    <div class="col-8">
+
     <h2 class="gradient-text quote">
         In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
     </h2>
@@ -32,17 +37,27 @@ import ButtonSmall from "../components/ButtonSmall.astro";
             With the aim of exploring the interdependence of opposites, the Polimi Design System organizes a <b>widespread event</b>, in close relationship with the Design Week and the city, taking place in three main venues - <b>Fabbrica del Vapore</b>, <b>Campus Bovisa Durando</b>, and <b>SaloneSatellite</b>. <br/>In addition to them, a constellation of other smaller initiatives populates the city. 
         </p>
     
-    
-    <ButtonSmall label="PRESS RELEASE"></ButtonSmall>
+    </div>
+
+    <ButtonSmall href="public/Interdependence2025_PressKit_test.pdf" label="PRESS KIT" ></ButtonSmall>
     </Contenuto>
 
     <style>
-        h2,p {
-            width:80%;
-            min-width: 768px;
+
+        .logo-container {
+            display: flex;
         }
+        img {
+            width: 40%;
+
+            mix-blend-mode: difference;
+            align-self: left;
+        }
+
         .bold {
             font-weight: bold;
+        }
+        .quote {
         }
 
         p.txt-large {
@@ -51,6 +66,11 @@ import ButtonSmall from "../components/ButtonSmall.astro";
 
         p.txt-small {
             font-size: 1.2em;
+        }
+
+        .content-main {
+            margin-bottom: 3em;
+            background-color: white;
         }
 
     </style>
