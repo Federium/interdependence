@@ -9,7 +9,8 @@ import arrow from '../assets/icons/arrow-right-black.svg';
 
 
 export interface Props {
-    index: number;
+    subsection?: boolean;
+    index: string;
     place: string;
     name?: string;
     opening?: string;
@@ -21,7 +22,7 @@ export interface Props {
     hours?: object;
 }
 
-const { index, place, name, opening, location, dates, description, locationUrl, backgroundImg, hours} = Astro.props as Props;
+const {subsection = false, index, place, name, opening, location, dates, description, locationUrl, backgroundImg, hours} = Astro.props as Props;
 const title = place + " – interdependence"; 
 const infos = [
     opening && {
@@ -42,12 +43,12 @@ const infos = [
 ].filter(Boolean);
 ---
 
-<Layout title = {title}>
+<Layout subsection = {subsection} title = {title} active = {index}>
     <div class="background-image"></div>
     <div class="content">
         <div class="gradient-overlay">
             <div class="text-container">
-                <h1>{name}</h1>
+                <h1 class="gradient-text">{name}</h1>
                 <h2 class="main-title">
                     <div class="interdependence gradient-text right">interdependence </div>
                     <div class="place"> @ {place}</div>

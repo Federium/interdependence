@@ -6,10 +6,12 @@ import Footer from '../components/Footer.astro';
 // import { ClientRouter } from "astro:transitions";
 
 export interface Props {
+  subsection?: boolean;
   title?: string;
+  active?: string;
 }
 
-const { title = 'interdependence – exploring opposites'} = Astro.props as Props;
+const { subsection = false, title = 'interdependence – exploring opposites', active="0" } = Astro.props as Props;
 
 ---
 
@@ -29,7 +31,7 @@ const { title = 'interdependence – exploring opposites'} = Astro.props as Prop
   <div class="content-wrapper">
     <slot />
     <Footer></Footer>
-    <Header></Header>
+    <Header subsection={subsection} active={active}></Header>
   </div>
   <Cursor></Cursor>
 

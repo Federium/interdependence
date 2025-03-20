@@ -1,22 +1,37 @@
 ---
 
+export interface Props {
+    subsection?: boolean;
+   active:string
+}
 
+const { subsection = false, active} = Astro.props as Props;
 ---
 
 
 
 <div class="header_desktop">
   <div class="sidebar left-sidebar">
-
-    <a href="/designxdesigners" class="button left-button" id="button-1" style="text-align: right;">
+    <a href="/designxdesigners" class={`button left-button ${active === "1" ? 'active' : ''}`} id="button-1" style="text-align: right;">
       <div>Design x Designers</div>
-      </a>
-    <a href="/salonesatellite" class="button" id="button-2" style="text-align: center;">
+    </a>
+    <a href="/salonesatellite" class={`button ${active === "2" ? 'active' : ''}`}id="button-2" style="text-align: center;">
       <div>SaloneSatellite</div>
       </a>
-    <a href="/fabbricadelvapore" class="button" id="button-3" style="text-align: left;">
-      <div >Fabbrica del Vapore</div>
+    { subsection ? (
+      <div  class="button active" id="button-3" >
+        <a href="/fabbricadelvapore"><div >Fabbrica del Vapore</div></a>
+        <div class="secondary-menu">
+        <span><a class="button" href="/fabbricadelvapore/catalogue">Catalogue</a></span>
+        <span><a class="button" href="/fabbricadelvapore/program">Program</a></span>
+        </div>
+      </div>
+      ) : (
+      <a href="/fabbricadelvapore" class="button" id="button-3">
+        <div>Fabbrica del Vapore</div>
       </a>
+      )
+    }
     <!-- <div class="sidebar-area">
       <div class="button-area" target-id="button-1" ><a href="/salonesatellite"></a></div>
       <div class="button-area" target-id="button-2" ><a href="/designxdesigners"></a></div>
@@ -25,10 +40,13 @@
   </div>
   <div class="sidebar right-sidebar">
     <a href="/" class="button right-button">
-      <div>interdependence</div>
+       <div>interdependence</div>
+     
     </a>
   </div>
 </div>
+
+
 
 
 
@@ -126,6 +144,17 @@
     color: white;
   }
 
+  .button.active:not(.disactive) div  { 
+    text-decoration: none;
+    color: white;
+  }
+
+  #button-3 a {
+    flex:2;
+  
+     text-align: right;
+    
+  }
   #button-1,
   #button-2 {
     padding-top: 1vh;
@@ -136,6 +165,10 @@
     padding-bottom: 1vh;
   }
 
+  #button-3:hover
+{
+    padding-top: 7vh; /* Per migliorare uscita da hover */
+  }
 
 
   #button-1:hover,
@@ -148,6 +181,15 @@
     padding-bottom: 7vh;
   }
 
+  #button-1.active:not(.disactive),
+  #button-2.active:not(.disactive) {
+    padding-top: 7vh;
+  }
+
+  #button-2.active:not(.disactive),
+  #button-3.active:not(.disactive) {
+    padding-bottom: 7vh;
+  }
   /* .sidebar div:hover {
     flex-grow: 18;
     transition: all 1.6s ease;
@@ -180,6 +222,26 @@
     display: block;
     width: 100%;
     height: 100%;
+  }
+
+  .secondary-menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    span a{
+      font-weight: normal; 
+      color:rgb(45, 45, 45);
+      transition: color 0.2s ease;
+      padding-left: 100%; /*per aumentare area cliccabile*/
+    }
+    span a:hover {
+      color:white
+    }
+  }
+
+  span a.button{
+    width: auto;
   }
 
   .header_mobile {
@@ -307,20 +369,41 @@
 <script>
       // document.addEventListener("astro:page-load", () => {
 
-  const areaButtonsS = document.querySelectorAll('.button-area');
-    const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
-      const targetId = div.getAttribute("target-id");
-      if (targetId) {
-        const targetDiv = document.getElementById(targetId);
+  // const areaButtonsS = document.querySelectorAll('.button-area');
+  //   const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
+  //     const targetId = div.getAttribute("target-id");
+  //     if (targetId) {
+  //       const targetDiv = document.getElementById(targetId);
     
-        if (targetDiv) {
-            div.addEventListener("mouseenter", () => targetDiv.classList.add("active"));
-            div.addEventListener("mouseleave", () => targetDiv.classList.remove("active"));
-        }
-      }
+  //       if (targetDiv) {
+  //           div.addEventListener("mouseenter", () => targetDiv.classList.add("active"));
+  //           div.addEventListener("mouseleave", () => targetDiv.classList.remove("active"));
+  //       }
+  //     }
   
-  })
-  console.log(areaButtonsS); 
+  // })
+  // console.log(areaButtonsS); 
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll('.button:not(.button-evento)');
+
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        buttons.forEach(btn => {
+          if (btn !== button) {
+            btn.classList.add('disactive');
+          }
+        });
+      });
+
+      button.addEventListener('mouseleave', () => {
+        buttons.forEach(btn => {
+          btn.classList.remove('disactive');
+        });
+      });
+    });
+  });
 // });
   </script>
   
