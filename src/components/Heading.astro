@@ -4,21 +4,23 @@ export interface Props {
   subtitle?: string;
   description?: string;
   background?: boolean;
+  backgroundMobile?: boolean;
+  mobile?:boolean;
 }
 
-const { title, subtitle, description, background=false } = Astro.props as Props;
+const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false } = Astro.props as Props;
 ---
 
 {
-background && <>
-<div class="animated-background">
+background && mobile && <>
+<div class={`animated-background ${mobile ? '' : 'nascondi'}`}>
     <div id="p5-canvas"></div>
-    <div class = "header-gradient"></div>
+    <div class="header-gradient"></div>
 </div>
 </>
 }
 
-<div class="header-container">
+<div class={`header-container ${mobile ? '' : 'nascondi'}`}>
     <h2 class="title">{title}</h2>
     {
     subtitle && <>
@@ -44,12 +46,16 @@ background && <>
 
     .header-gradient {
         z-index: 0 !important;
-        background: linear-gradient(to top, white 5%, rgba(255, 255, 255, 0.849) 50%, rgba(255, 255, 255, 0.5) 100%);
+        background: linear-gradient(to top, white 5%,  rgba(255, 255, 255, 0.5) 100%);
+        
     }
+
+
 
     #p5-canvas {
         width: 100%;
         height: 100%;
+        
     }
 
     #p5-canvas * {
@@ -73,6 +79,25 @@ background && <>
         font-weight: normal;
         padding-top: 0;
     }
+
+    @media (max-width: 768px) {
+    .header-container {
+        position:fixed;
+        top:4vh;
+    }
+
+    .nascondi {
+        display: none;
+    }
+
+        .animated-background {
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    }
+
+
+}
+
 </style>
 
 
@@ -82,8 +107,7 @@ background && <>
     import p5 from 'p5'
     import { mySketch } from '../scripts/sketch.js'
     
-    console.log('Hello from JavaScript!')
-    
+    console.log('Hello from JavaScript!');
     new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'))
 </script>
 

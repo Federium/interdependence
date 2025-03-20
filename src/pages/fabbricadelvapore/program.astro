@@ -7,10 +7,9 @@ import programData from "../../assets/data/program.json";
 ---
 
 <Contenuto name="Program">
-    <Heading title="Program" subtitle="Fabbrica del Vapore" background={false}></Heading>
     <div class="program-container">
         <div class="col-3 days">
-            <Heading title="Program" subtitle="Fabbrica del Vapore" background={true}></Heading>
+            <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} mobile={false}></Heading>
             <div class="day-selector">
                 {programData.map((dayData, index) => (
                     <div class="day" id={`day-${dayData.index}`}>
@@ -20,34 +19,41 @@ import programData from "../../assets/data/program.json";
             </div>
         </div>
         <div class="col-9 events">
-            {programData.map((dayData) => (
-                <div class="events-day" id={`events-day-${dayData.index}`}>
-                    <h2>{dayData.weekday}, {dayData.day} <hr /></h2>
-                   
-                    {dayData.events.map((event) => (
-                        <div class="event" key={event.time}>
-                            <div class="event-date">
-                                <span class="time">{event.time}</span>
-                            </div>
-                            <div class="event-title">
-                                <h2>{event.title}</h2>
-                            </div>
-                            {event.name && (
-                                <div class="event-name">
-                                    {event.name}
+            <div class="mask">
+                {programData.map((dayData) => (
+                    <div class="events-day" id={`events-day-${dayData.index}`}>
+                        <h2>{dayData.weekday}, {dayData.day} <hr /></h2>
+                       
+                        {dayData.events.map((event) => (
+                            <div class="event" key={event.time}>
+                                <div class="event-date">
+                                    <span class="time">{event.time}</span>
                                 </div>
-                            )}
-                            {event.description && (
-                                <div class="event-description">
-                                    <p>{event.description}</p>
+                                <div class="event-title">
+                                    <h2>{event.title}</h2>
                                 </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            ))}
+                                {event.name && (
+                                    <div class="event-name">
+                                        {event.name}
+                                    </div>
+                                )}
+                                {event.description && (
+                                    <div class="event-description">
+                                        <p>{event.description}</p>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+         
         </div>
     </div>
+    <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true}>
+
+    </Heading>
+
 </Contenuto>
 
 <style>
@@ -72,6 +78,8 @@ import programData from "../../assets/data/program.json";
     .day-selector {
         position: fixed;
         top: 12vh;
+        display: flex;
+        flex-direction: column;
     }
     .active-day:not(.disable),
     .selected-day:not(.disable) {
@@ -114,6 +122,45 @@ import programData from "../../assets/data/program.json";
     .event-description {
         padding-top: 2em;
     }
+
+    @media (max-width: 768px) {
+
+        .program-container {
+            flex-wrap: wrap;
+        }
+
+        .header-container,
+        .day-selector {
+            position:fixed;
+        }
+
+      
+    .days {
+        display: none;
+            /* width: 100%;
+            height: auto; */
+    }
+    
+    .events {
+        margin-top: 20vh;
+        z-index: -5 !important;
+
+
+    }
+
+    .mask {
+            
+   
+    }
+
+
+
+        .day-selector {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
 </style>
 
 <script>
