@@ -5,6 +5,7 @@ import Heading from "../../components/Heading.astro";
 import programData from "../../assets/data/program.json";
 
 ---
+
 <Contenuto name="Program">
     <Heading title="Program" subtitle="Fabbrica del Vapore" background={false}></Heading>
     <div class="program-container">
@@ -12,7 +13,7 @@ import programData from "../../assets/data/program.json";
             <Heading title="Program" subtitle="Fabbrica del Vapore" background={true}></Heading>
             <div class="day-selector">
                 {programData.map((dayData, index) => (
-                    <div class={`day ${index === 0 ? 'active-day' : ''}`} id={`day-${dayData.index}`}>
+                    <div class="day" id={`day-${dayData.index}`}>
                         <h3>{dayData.day}</h3>
                     </div>
                 ))}
@@ -70,17 +71,25 @@ import programData from "../../assets/data/program.json";
     }
     .day-selector {
         position: fixed;
-        top: 10vh;
+        top: 12vh;
     }
-    .active-day:not(.disable) {
-        padding-top: 3em;
+    .active-day:not(.disable),
+    .selected-day:not(.disable) {
         padding-bottom: 3em;
+
+        &:not(#day-1) {
+            padding-top: 3em;
+
+        }
+        padding-bottom: 3em;
+        h3 {
+            opacity: 1;
+
+        }
     }
-    .active-day h3 {
-        opacity: 1;
-    }
+ 
     .events {
-        margin-top: 10vh;
+        margin-top: 12vh;
     }
     .events-day>h2 {
         font-weight: normal;
@@ -121,6 +130,8 @@ import programData from "../../assets/data/program.json";
         day.addEventListener('mouseout', () => {
             document.querySelectorAll('.day').forEach(d => {
                 d.classList.remove('disable');
+                d.classList.remove('active-day');
+
             });
         });
     });
@@ -130,8 +141,11 @@ import programData from "../../assets/data/program.json";
 import { gsap } from "gsap";
 
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from "../../components/Footer.astro";
 
-gsap.registerPlugin(ScrollToPlugin)
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
 
 document.querySelectorAll('.day').forEach(day => {
@@ -139,20 +153,42 @@ document.querySelectorAll('.day').forEach(day => {
         const dayId = day.id;
         const eventId = `#events-${dayId}`;
         console.log(eventId);
+            gsap.to(window, { 
+                duration: 0.5, 
+                scrollTo: { 
+                    y: eventId, 
+                    autoKill: false 
+                } 
+            });
 
-        document.querySelectorAll('.day').forEach(d => {
-            d.classList.remove('active-day');
-        });
-        day.classList.add('active-day');
-
-        gsap.to(window, { 
-            duration: 0.5, 
-            scrollTo: { 
-                y: eventId, 
-                autoKill: false 
-            } 
-        });
     });
 });
 
+
+// Create ScrollTrigger for each events-day
+document.querySelectorAll('.events-day').forEach((eventsDay) => {
+    gsap.to('.day', {
+        scrollTrigger: {
+            trigger: eventsDay,
+            start: 'top 10%',
+            end: 'bottom 10%',
+            onEnter: () => {
+                const dayId = eventsDay.id.replace('events-day-', '');
+                document.querySelectorAll('.day').forEach(d => d.classList.remove('selected-day'));
+                const dayElement = document.querySelector(`#day-${dayId}`);
+                if (dayElement) {
+                    dayElement.classList.add('selected-day');
+                }
+            },
+            onEnterBack: () => {
+                const dayId = eventsDay.id.replace('events-day-', '');
+                document.querySelectorAll('.day').forEach(d => d.classList.remove('selected-day'));
+                const dayElement = document.querySelector(`#day-${dayId}`);
+                if (dayElement) {
+                    dayElement.classList.add('selected-day');
+                }
+            }
+        }
+    });
+});
 </script>
