@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     paragraphBox.innerHTML = `
       <h2>${locations[step].title}</h2>
       <h6>${locations[step].description}</h6>
-      <h3>SEE MORE ></h3>
+      <a href="${locations[step].innerLink}" class="see-more-link">
+        <h3 class="see-more">SEE MORE →</h3>
+      </a>
     `;
     titleBox.innerHTML = `
       <h3 style="text-align: center; margin: 0; padding: 0;">${locations[step].place}</h3>

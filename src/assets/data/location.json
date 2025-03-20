@@ -23,9 +23,9 @@
           "days": "Apr. 7–13",
           "time": "10:00-22:00"
         } 
-      ]
-    }
-  ,
+      ],
+      "innerLink": "/fabbricadelvapore"
+    },
 
   {
     "index": "1",
@@ -35,7 +35,8 @@
     "location": "Campus Bovisa Candiani, via Durando 10, Milano",
     "locationurl": "https://maps.app.goo.gl/WRiLr7s7EJrWLG5ZA",
     "opening": "Wednesday, April 9, 13:30",
-    "dates": "From April 9 to May 29 (Mon–Sat 10:00–19:00)"
+    "dates": "From April 9 to May 29 (Mon–Sat 10:00–19:00)",
+    "innerLink": "/designxdesigners"
   },
 
 
@@ -46,6 +47,7 @@
     "description": "At the SaloneSatellite, INTERDEPENDENCE is present with a monographic selection of eight experimental and thought-provoking communication design projects, titled “Anthropogenic Scenarios”, encouraging visitors to reflect on the relationship between Human / More than Human, and between Artificial / Natural.",
     "location": "Rho Fiera Milano, Corso Italia, Rho, Stand A10",
     "locationurl": "https://www.salonemilano.it/en/how-get-there",
-    "dates": "From April 8 to April 13 (9:30–18:30)"
+    "dates": "From April 8 to April 13 (9:30–18:30)",
+    "innerLink": "/salonesatellite"
   }
 ]
