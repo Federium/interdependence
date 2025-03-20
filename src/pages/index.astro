@@ -30,6 +30,7 @@ import mappa from  '../assets/img/MapImage.png';
   </div>
 
 
+<section class="container-section">
     <!-- SECTION 1 -->
     <section class="text-section section" id="section-1">
       <!-- LOGOS -->
@@ -79,6 +80,7 @@ import mappa from  '../assets/img/MapImage.png';
       </div>      
     </div>
   </section>
+</section>
   
   <!-- SECTION 3 -->
   <section class="text-section section">
@@ -419,7 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script> -->
 
 <!-- !!! Scroll to section from hero !!! -->
-<script>
+<!-- <script>
   import gsap from 'gsap';
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -475,7 +477,8 @@ document.addEventListener("DOMContentLoaded", () => {
       window.removeEventListener('wheel', handleWheel);
     };
   });
-</script>
+</script> -->
+
 
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
@@ -586,12 +589,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <style>
-
-.big-container {
-    overscroll-behavior: none;
+ .mostra {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-}
+    z-index: 1;
+  }
+
+  .container-section {
+    position: relative;
+    z-index: 2;
+    margin-top: 100vh;
+    background-color: #ffffff;
+  }
+
+  
+  .text-section {
+    z-index: 2;
+  }
+
+  .map-section {
+    z-index: 2;
+  }
+
 
 section {
     width: 100%;
@@ -931,8 +953,6 @@ transition: all 1s ease;
           object-fit: contain;
           max-width: 100%; /* Prevent overflow */
         }
-
-
 
 
 
