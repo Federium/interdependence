@@ -3,21 +3,27 @@ import PaginaLuogo from '../layouts/PaginaLuogo.astro'
 import bckImg from "/src/assets/img/designxdesigners.jpg";
 import ChasingWord from '../components/ChasingWord.astro';
 
+import locations from '../assets/data/location.json'
+
+const location = locations[1];
+
 const info = {
-    index: 2, // Valore da usare per settare l'header
-    name: "DesignXDesigners",
-    opening: "Tuesday, 16 April 2024, 18.30",
-    location: "Fabbrica del Vapore, Spazio Messina, via G. C. Procaccini 4, Milan",
-    dates: "From 16 to 21 April 2024 (Tue-Sat, 11.00-22.00; Sun, 11.00-17.00)",
-    description: "An international exhibition mixing and matching the projects of Politecnico di Milano (Design, Architecture, and Engineering) students with those of 50 international design schools from all over the world. The exhibition is animated by a palimpsest of talks and events, including the extemporaneous performance of Campo Teatrale. Conceived and directed by Simon Waldvogel and inspired by his work “WDWGFH - Where Do We Go From Here?”, the performance aims to create a fragmented and interconnected experience where the different performing languages and the surrounding space blend synergetically.",
+    index: location.index,
+    place: location.place,
+    name: location.title,
+    opening: location.opening,
+    location: location.location,
+    dates: location.dates,
+    description: location.description,
+    locationUrl: location.locationurl,
     backgroundImg: bckImg
 }
 
+
 ---
 
-<PaginaLuogo index = {info.index} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} backgroundImg = {info.backgroundImg.src}>
+<PaginaLuogo index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src}>
 
-<ChasingWord></ChasingWord>
 
 
 </PaginaLuogo>

@@ -3,18 +3,49 @@
     "index": 1,
     "place": "Fabbrica del Vapore",
     "title": "Exploring Opposites",
-    "description": "At the Fabbrica del Vapore, INTERDEPENDENCE takes the form of an international exhibition, bringing together projects by students from Politecnico di Milano and a selection of design universities worldwide. The exhibition showcases projects through visuals, prototypes and videos, and is further enriched by a diverse program of initiatives, including talks, workshops, performances, and networking activities."
-  },
+    "description": "At the Fabbrica del Vapore, INTERDEPENDENCE takes the form of an international exhibition, bringing together projects by students from Politecnico di Milano and a selection of design universities worldwide. The exhibition showcases projects through visuals, prototypes and videos, and is further enriched by a diverse program of initiatives, including talks, workshops, performances, and networking activities.",
+    "location": "Fabbrica del Vapore, Via Giulio Cesare Procaccini 4, Milano",
+    "locationurl": "https://maps.app.goo.gl/xT4oRdrcBfBM8PZa9",
+    "opening": "Saturday, April 5, 17:30",
+    "dates": "From April 5 to April 15",
+    "hours": 
+      [
+
+        {
+          "day": "Apr. 5",
+          "time": "17:30-19:00"
+        },
+        {
+          "days": "Apr. 6, 14, 15",
+          "time": "10:00-19:00"
+        },
+        {
+          "days": "Apr. 7–13",
+          "time": "10:00-22:00"
+        } 
+      ]
+    }
+  ,
+
   {
     "index": 2,
-    "place": "SaloneSatellite",
-    "title": "Human / More-than-human",
-    "description": "At the SaloneSatellite, INTERDEPENDENCE is present with a monographic selection of eight experimental and thought-provoking communication design projects, titled “Anthropogenic Scenarios”, encouraging visitors to reflect on the relationship between Human / More than Human, and between Artificial / Natural."
-  },
-  {
-    "index": 3,
     "place": "Campus Bovisa",
     "title": "Design X Designers",
-    "description": "At the Campus Bovisa Durando, INTERDEPENDENCE is interpreted through the DesignXDesigners exhibition, which showcases works by students from various study programs at the School of Design of Politecnico di Milano."
+    "description": "At the Campus Bovisa Durando, INTERDEPENDENCE is interpreted through the DesignXDesigners exhibition, which showcases works by students from various study programs at the School of Design of Politecnico di Milano.",
+    "location": "Campus Bovisa Candiani, via Durando 10, Milano",
+    "locationurl": "https://maps.app.goo.gl/WRiLr7s7EJrWLG5ZA",
+    "opening": "Wednesday, April 9, 13:30",
+    "dates": "From April 9 to May 29 (Mon–Sat 10:00–19:00)"
+  },
+
+
+  {
+    "index": 3,
+    "place": "SaloneSatellite",
+    "title": "Human / More-than-human",
+    "description": "At the SaloneSatellite, INTERDEPENDENCE is present with a monographic selection of eight experimental and thought-provoking communication design projects, titled “Anthropogenic Scenarios”, encouraging visitors to reflect on the relationship between Human / More than Human, and between Artificial / Natural.",
+    "location": "Rho Fiera Milano, Corso Italia, Rho, Stand A10",
+    "locationurl": "https://www.salonemilano.it/en/how-get-there",
+    "dates": "From April 8 to April 13 (9:30–18:30)"
   }
 ]

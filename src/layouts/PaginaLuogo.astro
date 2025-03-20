@@ -2,33 +2,44 @@
 import '../style/global.css';
 import Layout from './Layout.astro';
 import type { string } from 'astro:schema';
+import ButtonSmall from '../components/ButtonSmall.astro';
+import { Image } from 'astro:assets';
+
+import arrow from '../assets/icons/arrow-right-black.svg';
+
 
 export interface Props {
     index: number;
-    name: string;
-    opening: string;
+    place: string;
+    name?: string;
+    opening?: string;
     location: string;
     dates: string;
     description: string;
+    locationUrl: string;
     backgroundImg: string;
+    hours?: object;
 }
 
-const { index, name, opening, location, dates, description, backgroundImg} = Astro.props as Props;
-const title = name + " – interdependence"; 
+const { index, place, name, opening, location, dates, description, locationUrl, backgroundImg, hours} = Astro.props as Props;
+const title = place + " – interdependence"; 
 const infos = [
-    {
+    opening && {
         label: "OPENING",
-        txt: opening
+        txt: opening,
+        url:""
     },
     {
         label: "LOCATION",
-        txt: location
+        txt: location,
+        url: locationUrl
     },
     {
         label: "DATES",
-        txt: dates
+        txt: dates,
+        url:""
     }
-];
+].filter(Boolean);
 ---
 
 <Layout title = {title}>
@@ -36,20 +47,54 @@ const infos = [
     <div class="content">
         <div class="gradient-overlay">
             <div class="text-container">
-                <h1 class="main-title">
+                <h1>{name}</h1>
+                <h2 class="main-title">
                     <div class="interdependence gradient-text right">interdependence </div>
-                    <div> @ {name}</div>
-                </h1>
+                    <div class="place"> @ {place}</div>
+                </h2>
                 <div class="info-container">
                     {
                         infos.map(info => (
-                            <div class="info-container-element">
-                                <div class = "info-label gradient-text light">{info.label}</div>
-                                <div class = "info-txt">{info.txt}</div>
-                            </div>
+                            info.url ? (
+                                <a href={info.url} target="_blank" class="info-container-element linked">
+                                    <div class="info-label gradient-text light">{info.label}</div>
+                                    <div class="info-txt">{info.txt}</div>
+                                    <span><Image src={arrow} alt = "Freccia a destra"/></span>
+                                </a>
+                            ) : (
+                                <div class="info-container-element">
+                                    <div class="info-label gradient-text light">{info.label}</div>
+                                    <div class="info-txt">{info.txt}</div>
+                                </div>
+                            )
                         ))
                     }
+                       {hours && (
+                        <div class="info-container-element" id="hours">
+                    <div class="info-label gradient-text light"></div>
+                     
+                     <div class="info-txt">
+                          <table class="hours-table">
+                             <tbody>
+                              {hours.map(hour => (
+                                   <tr>
+                                     <td>{hour.day || hour.days}</td>
+                                     <td>{hour.time}</td>
+                                 </tr>
+                           ))}
+                             </tbody>
+                              </table>
+                         </div>
+                        </div>
+                            
+                     
+
+                    )}
+
+                 
+    
                 </div>
+
             </div>
         </div>
         <div class="details">
@@ -60,9 +105,7 @@ const infos = [
             <slot/>
         </div>
     </div>
-
 </Layout>
-
 
 <style define:vars={{"bg-img": `url('${backgroundImg}')`}}>
     .background-image {
@@ -83,14 +126,18 @@ const infos = [
             top: 0;
             width: 100%;
             height: 100vh;
-            background: linear-gradient(to top, white 5%, transparent 70%);
+            background: linear-gradient(to top, white 5%, rgba(255, 255, 255, 0.884) 25%, transparent 90%);
         }
 
         .main-title {
             display: flex;
             flex-wrap: wrap;
+            h2 {
+                padding: 0;
+            }
         }
-
+        .place {
+        }
         .text-container {
             position: absolute;
             bottom: 20px;
@@ -113,7 +160,10 @@ const infos = [
         .info-container-element { 
             display: flex;
             padding: 10px 0;
+        }
 
+        .info-container-element#hours {
+            padding-top: 0;
         }
         .info-label {
             width: 20%;
@@ -131,6 +181,30 @@ const infos = [
             max-width: 1024px;
         }
 
+        span {
+        position: relative;
+        top:0.1em;
+        padding-left: 10px;
+        transition: all 0.5s ease;
+    
+        }
+
+        .linked:hover span {
+            padding-left: 60px;
+        }
+
+        td {
+            padding-left: 0;
+            padding-right: 2em;
+            color: rgb(92, 92, 92);
+            border: 0;
+        }
+        table {
+            text-indent: 0;
+            border-spacing: 0;
+
+        }
+        h1,h2 {margin:0}
         @media(max-width:768px) {
             .info-container-element {
                 flex-direction: column;
