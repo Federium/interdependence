@@ -1,9 +1,56 @@
 ---
 import Contenuto from "../layouts/Contenuto.astro";
 import Heading from "../components/Heading.astro";
+import ButtonSmall from "../components/ButtonSmall.astro";
 
 ---
 <Contenuto title="About">
     <Heading title="About" background={true}></Heading>
-    CIAOOO
-</Contenuto>
+
+    <div class="content-main">
+
+    </div>
+    <h2 class="gradient-text quote">
+        In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
+    </h2>
+
+    <p class="txt-large">
+        The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents <span class="bold gradient-text right">“INTERDEPENDENCE: exploring opposites”</span>, a set of initiatives to reflect on how design interacts with polarities and contrasting dimensions, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
+    </p>
+
+    <p class="txt-small">
+        Opposites exist in an <span class="bold">inherently interdependent state</span>: in philosophy, physics, psychology and spirituality, the opposites are complementary forces, where one cannot exist without the other.  Indeed, opposing forces influence and rely on each other to create balance or transformation: they are connected by a continuous spectrum of ways of being that blend and <b>reconcile the extremes</b>.  
+    </p>
+
+
+    <p class="txt-small">
+        As the gap between these opposites grows, it can lead to increased tension, misunderstanding, and conflict, making it harder to find common ground. Yet, the interdependence between these polarities can also drive debate, reflection, and the evolution of ideas, if managed constructively. <br/>
+        In <b>Design</b>, these polarities are not problems to be solved but <b>dynamics to be managed</b>.  
+        </p>
+
+        <p class="txt-small">
+            With the aim of exploring the interdependence of opposites, the Polimi Design System organizes a <b>widespread event</b>, in close relationship with the Design Week and the city, taking place in three main venues - <b>Fabbrica del Vapore</b>, <b>Campus Bovisa Durando</b>, and <b>SaloneSatellite</b>. <br/>In addition to them, a constellation of other smaller initiatives populates the city. 
+        </p>
+    
+    
+    <ButtonSmall label="PRESS RELEASE"></ButtonSmall>
+    </Contenuto>
+
+    <style>
+        h2,p {
+            width:80%;
+            min-width: 768px;
+        }
+        .bold {
+            font-weight: bold;
+        }
+
+        p.txt-large {
+            margin-bottom: 3em;
+        }
+
+        p.txt-small {
+            font-size: 1.2em;
+        }
+
+    </style>
