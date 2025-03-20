@@ -1,0 +1,166 @@
+[
+  {
+    "index": "1",
+    "day": "April 5",
+    "weekday": "Wednesday",
+    "events": [
+      {
+        "time": "18.30-22.00",
+        "title": "Grand opening",
+        "name": "",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "index": "2",
+    "day": "April 6",
+    "weekday": "Thursday",
+    "events": [
+      {
+        "time": "11.30-12.30",
+        "title": "Material Intelligence_ Beyond Image",
+        "name": "Tania Winkler",
+        "description": "With both AI and Material Intelligence rooted in collective memory, this year superMATTER RCA Platform proposes materiality as container (repository) and signs of human capital to explore the incursion of new technologies in the production of new spatial identities."
+      },
+      {
+        "time": "13.30-14.30",
+        "title": "Fashion sustainability",
+        "name": "Zang Yingchun",
+        "description": ""
+      },
+      {
+        "time": "14.30-15.30",
+        "title": "Design and design schools in/for the ecological transition. Care, proximity, empowering, communing: four keywords to orient design education",
+        "name": "Ezio Manzini",
+        "description": "How do design and design education change if, instead of focusing on designing for the production of new products, we focus on designing for care, proximity, empowering and communing?"
+      },
+      {
+        "time": "15.30-16.30",
+        "title": "The Hidden Neighborhood.",
+        "name": "Francesca Piredda, Mariana Ciancia, Silvia Barozzi, & students",
+        "description": "In collaboration with Off Campus San Vittore, design students developed transmedia documentaries to include prison in the storytelling of the neighborhood."
+      },
+      {
+        "time": "17.00-18.00",
+        "title": "Climate Curriculum(s)",
+        "name": "Graeme Brooker",
+        "description": "How does the RCA Interior Design Programme engage with the challenges we are currently facing in the world? Climate Curriculums describes thinking and work that relates to climatic and socially based challenges."
+      },
+      {
+        "time": "18.00-19.00",
+        "title": "Spatial design experiences for sustainable futures in hospitality",
+        "name": "Francesco Scullica and Elena Elgani with a group of students",
+        "description": "What future for hospitality? Presentation of research experiences and projects for the application of sustainability principles in the hospitality sector."
+      }
+    ]
+  },
+  {
+    "index": "3",
+    "day": "April 7",
+    "weekday": "Friday",
+    "events": [
+      {
+        "time": "12.00-13.00",
+        "title": "Enabling circularity and clean energy with thermochemical waste valorization and upcycling: a game of interdependencies",
+        "name": "Matteo Pelucchi",
+        "description": "Thermochemical conversion of waste and its integration with renewable energy and value chains of the chemical industry is expected to play a key role in production of carbon free energy carriers and chemicals."
+      },
+      {
+        "time": "13.00-14.00",
+        "title": "Aurora: Ai assistance to mental Well-Being",
+        "name": "Emanuele Andaloro, Martina Braidotti, Matteo Lombardi & Students",
+        "description": "Aurora is an empathetic and personalized AI that evolves with the user to take care of their mental wellbeing."
+      },
+      {
+        "time": "14.00-15.30",
+        "title": "Alimentazione del Futuro: verso un Mondo Sostenibile",
+        "name": "Marita Canina & students",
+        "description": "Un talk a più voci del Dipartimento per il Future Food del Ministero per il Futuro. Unisciti a noi mentre immaginiamo insieme un futuro in cui il cibo non solo nutre il corpo, ma anche il pianeta. </br></br> [event in Italian]"
+      },
+      {
+        "time": "16.30-17.30",
+        "title": "Phenomenology of a young design student",
+        "name": "Collettivo STUPIDIO",
+        "description": "Exhaustion in front of the screen, anxiety about the future, but a burning desire for knowledge (and to make it shine before the eyes of others). Will new designers be able to emerge from the storm of doubts and long hours spent at the computer? </br> </br>  [event in Italian]"
+      },
+      {
+        "time": "18.00-19.00",
+        "title": "Zen and Design",
+        "name": "Master Jiqun",
+        "description": "Buddist master Jiqun meets students, scholars and designers."
+      }
+    ]
+  },
+  {
+    "index": "4",
+    "day": "April 8",
+    "weekday": "Saturday",
+    "events": [
+      {
+        "time": "14.30-15.00",
+        "title": "Design education in Japan: interdisciplinarity",
+        "name": "Setsu Ito, University of Tsukuba, Japan",
+        "description": "A flexible education and research structure and a university system thought to meet the needs of the next generation."
+      },
+      {
+        "time": "15.00-15.30",
+        "title": "Design education in Japan: nature centricity",
+        "name": "Shinobu Ito - University of Tokyo-RCAST, Japan",
+        "description": "Japan's original science, technology, art and design for the creation of a sustainable and inclusive society."
+      },
+      {
+        "time": "15.30-16.30",
+        "title": "Moving minds with objects",
+        "name": "Odo Fioravanti",
+        "description": "The industrial design practice as a researching tool."
+      },
+      {
+        "time": "16.30-17.00",
+        "title": "Interior Design - a relational practice - EVENT CANCELLED",
+        "name": "Suzie Attiwill, School of Architecture & Urban Design, RMIT University, Melbourne, Australia",
+        "description": "Thinking time before space, interior design is re-framed as a relational practice of making arrangements and connections immersed in social-cultural-historical-mental-political-environmental ecologies."
+      },
+      {
+        "time": "17.00-18.00",
+        "title": "Exo-publishing for social innovation",
+        "name": "Elena Caratti, Sara Lavazza e Francesco Scagliarini",
+        "description": "Social Indie Magazines as an expression of the interdependence between research areas, content, codes and the socio-political context.</br> </br>  [event in Italian]"
+      }
+    ]
+  },
+  {
+    "index": "5",
+    "day": "April 9",
+    "weekday": "Sunday",
+    "events": [
+      {
+        "time": "11.00-13.00",
+        "title": "Where Do We Go From Here",
+        "name": "Campo Teatrale"
+      },
+      {
+        "time": "15.00-17.00",
+        "title": "Where Do We Go From Here",
+        "name": "Campo Teatrale"
+      },
+      {
+        "time": "18.00-20.00",
+        "title": "Where Do We Go From Here",
+        "name": "Campo Teatrale"
+      }
+    ]
+  },
+  {
+    "index": "6",
+    "day": "April 10",
+    "weekday": "Monday",
+    "events": [
+      {
+        "time": "11.00-13.00",
+        "title": "Where Do We Go From Here",
+        "name": "Campo Teatrale"
+      }
+    ]
+  }
+]

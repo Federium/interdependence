@@ -18,8 +18,8 @@ export const mySketch = (width, height) => (p) => {
   //da settings
   let settings = {
     canvas: {
-      width: p.windowWidth,
-        height: p.windowHeight * 1.2,
+      width: width,
+      height: height,
     },
     number: n,  // valore iniziale di n
     zDistribution: 1,
@@ -56,8 +56,6 @@ export const mySketch = (width, height) => (p) => {
   function setup() {
    // width = p.windowWidth;
    // height = p.windowHeight;
-   height = p.windowHeight * 1.2;
-   width = p.windowWidth;
 
     canvas = p.createCanvas(width, height, p.WEBGL);
     canvas.parent("p5-canvas");
@@ -70,7 +68,7 @@ export const mySketch = (width, height) => (p) => {
 
     observationPoint = 0;
     const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
-
+    console.log(normalizedMouse);
   }
 
   function draw() {
@@ -165,8 +163,6 @@ export const mySketch = (width, height) => (p) => {
 
   function windowResized() {
     console.log("ciao");
-    width = p.windowWidth;
-    height = p.windowHeight*1.2;
     p.resizeCanvas(width, height);
   }
 

@@ -38,13 +38,13 @@ background && <>
         top:0;
         left: 0;
         width: 100vw;
-        height: 30vh;
+        height: 35vh;
         z-index: -2 !important;
     }
 
     .header-gradient {
         z-index: 0 !important;
-        background: linear-gradient(to top, white 5%, rgba(255, 255, 255, 0.5) 70%);
+        background: linear-gradient(to top, white 5%, rgba(255, 255, 255, 0.849) 50%, rgba(255, 255, 255, 0.5) 100%);
     }
 
     #p5-canvas {
@@ -57,7 +57,7 @@ background && <>
     }
 
     .header-container {
-        position: sticky;
+        position: fixed;
         margin-top: 20px;
         margin-bottom: 30px;
     }
@@ -67,12 +67,11 @@ background && <>
     }
     .title {
         margin: 0;
-        mix-blend-mode: difference;
+        padding-bottom: 0.2em;
     }
-    .subtitle {
-        margin-top: 5px;
-        font-size: ;
+    h3.subtitle {
         font-weight: normal;
+        padding-top: 0;
     }
 </style>
 
@@ -85,7 +84,7 @@ background && <>
     
     console.log('Hello from JavaScript!')
     
-    new p5(mySketch(window.innerWidth,0.3*window.innerHeight), document.getElementById('p5-canvas'))
+    new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'))
 </script>
 
 </>}

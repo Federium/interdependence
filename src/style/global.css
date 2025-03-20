@@ -188,8 +188,12 @@ section {
     width: 100%;
 }
 
+.col-9 {
+    width: 75%;
+}
+
 .col-8 {
-    flex: 1 0 66.66%;
+    width: 66.6%;
 }
 
 .col-6 {
@@ -197,11 +201,11 @@ section {
 }
 
 .col-4 {
-    flex: 1 0 100%; /* SISTEMARE */
+    width: 33.3%; /* SISTEMARE */
 }
 
 .col-3 {
-    flex: 1 0 25%;
+    width: 25%;
 }
 
 

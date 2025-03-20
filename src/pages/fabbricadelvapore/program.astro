@@ -1,0 +1,158 @@
+---
+import Contenuto from "../../layouts/Contenuto.astro";
+import Heading from "../../components/Heading.astro";
+
+import programData from "../../assets/data/program.json";
+
+---
+<Contenuto name="Program">
+    <Heading title="Program" subtitle="Fabbrica del Vapore" background={false}></Heading>
+    <div class="program-container">
+        <div class="col-3 days">
+            <Heading title="Program" subtitle="Fabbrica del Vapore" background={true}></Heading>
+            <div class="day-selector">
+                {programData.map((dayData, index) => (
+                    <div class={`day ${index === 0 ? 'active-day' : ''}`} id={`day-${dayData.index}`}>
+                        <h3>{dayData.day}</h3>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="col-9 events">
+            {programData.map((dayData) => (
+                <div class="events-day" id={`events-day-${dayData.index}`}>
+                    <h2>{dayData.weekday}, {dayData.day} <hr /></h2>
+                   
+                    {dayData.events.map((event) => (
+                        <div class="event" key={event.time}>
+                            <div class="event-date">
+                                <span class="time">{event.time}</span>
+                            </div>
+                            <div class="event-title">
+                                <h2>{event.title}</h2>
+                            </div>
+                            {event.name && (
+                                <div class="event-name">
+                                    {event.name}
+                                </div>
+                            )}
+                            {event.description && (
+                                <div class="event-description">
+                                    <p>{event.description}</p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
+    </div>
+</Contenuto>
+
+<style>
+    .program-container {
+        display: flex;
+    }
+    .days {
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+    }
+    .day {
+        transition: all 0.3s ease;
+        align-items: center;
+        position: sticky;
+    }
+    .day h3 {
+        color: black;
+        opacity: 0.3;
+        transition: opacity 0.3s;
+    }
+    .day-selector {
+        position: fixed;
+        top: 10vh;
+    }
+    .active-day:not(.disable) {
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+    .active-day h3 {
+        opacity: 1;
+    }
+    .events {
+        margin-top: 10vh;
+    }
+    .events-day>h2 {
+        font-weight: normal;
+        margin-bottom: 0.2em;
+    }
+    .event {
+        margin-bottom: 6em;
+    }
+    .event-date,
+    .event-name {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-right: 1em;
+    }
+    .time {
+        font-weight: normal;
+    }
+    .event-title h2 {
+        margin-bottom: 0;
+        padding-bottom: 0.3em;
+    }
+    .event-description {
+        padding-top: 2em;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.day').forEach(day => {
+        day.addEventListener('mouseover', () => {
+            document.querySelectorAll('.day').forEach(d => {
+                d.classList.remove('active-day');
+                d.classList.add('disable');
+            });
+            day.classList.add('active-day');
+            day.classList.remove('disable');
+        });
+
+        day.addEventListener('mouseout', () => {
+            document.querySelectorAll('.day').forEach(d => {
+                d.classList.remove('disable');
+            });
+        });
+    });
+</script>
+
+<script>
+import { gsap } from "gsap";
+
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin)
+
+
+document.querySelectorAll('.day').forEach(day => {
+    day.addEventListener('click', () => {
+        const dayId = day.id;
+        const eventId = `#events-${dayId}`;
+        console.log(eventId);
+
+        document.querySelectorAll('.day').forEach(d => {
+            d.classList.remove('active-day');
+        });
+        day.classList.add('active-day');
+
+        gsap.to(window, { 
+            duration: 0.5, 
+            scrollTo: { 
+                y: eventId, 
+                autoKill: false 
+            } 
+        });
+    });
+});
+
+</script>
