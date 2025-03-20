@@ -277,14 +277,15 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
   }
 
   .header_mobile {
-    background-color: none;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.97), transparent);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     width: 100%;
-    padding: 10px 15px;
-    mix-blend-mode: difference;
+    padding: 10px 15px 30px 15px;
+    mix-blend-mode: luminosity;
+    transition: all 0.5s ease;
   }
   .header__content {
     max-width: 1200px;
@@ -292,6 +293,8 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
     margin: 0;
     display: flex;
     justify-content: space-between;
+    mix-blend-mode: difference;
+
   }
 
   .header__logo {
@@ -328,10 +331,10 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
       position: absolute;
       top: 70px;
       left: 0;
-      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0);
       width: 100%;
-      height: 100vh;
-      height: 0vh;
+      height: 100vh; /* era a 0 */
+      opacity: 0;
       overflow: hidden;
       transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
@@ -340,8 +343,13 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
       width: 100%;
     }
     :global(.menu-open) .header__menu {
-      height: 100vh;
+      opacity: 1;
       z-index: 99999;
+      background-color: transparent;
+    }
+
+    :global(.menu-open) .header_mobile {
+      padding-bottom: 400vh;
     }
     .header__menu li a {
       color: var(--gradient);
@@ -352,15 +360,15 @@ const { subsection = false, subsectionActive=0, active} = Astro.props as Props;
 
     .icon-hamburger {
       height: 50px;
-      width: 40px;
+      width: 35px;
       margin-left: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
     }
     .icon-hamburger span {
-      height: 4px;
-      width: 40px;
+      height: 2px;
+      width: 35px;
       background: rgb(255, 255, 255);
       position: relative;
       display: block;

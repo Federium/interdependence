@@ -145,7 +145,7 @@ const infos = [
             bottom: 20px;
             width: 100%;
             color: black;
-            font-size: 24px;
+            font-size: clamp(0.8rem, 5vw, 1.5rem);
             padding: 20px 10%;
         }
         
@@ -173,6 +173,10 @@ const infos = [
             color: var(--gradient);
             padding-right: 10px;
             min-width: 150px;
+            margin-bottom: 0.5em ;
+        }
+        .info-txt {
+            padding-right: 10px;
         }
         .details {
             padding: 20px 10%;
@@ -186,7 +190,7 @@ const infos = [
         span {
         position: relative;
         top:0.1em;
-        padding-left: 10px;
+        padding-left: 0;
         transition: all 0.5s ease;
     
         }

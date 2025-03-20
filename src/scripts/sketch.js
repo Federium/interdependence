@@ -162,8 +162,9 @@ export const mySketch = (width, height) => (p) => {
   }
 
   function windowResized() {
-    console.log("ciao");
-    p.resizeCanvas(width, height);
+    console.log(width);
+
+    p.resizeCanvas(p.windowWidth, p.windowHeight);
   }
 
   async function restart() {

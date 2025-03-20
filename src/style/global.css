@@ -61,6 +61,7 @@ html {
     cursor: none;
     background: white;
     scrollbar-width: none;
+    overflow-x: hidden;
 }
 
 a {

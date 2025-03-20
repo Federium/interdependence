@@ -598,6 +598,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   .container-section {
+    -webkit-mask-image: linear-gradient(to top, rgb(255, 255, 255) 99%, transparent 100%);
+  
+  mask-image: linear-gradient(to top, black 90%, transparent 100%);
     position: relative;
     z-index: 2;
     margin-top: 100vh;
@@ -624,6 +627,11 @@ section {
     text-align: center;
     padding: min(5rem, 6%);
     z-index: 1;
+}
+
+#section-1 {
+
+
 }
 
 .container {
