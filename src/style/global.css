@@ -60,6 +60,7 @@ html {
     font-family: 'Milligram', sans-serif;
     cursor: none;
     background: white;
+    scrollbar-width: none;
 }
 
 a {
@@ -149,7 +150,7 @@ h6 {
 
 p {
     font-family: 'Milligram Text', sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, 5vw, 1.5rem);
     line-height: 1.4;
     color: var(--textColor);
     margin: 0;
@@ -166,7 +167,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .container {
@@ -178,7 +179,7 @@ section {
 }
 
 [class^="col-"] {
-    padding: 20px;
+    /* padding: 20px; */
     flex-grow: 1;
 
 }

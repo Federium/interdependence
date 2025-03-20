@@ -44,7 +44,7 @@ import mappa from  '../assets/img/MapImage.png';
       </div>
       <div class="container">
           <div class="col-6">
-              <h2 class="gradient-text">
+              <h2 class="gradient-text quote">
                 In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
               </h2>
               <p>The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents “INTERDEPENDENCE: exploring opposites”, a set of initiatives to reflect on how design interacts with polarities and contrasting dimensions, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
@@ -294,6 +294,7 @@ import mappa from  '../assets/img/MapImage.png';
 
 
 
+
 <!-- ---------- SCROLL ---------- -->
 <!-- ---------- SCROLL ---------- -->
 <!-- ---------- SCROLL ---------- -->
@@ -417,7 +418,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script> -->
 
+<!-- !!! Scroll to section from hero !!! -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+    const hero = document.querySelector(".mostra");
+    const firstSection = document.querySelector(".text-section");
+    let isInHero = true;
+    let isAnimating = false;
+
+    function goToSection(target: HTMLElement) {
+      if (isAnimating) return;
+      
+      isAnimating = true;
+      
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: target,
+          autoKill: false
+        },
+        ease: "power2.inOut",
+        onComplete: () => {
+          isAnimating = false;
+          isInHero = target === hero;
+        }
+      });
+    }
+
+    function handleWheel(e: WheelEvent) {
+      if (isAnimating) return;
+
+      const isScrollingDown = e.deltaY > 0;
+      
+      if (isInHero && isScrollingDown) {
+        e.preventDefault();
+        if (firstSection) {
+          goToSection(firstSection as HTMLElement);
+        }
+      } else if (!isInHero && !isScrollingDown && firstSection && window.scrollY <= (firstSection as HTMLElement).offsetTop) {
+        e.preventDefault();
+        if (hero) {
+          goToSection(hero as HTMLElement);
+        }
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  });
+</script>
 
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
 <!-- ---------- ANIMAZIONE HEADER ---------- -->
@@ -462,6 +520,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 
+<!-- ANIMAZIONE HEADER MOBILE -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".header_mobile", {
+    y: -100,
+    opacity: 1,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 50%",
+      toggleActions: "restart none none reverse",
+       markers: false,
+    },
+  }); 
+
+
+  });
+
+
+</script>
+
+
+
+<!-- ---------- ANIMAZIONE TESTI ---------- -->
+<!-- ---------- ANIMAZIONE TESTI ---------- -->
+<!-- ---------- ANIMAZIONE TESTI ---------- -->
+
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".quote", {
+    y: 100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 50%",
+      toggleActions: "restart none none reverse",
+       markers: false,
+    },
+  }); 
+
+
+  });
+
+
+</script>
+
+
 
 
 
@@ -482,7 +601,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: min(5rem, 8%);
+    padding: min(5rem, 6%);
     z-index: 1;
 }
 
@@ -491,7 +610,7 @@ section {
     flex-wrap: wrap;
     width: 90%;
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 0;
     z-index: 1;
 }
 
@@ -578,7 +697,7 @@ h1,h2,h3,h4,h5,h6, p{
   color: rgb(0, 0, 0);
   width: 100%;
   height: 100%;
-  padding: 75px;
+  padding: min(5rem, 6%);
   display: flex;
   align-items: flex-end;
 }
@@ -814,4 +933,56 @@ transition: all 1s ease;
         }
 
 
+
+
+
+
+
+
+
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+
+.paragraph-box {
+  width: 100%;
+}
+.title-container {
+  top: 15%;
+}
+.pointer-blur {
+  top: 20%;
+}
+
+.logo-container {
+  margin-top: 4rem;
+}
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 85%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+
 </style>
+
+
+
+
+
