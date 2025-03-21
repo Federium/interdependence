@@ -19,20 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
     { scale: 1.5, x: 180, y: -100 }       // Second location
   ];
 
-  const updateContent = (step) => {
-    console.log(step);
-    document.getElementById('location-title').textContent = locations[step].title;
-    document.getElementById('location-description').textContent = locations[step].description;
-    const mapButton = document.getElementById('map-button');
-    mapButton.href = locations[step].innerLink;
+  const updateContent = (step, direction) => {
+    // console.log(step);
+    // document.querySelector('.paragraph-box').classList.add('show');
+    // document.getElementById('location-title').textContent = locations[step].title;
+    // document.getElementById('location-description').textContent = locations[step].description;
+    // const mapButton = document.getElementById('map-button');
+    // mapButton.href = locations[step].innerLink;
+    
+    if (direction === "down") {
+      document.querySelector(`#box-${step}`).classList.add('show');
+      if (step > 0) {
+        document.querySelector(`#box-${step - 1}`).classList.add('hide');
+      }
+    }
 
-    // paragraphBox.innerHTML = `
-    //   <h2>${locations[step].title}</h2>
-    //   <h6>${locations[step].description}</h6>
-    //   <a href="${locations[step].innerLink}" class="see-more-link">
-    //     <h3 class="see-more" >SEE MORE <img src="/arrow-right-black.svg"/> </h3>
-    //   </a>
-    // `;
+    if (direction === "up") {
+      document.querySelector(`#box-${step}`).classList.remove('hide');
+      if (step < totalSteps - 1) {
+        document.querySelector(`#box-${step + 1}`).classList.remove('show');
+      }
+    }
+
     titleBox.innerHTML = `
       <h3 style="text-align: center; margin: 0; padding: 0;">${locations[step].place}</h3>
     `;
@@ -47,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  let prevProgress = 0; // Add this variable to track previous progress
+
   ScrollTrigger.create({
     trigger: ".map-section",
     start: "top top",
@@ -56,16 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
     scrub: 1,
     anticipatePin: 1,
     snap: {
-      snapTo: [0, 0.5, 1], // Snap points for each position
-      duration: { min: 0.2, max: 0.8 },
+      snapTo: [0, 0.5, 1],
+      duration: { min: 0.5, max: 1.5 },
       ease: "power1.inOut"
     },
     onUpdate: (self) => {
+      // Determine scroll direction
+      const direction = self.progress > prevProgress ? 'down' : 'up';
+      console.log('Scroll direction:', direction);
+      
       let newIndex = Math.min(Math.floor(self.progress * totalSteps), totalSteps - 1);
       if (newIndex !== index) {
         index = newIndex;
-        updateContent(index);
+        updateContent(index,direction);
       }
+      
+      prevProgress = self.progress; // Update previous progress
     }
   });
 
