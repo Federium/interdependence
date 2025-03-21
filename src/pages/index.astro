@@ -5,12 +5,14 @@ import Hero from '../components/Hero.astro';
 import categories from "../assets/data/categories.json";
 import locations from '../assets/data/location.json';
 import Map from '../components/Map.astro';
+import CategorySection from '../components/CategorySection.astro';
 
 import {Image} from 'astro:assets';
 import logoPolimi from '../assets/logos/Polimi.svg';
 import logoPoliDesign from '../assets/logos/Poli.design.svg';
 import logoDesignWeek from '../assets/logos/logo-design-week.png';
 import mappa from  '../assets/img/MapImage.png';
+import CategoryItem from '../components/CategoryItem.astro';
 
 /* const textContent = location.map(loc => ({
   title: loc.title,
@@ -84,7 +86,7 @@ import mappa from  '../assets/img/MapImage.png';
   <!-- SECTION 3 -->
   <section class="text-section section">
       <div class="container">
-          <div class="col-4">
+          <!-- <div class="col-4">
               <p>
                 At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives. The opening of the exhibition will be on Tuesday, April 16, at 18:30.
                 The Campus Bovisa Durando hosts the DesignXDesigners exhibition, with a display of works by students from the Polimi Design System.
@@ -114,7 +116,13 @@ import mappa from  '../assets/img/MapImage.png';
                         </div>
                 ))}
             </div>
-          </div>
+          </div> -->
+          <div class = "categories-container">
+            {
+                categories.map(category => (
+                <CategorySection opposite1={category.opposite1} opposite2={category.opposite2} description={category.description} descriptionExtra={category.descriptionExtra}></CategorySection>
+            ))}
+        </div>
       </div>
   </section>
 </section>
@@ -605,6 +613,7 @@ document.addEventListener("DOMContentLoaded", () => {
     z-index: 2;
     margin-top: 100vh;
     background-color: #ffffff;
+    padding: 0;
   }
 
   

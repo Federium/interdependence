@@ -164,7 +164,13 @@ p {
     margin-bottom: 0.5em;
 }
 
+p.txt-large {
+    margin-bottom: 3em;
+}
 
+p.txt-small {
+    font-size: 1.2em;
+}
 
 section {
     width: 100%;

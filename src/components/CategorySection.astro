@@ -1,0 +1,198 @@
+---
+
+export interface Props {
+    opposite1: string;
+    opposite2: string;
+   description:string;
+   descriptionExtra?:string;
+
+}
+
+const { opposite1, opposite2, description, descriptionExtra=""} = Astro.props as Props;
+
+---
+
+<div class = "category-container">
+    <div class="category-opposite-container">
+        <div class="category-opposite opposite-1">
+            <div>{opposite1} /</div>
+        </div>
+    </div>
+    <div class="category-description">
+        <p class="txt-small">
+            {description}
+        </p>
+    </div>
+    <div class="category-opposite-container invert-position">
+        <div class="category-opposite opposite-2">
+            <div>{opposite2}</div>
+        </div>
+    </div>
+
+   
+
+</div>
+
+
+
+<style>
+    .category-container {
+        width: 100%;
+        margin: 2em 0;
+    }
+
+
+    .category-opposite-container {
+        width: 100%;
+        padding: 0.5em 0;
+        text-align: right;
+        display: flex;
+
+        .category-opposite {
+            font-size: 1.4em;
+            display: flex;
+            transition: width 0.4s ease;
+        }
+        &.invert-position {
+            text-align: left;
+            justify-content: end;
+        }
+
+    }
+
+.opposite-1 {
+    justify-content: end;
+}
+.opposite-2 {
+    justify-content: start;
+}
+
+    .category-opposite div{
+        width: fit-content;
+        white-space: nowrap;
+    }
+
+    .category-description {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        overflow: hidden;
+        p {
+            text-align: center;
+            margin: 1em 0;
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+        }
+
+        &.hide {
+            border-top: 0.5px solid #000;
+            border-bottom: 0.5px solid #000;
+
+        }
+
+        &.hide p{
+            opacity: 0;
+            margin:0;
+            height: 0;
+
+        }
+
+    }
+
+    [class^="gsap-marker-"] {
+        z-index: 9999 !important;
+    }
+</style>
+
+<script>
+    document.addEventListener('mousemove', (e) => {
+        // const opposites = document.querySelectorAll('.category-opposite');
+        // const containerWidth = document.querySelector('.category-opposite-container').offsetWidth;
+        // const windowWidth = window.innerWidth;
+        // const mouseX = e.clientX;
+        // const percentage = (mouseX / windowWidth);
+        
+        // opposites.forEach(opposite => {
+        //     const rect = opposite.getBoundingClientRect();
+        //     const distanceY = Math.abs(e.clientY - (rect.top + rect.height/2));
+        //     const maxDistance = window.innerHeight / 2;
+        //     const range =  (Math.min(distanceY, maxDistance) / maxDistance);
+
+        //     let t = 0;
+        //     if (percentage < (0.5-range) || percentage > (0.5+range) ) {
+        //         t = percentage*range;
+        //     }
+        //     if (opposite.classList.contains('invert-position')) {
+        //         t = 1 - t;
+        //     }
+        //     const oppositeWidth = opposite.offsetWidth;
+        //     const newContainerWidth = containerWidth-oppositeWidth;
+        //     const localPercentage = t*newContainerWidth;
+
+        //     opposite.style.transform = `translateX(${localPercentage}px)`;
+        // });
+
+        const containers = document.querySelectorAll('.category-container');
+        containers.forEach(container => {
+            const categoryOpposites = container.querySelectorAll(".category-opposite");
+            const rect = container.getBoundingClientRect();
+            const containerCenterY = rect.top + (rect.height / 2);
+            // const distanceY = Math.abs(e.clientY - containerCenterY);
+            const distanceY =  containerCenterY - e.clientY;
+            const maxDistance = window.innerHeight / 2;
+            const range = 1 - (Math.min(distanceY, maxDistance) / maxDistance);
+
+            const opacity = 0.3 + (0.7 * range);
+            container.style.opacity = opacity.toString();
+
+            if (categoryOpposites.length > 0) {
+                for (let opposite of categoryOpposites) {
+                    let width;
+                    if (distanceY < 50) {
+                        width = '100%';
+                        opposite.style.width = width;
+                    } else if (distanceY < 300) {
+                        let minWidth = opposite.children[0].offsetWidth;
+                        let maxWidth = container.offsetWidth * 0.5;
+                        let p = 1-((distanceY - 50) / 250);
+
+                        width = (minWidth + ((maxWidth-minWidth)*p)) + 'px';
+                        opposite.style.width = width;
+                    } else {
+                        width = opposite.children[0].offsetWidth + 'px';
+                        opposite.style.width = width;
+                    }
+                }
+            }
+            // if (opposite1.length > 0) {
+
+        });
+
+    });
+    
+</script>
+
+<!-- <script>
+    import { gsap } from "gsap";
+    
+    import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    
+    
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+    
+    
+    gsap.utils.toArray('.category-description').forEach(description => {
+        ScrollTrigger.create({
+            trigger: '.categories-container',
+            start: 'bottom -50vh',
+            markers: true,
+            onEnter: () => {
+                console.log('Entering trigger');
+                description.classList.remove('hide');
+            },
+            onLeaveBack: () => description.classList.add('hide')
+        });
+    });
+
+    
+    </script> -->
