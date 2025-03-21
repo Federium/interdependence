@@ -72,9 +72,26 @@ const { opposite1, opposite2, description, descriptionExtra=""} = Astro.props as
         white-space: nowrap;
     }
 
+    @property --borderColor1 {
+  syntax: '<color>';
+  initial-value: rgb(0, 0, 0);
+  inherits: false;
+}
+
+@property --borderColor2 {
+  syntax: '<color>';
+  initial-value: rgb(104, 104, 104);
+  inherits: false;
+}
+
+
+
     .category-description {
-        border-top: 1px solid #000;
-        border-bottom: 1px solid #000;
+        background: linear-gradient(to right, var(--borderColor1) ,var(--borderColor2)) top,
+                linear-gradient(to left,  var(--borderColor1),var(--borderColor2)) bottom;
+        background-size: 100% 1px;
+        background-repeat: no-repeat;
+        transition: --borderColor1 0.5s, --borderColor2 0.5s;
         overflow: hidden;
         p {
             text-align: center;
@@ -83,9 +100,20 @@ const { opposite1, opposite2, description, descriptionExtra=""} = Astro.props as
             transition: all 0.5s ease-in-out;
         }
 
+        &.invert-borders {
+            background: linear-gradient(to right, var(--borderColor1)0%,var(--borderColor2)) top,
+                linear-gradient(to left,  var(--borderColor1) 0%,var(--borderColor2)) bottom;
+        background-size: 100% 1px;
+        background-repeat: no-repeat;
+            --borderColor1: rgb(104, 104, 104);
+            --borderColor2: rgb(0, 0, 0);
+
+
+        }
+
         &.hide {
-            border-top: 0.5px solid #000;
-            border-bottom: 0.5px solid #000;
+            /* border-top: 0.5px solid #000;
+            border-bottom: 0.5px solid #000; */
 
         }
 
@@ -143,23 +171,40 @@ const { opposite1, opposite2, description, descriptionExtra=""} = Astro.props as
 
             const opacity = 0.3 + (0.7 * range);
             container.style.opacity = opacity.toString();
+            // con fase intermedia
+            // if (categoryOpposites.length > 0) {
+            //     for (let opposite of categoryOpposites) {
+            //         let width;
+            //         if (distanceY < 50) {
+            //             width = '100%';
+            //             opposite.style.width = width;
+            //         } else if (distanceY < 300) {
+            //             let minWidth = opposite.children[0].offsetWidth;
+            //             let maxWidth = container.offsetWidth * 0.5;
+            //             let p = 1-((distanceY - 50) / 250);
 
+            //             width = (minWidth + ((maxWidth-minWidth)*p)) + 'px';
+            //             opposite.style.width = width;
+            //         } else {
+            //             width = opposite.children[0].offsetWidth + 'px';
+            //             opposite.style.width = width;
+            //         }
+            //     }
+            // }
+
+            // senza fase intermedia
             if (categoryOpposites.length > 0) {
                 for (let opposite of categoryOpposites) {
                     let width;
-                    if (distanceY < 50) {
+                    if (distanceY < 0) {
                         width = '100%';
                         opposite.style.width = width;
-                    } else if (distanceY < 300) {
-                        let minWidth = opposite.children[0].offsetWidth;
-                        let maxWidth = container.offsetWidth * 0.5;
-                        let p = 1-((distanceY - 50) / 250);
-
-                        width = (minWidth + ((maxWidth-minWidth)*p)) + 'px';
-                        opposite.style.width = width;
+                        container.querySelector('.category-description').classList.add('invert-borders');
                     } else {
                         width = opposite.children[0].offsetWidth + 'px';
                         opposite.style.width = width;
+                        container.querySelector('.category-description').classList.remove('invert-borders');
+
                     }
                 }
             }
