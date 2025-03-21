@@ -599,7 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 0.5,
     scrollTrigger: {
       trigger: ".text-section",
-      start: "left 50%",
+      start: "left 20%",
       toggleActions: "restart none none reverse",
        markers: false,
     },
@@ -638,13 +638,37 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   }); 
 
-
   });
 
 
 </script>
 
 
+<!-- Animazione mappa ingrandimento -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".map-section", {
+    scale: 0.95,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".map-section",
+      start: "left 50%",
+      toggleActions: "restart none none reverse",
+       markers: false,
+    },
+  }); 
+
+  });
+
+
+</script>
+ -->
 
 
 
