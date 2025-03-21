@@ -2,6 +2,7 @@
   {
     "index": "3",
     "place": "Fabbrica del Vapore",
+    "slug": "fabbricadelvapore",
     "title": "Exploring Opposites",
     "description": "At the Fabbrica del Vapore, INTERDEPENDENCE takes the form of an international exhibition, bringing together projects by students from Politecnico di Milano and a selection of design universities worldwide. The exhibition showcases projects through visuals, prototypes and videos, and is further enriched by a diverse program of initiatives, including talks, workshops, performances, and networking activities.",
     "location": "Fabbrica del Vapore, Via Giulio Cesare Procaccini 4, Milano",
@@ -30,6 +31,7 @@
   {
     "index": "1",
     "place": "Campus Bovisa",
+    "slug": "designxdesigners",
     "title": "Design X Designers",
     "description": "At the Campus Bovisa Durando, INTERDEPENDENCE is interpreted through the DesignXDesigners exhibition, which showcases works by students from various study programs at the School of Design of Politecnico di Milano.",
     "location": "Campus Bovisa Candiani, via Durando 10, Milano",
@@ -43,6 +45,7 @@
   {
     "index": "2",
     "place": "SaloneSatellite",
+    "slug": "salonesatellite",
     "title": "Human / More-than-human",
     "description": "At the SaloneSatellite, INTERDEPENDENCE is present with a monographic selection of eight experimental and thought-provoking communication design projects, titled “Anthropogenic Scenarios”, encouraging visitors to reflect on the relationship between Human / More than Human, and between Artificial / Natural.",
     "location": "Rho Fiera Milano, Corso Italia, Rho, Stand A10",

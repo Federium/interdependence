@@ -4,6 +4,9 @@ export interface Props {
 }
 
 const { word } = Astro.props as Props;
+
+import logo from "../assets/logos/interdependence-white-short.svg";
+import {Image} from "astro:assets";
 ---
 
 <div class="word-container" id="container-1">
@@ -16,16 +19,24 @@ const { word } = Astro.props as Props;
     <span class="opposite-2" id="opposite-2">opposites</span>
 </div>
 
+<div class="logo-mobile">
+    <Image src={logo} alt ="interdependence – exploring opposites"></Image> 
+</div>
+
+
+
 <style>
     .word-container {
         margin-top: 20px;
         width: 100%;
         span {
-        font-size: 2em;
+        font-size: 4.5vw;
         transition: all 0.5s cubic-bezier(0.16, 1.1, 0.76, 0.98);  
         }
         
     }
+
+
 
     .title {
     font-family: 'Milligram Macro';
@@ -37,12 +48,35 @@ const { word } = Astro.props as Props;
     color: var(--gradient);
 }
 
+img {
+    width: 85vw;
+    display: none;
+}
+
     .word-container:has(.opposite-1) {
             text-align: left;
+            transform: translateY(1vw);
+
         }
     .word-container:has(.opposite-2) {
             text-align: right;
+            transform: translateY(-1vw);
+
         }
+
+        @media (max-width: 768px) {
+            .word-container,
+            .title {
+            display: none;
+            }
+
+            img {
+                display: block;
+                max-width: 400px;
+            }
+
+     
+
 </style>
 
 <script>

@@ -36,11 +36,7 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
       </a>
       )
     }
-    <!-- <div class="sidebar-area">
-      <div class="button-area" target-id="button-1" ><a href="/salonesatellite"></a></div>
-      <div class="button-area" target-id="button-2" ><a href="/designxdesigners"></a></div>
-      <div class="button-area" target-id="button-3" ><a href="/fabbricadelvapore"></a></div>
-    </div> -->
+
   </div>
   <div class="sidebar right-sidebar">
     <a href="/" class="button " id="interdependence-button">
@@ -61,17 +57,30 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
 
 <!-- HEADER MOBILE -->
 <header class="header_mobile">
-  <div class="header__content">
-    <a class="header__logo" href="index.html">interdependence</a>
-    <ul class="header__menu">
-      <li><a href="#">Design x Designers</a></li>
-      <li><a href="#">Salone Satellite</a></li>
-      <li><a href="#">Fabbrica del Vapore</a></li>
-    </ul>
+  <div class="header__head">
+    <a class="header__logo" href="/">interdependence</a>
     <div class="icon-hamburger">
       <span></span>
       <span></span>
     </div>
+  </div>
+    <div class="header__menu__mobile__container">
+      <ul class="header__menu">
+        <li><a href="/designxdesigners">Design x Designers</a></li>
+        <li><a href="/salonesatellite">Salone Satellite</a></li>
+        <li id ="fdv-button-mobile"><a href="/fabbricadelvapore">Fabbrica del Vapore</a></li>
+        <li class="subsection-mobile"><a href="/fabbricadelvapore/catalogue">Catalogue</a></li>
+        <li class="subsection-mobile"><a href="/fabbricadelvapore/program">Program</a></li>
+    
+      </ul>
+  
+      <ul class="header__menu header__menu__bottom">
+        <li><a href="/about">About</a></li>
+        <li><a href="/credits">Credits</a></li>
+      </ul>
+    </div>
+    
+
   </div>
 </header>
 
@@ -309,13 +318,16 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 100 !important;
     width: 100%;
-    padding: 10px 15px 30px 15px;
-    mix-blend-mode: luminosity;
+    height: 10vh;
+    padding: 10px 20px 30px 20px;
+    mix-blend-mode: normal;
     transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
   }
-  .header__content {
+  .header__head {
     max-width: 1200px;
     width: 100%;
     margin: 0;
@@ -346,9 +358,13 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     color: var(--menu-color);
     opacity: 0.8;
     display: block;
-    padding: 16px;
+    padding: 16px 0;
     font-size: 15px;
   }
+
+  .header__menu li.subsection a {
+  }
+  
 
   @media (max-width: 768px) {
 
@@ -356,34 +372,60 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
       display: none;
     }
     .header__menu {
-      position: absolute;
       top: 70px;
       left: 0;
       background-color: rgba(0, 0, 0, 0);
       width: 100%;
-      height: 100vh; /* era a 0 */
       opacity: 0;
       overflow: hidden;
       transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+      pointer-events: none;
     }
+    
 
     .header__menu li {
       width: 100%;
     }
     :global(.menu-open) .header__menu {
       opacity: 1;
-      z-index: 99999;
+      z-index: 100 !important;
       background-color: transparent;
+      pointer-events: all;
+
     }
 
     :global(.menu-open) .header_mobile {
-      padding-bottom: 400vh;
+      height: 500vh;
+    }
+
+    .header__menu__mobile__container {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 8px;
+
+    }
+
+    #fdv-button-mobile a{
+      padding-bottom: 8px;
     }
     .header__menu li a {
       color: var(--gradient);
       font-size: 1.5em;
       font-family: "Milligram";
       font-weight: bold;
+    }
+
+       .header__menu__bottom li a {
+      padding: 0;
+padding-top: 16px;
+    }
+
+    .header__menu li.subsection-mobile a {
+      padding: 0 0 8px 0 ;
+      font-weight: normal;
+      
     }
 
     .icon-hamburger {
