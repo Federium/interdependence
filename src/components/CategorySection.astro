@@ -1,6 +1,7 @@
 ---
 
 export interface Props {
+    index: number;
     opposite1: string;
     opposite2: string;
    description:string;
@@ -8,37 +9,43 @@ export interface Props {
 
 }
 
-const { opposite1, opposite2, description, descriptionExtra=""} = Astro.props as Props;
-
+const { index, opposite1, opposite2, description, descriptionExtra=""} = Astro.props as Props;
+const isRightAligned = index % 2 === 1;
 ---
-
-<div class = "category-container">
-    <div class="category-opposite-container">
-        <div class="category-opposite opposite-1">
-            <div>{opposite1} /</div>
+<div class={`category-main-container ${isRightAligned ? 'right' : ''}`}>
+    <div class = "category-container">
+        <div class="category-opposite-container">
+            <div class="category-opposite opposite-1">
+                <div>{opposite1} /</div>
+            </div>
+        </div>
+        <div class="category-description">
+            <p class="txt-small">
+                {description}
+            </p>
+        </div>
+        <div class="category-opposite-container invert-position">
+            <div class="category-opposite opposite-2">
+                <div>{opposite2}</div>
+            </div>
         </div>
     </div>
-    <div class="category-description">
-        <p class="txt-small">
-            {description}
-        </p>
-    </div>
-    <div class="category-opposite-container invert-position">
-        <div class="category-opposite opposite-2">
-            <div>{opposite2}</div>
-        </div>
-    </div>
-
-   
-
 </div>
 
 
 
+
 <style>
-    .category-container {
+    .category-main-container {
         width: 100%;
+        display: flex;
+            justify-content: center; 
+        max-width: 1000px;
+    }
+    .category-container {
+        width: 800px;
         margin: 2em 0;
+        transition: opacity 0.5s ease;
     }
 
 
@@ -98,7 +105,6 @@ const { opposite1, opposite2, description, descriptionExtra=""} = Astro.props as
             margin: 1em 0;
             opacity: 1;
             transition: all 0.5s ease-in-out;
-            max-width: 800px;
         }
 
         &.invert-borders {
