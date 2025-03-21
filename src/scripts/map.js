@@ -12,12 +12,40 @@ document.addEventListener("DOMContentLoaded", () => {
   let index = 0;
   const totalSteps = locations.length;
 
-  // Define precise positions for each step
-  const mapPositions = [
-    { scale: 1.5, x: 70, y: -240 },          // Initial position
-    { scale: 1.5, x: 670, y: 20 },  // First location
-    { scale: 1.5, x: 180, y: -100 }       // Second location
-  ];
+  function getResponsivePositions() {
+    // Get viewport width
+    const vw = window.innerWidth;
+    
+    if (vw <= 768) { // Mobile
+      return [
+        { scale: 2.5, x: 20, y: -300 },
+        { scale: 2.5, x: 80, y: -130 },
+        { scale: 2.5, x: 320, y: -50 }
+      ];
+    } else if (vw <= 1024) { // Tablet
+      return [
+        { scale: 1.3, x: 40, y: -250 },
+        { scale: 1.3, x: 120, y: -130 },
+        { scale: 1.3, x: 400, y: 15 }
+      ];
+    } else { // Desktop
+      return [
+        { scale: 1.5, x: 70, y: -240 },
+        { scale: 1.5, x: 180, y: -100 },
+        { scale: 1.5, x: 670, y: 20 }
+      ];
+    }
+  }
+
+  // Replace the static mapPositions with the dynamic function
+  let mapPositions = getResponsivePositions();
+
+  // Add window resize listener to update positions
+  window.addEventListener('resize', () => {
+    mapPositions = getResponsivePositions();
+    // Update current position immediately
+    updateContent(index);
+  });
 
   const updateContent = (step, direction) => {
     // console.log(step);
