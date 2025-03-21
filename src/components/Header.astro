@@ -106,10 +106,29 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     mix-blend-mode: normal;
    /* gap: 2vh; */
   }
+
+  @property --myColor1 {
+  syntax: '<color>';
+  initial-value: rgba(255,255,255,0);
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: '<color>';
+  initial-value: rgba(255,255,255,0);
+  inherits: false;
+}
+
   .right-sidebar {
     right: 0;
     align-items: flex-end;
     font-size: 1.3em;
+    background: linear-gradient(to left, var(--myColor1), var(--myColor2));
+    transition: --myColor1 0.5s;
+  }
+
+  .right-sidebar:hover {
+    --myColor1: rgba(255, 255, 255, 0.16);
   }
 
   .button {
@@ -175,6 +194,12 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     color: black;
   }
 
+  .right-sidebar .button:hover div {
+    text-decoration: none;
+    color: white;
+  }
+
+  
   .button.active:not(.disactive) div  { 
     text-decoration: none;
     color: black;
