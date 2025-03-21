@@ -21,13 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateContent = (step) => {
     console.log(step);
-    paragraphBox.innerHTML = `
-      <h2>${locations[step].title}</h2>
-      <h6>${locations[step].description}</h6>
-      <a href="${locations[step].innerLink}" class="see-more-link">
-        <h3 class="see-more">SEE MORE →</h3>
-      </a>
-    `;
+    document.getElementById('location-title').textContent = locations[step].title;
+    document.getElementById('location-description').textContent = locations[step].description;
+    const mapButton = document.getElementById('map-button');
+    mapButton.href = locations[step].innerLink;
+
+    // paragraphBox.innerHTML = `
+    //   <h2>${locations[step].title}</h2>
+    //   <h6>${locations[step].description}</h6>
+    //   <a href="${locations[step].innerLink}" class="see-more-link">
+    //     <h3 class="see-more" >SEE MORE <img src="/arrow-right-black.svg"/> </h3>
+    //   </a>
+    // `;
     titleBox.innerHTML = `
       <h3 style="text-align: center; margin: 0; padding: 0;">${locations[step].place}</h3>
     `;

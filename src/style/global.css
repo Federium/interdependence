@@ -220,6 +220,15 @@ section {
     width: 25%;
 }
 
+/* mappa (va solo qui) */
+.see-more {
+    font-weight: normal;
+    img {
+        transform: translateY(5px);
+    }
+  }
+  
+
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -237,3 +246,4 @@ section {
 @media (min-width: 1025px) {
 
 }
+

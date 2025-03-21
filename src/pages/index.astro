@@ -6,6 +6,7 @@ import categories from "../assets/data/categories.json";
 import locations from '../assets/data/location.json';
 import Map from '../components/Map.astro';
 import CategorySection from '../components/CategorySection.astro';
+import ButtonSmall from '../components/ButtonSmall.astro';
 
 import {Image} from 'astro:assets';
 import logoPolimi from '../assets/logos/Polimi.svg';
@@ -68,8 +69,11 @@ import CategoryItem from '../components/CategoryItem.astro';
       <div class="paragraph-container">
         <div class="paragraph-box">
           {
-              <h2>{locations[0].title}</h2>
-              <h6>{locations[0].description}</h6>
+              <h2 id="location-title">{locations[0].title}</h2>
+              <h6 id="location-description">{locations[0].description}</h6>
+              <a href="${locations[step].innerLink}" class="see-more-link">
+         <ButtonSmall  label="SEE MORE" href="" id="map-button"></ButtonSmall>
+       </a>
           }
         </div>
       </div>
@@ -745,7 +749,7 @@ h1,h2,h3,h4,h5,h6, p{
   width: 60%;
   height: auto;
   padding: 2vh;
-  box-shadow: -5px 8px 40px;
+  box-shadow: 0 0 100px -50px;
   h2 {
     margin-bottom: 0;
   }
@@ -769,9 +773,15 @@ h1,h2,h3,h4,h5,h6, p{
   width: auto;
   height: auto;
   padding: 1.5vh 4vh;
+  box-shadow: 0 0 100px -20px;
+  /* &:hover {
+    box-shadow: 0 0 100px 5px;
+
+  } */
   position: relative;
   z-index: 2;
   color: black;
+
 }
 
 .map-section h1,
