@@ -30,6 +30,12 @@ import ChasingWord from './ChasingWord.astro';
     <!-- <ChasingWord word="opposites" align="right"></ChasingWord>  -->
 
      </div>  
+
+     <div class="days-container">
+      
+      <span>5/04 – 15/04 </span>
+      <span>2025</span> 
+     </div>
   </section>
   <div class="gradient-lower"></div>
 
@@ -133,7 +139,7 @@ if (canvasElement) {
           top: 0;
           left: 0;
           width: 100%;
-          padding: clamp(1rem, 2vw, 2rem);
+          padding: clamp(1rem, 2vw, 2rem) 11vw;
           mix-blend-mode: difference;
         }
         
@@ -160,14 +166,46 @@ if (canvasElement) {
           max-width: 100%; /* Prevent overflow */
         }
 
+        .days-container {
+          position: absolute;
+          padding: 0 11vw;
+          font-size: 3.5vw;
+          mix-blend-mode: difference;
+          bottom: 10vh;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
+
 /* Mobile */
 @media (max-width: 768px) {
 
+  #p5-canvas::after {
 
-    .title {
-        font-size: 2rem;
-    }
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 50%);
 
+}
+
+.logo-left {
+  flex-direction: column;
+  align-items: start;
+}
+
+.logo-right {
+  align-items: start;
+}
+
+.days-container {
+  bottom: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1rem, 2vw, 2rem);
+  bottom: 0;
+  font-size: 2em;
+}
+
+.logo-container  {
+  padding: clamp(1rem, 2vw, 2rem)
+
+}
     
 }
 
