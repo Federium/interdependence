@@ -27,10 +27,10 @@ import {Image} from "astro:assets";
 
 <style>
     .word-container {
-        margin-top: 20px;
+        margin-top: clamp(10px, 2vw, 20px);
         width: 100%;
         span {
-        font-size: 4.5vw;
+        font-size: clamp(1rem, 8vw, 4rem);
         transition: all 0.5s cubic-bezier(0.16, 1.1, 0.76, 0.98);  
         }
         
