@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return [
         { scale: 2.5, x: 20, y: -300 },
         { scale: 2.5, x: 80, y: -130 },
-        { scale: 2.5, x: 320, y: -50 }
+        { scale: 2.5, x: 380, y: -50 }
       ];
     } else if (vw <= 1024) { // Tablet
       return [
