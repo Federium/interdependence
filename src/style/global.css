@@ -189,12 +189,10 @@ section {
     max-width: 1200px;
     margin: 0 auto;
 }
-
+/* 
 [class^="col-"] {
-    /* padding: 20px; */
-    flex-grow: 1;
+    /* padding: 20px; }*/
 
-}
 
 .col-12 {
     width: 100%;
@@ -243,7 +241,9 @@ section {
 
 /* Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
-
+    [class^="col-"] {
+        width: 100%;
+    }
 }
 
 /* Desktop */
