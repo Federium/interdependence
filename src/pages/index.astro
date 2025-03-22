@@ -88,11 +88,11 @@ import CategoryItem from '../components/CategoryItem.astro';
       </div>
   </section>
   <!-- MAP SECTION -->
-  <section class="map-section section"  >
+  <section class="map-section section">
     <div class="map-1">
       <div class="map-bg">
         <div class="pointer-blur"></div>
-        <Image src={mappa}  id="map" alt="Mappa" client:load/>
+        <Image src={mappa}  id="map" alt="Mappa" />
       </div>
       <div class="paragraph-container">
         <div class="paragraph-box show " id="box-0">
@@ -100,7 +100,7 @@ import CategoryItem from '../components/CategoryItem.astro';
               <h2 id="location-title">{locations[0].title}</h2>
               <p class="txt-small" id="location-description">{locations[0].description}</p>
               <a href="${locations[step].innerLink}" class="see-more-link">
-         <ButtonSmall client:load label="SEE MORE" href={"/"+locations[0].slug} id="map-button"></ButtonSmall>
+         <ButtonSmall  label="SEE MORE" href={"/"+locations[0].slug} id="map-button"></ButtonSmall>
        </a>
           }
         </div>
@@ -109,7 +109,7 @@ import CategoryItem from '../components/CategoryItem.astro';
               <h2 id="location-title">{locations[1].title}</h2>
               <p class="txt-small" id="location-description">{locations[1].description}</p>
               <a href="${locations[step].innerLink}" class="see-more-link">
-         <ButtonSmall  client:load label="SEE MORE" href={"/"+locations[1].slug} id="map-button"></ButtonSmall>
+         <ButtonSmall  label="SEE MORE" href={"/"+locations[1].slug} id="map-button"></ButtonSmall>
 
        </a>
           }
@@ -119,7 +119,7 @@ import CategoryItem from '../components/CategoryItem.astro';
               <h2 id="location-title">{locations[2].title}</h2>
               <p class="txt-small" id="location-description">{locations[2].description}</p>
               <a href="${locations[step].innerLink}" class="see-more-link">
-         <ButtonSmall client:load label="SEE MORE" href={"/"+locations[2].slug} id="map-button"></ButtonSmall>
+         <ButtonSmall  label="SEE MORE" href={"/"+locations[2].slug} id="map-button"></ButtonSmall>
          
        </a>
           }
@@ -174,7 +174,7 @@ import CategoryItem from '../components/CategoryItem.astro';
           <div class = "categories-container">
             {
                 categories.map((category, index) => (
-                <CategorySection client:load index={index} opposite1={category.opposite1} opposite2={category.opposite2} description={category.description} descriptionExtra={category.descriptionExtra}></CategorySection>
+                <CategorySection index={index} opposite1={category.opposite1} opposite2={category.opposite2} description={category.description} descriptionExtra={category.descriptionExtra}></CategorySection>
             ))}
         </div>
       </div>
