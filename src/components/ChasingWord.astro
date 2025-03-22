@@ -30,7 +30,9 @@ import {Image} from "astro:assets";
         margin-top: clamp(10px, 2vw, 20px);
         width: 100%;
         span {
-        font-size: clamp(1rem, 8vw, 4rem);
+        /* font-size: clamp(1rem, 8vw, 4rem); */
+        font-size: 4.5vw; /* so che sembra strano ma questo permette di rendere sempre corretta la dimensione del payoff rispetto al logo */
+
         transition: all 0.5s cubic-bezier(0.16, 1.1, 0.76, 0.98);  
         }
         
@@ -60,7 +62,7 @@ img {
         }
     .word-container:has(.opposite-2) {
             text-align: right;
-            transform: translateY(-1vw);
+            transform: translateY(-2vw);
 
         }
 

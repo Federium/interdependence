@@ -227,6 +227,10 @@ section {
         transform: translateY(5px);
     }
   }
+
+  .title-box h3 {
+    font-size: 1.3em;
+  }
   
 
 
