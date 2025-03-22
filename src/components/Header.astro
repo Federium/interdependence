@@ -101,7 +101,7 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     justify-content: flex-start;
     transition: width 0.3s ease-in-out;
     overflow: hidden;
-    z-index: 9999;
+    z-index: 9999 ;
     mix-blend-mode: difference;
     cursor: none;
     padding: 2vh 1vh;
@@ -398,13 +398,11 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     }
 
     .header__menu__mobile__container {
-      height: 90vh;
+      height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding-top: 8px;
-      overflow-y: auto; /* Allow scrolling within menu if needed */
-      -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
     }
 
     #fdv-button-mobile a{
@@ -446,10 +444,10 @@ padding-top: 16px;
     }
 
     :global(.menu-open) .icon-hamburger span:nth-child(1) {
-      transform: rotate(45deg) translateY(12px);
+      transform: rotate(45deg) translateY(12.5px);
     }
     :global(.menu-open) .icon-hamburger span:nth-child(2) {
-      transform: rotate(-45deg) translateY(-12px);
+      transform: rotate(-45deg) translateY(-12.5px);
     }
   }
 
@@ -542,8 +540,10 @@ padding-top: 16px;
     document.addEventListener("DOMContentLoaded", function() {
       const hamburger = document.querySelector('.icon-hamburger');
       const body = document.body;
-      const menuContainer = document.querySelector('.header__menu__mobile__container');
+      const header = document.querySelector('.header_mobile');
+      let lastScroll = 0;
       
+      // Toggle menu function
       function toggleMenu(isOpening) {
         body.classList.toggle('menu-open');
         
@@ -556,12 +556,32 @@ padding-top: 16px;
         }
       }
   
+      // Hide header on scroll
+      function handleScroll() {
+        const currentScroll = window.scrollY;
+        
+        if (!body.classList.contains('menu-open')) {
+          if (currentScroll > lastScroll && currentScroll > 50) {
+            // Scrolling down
+            header.style.transform = 'translateY(-100%)';
+          } else {
+            // Scrolling up
+            header.style.transform = 'translateY(0)';
+          }
+        }
+        
+        lastScroll = currentScroll;
+      }
+  
+      // Event listeners
       if (hamburger) {
         hamburger.addEventListener("click", function() {
           const isOpening = !body.classList.contains('menu-open');
           toggleMenu(isOpening);
         });
       }
+  
+      window.addEventListener('scroll', handleScroll, { passive: true });
     });
   </script>
 
