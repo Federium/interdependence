@@ -8,7 +8,7 @@ import programData from "../../assets/data/program.json";
 
 <Contenuto name="Program" subsection={true}, subsectionActive={2}>
     <div class="program-container">
-        <div class="col-3 days">
+        <div class="col-4 days">
             <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} mobile={false}></Heading>
             <div class="day-selector">
                 {programData.map((dayData, index) => (
@@ -18,7 +18,7 @@ import programData from "../../assets/data/program.json";
                 ))}
             </div>
         </div>
-        <div class="col-9 events">
+        <div class="col-8 events">
             <div class="mask">
                 {programData.map((dayData) => (
                     <div class="events-day" id={`events-day-${dayData.index}`}>
