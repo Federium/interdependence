@@ -2,9 +2,10 @@ import { defineCollection, z } from "astro:content";
 import {glob} from "astro/loaders";
 
 
+// Definizione della collection "projects"
 const projects = defineCollection({
-    loader: glob({pattern: "***/**/*.{md,mdx}", base: "src/projects"}),
-    schema: z.object({
+  loader: glob({ pattern: "***/**/*.{md,mdx}", base: "src/projects" }),
+  schema: z.object({
     id: z.number(),
     slug: z.string(),
     category: z.string(), // Categoria estratta dal percorso
@@ -36,7 +37,18 @@ const projects = defineCollection({
     city: z.string(),
     state: z.string(),
     school_instagram: z.string(),
+    images: z.array(z.string()).optional(),  // Array per le immagini
   }),
 });
 
-export const collections = { projects };
+// Definizione della collection "images"
+const images = defineCollection({
+  loader: glob({ pattern: "*.md", base: "src/images_metadata" }), // Carica tutte le immagini nella cartella "img"
+  schema: ({ image }) => z.object({
+    category: z.string(), // La categoria del progetto
+    id: z.number(), // ID del progetto
+    images: z.array(image()), // Array dei percorsi delle immagini
+  }),
+});
+
+export const collections = { projects, images };

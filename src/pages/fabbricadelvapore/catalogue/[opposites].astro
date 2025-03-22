@@ -8,6 +8,7 @@ import ProjectCard from "../../../components/ProjectCard.astro";
 import { getCollection } from 'astro:content';
 import categories from '../../../assets/data/categories.json'; 
 import Project from "./[opposites]/[project].astro";
+import { promise } from "astro:schema";
 
 // Funzione per generare i percorsi statici per ogni categoria a partire dallo slug
 export async function getStaticPaths() { 
@@ -27,6 +28,7 @@ if (!category) {
 
 // Prendiamo tutti i progetti che appartengono a questa categoria
 const projects = await getCollection('projects', (entry) => entry.data.category === category.id);
+console.log(projects);
 
 ---
 
@@ -40,10 +42,12 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
   <div class="projects-container"> 
     {projects.map((project) => (
       <ProjectCard 
-        projectId={project.id}
+        id = {project.id}
+        projectId={project.data.id}
         title={project.data.title}
         folder={opposites}
         slug={project.data.slug}
+        category={project.data.category}
       />
     ))}
   </div>
@@ -52,14 +56,6 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
   </ProjectsLayout>
 
   
-
-
-  <div class="categories-container"> 
-    {projects.map((project) => (
-      <li>
-        <a href={`/fabbricadelvapore/catalogue/${opposites}/${project.id}`}>{project.data.title}</a>
-      </li>
-    ))}
 
   </div>
   </div>
