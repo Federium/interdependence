@@ -20,15 +20,17 @@ const images = await getCollection('images', (entry) =>
   entry.data.category === category && entry.data.id === projectId
 );
 
-console.log(images[0].data.images[0]);
+const image = images.length > 0 ? images[0].data.images[0] : null;
+
+const imageSrc = image?.src;
 ---
 
 
 
   <a href={`/fabbricadelvapore/catalogue/${folder}/${slug}`} class="card">
+    {image && <Image src={image} alt="image" />}
     <div class="overlay">
       <span>{title}</span>
-      {images.length > 0 && <Image src={images[0].data.images[0]} alt={title} width={300} height={300} />}
     </div>
   </a>
 
@@ -42,8 +44,8 @@ console.log(images[0].data.images[0]);
     .card {
       position: relative;
       width: 300px;
+      background: linear-gradient(to top, rgb(123, 123, 123), rgba(236, 236, 236, 0.231));
       height: 300px;
-      background: #ccc;
       overflow: hidden;
       cursor: pointer;
     }

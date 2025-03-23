@@ -28,11 +28,10 @@ if (!category) {
 
 // Prendiamo tutti i progetti che appartengono a questa categoria
 const projects = await getCollection('projects', (entry) => entry.data.category === category.id);
-console.log(projects);
 
 ---
 
- <Contenuto name="Catalogue">
+ <Contenuto name="Catalogue" subsection={true}, subsectionActive={1}>
   <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
   </Heading>
   
@@ -65,5 +64,7 @@ console.log(projects);
 <style>
   .projects-container {
     display: flex;
+    gap:1em;
+    flex-wrap: wrap;
   }
 </style>
