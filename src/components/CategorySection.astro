@@ -35,6 +35,80 @@ const isRightAligned = index % 2 === 1;
 
 
 
+
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+  
+  
+  gsap.utils.toArray('.category-description').forEach(description => {
+      ScrollTrigger.create({
+          trigger: '.categories-container',
+          start: 'bottom -50vh',
+          markers: true,
+          onEnter: () => {
+              console.log('Entering trigger');
+              /* description.classList.remove('hide'); */
+          },
+          /* onLeaveBack: () => description.classList.add('hide') */
+      });
+  });
+
+  
+</script>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.category-container');
+    
+    containers.forEach((container, index) => {
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top center+=100",
+        end: "bottom center",
+        scrub: 1,
+        markers: true,
+        onUpdate: (self) => {
+          // Calculate opacity based on scroll position
+          const opacity = gsap.utils.clamp(
+            0.3, 
+            1, 
+            0.3 + (0.7 * self.progress)
+          );
+          
+          container.style.opacity = opacity;
+
+          // Get category elements
+          const categoryOpposites = container.querySelectorAll(".category-opposite");
+          const description = container.querySelector('.category-description');
+
+          // Animate width and borders based on scroll progress
+          if (self.progress > 0.5) {
+            categoryOpposites.forEach(opposite => {
+              opposite.style.width = '100%';
+            });
+            description.classList.add('invert-borders');
+          } else {
+            categoryOpposites.forEach(opposite => {
+              opposite.style.width = `${opposite.children[0].offsetWidth}px`;
+            });
+            description.classList.remove('invert-borders');
+          }
+        }
+      });
+    });
+  });
+</script>
+
 <style>
     .category-main-container {
         width: 100%;
@@ -46,6 +120,8 @@ const isRightAligned = index % 2 === 1;
         width: 800px;
         margin: 2em 0;
         transition: opacity 0.5s ease;
+        opacity: 0.3;
+        transition: opacity 0.3s ease;
     }
 
 
@@ -136,115 +212,7 @@ const isRightAligned = index % 2 === 1;
     [class^="gsap-marker-"] {
         z-index: 9999 !important;
     }
+
+
+
 </style>
-
-<script>
-    document.addEventListener('mousemove', (e) => {
-        // const opposites = document.querySelectorAll('.category-opposite');
-        // const containerWidth = document.querySelector('.category-opposite-container').offsetWidth;
-        // const windowWidth = window.innerWidth;
-        // const mouseX = e.clientX;
-        // const percentage = (mouseX / windowWidth);
-        
-        // opposites.forEach(opposite => {
-        //     const rect = opposite.getBoundingClientRect();
-        //     const distanceY = Math.abs(e.clientY - (rect.top + rect.height/2));
-        //     const maxDistance = window.innerHeight / 2;
-        //     const range =  (Math.min(distanceY, maxDistance) / maxDistance);
-
-        //     let t = 0;
-        //     if (percentage < (0.5-range) || percentage > (0.5+range) ) {
-        //         t = percentage*range;
-        //     }
-        //     if (opposite.classList.contains('invert-position')) {
-        //         t = 1 - t;
-        //     }
-        //     const oppositeWidth = opposite.offsetWidth;
-        //     const newContainerWidth = containerWidth-oppositeWidth;
-        //     const localPercentage = t*newContainerWidth;
-
-        //     opposite.style.transform = `translateX(${localPercentage}px)`;
-        // });
-
-        const containers = document.querySelectorAll('.category-container');
-        containers.forEach(container => {
-            const categoryOpposites = container.querySelectorAll(".category-opposite");
-            const rect = container.getBoundingClientRect();
-            const containerCenterY = rect.top + (rect.height / 2);
-            // const distanceY = Math.abs(e.clientY - containerCenterY);
-            const distanceY =  containerCenterY - e.clientY;
-            const maxDistance = window.innerHeight / 2;
-            const range = 1 - (Math.min(distanceY, maxDistance) / maxDistance);
-
-            const opacity = 0.3 + (0.7 * range);
-            container.style.opacity = opacity.toString();
-            // con fase intermedia
-            // if (categoryOpposites.length > 0) {
-            //     for (let opposite of categoryOpposites) {
-            //         let width;
-            //         if (distanceY < 50) {
-            //             width = '100%';
-            //             opposite.style.width = width;
-            //         } else if (distanceY < 300) {
-            //             let minWidth = opposite.children[0].offsetWidth;
-            //             let maxWidth = container.offsetWidth * 0.5;
-            //             let p = 1-((distanceY - 50) / 250);
-
-            //             width = (minWidth + ((maxWidth-minWidth)*p)) + 'px';
-            //             opposite.style.width = width;
-            //         } else {
-            //             width = opposite.children[0].offsetWidth + 'px';
-            //             opposite.style.width = width;
-            //         }
-            //     }
-            // }
-
-            // senza fase intermedia
-            if (categoryOpposites.length > 0) {
-                for (let opposite of categoryOpposites) {
-                    let width;
-                    if (distanceY < 0) {
-                        width = '100%';
-                        opposite.style.width = width;
-                        container.querySelector('.category-description').classList.add('invert-borders');
-                    } else {
-                        width = opposite.children[0].offsetWidth + 'px';
-                        opposite.style.width = width;
-                        container.querySelector('.category-description').classList.remove('invert-borders');
-
-                    }
-                }
-            }
-            // if (opposite1.length > 0) {
-
-        });
-
-    });
-    
-</script>
-
-<!-- <script>
-    import { gsap } from "gsap";
-    
-    import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-    
-    
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
-    
-    
-    gsap.utils.toArray('.category-description').forEach(description => {
-        ScrollTrigger.create({
-            trigger: '.categories-container',
-            start: 'bottom -50vh',
-            markers: true,
-            onEnter: () => {
-                console.log('Entering trigger');
-                description.classList.remove('hide');
-            },
-            onLeaveBack: () => description.classList.add('hide')
-        });
-    });
-
-    
-    </script> -->
