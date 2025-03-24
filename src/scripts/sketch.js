@@ -1,4 +1,5 @@
 import { frag, vert } from "./shader.js";
+import { pauseHero as paused } from "./map.js";
 
 export const mySketch = (width, height) => (p) => {
   let capturer;
@@ -9,7 +10,6 @@ export const mySketch = (width, height) => (p) => {
   let observationPoint;
   let delta;
   let canvas;
-  let paused = false;
   let goingBackwards = false;
   let speedMultiplier = 0.002;
 

@@ -20,7 +20,7 @@ import mappa from  '../assets/img/MapImage.png';
     <div class="map-1">
       <div class="map-bg">
         <div class="pointer-blur"></div>
-        <Image src={mappa}  id="map" alt="Mappa" />
+        <Image src={mappa}  id="map" alt="Mappa" loading="eager" />
       </div>
       <div class="paragraph-container">
         <div class="paragraph-box show " id="box-0">
@@ -229,8 +229,6 @@ import mappa from  '../assets/img/MapImage.png';
   justify-content: center;
   align-items: center;
   mix-blend-mode: normal;
-  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 10%, black 90%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 90%, transparent 100%) ;
 }
 
 #map {
@@ -242,6 +240,8 @@ import mappa from  '../assets/img/MapImage.png';
   ::after {
 
   }
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 90%, transparent 100%) ;
 
 }
 
@@ -373,7 +373,7 @@ pointer-events: none;
   position: absolute;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
 #location-title {
   font-size: 1.5em;

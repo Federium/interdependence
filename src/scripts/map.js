@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import locations from '../assets/data/location.json';
+let pauseHero = false;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,6 +114,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  ScrollTrigger.create({
+    trigger: ".map-section",
+    start: "top 50%",
+    onEnter: () => {
+      pauseHero = true;
+      document.getElementById('hero').style.visibility = 'hidden';
+    },
+    onLeaveBack: () => {
+      pauseHero = false;
+      document.getElementById('hero').style.visibility = 'visible';
+
+    }
+  });
+
+
   // Initialize first position
   updateContent(0);
 });
+
+export {pauseHero};

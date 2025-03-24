@@ -43,9 +43,15 @@ a {
     color: black;
 }
 
-.button-container:hover span {
+
+span {
+    padding-left: 10px;
     transition: all 0.5s ease;
 
+}
+
+.button-container:hover span {
+    padding-left: 2em;
 }
 
 
@@ -55,11 +61,6 @@ label {
     text-decoration: none;
 }
 
-span {
-    padding-left: 10px;
-    transition: all 0.5s ease;
-
-}
 
 img {
     height: 100%;
@@ -74,26 +75,26 @@ img {
 </style>
 
 <script>
-    document.querySelectorAll(".button-container").forEach(box => {
-        const span = box.querySelector("span"); // Trova lo span dentro il bottone specifico
-        if (!span) return;
+//     document.querySelectorAll(".button-container").forEach(box => {
+//         const span = box.querySelector("span"); // Trova lo span dentro il bottone specifico
+//         if (!span) return;
   
-        box.addEventListener("mouseenter", function() {
-            console.log("mouse enter");
-            console.log(span)
-            const spanX = span.offsetLeft; // Posizione attuale dell'elemento
-            const centerX = window.innerWidth / 4; // Centro dello schermo
-            const distance = centerX - spanX; // Quanto deve spostarsi
-            if (span) {
-                span.style.transform = `translateX(${distance}px)`;
-                console.log("distance", distance);
-            }
+//         box.addEventListener("mouseenter", function() {
+//             console.log("mouse enter");
+//             console.log(span)
+//             const spanX = span.offsetLeft; // Posizione attuale dell'elemento
+//             const centerX = window.innerWidth / 4; // Centro dello schermo
+//             const distance = centerX - spanX; // Quanto deve spostarsi
+//             if (span) {
+//                 span.style.transform = `translateX(${distance}px)`;
+//                 console.log("distance", distance);
+//             }
           
   
-        box.addEventListener("mouseleave", function() {
-            span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
-        });
-    });
-});
+//         box.addEventListener("mouseleave", function() {
+//             span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
+//         });
+//     });
+// });
   </script>
   
