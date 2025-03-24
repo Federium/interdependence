@@ -19,7 +19,7 @@ const { label, href, id } = Astro.props as Props;
 <div >
     <a class="button-container" href={href} id={id}>
         <label>{label}</label>
-        <span><Image src={arrow} alt = "Freccia a destra"/></span>
+        <span><Image  src={arrow} alt = "Freccia a destra"/></span>
     </a>
 </div>
 
@@ -29,6 +29,14 @@ const { label, href, id } = Astro.props as Props;
 .button-container {
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    span {
+        display: flex;
+        align-items: center;
+    }
 }
 
 
@@ -45,13 +53,11 @@ a {
 
 
 span {
-    padding-left: 10px;
-    transition: all 0.5s ease;
 
 }
 
-.button-container:hover span {
-    padding-left: 2em;
+.button-container:hover label {
+    padding-right: 2em;
 }
 
 
@@ -59,6 +65,9 @@ label {
     font-size: 1.5em;
     color: grey;
     text-decoration: none;
+    padding-right: 0.5em;
+    transition: all 0.5s ease;
+
 }
 
 

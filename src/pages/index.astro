@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".text-section",
       start: "left 0%",
       toggleActions: "restart none none reverse",
-       markers: true,
+      //  markers: true,
     },
   }); 
 
@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".text-section",
       start: "left 0%",
       toggleActions: "restart none none reverse",
-      markers: true,
+      // markers: true,
     },
   }); 
 
@@ -679,6 +679,15 @@ h1,h2,h3,h4,h5,h6, p{
 .loghi-partner-main {
   width: 100%;
 }
+
+.loghi-partner {
+
+justify-content: space-evenly;
+}
+
+.loghi-partner-main h4 {
+  text-align: center;
+}
 }
 
 /* Tablet */
@@ -686,6 +695,18 @@ h1,h2,h3,h4,h5,h6, p{
     .container {
         width: 85%;
     }
+    .logo-container {
+      flex-direction: column;
+    }
+    .loghi-partner {
+
+      align-items: left;
+      justify-content: start;
+    }
+
+    .loghi-partner-main h4 {
+        text-align: left;
+      }
 }
 
 /* Desktop */
@@ -693,6 +714,7 @@ h1,h2,h3,h4,h5,h6, p{
     .container {
         max-width: 1200px;
     }
+
 }
 
 

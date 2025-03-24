@@ -42,6 +42,8 @@ background && mobile && <>
         width: 100vw;
         height: 35vh;
         z-index: -2 !important;
+        transition: transform 0.5s ease;
+       
     }
 
     .header-gradient {
@@ -67,6 +69,8 @@ background && mobile && <>
         position: fixed;
         margin-top: 20px;
         margin-bottom: 30px;
+        transition: transform 0.5s ease;
+
     }
     
     .title, .subtitle {
@@ -83,9 +87,13 @@ background && mobile && <>
 
     @media (max-width: 768px) {
     .header-container {
-        position:fixed;
         top:4vh;
     }
+
+    .trasla {
+            transform: translateY(-5vh);
+        }
+
 
     .nascondi {
         display: none;
@@ -109,7 +117,7 @@ background && mobile && <>
     import { mySketch } from '../scripts/sketch.js'
     
     console.log('Hello from JavaScript!');
-    new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'))
+    new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'));
 </script>
 
 </>}

@@ -5,6 +5,7 @@ import Contenuto from '../../../../layouts/Contenuto.astro';
 import Heading from '../../../../components/Heading.astro';
 import ProjectsLayout from '../../../../layouts/ProjectsLayout.astro';
 
+
 // 1. Generiamo correttamente i percorsi con entrambi i parametri
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -34,7 +35,7 @@ if (!category) {
 
 
 import { Image } from 'astro:assets';
-
+import close from "../../../../assets/icons/close.svg"
 
 const images = await getCollection('images', (entry) => 
   entry.data.category === data.category && entry.data.id === data.id
@@ -52,9 +53,17 @@ const images = await getCollection('images', (entry) =>
     <div class="project-container">
       <div class="project-row">
           <div class="col-4" id="nome-progetto">
-            <h2 class="gradient-text">{data.title}</h2>
-            <h3 class="gradient-text light">{data.subtitle}</h3>
-
+            <a href="javascript:history.back()" class="close-button">
+              <div class="icon">
+                <Image src = {close} alt="Close"></Image>
+              </div>
+              <label>CLOSE</label>
+            </a>
+            <div class="titolo-sottotitolo-container">
+              <h2 class="gradient-text">{data.title}</h2>
+              <h3 class="gradient-text light">{data.subtitle}</h3>
+            </div>
+          
           </div>
             <div class="col-8">
             {images.length > 0 && (
@@ -151,7 +160,7 @@ const images = await getCollection('images', (entry) =>
   #nome-progetto {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     h2 {
       margin-bottom: 0;
       padding-bottom: 0;
@@ -160,6 +169,39 @@ const images = await getCollection('images', (entry) =>
     h3 {
       padding-bottom: 0;
 
+    }
+
+    .close-button {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      label {
+        font-size: 1.2em;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        padding-left: 0.3em;
+        padding-left: 0.3em;
+
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+
+        opacity: 30;
+        transition: all 0.5s ease;
+      }
+
+      &:hover img {
+        opacity: 100;
+      }
+
+      &:hover label{
+        padding-left: 1em;
+
+      }
     }
   }
 
@@ -182,4 +224,6 @@ const images = await getCollection('images', (entry) =>
       margin-bottom: 0;
     }
   }
+
+
 </style>

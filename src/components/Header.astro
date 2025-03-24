@@ -6,10 +6,11 @@ export interface Props {
     subsection?: boolean;
     subsectionActive?: number;
    active:string;
-   background?: boolean;
+   background?: boolean
+   hideHeaderWhileScrollingMobile?: boolean;
 }
 
-const { subsection = false, subsectionActive=0, active, background=false} = Astro.props as Props;
+const { subsection = false, subsectionActive=0, active, background=false, hideHeaderWhileScrollingMobile=false} = Astro.props as Props;
 ---
 
 
@@ -326,6 +327,7 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     transition: all 0.5s ease;
     display: flex;
     flex-direction: column;
+
   }
   .header__head {
     max-width: 1200px;
@@ -360,6 +362,8 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
     display: block;
     padding: 16px 0;
     font-size: 15px;
+
+
   }
 
   .header__menu li.subsection a {
@@ -403,6 +407,12 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
       flex-direction: column;
       justify-content: space-between;
       padding-top: 8px;
+      pointer-events: none;
+    }
+
+    :global(.menu-open)  .header__menu__mobile__container  {
+      pointer-events: all;
+
     }
 
     #fdv-button-mobile a{
@@ -413,6 +423,9 @@ const { subsection = false, subsectionActive=0, active, background=false} = Astr
       font-size: 1.5em;
       font-family: "Milligram";
       font-weight: bold;
+      :hover {
+      color:white;
+    }
     }
 
        .header__menu__bottom li a {
@@ -536,7 +549,9 @@ padding-top: 16px;
   </script>
   
   <!-- ---------- MENU HEADER MOBILE ---------- -->
-  <script>
+  <script define:vars={{hideHeaderWhileScrollingMobile}}>
+    const hideHeadingMobile = hideHeaderWhileScrollingMobile;
+
     document.addEventListener("DOMContentLoaded", function() {
       const hamburger = document.querySelector('.icon-hamburger');
       const body = document.body;
@@ -547,26 +562,37 @@ padding-top: 16px;
       function toggleMenu(isOpening) {
         body.classList.toggle('menu-open');
         
-        if (isOpening) {
-          body.style.overflow = 'hidden';
-          body.style.height = '100vh';
-        } else {
-          body.style.overflow = '';
-          body.style.height = '';
-        }
+        // if (isOpening) {
+        //   body.style.overflow = 'hidden';
+        //   // body.style.height = '100vh';
+        // } else {
+        //   body.style.overflow = '';
+        //   body.style.height = '';
+        // }
       }
   
       // Hide header on scroll
       function handleScroll() {
         const currentScroll = window.scrollY;
-        
+        console.log("controllando");
+        const heading = document.querySelectorAll('.header-container')[1];
+        const animatedbackground = document.querySelector('.animated-background');
+
         if (!body.classList.contains('menu-open')) {
           if (currentScroll > lastScroll && currentScroll > 50) {
             // Scrolling down
             header.style.transform = 'translateY(-100%)';
+            if(heading) {
+                heading.classList.add('trasla'); 
+            }
+            if(animatedbackground) animatedbackground.classList.add('trasla'); 
           } else {
             // Scrolling up
             header.style.transform = 'translateY(0)';
+            if(heading) heading.classList.remove('trasla');
+            if(animatedbackground) animatedbackground.classList.remove('trasla'); 
+
+
           }
         }
         
