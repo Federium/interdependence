@@ -172,12 +172,10 @@ export const mySketch = (width, height) => (p) => {
 
     if (paused) return;
 
-    paused = true;
 
     worleyShader = p.createShader(vert, frag(n));
     createPoints();
 
-    paused = false;
   }
 
   function toggleAnimation() {}
