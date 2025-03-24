@@ -1,5 +1,5 @@
 import { frag, vert } from "./shader.js";
-import { pauseHero as paused } from "./map.js";
+/* import { pauseHero as paused } from "./map.js"; */
 
 export const mySketch = (width, height) => (p) => {
   let capturer;

@@ -25,7 +25,9 @@
           "time": "10:00-22:00"
         } 
       ],
-      "innerLink": "/fabbricadelvapore"
+      "innerLink": "/fabbricadelvapore",
+      "lat": 47.4270, 
+    "lng": 2.0718
     },
 
   {
@@ -38,7 +40,9 @@
     "locationurl": "https://maps.app.goo.gl/WRiLr7s7EJrWLG5ZA",
     "opening": "Wednesday, April 9, 13:30",
     "dates": "From April 9 to May 29 (Mon–Sat 10:00–19:00)",
-    "innerLink": "/designxdesigners"
+    "innerLink": "/designxdesigners",
+    "lat": 23.4970, 
+    "lng": 9.0718
   },
 
 
@@ -51,6 +55,8 @@
     "location": "Rho Fiera Milano, Corso Italia, Rho, Stand A10",
     "locationurl": "https://www.salonemilano.it/en/how-get-there",
     "dates": "From April 8 to April 13 (9:30–18:30)",
-    "innerLink": "/salonesatellite"
+    "innerLink": "/salonesatellite",
+    "lat": 45.4970, 
+    "lng": 9.0718
   }
 ]
