@@ -47,7 +47,54 @@ import categories from "../assets/data/categories.json";
 </div>
 </div>
 
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+  gsap.registerPlugin(ScrollTrigger);
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.category-container');
+    
+    containers.forEach((container, index) => {
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top center+=100",
+        end: "bottom center",
+        scrub: 1,
+        markers: false,
+        onUpdate: (self) => {
+          // Calculate opacity based on scroll position
+          const opacity = gsap.utils.clamp(
+            0.3, 
+            1, 
+            0.3 + (0.7 * self.progress)
+          );
+          
+          container.style.opacity = opacity;
+
+          // Get category elements
+          const categoryOpposites = container.querySelectorAll(".category-opposite");
+          const description = container.querySelector('.category-description');
+
+          // Animate width and borders based on scroll progress
+          if (self.progress > 0.5) {
+            categoryOpposites.forEach(opposite => {
+              opposite.style.width = '100%';
+              console.log("animato");
+            });
+            description.classList.add('invert-borders');
+          } else {
+            categoryOpposites.forEach(opposite => {
+              opposite.style.width = `${opposite.children[0].offsetWidth}px`;
+            });
+            description.classList.remove('invert-borders');
+          }
+        }
+      });
+    });
+  });
+</script>
 
 
 

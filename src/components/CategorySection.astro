@@ -37,7 +37,7 @@ const isRightAligned = index % 2 === 1;
 
 
 
-<script>
+<!-- <script>
   import { gsap } from "gsap";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -49,19 +49,19 @@ const isRightAligned = index % 2 === 1;
       ScrollTrigger.create({
           trigger: '.categories-container',
           start: 'bottom -50vh',
-          markers: true,
+          markers: false,
           onEnter: () => {
               console.log('Entering trigger');
               /* description.classList.remove('hide'); */
           },
           /* onLeaveBack: () => description.classList.add('hide') */
       });
-  });
+  }); -->
 
   
 </script>
 
-<script>
+<!-- <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   
@@ -76,7 +76,7 @@ const isRightAligned = index % 2 === 1;
         start: "top center+=100",
         end: "bottom center",
         scrub: 1,
-        markers: true,
+        markers: false,
         onUpdate: (self) => {
           // Calculate opacity based on scroll position
           const opacity = gsap.utils.clamp(
@@ -107,7 +107,7 @@ const isRightAligned = index % 2 === 1;
       });
     });
   });
-</script>
+</script> -->
 
 <style>
     .category-main-container {
