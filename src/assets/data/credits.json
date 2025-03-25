@@ -1,46 +1,32 @@
 [
   {
     "section": "Scientific Direction and Curation",
-    "people": [
-      "Francesco Zurlo",
-      "Anna Meroni"
-    ]
+    "people": ["Francesco Zurlo", "Anna Meroni"]
   },
   {
     "section": "Delegate for Events, School of Design",
-    "people": [
-      "Francesco E. Guida"
-    ]
+    "people": ["Francesco E. Guida"]
   },
   {
     "section": "Delegate for Communication, School of Design",
-    "people": [
-      "Francesca Piredda"
-    ]
+    "people": ["Francesca Piredda"]
   },
   {
     "section": "Creative Direction",
-    "people": [
-      "Carlo Morgan Capobianco",
-      "Martina Esposito"
-    ]
+    "people": ["Carlo Morgan Capobianco", "Martina Esposito"]
   },
   {
     "section": "International Relations",
-    "people": [
-      "Anne Schoonbrodt",
-      "Maria Carolina Cruz"
-    ]
+    "people": ["Anne Schoonbrodt", "Maria Carolina Cruz"]
   },
   {
     "section": "Project Management",
-    "people": [
-      "Chiara Alberti"
-    ]
+    "people": ["Chiara Alberti"]
   },
   {
     "section": "Exhibit Production",
     "people": [
+      "LAB ALLESTIMENTI 'Paolo Padova' – Department of Design Politecnico di Milano",
       "Mariano Chernicoff",
       "Ilaria Papotti",
       "Gaia Sto Domingo"
@@ -48,49 +34,32 @@
   },
   {
     "section": "Graphic and Motion Design",
-    "people": [
-      "Chiara Mazzeo",
-      "Anita Maria Ruggiu"
-    ]
+    "people": ["Chiara Mazzeo", "Anita Maria Ruggiu"]
   },
   {
     "section": "Web Design and Development",
-    "people": [
-      "Francesco Bonetti",
-      "Filippo Mirandola",
-      "Federico Morsia"
-    ]
+    "people": ["Francesco Bonetti", "Filippo Mirandola", "Federico Morsia"]
   },
   {
     "section": "Exhibit Design",
-    "people": [
-      "Debora Baratta",
-      "Lorenzo Secolin"
-    ]
+    "people": ["Debora Baratta", "Lorenzo Secolin"]
   },
   {
     "section": "Exhibition Content Coordination",
-    "people": [
-      "Valerio Libardo"
-    ]
+    "people": ["Valerio Libardo"]
   },
   {
     "section": "Video and Photo Documentation",
-    "people": [
-      "Elisa Corbetta"
-    ]
+    "people": ["Elisa Corbetta", "Arianna Vergani"]
   },
   {
     "section": "Technical Partners",
-    "people": [
-      "Mottola Solutions",
-      "Navigare",
-      "Zetafonts"
-    ]
+    "people": ["Mottola Solutions", "Navigare", "Zetafonts"]
   },
   {
     "section": "Communication Coordination",
     "people": [
+      "Communication Unit, Department of Design",
       "Eleonora De Marchi",
       "Francesca Cassanelli",
       "Giada Zoncada",
@@ -99,17 +68,11 @@
   },
   {
     "section": "Social Media",
-    "people": [
-      "Anna Bartesaghi",
-      "Beatrice Tronconi",
-      "Nicola Maria Patitucci"
-    ]
+    "people": ["Anna Bartesaghi", "Beatrice Tronconi", "Nicola Maria Patitucci"]
   },
   {
     "section": "Animazione Teatrale",
-    "people": [
-      "Campo Teatrale"
-    ]
+    "people": ["Campo Teatrale"]
   },
   {
     "section": "Thanks to",
@@ -122,10 +85,12 @@
       "Umberto Tolino",
       "Davide Fassi",
       "Silvia Ferraris",
+      "Andrea Manciaracina",
+      "Fabio di Liberto",
       "Design Labs – Department of Design Politecnico di Milano",
       "Milena Di Gennaro and the Administrative Staff of the School Design",
-      "Professors and students that contributed to the event",
-      "Domenico Capobianco"
+      "Domenico Capobianco",
+      "Professors and students that contributed to the event"
     ]
   }
 ]
