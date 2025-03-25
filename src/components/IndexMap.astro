@@ -6,7 +6,7 @@ import ButtonSmall from '../components/ButtonSmall.astro';
 
 import {Image} from 'astro:assets';
 
-import mappa from  '../assets/img/MapImage_low.png';
+import mappa from  '../assets/img/MapImage_cut.png';
 
 ---
   
@@ -20,7 +20,7 @@ import mappa from  '../assets/img/MapImage_low.png';
     <div class="map-1">
       <div class="map-bg">
         <div class="pointer-blur"></div>
-        <Image src={mappa}  format="avif" quality={"mid"} id="map" alt="Mappa"  loading="eager" />
+        <Image src={mappa}  format="avif" quality={"low"} id="map" alt="Mappa"   />
       </div>
       <div class="paragraph-container">
         <div class="paragraph-box show " id="box-0">
@@ -232,11 +232,13 @@ import mappa from  '../assets/img/MapImage_low.png';
 }
 
 #map {
-  width: 200%;
-  height: auto;
+  /* width: 200%;
+  height: auto; */
+  width: auto;
+  height: 100%;
   /* transform-origin: center; */
   mix-blend-mode: normal;
-
+  transition: all 1s ease;
   ::after {
 
   }

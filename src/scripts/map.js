@@ -6,6 +6,8 @@ let pauseHero = false;
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+  let index = 0;
+
   const mapSection = document.querySelector('.map-section');
   if (!mapSection) return;
 
@@ -24,26 +26,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializeMap() {
-    let index = 0;
     const totalSteps = locations.length;
     const mw = mapImg.naturalWidth;  // image width
     const mh = mapImg.naturalHeight; // image height
     const mrw = mapImg.width;  // actual image width
     const mrh = mapImg.height; // actual image height
     const ratio = mrw/mw;
+    mapSection.style.transform = `translate(0,0)`;
     console.log(ratio);
     const oPoints = [
       {	
-        x: 4930,
-        y: 3366,
+        x: 2800,
+        y: 1522
       },
       {	
-        x: 1200,
-        y: 1000
+        x: 2735,
+        y: 1100
       },
       {	
-        x: 2965,
-        y: 2945
+        x: 1724,
+        y: 808
       }
     ];
 
@@ -51,59 +53,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const points = [
       {	
-        x: ((oPoints[0].x-mw/2)*ratio) + mrw/2,
-        y: ((oPoints[0].y-mh/2)*ratio) + mrh/2,
-        t: [((oPoints[0].x-mw/2)*ratio), ((oPoints[0].y-mh/2)*ratio)]
+        x: mrw/2 - oPoints[0].x*ratio,
+        y: mrh/2 - oPoints[0].y*ratio,
+        // t: [(mrw/2 - oPoints[0].x*ratio), ]
       },
       {	
-        x: ((oPoints[1].x-mw/2)*ratio) + mrw/2,
-        y: ((oPoints[1].y-mh/2)*ratio) + mrh/2,
-        t: [((oPoints[1].x-mw/2)*ratio), ((oPoints[1].y-mh/2)*ratio)]
+        x: mrw/2 - oPoints[1].x*ratio,
+        y: mrh/2 - oPoints[1].y*ratio,
+        // t: [(mrw/2 - oPoints[1].x*ratio), mrh/2 - oPoints[1].y*ratio]
       },
       {	
-        x: ((oPoints[2].x-mw/2)*ratio) + mrw/2,
-        y: ((oPoints[2].y-mh/2)*ratio) + mrh/2,
-        t: [((oPoints[2].x-mw/2)*ratio), ((oPoints[2].y-mh/2)*ratio)]
+        x: mrw/2 - oPoints[2].x*ratio,
+        y: mrh/2 - oPoints[2].y*ratio
+        // t: [(mrw/2 - oPoints[2].x*ratio), mrh/2 - oPoints[2].y*ratio]
       }
     ];
 
-    console.log(points);
 
     function getResponsivePositions() {
       const vw = window.innerWidth;
-    
+      const vh = window.innerHeight;
+
       if (vw <= 768) {
-        return points.map(point => ({
-          x: point.x,
-          y: point.y,
-          scale: scale[0]
-        }));
-      } else if (vw <= 1024) {
-        return points.map(point => ({
-          x: point.x,
-          y: point.y,
-          scale: scale[0]
-        }));
-      } else {
-        return points.map(point => ({
-          x: point.x,
-          y: point.y,
-          scale: scale[0]
-        }));
-      }
+        return 0.27*vh;
+        }
+      else return 0.2*vh
+      // } else if (vw <= 1024) {
+      //   return points.map(point => ({
+      //     x: point.x,
+      //     y: point.y,
+      //     scale: scale[0]
+      //   }));
+      // } else {
+      //   return points.map(point => ({
+      //     x: point.x,
+      //     y: point.y,
+      //     scale: scale[0]
+      //   }));
+      // }
     }
 
     let mapPositions = getResponsivePositions();
 
     window.addEventListener('resize', () => {
-      mapPositions = getResponsivePositions();
+      initializeMap();
       updateContent(index);
     });
 
     const updateContent = (step, direction) => {
       const currentPoint = points[step];
-      mapImg.style.transformOrigin = `${currentPoint.x}px ${currentPoint.y}px`;
-      mapImg.style.transform = `scale(${scale[step]})`;
+      console.log(mapImg);
+      mapImg.style.transformOrigin = `${mrw/2 - currentPoint.x}px ${mrh/2 - currentPoint.y}px`;
+      mapImg.style.transform = `translate(${points[step].x}px, ${points[step].y-getResponsivePositions()}px) scale(${scale[step]}) `;
 
       if (direction === "down") {
         document.querySelector(`#box-${step}`).classList.add('show');
