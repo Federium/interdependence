@@ -2,6 +2,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import locations from '../assets/data/location.json';
 let pauseHero = false;
+let mapScrollTrigger;
+let heroScrollTrigger;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,10 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let mapPositions = getResponsivePositions();
 
-    window.addEventListener('resize', () => {
-      initializeMap();
-      updateContent(index,"down");
-    });
+
 
     const updateContent = (step, direction) => {
       const currentPoint = points[step];
@@ -129,10 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let prevProgress = 0;
 
-    ScrollTrigger.create({
+   mapScrollTrigger = ScrollTrigger.create({
       trigger: ".map-section",
       start: "top top",
-      end: () => '+=' + 3*(window.innerHeight),
+      end: '+=200%',
       invalidateOnRefresh: true,
       pin: true,
       pinSpacing: true,
@@ -157,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    ScrollTrigger.create({
+   heroScrollTrigger = ScrollTrigger.create({
       trigger: ".map-section",
       start: "top 50%",
       onEnter: () => {
@@ -169,9 +168,20 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('hero').style.visibility = 'visible';
       }
     });
+    document.getElementById('hero').style.visibility = 'visible';
 
     updateContent(0,"down");
   }
+});
+
+window.addEventListener('resize', () => {
+  // ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Rimuove tutti i trigger esistenti
+  if (heroScrollTrigger) heroScrollTrigger.kill();
+  if (mapScrollTrigger) heroScrollTrigger.kill();
+
+  initializeMap(); // Reinizializza la mappa
+  updateContent(index, "down"); // Assicura che i contenuti si aggiornino correttamente    
+  
 });
 
 export {pauseHero};
