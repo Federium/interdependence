@@ -215,6 +215,12 @@ const infos = [
         }
         h1,h2 {margin:0}
         @media(max-width:768px) {
+            .background-image {
+                height: 50%;
+                -webkit-mask-image: linear-gradient(to bottom,black 0%, transparent 100%);
+                mask-image: linear-gradient(to bottom, black 0%, transparent 100%) ; 
+            }
+
             .info-container-element {
                 flex-direction: column;
             }
