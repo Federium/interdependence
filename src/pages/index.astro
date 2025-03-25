@@ -16,11 +16,11 @@ import logoPoliDesign from '../assets/logos/Poli.design.svg';
 import logoMottola from '../assets/logos/mottola-black.svg';
 import logoZetafonts from '../assets/logos/zetafonts-black.svg';
 import logoNavigare from '../assets/logos/navigare.svg';
-import logoComune from '../assets/logos/patrocinio_comune_milano.svg';
+import logoComune from '../assets/logos/logoComuneMilano_orizz.svg';
 import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
 import logoFdV from '../assets/logos/fdv.svg';
 
-import logoDesignWeek from '../assets/logos/logo-design-week.png';
+import logoDesignWeek from '../assets/logos/logo-design-week.svg';
 import mappa from  '../assets/img/MapImage.png';
 import CategoryItem from '../components/CategoryItem.astro';
 
@@ -50,36 +50,56 @@ import CategoryItem from '../components/CategoryItem.astro';
       <div class="container">
         <div class="logo-container" style="display:flex">
             <div class="logo-left" id="loghi-poli">
-              <div>
-                <Image src={logoPolimiDesign} alt="Politecnico di Milano">
-              </div>
-              <div id="polidesign">
-                <Image src={logoPoliDesign} alt="PoliDesign">
-              </div>
+              
             </div>
           </div>
-          <div class="logos-partners-row">
+          <div class="logos-partners-row" id="loghi-partner-row-1">
             <div class="loghi-partner-main">
 
-            <h4>with the support of</h4> 
+              <h4>From an idea by</h4> 
 
    
                 <div class="loghi-partner" id="loghi-support">
-                  <div >
-                    <Image src={logoComune} alt="Comune di Milano" id="logoComune">
+                  <div>
+                    <Image src={logoPolimiDesign} alt="Politecnico di Milano">
                   </div>
-                  <div >
-                    <Image src={logoCampoTeatrale} alt="Mottola" id="logoCampoteatrale">
-                  </div>
-                  <div >
-                    <Image src={logoFdV} alt="Fabbrica del Vapore" id="logoFdV">
+                  <div id="polidesign">
+                    <Image src={logoPoliDesign} alt="PoliDesign">
                   </div>
                 </div>
             </div>
 
          
             <div class="loghi-partner-main">
-              <h4>technical partners</h4> 
+              <h4>With the patronage of</h4> 
+               <div class="loghi-partner" id="loghi-comune-mdw">
+                <div >
+                 
+
+                  <Image src={logoComune} alt="Comune di Milano" id="logoComune">
+                </div>
+            
+              </div>
+             </div>
+
+             <div class="loghi-partner-main">
+
+  
+     
+                  <div class="loghi-partner" id="loghi-support">
+                    <div >
+                      <Image src={logoDesignWeek} alt="DesignWeek" id="logoDesignWeek">
+                    </div>
+                  </div>
+              </div>
+             
+             
+          </div>
+          <div class="logos-partners-row">
+
+
+            <div class="loghi-partner-main">
+              <h4>Technical partners</h4> 
    
                <div class="loghi-partner">
                 <div >
@@ -94,6 +114,23 @@ import CategoryItem from '../components/CategoryItem.astro';
              </div>
              
           </div>
+
+        
+            <div class="loghi-partner-main">
+
+            <h4>With the support of</h4> 
+
+   
+                <div class="loghi-partner" id="loghi-support">
+           
+                  <div >
+                    <Image src={logoCampoTeatrale} alt="Mottola" id="logoCampoteatrale">
+                  </div>
+                
+                </div>
+            </div>
+
+         
           
          
        
@@ -630,6 +667,9 @@ h1,h2,h3,h4,h5,h6, p{
           justify-content: space-between;
           margin-bottom: 3em;
           /* max-height: 300px; */
+          &#loghi-partner-row-1 {
+            justify-content: space-between;
+          }
         }
 
         #loghi-poli {
@@ -672,10 +712,12 @@ h1,h2,h3,h4,h5,h6, p{
         .loghi-partner-main {
           margin-top: 2em;
          h4 {
-          text-align: center;
+          text-align: left;
          } 
 
         }
+
+      
 
         .loghi-partner {
           transform: translateY(-1em);
@@ -688,20 +730,37 @@ h1,h2,h3,h4,h5,h6, p{
           &#loghi-support img {
             max-height: 150px;
             max-width: 150px ;
+            
             &#logoCampoteatrale{
-          max-height: 100px;
-         };
-         &#logoFdV{
-          max-height: 70px;
-         }
-         
-          }
+              max-height: 150px;
+            };
+            
+            &#logoFdV{
+              max-height: 70px;
+            }
 
+            &#logoDesignWeek {
+            max-height: 80px;
+            width: auto;
+            transform: translateY(1EM);
+            }
+
+          }
+         
           div img {
             max-width: 150px;
       
+            &#logoComune {
+            max-height: 150px;
+            width: auto;
+            }
           }
        
+        }
+
+        #loghi-comune-mdw {
+          justify-content: space-between;
+          
         }
         
         #zetafont {
