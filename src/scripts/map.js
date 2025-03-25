@@ -111,10 +111,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (step > 0) {
           document.querySelector(`#box-${step - 1}`).classList.add('hide');
         }
+        // if (step ==0) {
+        //   pauseHero = true;
+        //    document.getElementById('hero').style.visibility = 'hidden';
+        // }
       }
 
       if (direction === "up") {
         document.querySelector(`#box-${step}`).classList.remove('hide');
+
+        if (step == 0 ) {
+                  pauseHero = false;
+        document.getElementById('hero').style.visibility = 'visible';
+        }
 
         if (step < totalSteps - 1) {
           document.querySelector(`#box-${step + 1}`).classList.remove('show');
