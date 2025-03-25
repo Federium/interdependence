@@ -7,18 +7,22 @@ import Heading from "../components/Heading.astro";
 import {Image} from "astro:assets";
 
 import logoDesktop from "../assets/logos/interdependence-white-long.svg";
+import logoMobile from "../assets/logos/interdependence-white-short.svg";
+
 import logoPolimi from '../assets/logos/Polimi.svg';
 import logoPoliDesign from '../assets/logos/Poli.design.svg';
-import logoDesignWeek from '../assets/logos/logo-design-week.png';
+import logoDesignWeek from '../assets/logos/logo-design-week.svg';
 ---
 
 
 <Contenuto name="Credits">
   <Heading title="" background={true} backgroundMobile={true}></Heading>
-  <div class="logo-container">
-    <Image src={logoDesktop} alt="interdependence - exploring opposites"></Image>
-
-</div>
+  <div class="logo-container desktop">
+    <Image src={logoDesktop} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
+  </div>
+  <div class="logo-container mobile">
+    <Image src={logoMobile} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
+  </div>
   <main class="credits-page">
     <div class="credits-grid">
       <div class="credits-column">
@@ -72,13 +76,13 @@ import logoDesignWeek from '../assets/logos/logo-design-week.png';
     </div>
 
 <!-- LOGOS -->
-<div class="logo-container">
+<div class="logo-container-bottom" >
   <div class="logo-left">
-    <Image src={logoPolimi} alt="Logo del Politecnico di Milano" />
-    <Image src={logoPoliDesign} alt="Logo di Poli.design" />
+    <Image src={logoPolimi} alt="Logo del Politecnico di Milano" id="logo-polimi"  />
+    <Image src={logoPoliDesign} alt="Logo di Poli.design" id="logo-polidesign" />
   </div>
   <div class="logo-right">
-    <Image src={logoDesignWeek} alt="Logo Milano Design Week" />
+    <Image src={logoDesignWeek} alt="Logo Milano Design Week" id="logo-mdw"/>
   </div>
 </div>
 
@@ -96,18 +100,48 @@ import logoDesignWeek from '../assets/logos/logo-design-week.png';
 
 .logo-container {
             display: flex;
-            mix-blend-mode: difference;
+            &.desktop {
+              mix-blend-mode: difference;
+
+            }
+
+            &.mobile {
+            display: none;
         }
+
         img {
             width: 100%;
 
             mix-blend-mode: difference;
             align-self: left;
         }
+        }
+     
+       
 
+    .logo-container-bottom {
+      mix-blend-mode: normal;
+
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      div {
+        display: flex;
+        height: 10em;
+        align-items: center;
+        gap: 2em;
+      }
+      img {
+        max-width: 200px;
+        max-height: 80px;
+
+      }
+
+  
+    }
 
   .credits-page {
-    min-height: 100vh;
     margin-top: 4rem;
     /* padding: clamp(2rem, 5vw, 5rem); */
     /* background-color: var(--bg-color); */
@@ -155,6 +189,9 @@ import logoDesignWeek from '../assets/logos/logo-design-week.png';
     color: var(--text-color);
     margin: 0;
   }
+  #logo-polimi {
+    filter: invert(1);
+  }
 
   @media (max-width: 768px) {
     .credits-page {
@@ -168,6 +205,22 @@ import logoDesignWeek from '../assets/logos/logo-design-week.png';
 
     .logo-container {
           padding: 0 !important;
+
+          &.desktop {
+              display: none;
+
+            }
+
+            &.mobile {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: invert(1);
+            max-width: 200px;
+            margin-bottom: 3em;
+            img {
+              height: auto;
+            }
         }
   }
 
@@ -175,24 +228,27 @@ import logoDesignWeek from '../assets/logos/logo-design-week.png';
 
 
 
-  .logo-container {
+  
+  .logo-container-bottom {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           position: relative;
           width: 100%;
           padding: clamp(1rem, 2vw, 2rem);
           margin-top: 6rem;
+          gap:2em;
+          div {
+            height: auto;
+          }
         }
         
         .logo-left {
           display: flex;
           align-items: center;
           gap: clamp(1rem, 2vw, 2rem);
-          width: 60%;
         }
         
         .logo-right {
-          width: 30%;
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -205,5 +261,18 @@ import logoDesignWeek from '../assets/logos/logo-design-week.png';
           width: auto; /* Width will adjust based on aspect ratio */
           object-fit: contain;
           max-width: 100%; /* Prevent overflow */
+        }
+
+    #logo-interdependence {
+
+    }
+
+    #logo-mdw {
+        }
+        #logo-polimi {
+          max-width: 250px;
+        }
+        #logo-polidesign {
+          max-width: 180px;
         }
 </style>
