@@ -6,21 +6,22 @@ export interface Props {
   background?: boolean;
   backgroundMobile?: boolean;
   mobile?:boolean;
+  id?:string;
 }
 
-const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false } = Astro.props as Props;
+const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false, id="" } = Astro.props as Props;
 ---
 
 {
 background && mobile && <>
-<div class={`animated-background ${mobile ? '' : 'nascondi'}`}>
+<div class={`animated-background ${backgroundMobile ? '' : 'nascondi'}`} id={"back-"+id}>
     <div id="p5-canvas"></div>
     <div class="header-gradient"></div>
 </div>
 </>
 }
 
-<div class={`header-container ${mobile ? '' : 'nascondi'}`}>
+<div class={`header-container ${mobile ? '' : 'nascondi'}`}  id={"testi-"+id}>
     <h2 class="title">{title}</h2>
     {
     subtitle && <>
@@ -88,14 +89,41 @@ background && mobile && <>
         font-weight: normal;
         padding-top: 0;
     }
+    
+    @media (min-width: 769px) {
+        #testi-header-mobile-2 {
+        top: 0;
+        left: 10vw;
+    }
+
+        #back-header-mobile-2.animated-background
+        {
+            height: 18vh;
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        z-index: 0 !important;
+        pointer-events: none;
+    }
+
+    .header-gradient {
+        z-index: 0 !important;
+        background: linear-gradient(to top, white 90%,  rgba(255, 255, 255, 0.8) 100%);
+        height: 100vh;
+
+
+    }
+    }
+
+    
+
 
     @media (max-width: 768px) {
     .header-container {
-        top:4vh;
+        top:7vh;
     }
 
     .trasla {
-            transform: translateY(-5vh);
+            transform: translateY(-8vh);
         }
 
 
@@ -104,10 +132,17 @@ background && mobile && <>
     }
 
         .animated-background {
-        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
         z-index: 0 !important;
+        height: 25vh;
     }
+
+    #testi-header-mobile-2 {
+        padding-left: 20px;
+    
+    }
+
 
 
 }
