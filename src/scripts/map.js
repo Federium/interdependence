@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener('resize', () => {
       initializeMap();
-      updateContent(index);
+      updateContent(index,"down");
     });
 
     const updateContent = (step, direction) => {
@@ -132,7 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ScrollTrigger.create({
       trigger: ".map-section",
       start: "top top",
-      end: "+=200%",
+      end: () => '+=' + 3*(window.innerHeight),
+      invalidateOnRefresh: true,
       pin: true,
       pinSpacing: true,
       scrub: 1,
@@ -169,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    updateContent(0);
+    updateContent(0,"down");
   }
 });
 
