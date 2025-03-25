@@ -9,7 +9,7 @@ import programData from "../../assets/data/program.json";
 <Contenuto name="Program" subsection={true}, subsectionActive={2}>
     <div class="program-container">
         <div class="col-4 days">
-            <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} mobile={false}></Heading>
+            <Heading title="Program" subtitle="Fabbrica del Vapore" background={false} mobile={false}></Heading>
             <div class="day-selector">
                 {programData.map((dayData, index) => (
                     <div class="day" id={`day-${dayData.index}`}>

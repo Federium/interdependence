@@ -64,7 +64,7 @@ const infos = [
                                     <span><Image src={arrow} alt = "Freccia a destra"/></span>
                                 </a>
                             ) : (
-                                <div class="info-container-element">
+                                <div class="info-container-element" id={"info-"+info.label}>
                                     <div class="info-label gradient-text light">{info.label}</div>
                                     <div class="info-txt">{info.txt}</div>
                                 </div>
@@ -162,6 +162,9 @@ const infos = [
         .info-container-element { 
             display: flex;
             padding: 10px 0;
+            &#info-DATES {
+                padding-bottom: 0;
+            }
         }
 
         .info-container-element#hours {

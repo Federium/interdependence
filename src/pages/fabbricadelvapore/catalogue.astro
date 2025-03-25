@@ -17,14 +17,9 @@ const categories = [...new Set(projects.map(project => project.data.category))];
 ---
 
 <Contenuto name="Catalogue" subsection={true}, subsectionActive={1}>
+
     <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} mobile={false}>
     </Heading>
-    <div class="text-container">
-        <p>
-            At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives.
-        </p>
-    </div>
-
          
 
     <div class="categories-container">
@@ -33,6 +28,12 @@ const categories = [...new Set(projects.map(project => project.data.category))];
         ))}
       </div>
 
+
+    <div class="text-container">
+        <p>
+            At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives.
+        </p>
+    </div>
       
 
       <!-- <div class="categories-container">
@@ -71,7 +72,7 @@ const categories = [...new Set(projects.map(project => project.data.category))];
 <style>
     .text-container {
         max-width: 1200px;
-        padding-top: 12vh;
+        padding-top: 20vh;
         z-index: -5 !important;
     }
 

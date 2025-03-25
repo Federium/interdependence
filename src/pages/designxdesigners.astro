@@ -16,13 +16,15 @@ const info = {
     dates: location.dates,
     description: location.description,
     locationUrl: location.locationurl,
-    backgroundImg: bckImg
+    backgroundImg: bckImg,
+    hours: location.hours
+
 }
 
 
 ---
 
-<PaginaLuogo index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src}>
+<PaginaLuogo index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src} hours={info.hours}>
 
 
 

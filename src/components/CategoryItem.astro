@@ -91,6 +91,16 @@ const { category, isHeading="false" } = Astro.props as Props;
     transition: color 0.3s ease;
   }
   .category-container span {
+    white-space: nowrap;
     font-size: 2.2em;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  @media (max-width:768px) {
+    .category-container span {
+    font-size: 1.4em;
+  }
   }
 </style>

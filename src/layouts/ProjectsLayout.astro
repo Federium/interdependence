@@ -12,8 +12,8 @@ const { category, isSingleProject="false" } = Astro.props as Props;
 
 <div class="projects-layout">
   <CategoryItem category={category} isHeading={true} />
-  <p class="description">{category.description}</p>
-  <p class="description txt-small">{category.descriptionExtra}</p>
+  <p class="col-8 description main-description">{category.description}</p>
+  <p class="col-8 description txt-small">{category.descriptionExtra}</p>
 
   <slot />
 </div>
@@ -22,10 +22,27 @@ const { category, isSingleProject="false" } = Astro.props as Props;
   .projects-layout {
     padding-top: 12vh;
     width: 100%;
+    &::after {
+      content:"";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+    }
+    
   }
   .description {
     color: #333;
     font-weight: normal;
     margin-bottom: 50px;
+    &.main-description {
+      margin-bottom: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-layout {
+    padding-top: 20vh;
+  }
   }
 </style>
