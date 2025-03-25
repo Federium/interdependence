@@ -549,106 +549,133 @@ padding-top: 16px;
   </script>
   
   <!-- ---------- MENU HEADER MOBILE ---------- -->
-    <script>
-    import gsap from 'gsap';
-  
-    document.addEventListener("DOMContentLoaded", function() {
-      const header = document.querySelector('.header_mobile');
-      const hamburger = document.querySelector('.icon-hamburger');
-      const body = document.body;
-      let lastScroll = 0;
-      let hideTimeout;
-  
-      // Function to hide header after delay
-      function startHideTimer() {
-        clearTimeout(hideTimeout);
-        hideTimeout = setTimeout(() => {
-          if (!body.classList.contains('menu-open')) {
-            gsap.to(header, {
-              duration: 0.5,
-              y: '-100%',
-              ease: 'power2.inOut'
-            });
-          }
-        }, 2000); // 2 seconds delay
+ 
+ <!-- SCRIPT CON TIMER -->
+  <!-- <script>
+// const hideHeadingMobile = hideHeaderWhileScrollingMobile;
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector('.icon-hamburger');
+  const body = document.body;
+  const header = document.querySelector('.header_mobile');
+  let lastScroll = 0;
+  let hideTimer;
+
+  function toggleMenu(isOpening) {
+    body.classList.toggle('menu-open');
+    if (isOpening) {
+      clearTimeout(hideTimer);
+      header.style.transform = 'translateY(0)';
+    }
+  }
+
+  function startHideTimer() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      if (!body.classList.contains('menu-open')) {
+        header.style.transform = 'translateY(-100%)';
       }
-  
-      // Show header immediately
-      function showHeader() {
-        gsap.to(header, {
-          duration: 0.3,
-          y: '0%',
-          ease: 'power2.out'
-        });
+    }, 5000);
+  }
+
+  function handleScroll() {
+    const currentScroll = window.scrollY;
+    console.log("controllando");
+    const heading = document.querySelectorAll('.header-container')[1];
+    const animatedbackground = document.querySelector('.animated-background');
+
+    if (!body.classList.contains('menu-open')) {
+      if (currentScroll > lastScroll && currentScroll > 50) {
+        header.style.transform = 'translateY(-100%)';
+        if (heading) heading.classList.add('trasla');
+        if (animatedbackground) animatedbackground.classList.add('trasla');
+      } else {
+        header.style.transform = 'translateY(0)';
+        if (heading) heading.classList.remove('trasla');
+        if (animatedbackground) animatedbackground.classList.remove('trasla');
         startHideTimer();
       }
-  
-      // Handle scroll
-      function handleScroll() {
-        const currentScroll = window.scrollY;
-        
-        if (!body.classList.contains('menu-open')) {
-          clearTimeout(hideTimeout);
-          
-          if (currentScroll > lastScroll && currentScroll > 50) {
-            // Scrolling down - hide immediately
-            gsap.to(header, {
-              duration: 0.3,
-              y: '-100%',
-              ease: 'power2.in'
-            });
-          } else {
-            // Scrolling up - show and start hide timer
-            showHeader();
-          }
-        }
-        
-        lastScroll = currentScroll;
-      }
-  
-      // Toggle menu
-      function toggleMenu(isOpening) {
-        body.classList.toggle('menu-open');
-        
-        if (isOpening) {
-          clearTimeout(hideTimeout);
-          body.style.overflow = 'hidden';
-          gsap.to(header, {
-            duration: 0.5,
-            y: '0%',
-            height: '100vh',
-            ease: 'power2.inOut'
-          });
-        } else {
-          body.style.overflow = '';
-          gsap.to(header, {
-            duration: 0.5,
-            height: '10vh',
-            background: 'linear-gradient(to bottom, rgba(10, 10, 10, 0.97), transparent)',
-            ease: 'power2.inOut',
-            onComplete: startHideTimer
-          });
-        }
-      }
-  
-      // Event listeners
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          const isOpening = !body.classList.contains('menu-open');
-          toggleMenu(isOpening);
-        });
-      }
-  
-      // Mouse movement shows header
-      document.addEventListener('mousemove', (e) => {
-        if (e.clientY < 100) { // Only trigger in top area
-          showHeader();
-        }
-      });
-  
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      
-      // Start initial hide timer
-      startHideTimer();
+    }
+    lastScroll = currentScroll;
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener("click", function() {
+      const isOpening = !body.classList.contains('menu-open');
+      toggleMenu(isOpening);
     });
-  </script>
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  startHideTimer();
+});
+  </script> -->
+
+   <!-- SCRIPT SENZA TIMER -->
+
+<script define:vars={{hideHeaderWhileScrollingMobile}}>
+  const hideHeadingMobile = hideHeaderWhileScrollingMobile;
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.querySelector('.icon-hamburger');
+    const body = document.body;
+    const header = document.querySelector('.header_mobile');
+    let lastScroll = 0;
+    
+    // Toggle menu function
+    function toggleMenu(isOpening) {
+      body.classList.toggle('menu-open');
+      
+      // if (isOpening) {
+      //   body.style.overflow = 'hidden';
+      //   // body.style.height = '100vh';
+      // } else {
+      //   body.style.overflow = '';
+      //   body.style.height = '';
+      // }
+    }
+
+    // Hide header on scroll
+    
+    if (hideHeadingMobile) {
+      function handleScroll() {
+      const currentScroll = window.scrollY;
+      console.log("controllando");
+      const heading = document.querySelectorAll('.header-container')[1];
+      const animatedbackground = document.querySelector('.animated-background');
+
+      if (!body.classList.contains('menu-open')) {
+        if (currentScroll > lastScroll && currentScroll > 50) {
+          // Scrolling down
+          header.style.transform = 'translateY(-100%)';
+          if(heading) {
+              heading.classList.add('trasla'); 
+          }
+          if(animatedbackground) animatedbackground.classList.add('trasla'); 
+        } else {
+          // Scrolling up
+          header.style.transform = 'translateY(0)';
+          if(heading) heading.classList.remove('trasla');
+          if(animatedbackground) animatedbackground.classList.remove('trasla'); 
+
+
+        }
+      }
+      
+      lastScroll = currentScroll;
+    }
+
+    }
+   
+
+    // Event listeners
+    if (hamburger) {
+      hamburger.addEventListener("click", function() {
+        const isOpening = !body.classList.contains('menu-open');
+        toggleMenu(isOpening);
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  });
+</script>
