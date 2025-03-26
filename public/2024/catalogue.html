@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="catalogue.css">
+    <link rel="stylesheet" href="aggiunte.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <link href="https://unpkg.com/minibarjs@latest/dist/minibar.min.css" rel="stylesheet" type="text/css">
+
+    <title>interdependence</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+    
+    <a href="pages/fabbricaVapore.html"> 
+      <div class="button-places" id="back" > 
+        <span class="buttonSpan">← Fabbrica del Vapore</span>
+      </div>
+    </a>
+
+    <div id = "overlay"  style="display: none; " ></div>
+    <div id="main-title"><a href="index.html">interdependence</a></div>
+   <div class="titoli">Catalogue</div>
+   <p class=" catalogue titoletti">Fabbrica del Vapore</p>
+
+   <div class="titoletti" id="titoletto-economy">Economy and Supply Chain</div>
+   <div class="theme-description">Towards innovative paradigms. Understanding today’s economy, orienting that of the future.
+    A dense network of economic, commercial, and financial relationships connects companies, industries, 
+    and nations. Design is an integral part of the economy, but it has the vision to read the interactions between the players involved and each choice's domino 
+    effect. Valuable interdisciplinarity to develop new strategies and paradigms. 
+   </div>
+    <div class="mattonelle-container" id="economy"></div>
+    <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-commons">Commons</div>
+   <div class="theme-description">
+    Vital resources for all. A use to be designed in an equitable and participatory way. The public space we inhabit, 
+    the water, the air, the energy we consume, the infrastructure we use are deeply interdependent. 
+    Because the commons belong to everyone and concern everyone’s life. Design can shape these resources and their use as equitably, shared 
+    and participatory as possible. 
+   </div>
+   <div class="mattonelle-container" id="commons"></div>
+   <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-culture">Culture and Information</div>
+   <div class="theme-description">
+    Contamination, exchange, sharing. Imagining and facilitating unexplored directions. Cultures shape worlds 
+    and values by interacting with each other on a global scale. Data and information, through media platforms, influence public opinion and educational systems. Design, with its natural interdisciplinarity, can catalyze new forms of collaboration 
+    and sharing.  
+   </div>
+   <div class="mattonelle-container" id="culture"></div>
+   <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-ecology">Ecology and Natural Resources</div>
+   <div class="theme-description">
+    Nature is us. Coexistence is to be designed with balance and harmony. Orienting that of the future. In nature, relationships are life. Organisms, ecosystems, 
+    and communities interact with each other through delicate and dynamic balances. 
+    The challenge of design is to understand and address the impact of human activities for a sustainable management of resources that preserves 
+    the richness of biodiversity for all benefit.  
+   </div>
+   <div class="mattonelle-container" id="ecology"></div>
+   <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-technology">Technology</div>
+   <div class="theme-description">
+    Impact and humanization of technologies. Drawing new balances and horizons of meaning. Each technology is closely connected to all others 
+    and people’s everyday life. Every innovation in one area has an impact in shaping the overall technological landscape in which we are immersed. Design offers a way 
+    to humanize technologies and to explore ethical issues related to technological advances. 
+   </div>
+   <div class="mattonelle-container" id="technology"></div>
+   <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-politics">Politics and Society</div>
+   <div class="theme-description">   
+    The complexity of global challenges. Designing unprecedented paths of dialogue and encounter. From security to cooperation, from international diplomacy 
+    to peace building, political and national entities depend on each other. A map of relationships in flux, where design has much to say 
+    and do, creating contexts for dialogue and helping to manage and alleviate emergencies and conflict situations. 
+   </div>
+   <div class="mattonelle-container" id="politics"></div>
+   <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-wellbeing">Wellbeing</div>
+   <div class="theme-description">
+    Human relations, values and quality of life. Facilitating positive interactions. Individual and group relationships, strong and weak ties between people, and the exchange between generations shape social structures and the way values and visions are transmitted and evolve. 
+    Design is a powerful agent of interactions, addressing relationships in their essence for the well-being of individuals and communities. 
+   </div>
+   <div class="mattonelle-container" id="wellbeing"></div>
+   <!-- <div class="dot-container"></div> -->
+
+   <div class="titoletti" id="titoletto-food">Food Resources</div>
+   <div class="theme-description">
+    Food and planet. Reformulating food habits and production from a sustainable perspective. Between nature and industry, between local traditions and global policies, the way we produce, distribute and consume food has an impact on our well-being and that 
+    of the planet. In its history, design has already intervened in the dynamics of agri-food systems, which are increasingly interconnected, and today 
+    it can help reinvent them according to more 
+    sustainable logic. 
+   </div>
+   <div class="mattonelle-container" id="food"></div>
+   <!-- <div class="dot-container"></div> -->
+
+
+    <div id="selected-image">
+        <div id="esc">
+            <!-- <img src="images/esc_btn/cross_red.svg" alt=""> -->
+            <svg width="7vh" height="7vh" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" stroke="black" stroke-width=".4vw" fill="#FF003D" />
+                <img src="images/esc_btn/cross_red.svg"  style="z-index: 101;"  alt="">
+            </svg>
+        </div>
+
+    </div>
+
+   
+
+  <!-- FOOTER -->
+  <div class="footer-desktop">
+
+    <div class="website-container">
+      <div class="website-spacer credits"> Interdependence is the result of a team work, in the true spirit of the initiative. </div>
+      <div class="website-spacer footer-text credits"> <a href="./pages/credits.html">All credits.</a></div>
+      <div class="website-spacer footer-text">©️2024 Politecnico di Milano </div>
+    </div>
+    
+        <div class="website-container website">
+          <div class="website-spacer section">Website</div>
+    
+          <div class="footer-text">
+            <a href="https://www.design.polimi.it/en" target="_blank">design.polimi</a>
+          </div>
+          <div class="footer-text">
+            <a href="https://dipartimentodesign.polimi.it/en" target="_blank">dipartimentodesign.polimi</a>
+          </div>
+          <div class="footer-text">
+            <a href="https://www.polidesign.net/en/" target="_blank">polidesign.net</a>
+          </div>
+          <div class="website-spacer footer-text">
+            <a href="https://www.design.polimi.it/it/salonedelmobile2024" target="_blank">Milano Design Week 2024</a>
+          </div>
+        </div>
+        
+        <div class="website-container social">
+          <div class="section">Social</div>
+          <!-- <div class="first" id="credits"><a href="">credits</a></div> -->
+          <div class="footer-text">
+            <a href="https://www.instagram.com/interdependence.polimi/" target="_blank">@interdependence.polimi</a>
+          </div>
+          <div class="footer-text">
+            <a href="https://www.instagram.com/scuoladesign.polimi/" target="_blank">@scuoladesign.polimi</a>
+          </div>
+          <div class="footer-text">
+            <a href="https://www.instagram.com/designxdesigners/" target="_blank">@designxdesigners </a>
+          </div>
+        </div>
+    
+        <div class="website-container poli">
+          <div class="text-container">from an idea by</div>
+          <img src="./images/footer/loghi-sistema-desktop.svg" alt="" srcset="">
+        </div>
+    </div>
+    
+
+
+   <div class="custom-cursor"></div>
+   <script src="cursor.js"></script>
+   <script src="mattonelle.js"></script>
+</body>
+</html>

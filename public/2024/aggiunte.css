@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "Milligram Bold";
+  src: url('font/Milligram-Bold.ttf');
+}
+@font-face {
+  font-family: "Milligram Text";
+  src: url('font/Milligram-Text-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Milligram Macro Bold";
+  src: url('font/milligram_macro_bold.otf');
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  /* overflow-x: hidden; */
+  background-color: white;
+  color: white;
+
+}
+
+h1{
+  margin-top:0;
+}
+
+#main-title{
+  font-family: "Milligram Macro Bold";
+  font-size: 13.2vw;
+  width: 100vw;
+  height: auto;
+  color: white;
+  mix-blend-mode: difference;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+#main-title a{
+  text-decoration: none;
+  color: white;
+}
+
+.containerLocation {
+  display: flex;
+  /* border: 3px solid blue; */
+  /* text-align: center; */
+  /* position: relative; */
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.containerLocation  a {
+  color:black;
+}
+.imgLocationContainer {
+  /* border: 2px solid red; */
+  width: 47vw;
+  /* display: inline-block; */
+  margin-right: 1vw;
+
+}
+
+.textLocationContainer {
+  /* border: 2px solid green; */
+  width: 47vw;
+  position: relative;
+  /* display: inline; */
+  color: black;
+  text-align: left;
+  font-family: "Milligram Text";
+  font-size: 1.2rem;
+  margin-left: 1vw;
+}
+
+.imgLocation {
+  width: 100%;
+}
+
+.boldTextLocation  {
+  font-family: "Milligram Bold";
+
+}
+
+#external-link {
+  font-family: "Milligram Text";
+  margin-top: 4vh;
+  font-size: 1.2rem;
+  color: black;
+  mix-blend-mode: difference;
+  }
+
+  #ovale {
+    position: relative;
+    display: flex;
+    width: 40vw;
+    margin: auto;
+    padding-bottom: 6vh;
+  }
+
+  #ovale img {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+
+  #scuole {
+    position: relative;
+    /* display: flex; */
+    width: 94vw;
+    /* border: 3px solid blue; */
+    /* text-align: center; */
+    /* position: relative; */
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding-bottom: 6vh;
+    color: black;
+  }
+
+  #scuoleIntro {
+    font-family: "Milligram Bold";
+    width: 94vw;
+    margin-left: 1vw;
+    font-size: 1.2rem;
+    padding-bottom: 4vh;
+  }
+
+  #scuoleLista {
+    font-family: "Milligram Text";
+    /* height: 200vh; */
+    width: 98vw;
+    font-size: 1.2rem;
+    /* column-count: 5;
+    column-width: 15vw;
+    column-gap: 2vw; */
+    display: flex;
+  }
+
+  .scuoleColumn {
+    width: 22.3vw;
+    margin: 0 1vw;
+  }
+
+  #scuoleLista p  {
+    padding-bottom: 2vh;
+  } 
+
+  /* MOBILE */
+@media (max-width: 743px) {
+header {
+  margin: 4vh 0 2vh 0;
+}
+
+   .containerLocation {
+    /* display: block; */
+    /* border: 3px solid blue; */
+    text-align: center;
+    flex-direction: column-reverse;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    width: 92vw;
+  }
+  
+  .imgLocationContainer {
+    width: 100%; 
+  }
+
+  .textLocationContainer {
+    width: 100%;
+    position: relative;
+    display: block;
+    color: black;
+    text-align: left;
+    font-family: "Milligram Text";
+    font-size: 1rem;
+    margin: 0vh 0vh 4vh 0vh;
+  }
+
+  #scuole {
+    position: relative;
+    width: 91vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    padding-bottom: 4vh;
+    color: black;
+  }
+
+  #scuoleIntro {
+    font-family: "Milligram Bold";
+    width: 91vw;
+    padding-bottom: 2vh;
+    font-size: 1rem;
+
+  }
+
+  #scuoleLista {
+    font-family: "Milligram Text";
+    width: 91vw;
+    font-size: 1rem;
+
+  }
+
+  .scuoleColumn {
+    width: 91vw;
+  }
+
+  #scuoleLista {
+    flex-direction: column;
+    width: 92vw;
+  }
+
+  #external-link {
+    font-family: "Milligram Text";
+    margin-top: 4vh;
+    font-size: 1rem;
+    color: black;
+    mix-blend-mode: difference;
+    }
+
+}

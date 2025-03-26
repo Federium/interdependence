@@ -9,15 +9,16 @@ export interface Props {
   label: string;
   href: string;
   id?: string;
+  target?:string;
 }
 
-const { label, href, id } = Astro.props as Props;
+const { label, href, id, target="" } = Astro.props as Props;
 
 ---
 
 
 <div >
-    <a class="button-container" href={href} id={id}>
+    <a class="button-container" href={href} id={id} {...(target ? { target } : {})}>
         <label>{label}</label>
         <span><Image  src={arrow} alt = "Freccia a destra"/></span>
     </a>
