@@ -4,6 +4,8 @@ import PaginaLuogo from '../layouts/PaginaLuogo.astro'
 import bckImg from "/src/assets/img/salonesatellite.jpg";
 import locations from '../assets/data/location.json'
 
+import ButtonSmall from '../components/ButtonSmall.astro';
+
 import {Image} from "astro:assets";
 import anthropogenic from "../assets/logos/anthropogenic.png";
 import rawscenarios from "../assets/logos/rawscenarios.svg";
@@ -30,7 +32,7 @@ const info = {
 <PaginaLuogo index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src} hours={info.hours}>
 
 <div class="button-container">
-    <a class="button button-evento" href="https://anthropogenicnarratives.labsintesi-c1.info/" target="_blank">
+    <!-- <a class="button button-evento" href="https://anthropogenicnarratives.labsintesi-c1.info/" target="_blank">
         <Image class="event-logo" src={anthropogenic} alt="Anthropogenic Narratives"></Image>
         <span><Image src={arrow} class="arrow" alt = "Freccia a destra"/></span>
     </a>
@@ -38,7 +40,10 @@ const info = {
         <Image class="event-logo grande"  src={rawscenarios} alt="Raw Scenarios"></Image>
         <span><Image src={arrow} class="arrow" alt = "Freccia a destra"/></span>
 
-    </a>
+    </a> -->
+    <ButtonSmall label="ANTHROPOGENIC NARRATIVES" href="https://anthropogenicnarratives.labsintesi-c1.info/" target="_blank"></ButtonSmall>
+    <ButtonSmall label="RAW SCENARIOS" href="https://rawscenarios.labsintesi-c1.info/" target="_blank"></ButtonSmall>
+
 </div>
 
 

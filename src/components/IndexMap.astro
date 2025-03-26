@@ -53,13 +53,15 @@ import mappa from  '../assets/img/MapImage_cut.png';
           }
         </div>
       </div>
-      <div class="title-container">
+      {
+      <a class="title-container" href="${locations[step].innerLink}">
         <div class="title-box">
-          {
+          
             <h3 style="text-align: center; margin: 0;">{locations[0].place}</h3>
-          }
         </div>
-      </div>      
+      </a>      
+      }
+
     </div>
   </section>
 
@@ -329,10 +331,12 @@ pointer-events: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
 }
 
 .title-box {
-  background: linear-gradient(to top, #1a1a1a 0%, #2e2e2e 100%);
+  background: black; 
+  /* background: linear-gradient(to top, #1a1a1a 0%, #2e2e2e 100%); */
 
   width: auto;
   height: auto;
@@ -344,9 +348,16 @@ pointer-events: none;
   } */
   position: relative;
   z-index: 2;
+  transition: all 0.5s;
   h3 {
     font-weight: bold;
     color: rgb(255, 255, 255);
+
+  }
+
+  &:hover 
+  {
+    box-shadow: 0 0 40px 0px;
 
   }
 
