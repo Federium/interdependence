@@ -35,9 +35,9 @@ export const mySketch = (width, height) => (p) => {
 
   function createPoints() {
     points = [];
-    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
+    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
 
-    points.push(new Point({ pos: p.createVector(normalizedMouse[0],normalizedMouse[1], 0.8) }));
+    points.push(new Point({ pos: p.createVector(normalizedMouse) }));
     for (let i = 1; i < n; i++) {
       let randomPos = p.createVector(
         p.random(),
@@ -67,8 +67,7 @@ export const mySketch = (width, height) => (p) => {
     createPoints();
 
     observationPoint = 0;
-    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
-    console.log(normalizedMouse);
+    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
   }
 
   function draw() {
@@ -90,10 +89,11 @@ export const mySketch = (width, height) => (p) => {
       observationPoint += delta;
     }
 
-    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height];
+    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
 
     points[0].pos.x = normalizedMouse[0];
     points[0].pos.y = normalizedMouse[1];
+    points[0].pos.z = normalizedMouse[2];
     
 
 
