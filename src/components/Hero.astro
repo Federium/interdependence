@@ -3,6 +3,7 @@
 import {Image} from 'astro:assets';
 import logoPolimi from '../assets/logos/Polimi.svg';
 import logoPoliDesign from '../assets/logos/Poli.design.svg';
+import logoPolimiDesign from '../assets/logos/logo_poli_uniti.svg'
 import logoDesignWeek from '../assets/logos/logo-design-week.svg';
 import mappa from  '../assets/img/MapImage.png';
 import ChasingWord from './ChasingWord.astro';
@@ -17,7 +18,7 @@ import ChasingWord from './ChasingWord.astro';
     <!-- <div class="overlay"></div> -->
     <div class="logo-container">
       <div class="logo-left">
-        <Image src={logoPolimi} alt="Logo del Politecnico di Milano" id="logo-polimi" />
+        <Image src={logoPolimiDesign} alt="Logo del Politecnico di Milano" id="logo-polimi" />
         <Image src={logoPoliDesign} alt="Logo di Poli.design" id="logo-polidesign" />
       </div>
       <div class="logo-right">
@@ -148,7 +149,7 @@ if (canvasElement) {
         
         .logo-left {
           display: flex;
-          align-items: center;
+          align-items: top;
           gap: 3em;
           width: 60%;
         }
@@ -163,8 +164,8 @@ if (canvasElement) {
         /* Shared styles for all logos */
         .logo-left img,
         .logo-right img {
-          height: clamp(2rem, 6vw, 6rem); 
-          width: auto; 
+          width: clamp(6rem, 16vw, 16rem); 
+          height: auto;
           object-fit: contain;
           max-width: 100%; 
         }
@@ -182,13 +183,18 @@ if (canvasElement) {
 
         #logo-mdw {
           filter: invert(1);
+          filter: invert(1);
+          width: clamp(3rem, 10vw, 10rem); 
         }
         #logo-polimi {
-          max-width: 250px;
+          
+          filter: invert(1);
+
+          max-width: 300px;
         }
         #logo-polidesign {
           filter: invert(1);
-          max-width: 200px;
+          width: clamp(4rem, 13vw, 13rem); 
         }
 
 
@@ -204,6 +210,7 @@ if (canvasElement) {
 .logo-left {
   flex-direction: row;
   align-items: start;
+  gap:1em;
 }
 
 .logo-right {
@@ -224,7 +231,8 @@ if (canvasElement) {
 }
 
 #logo-polidesign {
-          max-width: 120px;
+          max-width: 80px;
+          padding-top: 0.35em;
         }
     
 }
