@@ -5,46 +5,71 @@ import ButtonSmall from "../components/ButtonSmall.astro";
 import {Image} from "astro:assets";
 
 import logoDesktop from "../assets/logos/interdependence-white-long.svg";
+import logoMobile from "../assets/logos/interdependence-white-short.svg";
+
+import presskit from "../../public/Interdependence2025_PressKit_test.pdf";
 
 ---
 <Contenuto name="About">
     <Heading title="" background={true} backgroundMobile={true}></Heading>
-    <div class="logo-container">
-        <Image src={logoDesktop} alt="interdependence - exploring opposites"></Image>
+    <div class="logo-container desktop">
+        <Image src={logoDesktop} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
+      </div>
+      <div class="logo-container mobile">
+        <Image src={logoMobile} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
+      </div>
 
-    </div>
     <div class="col-8">
 
     <h2 class="gradient-text quote">
         In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
     </h2>
-
+   
     <p class="txt-large">
         The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents <span class="bold gradient-text right">“INTERDEPENDENCE: exploring opposites”</span>, a set of initiatives to reflect on how design interacts with polarities and contrasting dimensions, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
     </p>
 
-    <p class="txt-small">
-        Opposites exist in an <span class="bold">inherently interdependent state</span>: in philosophy, physics, psychology and spirituality, the opposites are complementary forces, where one cannot exist without the other.  Indeed, opposing forces influence and rely on each other to create balance or transformation: they are connected by a continuous spectrum of ways of being that blend and <b>reconcile the extremes</b>.  
-    </p>
-
-
-    <p class="txt-small">
-        As the gap between these opposites grows, it can lead to increased tension, misunderstanding, and conflict, making it harder to find common ground. Yet, the interdependence between these polarities can also drive debate, reflection, and the evolution of ideas, if managed constructively. <br/>
-        In <b>Design</b>, these polarities are not problems to be solved but <b>dynamics to be managed</b>.  
-        </p>
-
+    <div id = "content">
         <p class="txt-small">
-            With the aim of exploring the interdependence of opposites, the Polimi Design System organizes a <b>widespread event</b>, in close relationship with the Design Week and the city, taking place in three main venues - <b>Fabbrica del Vapore</b>, <b>Campus Bovisa Durando</b>, and <b>SaloneSatellite</b>. <br/>In addition to them, a constellation of other smaller initiatives populates the city. 
+            Opposites exist in an <span class="bold">inherently interdependent state</span>: in philosophy, physics, psychology and spirituality, the opposites are complementary forces, where one cannot exist without the other.  Indeed, opposing forces influence and rely on each other to create balance or transformation: they are connected by a continuous spectrum of ways of being that blend and <b>reconcile the extremes</b>.  
         </p>
     
+    
+        <p class="txt-small">
+            As the gap between these opposites grows, it can lead to increased tension, misunderstanding, and conflict, making it harder to find common ground. Yet, the interdependence between these polarities can also drive debate, reflection, and the evolution of ideas, if managed constructively. <br/>
+            In <b>Design</b>, these polarities are not problems to be solved but <b>dynamics to be managed</b>.  
+            </p>
+    
+            <p class="txt-small">
+                With the aim of exploring the interdependence of opposites, the Polimi Design System organizes a <b>widespread event</b>, in close relationship with the Design Week and the city, taking place in three main venues - <b>Fabbrica del Vapore</b>, <b>Campus Bovisa Durando</b>, and <b>SaloneSatellite</b>. <br/>In addition to them, a constellation of other smaller initiatives populates the city. 
+            </p>
     </div>
+    
+    </div>
+    <ButtonSmall href={presskit} label="PRESS KIT"></ButtonSmall>
 
     </Contenuto>
 
     <style>
 
-        .logo-container {
+.logo-container {
             display: flex;
+            &.desktop {
+              mix-blend-mode: difference;
+              max-width: 600px;
+
+            }
+
+            &.mobile {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+
+            mix-blend-mode: difference;
+            align-self: left;
+        }
         }
         img {
             width: 40%;
@@ -56,20 +81,44 @@ import logoDesktop from "../assets/logos/interdependence-white-long.svg";
         .bold {
             font-weight: bold;
         }
-        .quote {
+        h2.quote  {
+            margin-bottom: 6vh;
+            padding: 0;
         }
 
 
+        #content {
+            margin-bottom: 3vh;
+        }
 
         .content-main {
-            margin-bottom: 3em;
+            margin-bottom: 6vh;
             background-color: white;
         }
 
         @media (max-width: 768px) {
-            img {
-                width: 100%;
+           
+
+            .logo-container {
+          padding: 0 !important;
+
+          &.desktop {
+              display: none;
             }
+
+            &.mobile {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            filter: invert(1);
+            max-width: 200px;
+            margin-bottom: 3em;
+            margin-top: 8vh;
+            img {
+              height: auto;
+            }
+        }
+  }
         }
 
     </style>
