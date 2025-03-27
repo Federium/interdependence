@@ -4,6 +4,7 @@ import {Image} from 'astro:assets';
 import logoPolimi from '../assets/logos/Polimi.svg';
 import logoPoliDesign from '../assets/logos/Poli.design.svg';
 import logoPolimiDesign from '../assets/logos/logo_poli_uniti.svg'
+import logoPoliPolidesign from '../assets/logos/logo_poli_polidesign.svg'
 import logoDesignWeek from '../assets/logos/logo-design-week.svg';
 import mappa from  '../assets/img/MapImage.png';
 import ChasingWord from './ChasingWord.astro';
@@ -18,8 +19,8 @@ import ChasingWord from './ChasingWord.astro';
     <!-- <div class="overlay"></div> -->
     <div class="logo-container">
       <div class="logo-left">
-        <Image src={logoPolimiDesign} alt="Logo del Politecnico di Milano" id="logo-polimi" />
-        <Image src={logoPoliDesign} alt="Logo di Poli.design" id="logo-polidesign" />
+        <Image src={logoPoliPolidesign} alt="Politecnico di Milano e Poli.Design" id="logo-polimi" />
+        <!-- <Image src={logoPoliDesign} alt="Logo di Poli.design" id="logo-polidesign" /> -->
       </div>
       <div class="logo-right">
         <Image src={logoDesignWeek} alt="Logo Milano Design Week" id="logo-mdw"/>
@@ -184,13 +185,14 @@ if (canvasElement) {
         #logo-mdw {
           filter: invert(1);
           filter: invert(1);
-          width: clamp(3rem, 10vw, 10rem); 
+          width: clamp(2em, 8vw, 8rem); 
         }
         #logo-polimi {
           
           filter: invert(1);
+          width: clamp(6rem, 30vw, 20rem); 
 
-          max-width: 300px;
+          /* max-width: 300px; */
         }
         #logo-polidesign {
           filter: invert(1);
