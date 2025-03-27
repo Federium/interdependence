@@ -9,9 +9,17 @@ import {Image} from "astro:assets";
 import logoDesktop from "../assets/logos/interdependence-white-long.svg";
 import logoMobile from "../assets/logos/interdependence-white-short.svg";
 
-import logoPolimi from '../assets/logos/Polimi.svg';
-import logoPoliDesign from '../assets/logos/Poli.design.svg';
+
 import logoDesignWeek from '../assets/logos/logo-design-week.svg';
+import logoPolimi from '../assets/logos/Polimi.svg';
+import logoPolimiDesign from '../assets/logos/logo_poli_uniti.svg'
+import logoPoliDesign from '../assets/logos/Poli.design.svg';
+import logoMottola from '../assets/logos/mottola-black.svg';
+import logoZetafonts from '../assets/logos/zetafonts-black.svg';
+import logoNavigare from '../assets/logos/navigare.svg';
+import logoComune from '../assets/logos/logo-comune-milano.svg';
+import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
+
 ---
 
 
@@ -77,13 +85,100 @@ import logoDesignWeek from '../assets/logos/logo-design-week.svg';
 
 <!-- LOGOS -->
 <div class="logo-container-bottom" >
-  <div class="logo-left">
+  <!-- <div class="logo-left">
     <Image src={logoPolimi} alt="Logo del Politecnico di Milano" id="logo-polimi"  />
     <Image src={logoPoliDesign} alt="Logo di Poli.design" id="logo-polidesign" />
   </div>
   <div class="logo-right">
     <Image src={logoDesignWeek} alt="Logo Milano Design Week" id="logo-mdw"/>
-  </div>
+  </div> -->
+  
+
+          <div class="logos-partners-row" id="loghi-partner-row-1">
+            <div class="loghi-partner-main">
+
+              <h4>From an idea by</h4> 
+
+   
+                <div class="loghi-partner" id="loghi-support">
+                  <div>
+                    <Image src={logoPolimiDesign} alt="Politecnico di Milano">
+                  </div>
+                  <div id="polidesign">
+                    <Image src={logoPoliDesign} alt="PoliDesign">
+                  </div>
+                </div>
+            </div>
+
+         
+            
+
+             <div class="loghi-partner-main">
+
+  
+     
+                  <div class="loghi-partner" id="loghi-support">
+                    <div >
+                      <Image src={logoDesignWeek} alt="DesignWeek" id="logoDesignWeek">
+                    </div>
+                  </div>
+              </div>
+             
+             
+          </div>
+          <div class="logos-partners-row">
+
+
+            <div class="loghi-partner-main">
+              <h4>Technical partners</h4> 
+   
+               <div class="loghi-partner">
+                 <div >
+                   <Image src={logoMottola} alt="Mottola">
+                 </div>
+                 <div id="zetafonts">
+                   <Image src={logoZetafonts} alt="Zetafonts">
+                 </div>
+                 <div >
+                  <Image src={logoNavigare} alt="Navigare">
+                </div>
+             </div>
+             
+          </div>
+          <div class="loghi-partner-main">
+            <h4>With the patronage of</h4> 
+             <div class="loghi-partner" id="loghi-comune-mdw">
+              <div >
+               
+
+                <Image src={logoComune} alt="Comune di Milano" id="logoComune">
+              </div>
+          
+            </div>
+           </div>
+        
+            <div class="loghi-partner-main">
+
+            <h4>With the support of</h4> 
+
+   
+                <div class="loghi-partner" id="loghi-support">
+           
+                  <div >
+                    <Image src={logoCampoTeatrale} alt="Campo Teatrale" id="logoCampoteatrale">
+                  </div>
+                
+                </div>
+            </div>
+
+         
+          
+         
+       
+        
+        </div>
+
+</div>
 </div>
 
 
@@ -126,15 +221,10 @@ import logoDesignWeek from '../assets/logos/logo-design-week.svg';
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      div {
-        display: flex;
-        height: 10em;
-        align-items: center;
-        gap: 2em;
-      }
+
       img {
         max-width: 200px;
-        max-height: 80px;
+        /* max-height: 80px; */
 
       }
 
@@ -193,6 +283,137 @@ import logoDesignWeek from '../assets/logos/logo-design-week.svg';
     filter: invert(1);
   }
 
+
+
+
+  .logo-container-bottom {
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+          flex-direction: row;
+          top: 0;
+          left: 0;
+          width: 100%;
+          margin-top: clamp(3rem, 6vw, 6rem);
+        }
+        
+        .logo-left {
+          display: flex;
+          align-items: center;
+          gap: clamp(1rem, 2vw, 2rem);
+          width: 60%;
+        }
+
+        .logos-partners-row {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          /* margin-bottom: 3em; */
+          /* max-height: 300px; */
+          &#loghi-partner-row-1 {
+            justify-content: space-between;
+          }
+        }
+
+        #loghi-poli {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          align-items: start;
+          justify-content: center;
+          gap: 7em;
+        
+          img {
+            height: 10vh;
+          }
+          #polidesign img {
+            height: 7vh;
+            filter: invert(1)
+          }
+        }
+     
+        
+        .logo-right {
+          width: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        
+        /* Shared styles for all logos */
+        .logo-left img,
+        .logo-right img {
+          height: clamp(3rem, 4vw, 8rem); /* Responsive height using clamp */
+          width: auto; /* Width will adjust based on aspect ratio */
+          object-fit: contain;
+          max-width: 100%; /* Prevent overflow */
+        }
+        .logos-partners-row {
+          flex-wrap: wrap;
+        }
+
+        .loghi-partner-main {
+          flex-direction: column;
+          margin-top: 2em;
+         h4 {
+          text-align: left;
+          width: 100%q;
+         } 
+
+        }
+
+      
+
+        .loghi-partner {
+          transform: translateY(-1em);
+          display: flex;
+          gap: 2em;
+          align-items: center;
+          justify-content: end;
+          flex-wrap: wrap;
+          
+          &#loghi-support img {
+            max-height: 150px;
+            max-width: 150px ;
+            
+            &#logoCampoteatrale{
+              max-height: 150px;
+            };
+            
+            &#logoFdV{
+              max-height: 70px;
+            }
+
+            &#logoDesignWeek {
+            max-height: 80px;
+            width: auto;
+            transform: translateY(1EM);
+            }
+
+          }
+         
+          div img {
+            max-width: 150px;
+      
+            &#logoComune {
+            max-height: 150px;
+            width: auto;
+            }
+          }
+       
+        }
+
+        #loghi-comune-mdw {
+          justify-content: space-between;
+          
+        }
+        
+        #zetafont {
+            
+            filter: invert(1);
+          
+        }
+
   @media (max-width: 768px) {
     .credits-page {
       margin-top: 1rem;
@@ -225,54 +446,50 @@ import logoDesignWeek from '../assets/logos/logo-design-week.svg';
   }
 
 
-
-
-
-  
   .logo-container-bottom {
-          display: flex;
-          justify-content: center;
-          position: relative;
-          width: 100%;
-          padding: clamp(1rem, 2vw, 2rem);
-          margin-top: 6rem;
-          gap:2em;
-          div {
-            height: auto;
-          }
-        }
-        
-        .logo-left {
-          display: flex;
-          align-items: center;
-          gap: clamp(1rem, 2vw, 2rem);
-        }
-        
-        .logo-right {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-        }
-        
-        /* Shared styles for all logos */
-        .logo-left img,
-        .logo-right img {
-          height: clamp(3rem, 4vw, 8rem); /* Responsive height using clamp */
-          width: auto; /* Width will adjust based on aspect ratio */
-          object-fit: contain;
-          max-width: 100%; /* Prevent overflow */
-        }
+  margin-top: 4rem;
+  flex-direction: column;
+}
+#loghi-poli {
+  align-items: center;
+}
+.loghi-partner-main {
+  width: 100%;
+}
 
-    #logo-interdependence {
-      margin-top: 8vh;
+.loghi-partner {
+  row-gap: 0;
+justify-content: space-evenly;
+}
+
+.loghi-partner-main h4 {
+  text-align: center;
+}
+
+#loghi-comune-mdw {
+          justify-content: center;
+          
+        }
+        
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .logo-container-bottom {
+      flex-direction: column;
+    }
+    .loghi-partner {
+
+      align-items: left;
+      justify-content: start;
     }
 
-    #logo-mdw {
-        }
-        #logo-polimi {
-          max-width: 250px;
-        }
-        #logo-polidesign {
-          max-width: 180px;
-        }
+    .loghi-partner-main h4 {
+        text-align: left;
+      }
+}
+
+
+
 </style>
