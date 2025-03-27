@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       titleBox.innerHTML = `
-        <h3 style="text-align: center; margin: 0; padding: 0;">${locations[step].place}</h3>
+        <div><h3 style="text-align: center; margin: 0; padding: 0;">${locations[step].place}</h3></div>
       `;
     };
 
