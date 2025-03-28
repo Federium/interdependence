@@ -6,6 +6,11 @@ let mapScrollTrigger;
 let heroScrollTrigger;
 
 gsap.registerPlugin(ScrollTrigger);
+if (window.matchMedia("(min-width: 1025px)").matches) {
+  console.log("Schermo più grande di 1024px, eseguo il codice...");
+  // Inserisci qui il tuo codice
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let index = 0;
@@ -19,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleBox = document.querySelectorAll(".title-box");
   const pointerBlur = document.querySelector(".pointer-blur");
 
+  
   // Wait for the image to load before initializing
   mapImg.addEventListener('load', () => {
     initializeMap();

@@ -8,6 +8,7 @@ import IndexCategory from '../components/IndexCategory.astro';
 import ButtonSmall from '../components/ButtonSmall.astro';
 import IndexMap from '../components/IndexMap.astro';
 import IndexMapDesktop from '../components/IndexMapDesktop.astro';
+import IndexMapMobile from '../components/IndexMapMobile.astro';
 
 import {Image} from 'astro:assets';
 import logoPolimi from '../assets/logos/Polimi.svg';
@@ -158,7 +159,12 @@ import CategoryItem from '../components/CategoryItem.astro';
     <IndexMap></IndexMap>
   </section> -->
   <section class="map-section section">
-    <IndexMapDesktop></IndexMapDesktop>
+    <div class="map-desktop">
+      <IndexMapDesktop></IndexMapDesktop>
+    </div>
+    <div class="map-mobile">
+      <IndexMapMobile></IndexMapMobile>
+    </div>
   </section>
 
 
@@ -168,6 +174,7 @@ import CategoryItem from '../components/CategoryItem.astro';
   <section class="text-section section">
       <!-- <h1 class="gradient-text right"><span style="font-family: 'Milligram Macro';padding-right: 0.7em">interdependence </span> <span style="font-weight: normal;">exploring opposites</span></h1> -->
       <div class="col-9">
+        <p>The polarities of <b>"INTERDEPENDENCE: exploring opposites"</b> span various realms and dimensions of life, including:</p>
       </div>
     <IndexCategory></IndexCategory>
   </section>
@@ -757,7 +764,7 @@ h1,h2,h3,h4,h5,h6, p{
          
           div img {
             max-width: 150px;
-      
+            width: 100%;
             &#logoComune {
             max-height: 150px;
             width: auto;
