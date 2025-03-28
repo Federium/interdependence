@@ -19,7 +19,8 @@ import mappa from  '../assets/img/MapImage_cut.png';
   
     <div class="map-1">
       <div class="map-bg">
-        <div class="pointer-blur"></div>
+        <div class="pointer-blur" id="pointer-0"></div>
+        
         <Image src={mappa}   quality={5} id="map" alt="Mappa" loading={'eager'}  /> <!--eager-->
       </div>
       <div class="paragraph-container">
@@ -56,7 +57,7 @@ import mappa from  '../assets/img/MapImage_cut.png';
       {
       <div class="title-container">
         <div>
-          <div class="title-box">
+          <div class="title-box"  id="title-box-0">
           <div class="title-gradient">  <h3 style="text-align: center; margin: 0;">{locations[0].place}</h3></div>
           
           
@@ -66,7 +67,31 @@ import mappa from  '../assets/img/MapImage_cut.png';
        
       </div>      
       }
+      {
+        <div class="title-container">
+          <div>
+            <div class="title-box"  id="title-box-1">
+            <div class="title-gradient">  <h3 style="text-align: center; margin: 0;">{locations[1].place}</h3></div>
+            
+            
+  
+          </div>
+          </div>
+         
+        </div>      
+        }      {
+      <div class="title-container">
+        <div>
+          <div class="title-box" id="title-box-2">
+          <div class="title-gradient">  <h3 style="text-align: center; margin: 0;">{locations[2].place}</h3></div>
+          
+          
 
+        </div>
+        </div>
+       
+      </div>      
+      }
     </div>
   </section>
 
@@ -218,7 +243,7 @@ import mappa from  '../assets/img/MapImage_cut.png';
 </script> -->
 
 
-<script src="../scripts/map.js"></script>
+<script src="../scripts/mapdesk.js"></script>
 
 
 
@@ -297,9 +322,11 @@ import mappa from  '../assets/img/MapImage_cut.png';
     margin-bottom: 0;
   }
   opacity:0;
-  transform: translateY(100px);
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: opacity 0.4s linear;
+
   pointer-events: none;
+
 }
 
 .glass {
@@ -323,11 +350,18 @@ pointer-events: none;
 
 }
 
+.paragraph-box.hide-desktop {
+  opacity:0;
+pointer-events: none;
+
+}
+
+
 
 
 .title-container {
   position: absolute;
-  top: 25%;
+  top: 68%;
   left: 0;
   color: rgb(255, 255, 255);
   width: 100%;
@@ -339,7 +373,6 @@ pointer-events: none;
   >div {
     width: auto;
     height: 100%;
-    background-color: rgb(0, 0, 0);
 background-blend-mode: darken;
   }
 }
@@ -364,6 +397,7 @@ background-blend-mode: darken;
   h3 {
     font-weight: bold;
     color: rgb(255, 255, 255);
+    padding: 0;
     
 
   }
@@ -395,10 +429,12 @@ background-blend-mode: darken;
   border-radius: 50%;
   filter: blur(15px);
   z-index: 1 !important;
-  top: 30vh;
+  top: 70vh;
   transform: translateY(-50%) ;
   mix-blend-mode: difference;
   position: absolute;
+  transition: all 0.5s ease;
+
 }
 
 @media (max-width: 1024px) {
@@ -427,6 +463,8 @@ background-blend-mode: darken;
 .map-bg {
   -webkit-mask-image: linear-gradient(to bottom,black 80%, transparent 90%);
   mask-image: linear-gradient(to bottom, black 80%, transparent 90%) ;
+}
+.paragraph-box {  transform: translateY(100px);
 }
 }
 
