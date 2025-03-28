@@ -4,7 +4,7 @@ import { pauseHero as paused } from "./mapdesk.js";
 export const mySketch = (width, height) => (p) => {
   let capturer;
 
-  let n = 10;
+  let n = 30;
   let points = [];
   let worleyShader;
   let observationPoint;
@@ -24,7 +24,7 @@ export const mySketch = (width, height) => (p) => {
     number: n,  // valore iniziale di n
     zDistribution: 1,
     size: 0.4,
-    range: [0.5],
+    range: [0.2, 0.8],
     speed: 0.3,
     animate: true,
     duration: 10,

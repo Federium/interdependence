@@ -4,7 +4,7 @@ import { pauseHero as paused } from "./mapdesk.js";
 export const mySketch = (width, height) => (p) => {
   let capturer;
 
-  let n = 30;
+  let n = 10;
   let points = [];
   let worleyShader;
   let observationPoint;
@@ -23,7 +23,7 @@ export const mySketch = (width, height) => (p) => {
     },
     number: n,  // valore iniziale di n
     zDistribution: 1,
-    size: 0.4,
+    size: 0.5,
     range: [0.2, 0.8],
     speed: 0.3,
     animate: true,
@@ -116,14 +116,14 @@ export const mySketch = (width, height) => (p) => {
     p.plane(width, height);
 
     p.strokeWeight(1);
-    p.blendMode(p.DIFFERENCE);
+    // p.blendMode(p.DIFFERENCE);
 
-    p.translate(-width / 2, -height / 2, 1);
-    for (let i = 0; i <= width; i++) {
-      let color = p.lerp(0, 255, i / width);
-      p.stroke(color);
-      p.line(i, 0, i, height);
-    }
+    // p.translate(-width / 2, -height / 2, 1);
+    // for (let i = 0; i <= width; i++) {
+    //   let color = p.lerp(0, 255, i / width);
+    //   p.stroke(color);
+    //   p.line(i, 0, i, height);
+    // }
 
     // if (recording) {
     //   if (recordedFrames === timeLimit) {

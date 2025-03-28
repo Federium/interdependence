@@ -16,62 +16,43 @@ const vert = `
  `;
  
  function frag(number) {
-   return `
-     precision mediump float;
- 
- varying vec2 vTexCoord;
- 
- uniform float u_ratio;
- uniform vec2 u_mouse;
- 
- uniform float u_time;
- uniform float u_z;
- 
- uniform float u_contrast;
- uniform float u_n;
- uniform float u_exposure;
- 
- const int TOTAL_POINTS = ${number}; 
- 
- uniform vec2 u_range;
- 
- uniform float u_points[(TOTAL_POINTS + 1) * 3];
- 
- 
- void main() {
- 
-     vec2 normalizedTexCoord = vTexCoord;
- 
-    if (u_ratio > 1.0) { 
-       normalizedTexCoord.y = normalizedTexCoord.y / u_ratio - 0.5 / u_ratio + 0.5;
-       } else {
-         normalizedTexCoord.x = normalizedTexCoord.x * u_ratio - 0.5 * u_ratio + 0.5;   
+   return `precision mediump float;
+
+varying vec2 vTexCoord;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main() {
+    vec2 st = vTexCoord;
+
+    vec3 color = vec3(.0);
+
+    // Cell positions
+    vec2 point[5];
+    point[0] = vec2(0.83,0.75);
+    point[1] = vec2(0.60,0.07);
+    point[2] = vec2(0.28,0.64);
+    point[3] =  vec2(0.31,0.26);
+    point[4] = u_mouse;
+
+    float m_dist = 1.;  // minimum distance
+
+    // Iterate through the points positions
+    for (int i = 0; i < 5; i++) {
+        float dist = distance(st, point[i]);
+
+        // Keep the closer distance
+        m_dist = min(m_dist, dist);
     }
-    
-     float max_dist = u_contrast;
- 
-     float m_dist = max_dist; 
-     
- 
-     for (int i = 0; i < (TOTAL_POINTS + 1) * 3; i+=3) {
- 
-         vec3 p = vec3(u_points[i], u_points[i + 1], u_points[i + 2]);
-         vec3 obs = vec3(normalizedTexCoord.x, normalizedTexCoord.y, u_z);
- 
-         float dist = distance(obs, p);
-         m_dist = min(m_dist, dist);
-     }
- 
-     float color =  m_dist;
- 
-     color = smoothstep(max_dist * u_range.x, max_dist * u_range.y, color);
- 
-     color = 1.0 - color;
-     // color = (1.0 - vTexCoord.x) + (vTexCoord.x * 2.0 - 1.0) * color;
- 
- 
-     gl_FragColor = vec4(color, color, color, 1.0);
- }   
+
+    // Draw the min distance (distance field)
+    color += m_dist;
+
+    // Show isolines
+    // color -= step(.7,abs(sin(50.0*m_dist)))*.3;
+
+    gl_FragColor = vec4(color, 1.0);
+}
      `;
  }
  

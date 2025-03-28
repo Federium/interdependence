@@ -17,7 +17,20 @@ import mappaBovisa from  '../assets/img/MapImage_Bovisa.jpg';
   
 <div class="map-mobile-container">
   <div class="map-img-container-mobile">
-    <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+    <div>
+      <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+
+    </div>
+    <div>
+      <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+
+    </div>
+    <div>
+      <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+
+    </div>
+
+
 
 
   </div>
@@ -37,7 +50,7 @@ import mappaBovisa from  '../assets/img/MapImage_Bovisa.jpg';
           <div class="map-selector-content hide" id={"map-selector-content-"+location.index}>
            <h3>{location.title}</h3> 
             <p class="txt-small"> {location.description}</p>
-            <ButtonSmall label="SEE MORE" href={"/"+location.slug}></ButtonSma>
+            <ButtonSmall label="SEE MORE" href={"/"+location.slug}></ButtonSmall>
 
           </div>
       </div>
@@ -115,6 +128,12 @@ document.addEventListener("DOMContentLoaded", function () {
   .map-img-container-mobile {
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 70%, transparent 100%);
+    height: auto;
+    div {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
   }
  .map-mobile-container {
   background-color: rgb(255, 255, 255);
