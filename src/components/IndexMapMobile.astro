@@ -1,0 +1,419 @@
+---
+
+
+import locations from '../assets/data/location.json';
+import ButtonSmall from '../components/ButtonSmall.astro';
+import arrow from '../assets/icons/arrow-right-black.svg';
+
+
+import {Image} from 'astro:assets';
+
+import mappa from  '../assets/img/MapImage_cut.png';
+
+import mappaBovisa from  '../assets/img/MapImage_Bovisa.jpg';
+
+
+---
+  
+<div class="map-mobile-container">
+  <div class="map-img-container-mobile">
+    <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+
+
+  </div>
+  <div class="map-spacer"></div>
+  <div class="map-selectors-container">
+    {
+      locations.map(location => (
+
+      <div class="map-selector" id={"map-selector-"+location.index}>
+          <div class="map-selector-head" id={"map-selector-head-"+location.index}>
+            <h3>{location.place}</h3>
+            <span>
+              <Image src={arrow} alt="Apri la sezione" class="arrow" id={"arrow-"+location.index}></Image>
+            </span>
+
+          </div>
+          <div class="map-selector-content hide" id={"map-selector-content-"+location.index}>
+           <h3>{location.title}</h3> 
+            <p class="txt-small"> {location.description}</p>
+            <ButtonSmall label="SEE MORE" href={"/"+location.slug}></ButtonSma>
+
+          </div>
+      </div>
+
+      ))
+  }
+    
+
+
+  </div>
+
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[id^='map-selector-head-']").forEach(head => {
+      head.addEventListener("click", function () {
+          const id = head.id.replace("map-selector-head-", "");
+          const content = document.getElementById("map-selector-content-" + id);
+          if (!content) return;
+
+          // Chiude tutti gli altri contenuti
+          document.querySelectorAll("[id^='map-selector-content-']").forEach((otherContent) => {
+              if (otherContent !== content) {
+                  otherContent.style.height = "0px";
+                  otherContent.classList.add("hide");
+              }
+          });
+          
+          document.querySelectorAll(".arrow").forEach((arrow) => {
+              if (arrow.classList.contains("rotate")) arrow.classList.remove("rotate");
+          });
+
+          // Alterna lo stato del contenuto cliccato
+          const spacer = document.querySelector(".map-spacer");
+          if (content.style.height === "0px" || !content.style.height) {
+              content.style.height = content.scrollHeight + "px";
+              content.classList.remove("hide");
+              document.getElementById("arrow-" + id).classList.add("rotate");
+              if (spacer) spacer.style.height = content.scrollHeight + "px";
+          } else {
+              content.style.height = "0px";
+              content.classList.add("hide");
+              document.getElementById("arrow-" + id).classList.remove("rotate");
+              if (spacer) spacer.style.height = "0px";
+          }
+      });
+  });
+});
+
+
+</script>
+
+
+
+
+
+<style>
+  .map-mobile-img {
+    max-width:100%;
+
+    height: auto;
+
+    
+  }
+
+  .map-spacer {
+    height:0;
+    width: 100%;
+    background-color: yellow;
+    transition: all 0.5s ease; 
+  }
+
+  .map-img-container-mobile {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 70%, transparent 100%);
+  }
+ .map-mobile-container {
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .map-img-container-mobile {
+    width: 100%;
+  }
+  .map-selectors-container {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+justify-content: start; 
+box-shadow: 0 0 100px -50px;
+
+
+  } 
+  
+ }
+ .map-selector-head {
+  width: 100%;
+  background-color: white;
+  height: auto;
+  min-height: 3em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  
+  border-bottom: 2px solid #131313;
+  h3 {
+    padding: 0.2em min(5rem,6%);
+    font-size: 1.3em;
+  }
+  span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    img {     transition: all 0.5s ease; 
+    }
+    padding-right: min(5rem,6%);
+    img.rotate {
+      transform: rotate(90deg);
+    }
+
+  }
+ }
+
+ .map-selector-content {
+  background-color: white;
+  padding: 0 min(5rem,6%);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  border-bottom: 2px solid #131313;
+
+
+  p {
+    font-size: 1em ; 
+  }
+  a {
+    padding-bottom: 1em;
+  }
+
+  &.hide {
+    height: 0;
+    border-bottom: 0;
+
+  }
+
+  
+ }
+
+
+
+
+
+  /* INIZIO OLD */
+  .map-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-size: cover; */
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: normal;
+}
+
+#map {
+  /* width: 200%;
+  height: auto; */
+  width: auto;
+  height: 100%;
+  /* transform-origin: center; */
+  mix-blend-mode: normal;
+  transition: all 1s ease;
+  ::after {
+
+  }
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 90%, transparent 100%) ;
+
+}
+
+.paragraph-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: min(5rem, 6%);
+  display: flex;
+}
+
+
+
+
+
+
+/* VECCHIO 
+.paragraph-box {
+  background-color: #ffffff;
+  width: 60%;
+  height: auto;
+  padding: 2vh;
+  box-shadow: 0 0 100px -50px;
+  h2 {
+    margin-bottom: 0;
+  }
+  opacity:0;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
+} */
+
+.paragraph-box {
+  background-color: #ffffff;
+  position: absolute;
+  bottom:min(5rem, 6%);
+
+  width: 50%;
+  height: auto;
+  padding: 2vh;
+  box-shadow: 0 0 100px -50px;
+  h2 {
+    margin-bottom: 0;
+  }
+  opacity:0;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.paragraph-box.show {
+transform: translateY(0px);
+opacity:1;
+pointer-events: all;
+
+}
+
+.paragraph-box.hide {
+  opacity:0;
+transform: translateY(-100px);
+pointer-events: none;
+
+}
+
+
+
+.title-container {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  >div {
+    width: auto;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+background-blend-mode: darken;
+  }
+}
+
+.title-box {
+  background: rgb(0, 0, 0); 
+  /* background: linear-gradient(to top, #1a1a1a 0%, #2e2e2e 100%); */
+
+  width: auto;
+  height: auto;
+  padding:  1vh 1.3vh ;
+  box-shadow: 0 0 50px -20px;
+  /* &:hover {
+    box-shadow: 0 0 100px 5px;
+
+  } */
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s;
+
+
+  h3 {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    
+
+  }
+
+  /* &:hover 
+  {
+    box-shadow: 0 0 40px 0px;
+
+  } */
+  
+
+}
+
+.map-section h1,
+.map-section h2,
+.map-section h3,
+.map-section h4,
+.map-section h5,
+.map-section h6 {
+  color: black;
+}
+
+
+
+.pointer-blur {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(208, 208, 208);
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: 1 !important;
+  top: 30vh;
+  transform: translateY(-50%) ;
+  mix-blend-mode: difference;
+  position: absolute;
+}
+
+@media (max-width: 1024px) {
+
+#location-title {
+  font-size: 1.5em;
+}
+
+
+
+#location-description {
+  font-size: 1em;
+}
+
+
+.paragraph-box {
+  width:calc(100% - 2*min(5rem, 6%)) !important;
+}
+
+.title-container {
+  top: 15%;
+}
+.pointer-blur {
+  top: 23vh;
+}
+.map-bg {
+  -webkit-mask-image: linear-gradient(to bottom,black 80%, transparent 90%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 90%) ;
+}
+}
+
+
+@media (min-width: 769px) {
+  .map-mobile-container {
+    display: none;
+  } 
+
+
+}
+
+
+</style>
