@@ -8,27 +8,25 @@ import arrow from '../assets/icons/arrow-right-black.svg';
 
 import {Image} from 'astro:assets';
 
-import mappa from  '../assets/img/MapImage_cut.png';
+import mappa from  '../assets/img/MapImage_Normal.jpg';
 
 import mappaBovisa from  '../assets/img/MapImage_Bovisa.jpg';
+import mappaFabbrica from  '../assets/img/MapImage_Fabbrica.jpg';
 
+import mappaSatellite from  '../assets/img/MapImage_Satellite.jpg';
 
 ---
   
 <div class="map-mobile-container">
   <div class="map-img-container-mobile">
     <div>
+      <Image class="map-mobile-img" id="map-mobile-img-0" src={mappa} alt="mappa"></Image>
       <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+      <Image class="map-mobile-img" id="map-mobile-img-2" src={mappaSatellite} alt="mappa"></Image>
+      <Image class="map-mobile-img" id="map-mobile-img-3" src={mappaFabbrica} alt="mappa"></Image>
 
     </div>
-    <div>
-      <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
 
-    </div>
-    <div>
-      <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
-
-    </div>
 
 
 
@@ -57,9 +55,6 @@ import mappaBovisa from  '../assets/img/MapImage_Bovisa.jpg';
 
       ))
   }
-    
-
-
   </div>
 
 
@@ -71,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       head.addEventListener("click", function () {
           const id = head.id.replace("map-selector-head-", "");
           const content = document.getElementById("map-selector-content-" + id);
+          const image = document.getElementById("map-mobile-img-" + id);
           if (!content) return;
 
           // Chiude tutti gli altri contenuti
@@ -84,6 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelectorAll(".arrow").forEach((arrow) => {
               if (arrow.classList.contains("rotate")) arrow.classList.remove("rotate");
           });
+          
+          document.querySelectorAll("[id^='map-mobile-img-']").forEach((img) => {
+              img.classList.remove("show");
+          });
 
           // Alterna lo stato del contenuto cliccato
           const spacer = document.querySelector(".map-spacer");
@@ -92,15 +92,18 @@ document.addEventListener("DOMContentLoaded", function () {
               content.classList.remove("hide");
               document.getElementById("arrow-" + id).classList.add("rotate");
               if (spacer) spacer.style.height = content.scrollHeight + "px";
+              if (image) image.classList.add("show");
           } else {
               content.style.height = "0px";
               content.classList.add("hide");
               document.getElementById("arrow-" + id).classList.remove("rotate");
               if (spacer) spacer.style.height = "0px";
+              if (image) image.classList.remove("show");
           }
       });
   });
 });
+
 
 
 </script>
@@ -114,14 +117,27 @@ document.addEventListener("DOMContentLoaded", function () {
     max-width:100%;
 
     height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    &#map-mobile-img-1,
+    &#map-mobile-img-2,
+    &#map-mobile-img-3 {
+      opacity: 0; 
+      position: absolute;
 
-    
+      &.show {
+        opacity: 1;
+      }
+    };
+
+    transition: opacity 0.5s ease;
+
   }
 
   .map-spacer {
     height:0;
     width: 100%;
-    background-color: yellow;
     transition: all 0.5s ease; 
   }
 
@@ -149,16 +165,18 @@ document.addEventListener("DOMContentLoaded", function () {
     width: 100%;
     height: auto;
     position: absolute;
-    bottom: 0;
+    bottom: 2em;
 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 justify-content: start; 
-box-shadow: 0 0 100px -50px;
+box-shadow: 0 0 2em -0.5em #777777;
 
 
   } 
+
+
   
  }
  .map-selector-head {
@@ -171,7 +189,11 @@ box-shadow: 0 0 100px -50px;
   justify-content: space-between;
   align-items: center;
   
-  border-bottom: 2px solid #131313;
+  border-bottom: 1px solid #131313;
+  &#map-selector-head-3 {
+    border-top: 1px solid #131313;
+
+  }
   h3 {
     padding: 0.2em min(5rem,6%);
     font-size: 1.3em;
@@ -195,7 +217,7 @@ box-shadow: 0 0 100px -50px;
   padding: 0 min(5rem,6%);
   overflow: hidden;
   transition: all 0.5s ease;
-  border-bottom: 2px solid #131313;
+  border-bottom: 1px solid #131313;
 
 
   p {
