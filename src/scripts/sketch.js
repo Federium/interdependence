@@ -116,14 +116,14 @@ export const mySketch = (width, height) => (p) => {
     p.plane(width, height);
 
     p.strokeWeight(1);
-    // p.blendMode(p.DIFFERENCE);
+    p.blendMode(p.DIFFERENCE);
 
-    // p.translate(-width / 2, -height / 2, 1);
-    // for (let i = 0; i <= width; i++) {
-    //   let color = p.lerp(0, 255, i / width);
-    //   p.stroke(color);
-    //   p.line(i, 0, i, height);
-    // }
+    p.translate(-width / 2, -height / 2, 1);
+    for (let i = 0; i <= width; i++) {
+      let color = p.lerp(0, 255, i / width);
+      p.stroke(color);
+      p.line(i, 0, i, height);
+    }
 
     // if (recording) {
     //   if (recordedFrames === timeLimit) {

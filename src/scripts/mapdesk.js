@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
    heroScrollTrigger = ScrollTrigger.create({
       trigger: ".map-section",
-      start: "top 50%",
+      start: "top 0%",
       onEnter: () => {
         pauseHero = true;
         document.getElementById('hero').style.visibility = 'hidden';

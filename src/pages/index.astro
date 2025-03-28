@@ -138,7 +138,7 @@ import CategoryItem from '../components/CategoryItem.astro';
         
         </div>
         </div>
-          <div class="col-9">
+          <div class="col-8">
               <h2 class="gradient-text quote">
                 In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
               </h2>
@@ -173,7 +173,7 @@ import CategoryItem from '../components/CategoryItem.astro';
   <!-- SECTION 3 -->
   <section class="text-section section" id="opposites-section">
       <!-- <h1 class="gradient-text right"><span style="font-family: 'Milligram Macro';padding-right: 0.7em">interdependence </span> <span style="font-weight: normal;">exploring opposites</span></h1> -->
-      <div class="col-9">
+      <div class="col-8">
         <p>The polarities of <b>"INTERDEPENDENCE: exploring opposites"</b> span various realms and dimensions of life, including:</p>
       </div>
     <IndexCategory></IndexCategory>
@@ -594,7 +594,7 @@ h1,h2,h3,h4,h5,h6, p{
   background-size: cover;
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: max(70vw,100vh);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -807,7 +807,7 @@ h1,h2,h3,h4,h5,h6, p{
 /* Mobile */
 @media (max-width: 768px) {
     .container {
-        width: 95%;
+        width: 100%;
     }
     .logo-left {
       width: 100%;

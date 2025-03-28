@@ -318,7 +318,8 @@ import mappa from  '../assets/img/MapImage_cut.png';
 
   width: 50%;
   height: auto;
-  padding: 2vh;
+  padding: clamp(1rem, 2vw, 2rem);
+
   box-shadow: 0 0 100px -50px;
   h2 {
     margin-bottom: 0;
@@ -385,7 +386,8 @@ background-blend-mode: darken;
 
   width: auto;
   height: auto;
-  padding:  1vh 1.3vh ;
+  padding: 0.5em 1em;
+
   box-shadow: 0 0 50px -20px;
   /* &:hover {
     box-shadow: 0 0 100px 5px;
@@ -431,7 +433,7 @@ background-blend-mode: darken;
   border-radius: 50%;
   filter: blur(15px);
   z-index: 1 !important;
-  top: 70vh;
+  top: 70%;
   transform: translateY(-50%) ;
   mix-blend-mode: difference;
   position: absolute;
@@ -456,12 +458,12 @@ background-blend-mode: darken;
   width:calc(100% - 2*min(5rem, 6%)) !important;
 }
 
-.title-container {
+/* .title-container {
   top: 15%;
 }
 .pointer-blur {
   top: 23vh;
-}
+} */
 .map-bg {
   -webkit-mask-image: linear-gradient(to bottom,black 80%, transparent 90%);
   mask-image: linear-gradient(to bottom, black 80%, transparent 90%) ;
