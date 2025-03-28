@@ -10,12 +10,18 @@ import {Image} from 'astro:assets';
 
 import mappa from  '../assets/img/MapImage_cut.png';
 
+import mappaBovisa from  '../assets/img/MapImage_Bovisa.jpg';
+
+
 ---
   
 <div class="map-mobile-container">
   <div class="map-img-container-mobile">
+    <Image class="map-mobile-img" id="map-mobile-img-1" src={mappaBovisa} alt="mappa"></Image>
+
 
   </div>
+  <div class="map-spacer"></div>
   <div class="map-selectors-container">
     {
       locations.map(location => (
@@ -48,44 +54,39 @@ import mappa from  '../assets/img/MapImage_cut.png';
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[id^='map-selector-head-']").forEach(head => {
-        head.addEventListener("click", function () {
-            const id = head.id.replace("map-selector-head-", "");
-            const content = document.getElementById("map-selector-content-" + id);
-            if (!content) return;
+  document.querySelectorAll("[id^='map-selector-head-']").forEach(head => {
+      head.addEventListener("click", function () {
+          const id = head.id.replace("map-selector-head-", "");
+          const content = document.getElementById("map-selector-content-" + id);
+          if (!content) return;
 
-            // Chiude tutti gli altri contenuti
-            document.querySelectorAll("[id^='map-selector-content-']").forEach((otherContent,index) => {
-                if (otherContent !== content) {
-                    otherContent.style.height = "0px";
-                    otherContent.classList.add("hide");
-                    console.log(index);
-                } 
-            });
-            document.querySelectorAll(".arrow").forEach((arrow) => {
-                if (arrow.classList.contains("rotate")) arrow.classList.remove("rotate");
-            });
+          // Chiude tutti gli altri contenuti
+          document.querySelectorAll("[id^='map-selector-content-']").forEach((otherContent) => {
+              if (otherContent !== content) {
+                  otherContent.style.height = "0px";
+                  otherContent.classList.add("hide");
+              }
+          });
+          
+          document.querySelectorAll(".arrow").forEach((arrow) => {
+              if (arrow.classList.contains("rotate")) arrow.classList.remove("rotate");
+          });
 
-
-            // Alterna lo stato del contenuto cliccato
-            if (content.style.height === "0px" || !content.style.height) {
-                content.style.height = content.scrollHeight + "px";
-                content.classList.remove("hide");
-                document.getElementById("arrow-"+id).classList.add("rotate");
-
-
-
-            } else {
-                content.style.height = "0px";
-                content.classList.add("hide");
-                document.getElementById("arrow-"+id).classList.remove("rotate");
-
-            }
-   
-        });
-    
-
-    });
+          // Alterna lo stato del contenuto cliccato
+          const spacer = document.querySelector(".map-spacer");
+          if (content.style.height === "0px" || !content.style.height) {
+              content.style.height = content.scrollHeight + "px";
+              content.classList.remove("hide");
+              document.getElementById("arrow-" + id).classList.add("rotate");
+              if (spacer) spacer.style.height = content.scrollHeight + "px";
+          } else {
+              content.style.height = "0px";
+              content.classList.add("hide");
+              document.getElementById("arrow-" + id).classList.remove("rotate");
+              if (spacer) spacer.style.height = "0px";
+          }
+      });
+  });
 });
 
 
@@ -96,11 +97,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <style>
+  .map-mobile-img {
+    max-width:100%;
+
+    height: auto;
+
+    
+  }
+
+  .map-spacer {
+    height:0;
+    width: 100%;
+    background-color: yellow;
+    transition: all 0.5s ease; 
+  }
+
+  .map-img-container-mobile {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 70%, transparent 100%);
+  }
  .map-mobile-container {
-  background-color: rgb(197, 82, 82);
+  background-color: rgb(255, 255, 255);
   width: 100vw;
   height: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -110,11 +129,15 @@ document.addEventListener("DOMContentLoaded", function () {
   .map-selectors-container {
     width: 100%;
     height: auto;
+    position: absolute;
+    bottom: 0;
 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 justify-content: start; 
+box-shadow: 0 0 100px -50px;
+
 
   } 
   
@@ -123,14 +146,15 @@ justify-content: start;
   width: 100%;
   background-color: white;
   height: auto;
-  min-height: 2em;
+  min-height: 3em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  
   border-bottom: 2px solid #131313;
   h3 {
-    padding: 0.2em 2%;
+    padding: 0.2em min(5rem,6%);
     font-size: 1.3em;
   }
   span {
@@ -139,7 +163,7 @@ justify-content: start;
     align-items: center;
     img {     transition: all 0.5s ease; 
     }
-    
+    padding-right: min(5rem,6%);
     img.rotate {
       transform: rotate(90deg);
     }
@@ -148,18 +172,24 @@ justify-content: start;
  }
 
  .map-selector-content {
-  padding: 0 2%;
+  background-color: white;
+  padding: 0 min(5rem,6%);
   overflow: hidden;
   transition: all 0.5s ease;
+  border-bottom: 2px solid #131313;
+
 
   p {
     font-size: 1em ; 
   }
-
+  a {
+    padding-bottom: 1em;
+  }
 
   &.hide {
-    opacity: 0;
     height: 0;
+    border-bottom: 0;
+
   }
 
   
@@ -377,7 +407,7 @@ background-blend-mode: darken;
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .map-mobile-container {
     display: none;
   } 

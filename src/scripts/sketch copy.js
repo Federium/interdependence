@@ -4,7 +4,7 @@ import { pauseHero as paused } from "./mapdesk.js";
 export const mySketch = (width, height) => (p) => {
   let capturer;
 
-  let n = 30;
+  let n = 10;
   let points = [];
   let worleyShader;
   let observationPoint;
@@ -24,7 +24,7 @@ export const mySketch = (width, height) => (p) => {
     number: n,  // valore iniziale di n
     zDistribution: 1,
     size: 0.4,
-    range: [0.2, 0.8],
+    range: [0.5],
     speed: 0.3,
     animate: true,
     duration: 10,
@@ -35,10 +35,10 @@ export const mySketch = (width, height) => (p) => {
 
   function createPoints() {
     points = [];
-    // const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
+    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
 
-    // points.push(new Point({ pos: p.createVector(normalizedMouse) }));
-    for (let i = 0; i < n; i++) {
+    points.push(new Point({ pos: p.createVector(normalizedMouse) }));
+    for (let i = 1; i < n; i++) {
       let randomPos = p.createVector(
         p.random(),
         p.random(),

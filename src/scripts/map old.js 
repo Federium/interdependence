@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const mrh = mapImg.height; // actual image height
     const ratio = mrw/mw;
     mapSection.style.transform = `translate(0,0)`;
-    console.log(ratio);
     const oPoints = [
       {	
         x: 2800,
@@ -101,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateContent = (step, direction) => {
       const currentPoint = points[step];
-      console.log(mapImg);
       mapImg.style.transformOrigin = `${mrw/2 - currentPoint.x}px ${mrh/2 - currentPoint.y}px`;
       mapImg.style.transform = `translate(${points[step].x}px, ${points[step].y-getResponsivePositions()}px) scale(${scale[step]}) `;
 
@@ -153,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       onUpdate: (self) => {
         const direction = self.progress > prevProgress ? 'down' : 'up';
-        console.log('Scroll direction:', direction);
         
         let newIndex = Math.min(Math.floor(self.progress * totalSteps), totalSteps - 1);
         if (newIndex !== index) {

@@ -6,10 +6,7 @@ let mapScrollTrigger;
 let heroScrollTrigger;
 
 gsap.registerPlugin(ScrollTrigger);
-if (window.matchMedia("(min-width: 1025px)").matches) {
-  console.log("Schermo più grande di 1024px, eseguo il codice...");
-  // Inserisci qui il tuo codice
-}
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const mrh = mapImg.height; // actual image height
     const ratio = mrw/mw;
     mapSection.style.transform = `translate(0,0)`;
-    console.log(ratio);
     const oPoints = [
       {	
         x: 2800,
@@ -150,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // };
     const updateContent = (step) => {
       const currentPoint = points[step];
-      console.log(mapImg);
       
       mapImg.style.transform = `scale(${scale[step]})`;
       
@@ -196,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateContent(0,"down");
 
     let elementsArray = document.querySelectorAll(".title-box");
-  console.log("ciao")
 
   elementsArray.forEach(function(div,index) {
       div.addEventListener("mouseenter", function() {
@@ -205,12 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   }
 
-
-  
-  
-  
-});
-export {pauseHero};
 
 window.addEventListener('resize', () => {
   if (heroScrollTrigger) heroScrollTrigger.kill();
@@ -223,3 +211,11 @@ window.addEventListener('resize', () => {
     ScrollTrigger.refresh(); 
   }, 100); // Lascia il tempo ai nuovi elementi di aggiornarsi
 });
+
+
+
+  
+  
+  
+});
+export {pauseHero};
