@@ -9,21 +9,7 @@ import ButtonSmall from '../components/ButtonSmall.astro';
 import IndexMap from '../components/IndexMap.astro';
 import IndexMapDesktop from '../components/IndexMapDesktop.astro';
 import IndexMapMobile from '../components/IndexMapMobile.astro';
-
-import {Image} from 'astro:assets';
-import logoPolimi from '../assets/logos/Polimi.svg';
-import logoPolimiDesign from '../assets/logos/logo_poli_uniti.svg'
-import logoPoliDesign from '../assets/logos/Poli.design.svg';
-import logoMottola from '../assets/logos/mottola-black.svg';
-import logoZetafonts from '../assets/logos/zetafonts-black.svg';
-import logoNavigare from '../assets/logos/navigare.svg';
-import logoComune from '../assets/logos/logo-comune-milano.svg';
-import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
-import logoFdV from '../assets/logos/fdv.svg';
-
-import logoDesignWeek from '../assets/logos/logo-design-week.svg';
-import mappa from  '../assets/img/MapImage.png';
-import CategoryItem from '../components/CategoryItem.astro';
+import Logos from '../components/Logos.astro';
 
 /* const textContent = location.map(loc => ({
   title: loc.title,
@@ -49,109 +35,23 @@ import CategoryItem from '../components/CategoryItem.astro';
       <!-- LOGOS -->
       
       <div class="container">
-        <div class="logo-container" style="display:flex">
-            <div class="logo-left" id="loghi-poli">
-              
-            </div>
-          </div>
-          <!-- <div class="logos-partners-row" id="loghi-partner-row-1">
-            <div class="loghi-partner-main">
-
-              <h4>From an idea by</h4> 
-
-   
-                <div class="loghi-partner" id="loghi-support">
-                  <div>
-                    <Image src={logoPolimiDesign} alt="Politecnico di Milano">
-                  </div>
-                  <div id="polidesign">
-                    <Image src={logoPoliDesign} alt="PoliDesign">
-                  </div>
-                </div>
-            </div>
-
-         
-            
-
-             <div class="loghi-partner-main">
-
-  
-     
-                  <div class="loghi-partner" id="loghi-support">
-                    <div >
-                      <Image src={logoDesignWeek} alt="DesignWeek" id="logoDesignWeek">
-                    </div>
-                  </div>
-              </div>
-             
-             
-          </div> -->
-          <div class="logos-partners-row">
-
-
-            <div class="loghi-partner-main">
-              <h4>Technical partners</h4> 
-   
-               <div class="loghi-partner">
-                 <div >
-                   <Image src={logoMottola} alt="Mottola" id="logoMottola">
-                 </div>
-                 <div id="zetafonts">
-                   <Image src={logoZetafonts} alt="Zetafonts">
-                 </div>
-                 <div >
-                  <Image src={logoNavigare} alt="Navigare" id="logoNavigare">
-                </div>
-             </div>
-             
-          </div>
-          <div class="loghi-partner-main">
-            <h4>With the patronage of</h4> 
-             <div class="loghi-partner" id="loghi-comune-mdw">
-              <div >
-               
-
-                <Image src={logoComune} alt="Comune di Milano" id="logoComune">
-              </div>
-          
-            </div>
-           </div>
         
-            <div class="loghi-partner-main">
 
-            <h4>With the support of</h4> 
+        <Logos></Logos>
 
-   
-                <div class="loghi-partner" id="loghi-support">
-           
-                  <div >
-                    <Image src={logoCampoTeatrale} alt="Campo Teatrale" id="logoCampoteatrale">
-                  </div>
-                
-                </div>
-            </div>
-
-         
-          
-         
-       
-        
-        </div>
-        </div>
-          <div class="col-8">
-              <h2 class="gradient-text quote">
-                In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
-              </h2>
-              <p>The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents <b>“INTERDEPENDENCE: exploring opposites”</b>, a set of initiatives to reflect on how design interacts with <b>polarities</b> and <b>contrasting dimensions</b>, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
-              </p>                
-              <p>
-                All the exhibited projects do not seek to provide answers or certainties, rather challenge us to <b>imagine new questions and rethink both the present and the future</b>.
-              </p> 
-              <div style="padding-top: 1.5em">
-                <ButtonSmall label="READ MORE" href="/about"></ButtonSmall>
-
-              </div>
+        <div class="col-8">
+          <h2 class="gradient-text quote">
+            In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
+          </h2>
+          <p>The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents <b>“INTERDEPENDENCE: exploring opposites”</b>, a set of initiatives to reflect on how design interacts with <b>polarities</b> and <b>contrasting dimensions</b>, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
+          </p>                
+          <p>
+            All the exhibited projects do not seek to provide answers or certainties, rather challenge us to <b>imagine new questions and rethink both the present and the future</b>.
+          </p> 
+          <div style="padding-top: 1.5em">
+            <ButtonSmall label="READ MORE" href="/about"></ButtonSmall>
           </div>
+        </div>
       </div>
   </section>
 
@@ -603,293 +503,132 @@ h1,h2,h3,h4,h5,h6, p{
   overflow: hidden;
 }
 
+/* Logo section container */
+.logos-section {
+  display: flex;
+  width: 100%;
+  gap: 4rem;
+  padding: 2rem 0;
+  margin-top: 24rem;
+}
 
+/* Left and right columns */
+.logos-left,
+.logos-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
 
-/* .themes-row {
-    width: 100%;
-    display: flex;
+/* Right logos container */
+.right-logos-container {
+  display: flex;
+  gap: 4rem;
+}
+
+/* Logo group container */
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Logo group header */
+.logo-group h4 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* Logo row container */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Base logo styles */
+.logo-row img {
+  height: 50px;
+  width: auto;
+}
+
+/* Specific logo adjustments */
+#logoMottola {
+  height: 40px;
+}
+
+#logoNavigare {
+  height: 30px;
+
+}
+
+#logoComune {
+  height: 60px;
+}
+
+#logoCampoteatrale {
+  height: 50px;
+}
+
+#logoFdV {
+  height: 35px;
+}
+
+#logoDesignWeek {
+  height: 40px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .logos-section {
     flex-direction: column;
     gap: 2rem;
-    margin-top: 2rem;
   }
 
-  .theme {
-    position: relative;
-    overflow: hidden;
+  .right-logos-container {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .theme-title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-family: 'Milligram', sans-serif;
-    font-size: 1.5rem;
-    line-height: normal;
-    font-weight: bold;
+  .logo-group h4 {
+    text-align: center;
   }
 
-  .separator {
-    opacity: 1;
+  .logo-row {
+    justify-content: center;
   }
 
-  .word2 {
-    position: relative;
-    transform: translateX(0);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Slightly smaller logos on mobile */
+  .logo-row img {
+    height: 40px;
   }
 
-  .theme-description {
-    position: relative;
-    height: 0;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--gradient);
+  #logoMottola {
+    height: 32px;
   }
 
-  .theme:hover .word2 {
-    transform: translateX(calc(50vw - 100%));
+  #logoNavigare {
+    height: 24px;
   }
 
-  .theme:hover .theme-description {
-    height: auto;
-    opacity: 1;
-    transform: translateY(0);
-    margin-top: 1rem;
-  } */
+  #logoComune {
+    height: 48px;
+  }
 
+  #logoCampoteatrale {
+    height: 40px;
+  }
 
+  #logoFdV {
+    height: 28px;
+  }
 
-
-
-
-.logo-container {
-          display: flex;
-          justify-content: space-between;
-          position: relative;
-          flex-direction: row;
-          top: 0;
-          left: 0;
-          width: 100%;
-          padding-bottom: clamp(1rem, 2vw, 2rem);
-          mix-blend-mode: difference;
-          padding-top: 40vh;
-        }
-        
-        .logo-left {
-          display: flex;
-          align-items: center;
-          gap: clamp(1rem, 2vw, 2rem);
-          width: 60%;
-        }
-
-        .logos-partners-row {
-          display: flex;
-          width: 100%;
-          justify-content: space-between;
-          margin-bottom: 3em;
-          /* max-height: 300px; */
-          &#loghi-partner-row-1 {
-            justify-content: space-between;
-          }
-        }
-
-        #loghi-poli {
-          display: flex;
-          width: 100%;
-          flex-direction: row;
-          align-items: start;
-          justify-content: center;
-          gap: 7em;
-        
-          img {
-            height: 10vh;
-          }
-          #polidesign img {
-            height: 7vh;
-            filter: invert(1)
-          }
-        }
-     
-        
-        .logo-right {
-          width: 30%;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-        }
-        
-        /* Shared styles for all logos */
-        .logo-left img,
-        .logo-right img {
-          height: clamp(3rem, 4vw, 8rem); /* Responsive height using clamp */
-          width: auto; /* Width will adjust based on aspect ratio */
-          object-fit: contain;
-          max-width: 100%; /* Prevent overflow */
-        }
-        .logos-partners-row {
-          flex-wrap: wrap;
-        }
-
-        .loghi-partner-main {
-          margin-top: 2em;
-         h4 {
-          text-align: left;
-         } 
-
-        }
-
-      
-
-        .loghi-partner {
-          transform: translateY(-1em);
-          display: flex;
-          gap: 2em;
-          align-items: center;
-          justify-content: end;
-          flex-wrap: wrap;
-          
-          &#loghi-support img {
-            width: 100%;
-            height: 100%;
-            max-height: 150px;
-            max-width: 150px ;
-            
-            &#logoCampoteatrale{
-              width: 100%;
-              height: 100%;
-              max-height: 150px;
-            };
-            
-            &#logoFdV{
-              width: 100%;
-            height: 100%;
-              max-height: 70px;
-            }
-
-            &#logoDesignWeek {
-          
-            height: 100%;
-            max-height: 80px;
-            width: auto;
-            transform: translateY(1EM);
-            }
-
-          }
-         
-          div img {
-            max-width: 150px;
-            width: 100%;
-            &#logoComune {
-            max-height: 150px;
-            width: auto;
-            }
-
-            &#logoMottola {
-              max-width: 220px;
-            }
-
-            &#logoNavigare {
-              max-height: 50px;
-            }
-        
-        
-          }
-       
-        }
-
-        #loghi-comune-mdw {
-          justify-content: space-between;
-        }
-        
-        #zetafont {
-            
-            filter: invert(1);
-          
-        }
-
-.container {
-
+  #logoDesignWeek {
+    height: 32px;
+  }
 }
-
-
-
-
-/* Mobile */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-    }
-    .logo-left {
-      width: 100%;
-    }
-
-
-
-.logo-container {
-  margin-top: 4rem;
-  flex-direction: column;
-}
-#loghi-poli {
-  align-items: center;
-}
-.loghi-partner-main {
-  width: 100%;
-}
-
-.loghi-partner {
-  row-gap: 0;
-justify-content: space-evenly;
-}
-
-.loghi-partner-main h4 {
-  text-align: center;
-}
-
-#loghi-comune-mdw {
-          justify-content: center;
-          
-        }
-
-        .map-section {
-          min-height: 650px;
-
-        }
-
-        
-}
-
-/* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        width: 85%;
-    }
-    .logo-container {
-      flex-direction: column;
-    }
-    .loghi-partner {
-
-      align-items: left;
-      justify-content: start;
-    }
-
-    .loghi-partner-main h4 {
-        text-align: left;
-      }
-}
-
-/* Desktop */
-@media (min-width: 1025px) {
-    .container {
-        max-width: 1200px;
-    }
-
-  
-
-}
-
 
 </style>
 
