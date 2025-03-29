@@ -133,15 +133,15 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
               <h4>Technical partners</h4> 
    
                <div class="loghi-partner">
-                 <div >
-                   <Image src={logoMottola} alt="Mottola">
-                 </div>
-                 <div id="zetafonts">
-                   <Image src={logoZetafonts} alt="Zetafonts">
-                 </div>
-                 <div >
-                  <Image src={logoNavigare} alt="Navigare">
+                <div >
+                  <Image src={logoMottola} alt="Mottola" id="logoMottola">
                 </div>
+                <div id="zetafonts">
+                  <Image src={logoZetafonts} alt="Zetafonts">
+                </div>
+                <div >
+                 <Image src={logoNavigare} alt="Navigare" id="logoNavigare">
+               </div>
              </div>
              
           </div>
@@ -399,6 +399,15 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
             max-height: 150px;
             width: auto;
             }
+
+            &#logoMottola {
+              max-width: 220px;
+            }
+
+            &#logoNavigare {
+              max-height: 50px;
+            }
+        
           }
        
         }
