@@ -92,37 +92,22 @@ import LogosPlus from "../components/LogosPlus.astro";
 
 .logo-container {
             display: flex;
-            &.desktop {
+}
+            
+            .desktop {
               mix-blend-mode: difference;
+
             }
 
-            &.mobile {
-            display: none;
-        }
-
-        img {
+        .mobile img, .desktop img {
             width: 100%;
+
+            mix-blend-mode: difference;
             align-self: left;
-            margin-top: 4rem;
         }
-        }
-     
        
 
-    .logo-container-bottom {
-      mix-blend-mode: normal;
-
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-
-      img {
-        /* max-height: 80px; */
-      }
-
-  
-    }
+ 
 
   .credits-page {
     margin-top: 4rem;
@@ -180,142 +165,7 @@ import LogosPlus from "../components/LogosPlus.astro";
 
 
 
-  .logo-container-bottom {
-          display: flex;
-          justify-content: space-between;
-          position: relative;
-          flex-direction: row;
-          top: 0;
-          left: 0;
-          width: 100%;
-          margin-top: clamp(3rem, 6vw, 6rem);
-        }
-        
-        .logo-left {
-          display: flex;
-          align-items: center;
-          gap: clamp(1rem, 2vw, 2rem);
-          width: 60%;
-        }
-
-        .logos-partners-row {
-          display: flex;
-          width: 100%;
-          justify-content: space-between;
-          /* margin-bottom: 3em; */
-          /* max-height: 300px; */
-          &#loghi-partner-row-1 {
-            justify-content: space-between;
-          }
-        }
-
-        #loghi-poli {
-          display: flex;
-          width: 100%;
-          flex-direction: row;
-          align-items: start;
-          justify-content: center;
-          gap: 7em;
-        
-          img {
-            height: 10vh;
-          }
-          #polidesign img {
-            height: 7vh;
-            filter: invert(1)
-          }
-        }
-     
-        
-        .logo-right {
-          width: 30%;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-        }
-        
-        /* Shared styles for all logos */
-        .logo-left img,
-        .logo-right img {
-          height: clamp(3rem, 4vw, 8rem); /* Responsive height using clamp */
-          width: auto; /* Width will adjust based on aspect ratio */
-          object-fit: contain;
-          max-width: 100%; /* Prevent overflow */
-        }
-        .logos-partners-row {
-          flex-wrap: wrap;
-        }
-
-        .loghi-partner-main {
-          flex-direction: column;
-          margin-top: 2em;
-         h4 {
-          text-align: left;
-          width: 100%q;
-         } 
-
-        }
-
-      
-
-        .loghi-partner {
-          transform: translateY(-1em);
-          display: flex;
-          gap: 2em;
-          align-items: center;
-          justify-content: end;
-          flex-wrap: wrap;
-          
-          &#loghi-support img {
-            max-height: 150px;
-            max-width: 150px ;
-            
-            &#logoCampoteatrale{
-              max-height: 150px;
-            };
-            
-            &#logoFdV{
-              max-height: 70px;
-            }
-
-            &#logoDesignWeek {
-            max-height: 80px;
-            width: auto;
-            transform: translateY(1EM);
-            }
-
-          }
-         
-          div img {
-            max-width: 150px;
-      
-            &#logoComune {
-            max-height: 150px;
-            width: auto;
-            }
-
-            &#logoMottola {
-              max-width: 220px;
-            }
-
-            &#logoNavigare {
-              max-height: 50px;
-            }
-        
-          }
-       
-        }
-
-        #loghi-comune-mdw {
-          justify-content: space-between;
-          
-        }
-        
-        #zetafont {
-            
-            filter: invert(1);
-          
-        }
+ 
 
   @media (max-width: 768px) {
     .credits-page {
@@ -329,26 +179,31 @@ import LogosPlus from "../components/LogosPlus.astro";
 
     .logo-container {
           padding: 0 !important;
-
-          &.desktop {
-              display: none;
-
             }
 
-            &.mobile {
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
             display: block;
             filter: invert(1);
-            width: 100%;
             margin-bottom: 3em;
-            img {
+            margin-top: 8vh;
+          }
+            .mobile img {
               height: auto;
               padding: 2rem;
             }
-        }
-  }
         
 }
 
+@media (min-width: 768px) {
+            .mobile {
+                display: none;
+            }
+          
+        }
 
 
 </style>
