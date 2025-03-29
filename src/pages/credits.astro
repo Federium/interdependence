@@ -94,7 +94,6 @@ import LogosPlus from "../components/LogosPlus.astro";
             display: flex;
             &.desktop {
               mix-blend-mode: difference;
-
             }
 
             &.mobile {
@@ -103,9 +102,8 @@ import LogosPlus from "../components/LogosPlus.astro";
 
         img {
             width: 100%;
-
-            mix-blend-mode: difference;
             align-self: left;
+            margin-top: 4rem;
         }
         }
      
@@ -120,9 +118,7 @@ import LogosPlus from "../components/LogosPlus.astro";
       flex-wrap: wrap;
 
       img {
-        max-width: 200px;
         /* max-height: 80px; */
-
       }
 
   
@@ -177,6 +173,7 @@ import LogosPlus from "../components/LogosPlus.astro";
     margin: 0;
   }
   #logo-polimi {
+    mix-blend-mode: difference;
     filter: invert(1);
   }
 
