@@ -1,219 +1,223 @@
 ---
-import {Image} from 'astro:assets';
+import { Image } from "astro:assets";
 
-import logoMottola from '../assets/logos/mottola-black.svg';
-import logoZetafonts from '../assets/logos/zetafonts-black.svg';
-import logoNavigare from '../assets/logos/navigare.svg';
-import logoComune from '../assets/logos/logo-comune-milano.svg';
-import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
-import logoTop1 from '../assets/logos/Polimi.svg';
-import logoTop2 from '../assets/logos/Poli.design.svg';
+import logoMottola from "../assets/logos/mottola-black.svg";
+import logoZetafonts from "../assets/logos/zetafonts-black.svg";
+import logoNavigare from "../assets/logos/navigare.svg";
+import logoComune from "../assets/logos/logo-comune-milano.svg";
+import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
+import logoTop1 from "../assets/logos/Polimi.svg";
+import logoTop2 from "../assets/logos/Poli.design.svg";
 ---
 
 <div class="logos-container">
-  <!-- Top logos section -->
-  <div class="logos-top">
-    <div class="logo-group">
-      <h4>Main partners</h4>
-      <div class="logo-row">
-        <Image src={logoTop1} alt="Top Logo 1" id="logoTop1" />
-        <Image src={logoTop2} alt="Top Logo 2" id="logoTop2" />
-      </div>
-    </div>
-  </div>
+	<!-- Top logos section -->
+	<div class="logos-top">
+		<div class="logo-group">
+			<h4>Main partners</h4>
+			<div class="logo-row">
+				<Image src={logoTop1} alt="Top Logo 1" id="logoTop1" />
+				<Image src={logoTop2} alt="Top Logo 2" id="logoTop2" />
+			</div>
+		</div>
+	</div>
 
-  <!-- Bottom section with left and right columns -->
-  <div class="logos-section">
-    <!-- Left column - Technical partners -->
-    <div class="logos-left">
-      <div class="logo-group">
-        <h4>Technical partners</h4>
-        <div class="logo-row">
-          <Image src={logoMottola} alt="Mottola" id="logoMottola" />
-          <Image src={logoZetafonts} alt="Zetafonts" id="logoZetafonts" />
-          <Image src={logoNavigare} alt="Navigare" id="logoNavigare" />
-        </div>
-      </div>
-    </div>
+	<!-- Bottom section with left and right columns -->
+	<div class="logos-section">
+		<!-- Left column - Technical partners -->
+		<div class="logos-left">
+			<div class="logo-group">
+				<h4>Technical partners</h4>
+				<div class="logo-row">
+					<Image src={logoMottola} alt="Mottola" id="logoMottola" />
+					<Image src={logoZetafonts} alt="Zetafonts" id="logoZetafonts" />
+					<Image src={logoNavigare} alt="Navigare" id="logoNavigare" />
+				</div>
+			</div>
+		</div>
 
-    <!-- Right column - Patronage and Support -->
-    <div class="logos-right">
-      <div class="right-logos-container">
-        <div class="logo-group patronage">
-          <h4>With the patronage of</h4>
-          <div class="logo-row">
-            <Image src={logoComune} alt="Comune di Milano" id="logoComune" />
-          </div>
-        </div>
+		<!-- Right column - Patronage and Support -->
+		<div class="logos-right">
+			<div class="right-logos-container">
+				<div class="logo-group patronage">
+					<h4>With the patronage of</h4>
+					<div class="logo-row">
+						<Image src={logoComune} alt="Comune di Milano" id="logoComune" />
+					</div>
+				</div>
 
-        <div class="logo-group support">
-          <h4>With the support of</h4>
-          <div class="logo-row">
-            <Image src={logoCampoTeatrale} alt="Campo Teatrale" id="logoCampoteatrale" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+				<div class="logo-group support">
+					<h4>With the support of</h4>
+					<div class="logo-row">
+						<Image
+							src={logoCampoTeatrale}
+							alt="Campo Teatrale"
+							id="logoCampoteatrale"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style>
-  /* Container for all logo sections */
-  .logos-container {
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
-    margin: 6rem 0 0 0;
-  }
+	/* Container for all logo sections */
+	.logos-container {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+		margin: 6rem 0 0 0;
+	}
 
-  /* Top logos section */
-  .logos-top {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-  }
+	/* Top logos section */
+	.logos-top {
+		width: 100%;
+		display: flex;
+		justify-content: left;
+	}
 
-  .logos-top .logo-row {
-    justify-content: left;
-    gap: 4rem;
-  }
+	.logos-top .logo-row {
+		justify-content: left;
+		gap: 4rem;
+	}
 
-  .logos-top .logo-group h4 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
+	.logos-top .logo-group h4 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
 
-  /* Top logos specific sizes */
-  #logoTop1 {
-    mix-blend-mode: difference;
-    filter: invert(1);
-  }
+	/* Top logos specific sizes */
+	#logoTop1 {
+		mix-blend-mode: difference;
+		filter: invert(1);
+	}
 
-  /* Existing logos section styles */
-  .logos-section {
-    display: flex;
-    width: 100%;
-    gap: 4rem;
-    padding: 2rem 0;
-    margin: 0;
-  }
+	/* Existing logos section styles */
+	.logos-section {
+		display: flex;
+		width: 100%;
+		gap: 4rem;
+		padding: 2rem 0;
+		margin: 0;
+	}
 
-  /* Left and right columns */
-  .logos-left,
-  .logos-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
+	/* Left and right columns */
+	.logos-left,
+	.logos-right {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
 
-  .logo-group h4 {
-    text-align: left;
-    margin: 0;
-    white-space: nowrap;
-  }
+	.logo-group h4 {
+		text-align: left;
+		margin: 0;
+		white-space: nowrap;
+	}
 
-  .logos-right {
-    justify-content: space-between;
-  }
+	.logos-right {
+		justify-content: space-between;
+	}
 
-  /* Right logos container */
-  .right-logos-container {
-    display: flex;
-    gap: 4rem;
-    height: 100%;
-    justify-content: flex-end;
-  }
+	/* Right logos container */
+	.right-logos-container {
+		display: flex;
+		gap: 4rem;
+		height: 100%;
+		justify-content: flex-end;
+	}
 
-  /* Logo group container */
-  .logo-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    gap: 2rem;
-  }
+	/* Logo group container */
+	.logo-group {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		gap: 2rem;
+	}
 
-  /* Logo group header */
-  .logos-top .logo-group h4 {
-    text-align: left;
-    margin: 0;
-  }
+	/* Logo group header */
+	.logos-top .logo-group h4 {
+		text-align: left;
+		margin: 0;
+	}
 
-  /* Logo row container */
-  .logo-row {
-    display: flex;
-    align-items: flex-end; /* Aligns logos to bottom */
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
+	/* Logo row container */
+	.logo-row {
+		display: flex;
+		align-items: flex-end; /* Aligns logos to bottom */
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
 
-  /* Base logo styles - group all common properties */
-  .logo-row img,
-  #logoTop1,
-  #logoTop2 {
-    width: auto;
-    height: 3vw; /* Base height for all logos */
-  }
+	/* Base logo styles - group all common properties */
+	.logo-row img,
+	#logoTop1,
+	#logoTop2 {
+		width: auto;
+		height: 3vw; /* Base height for all logos */
+	}
 
-  /* Specific logo adjustments */
-  #logoMottola,
-  #logoComune,
-  #logoCampoteatrale,
-  #logoTop1,
-  #logoTop2 {
-    height: 3vw;
-  }
+	/* Specific logo adjustments */
+	#logoMottola,
+	#logoComune,
+	#logoCampoteatrale,
+	#logoTop1,
+	#logoTop2 {
+		height: 3vw;
+	}
 
-  #logoNavigare,
-  #logoZetafonts {
-    height: 1.5vw;
-  }
+	#logoNavigare,
+	#logoZetafonts {
+		height: 1.5vw;
+	}
 
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .logos-container {
-      gap: 4rem;
-      margin: 18rem 0 3rem 0;
-    }
+	/* Mobile adjustments */
+	@media (max-width: 768px) {
+		.logos-container {
+			gap: 4rem;
+			margin: 18rem 0 3rem 0;
+		}
 
-    #logoTop1,
-    #logoTop2 {
-      height: 48px;
-    }
+		#logoTop1,
+		#logoTop2 {
+			height: 48px;
+		}
 
-    .logos-top .logo-row {
-      gap: 3rem;
-    }
+		.logos-top .logo-row {
+			gap: 3rem;
+		}
 
-    .logos-section {
-      flex-direction: column;
-      gap: 3rem;
-      margin: 0rem 0 3rem 0;
-    }
+		.logos-section {
+			flex-direction: column;
+			gap: 3rem;
+			margin: 0rem 0 3rem 0;
+		}
 
-    .right-logos-container {
-      justify-content: flex-start;
-      gap: 2rem;
-    }
+		.right-logos-container {
+			justify-content: flex-start;
+			gap: 2rem;
+		}
 
-    /* Standardize mobile sizes */
-    #logoMottola,
-    #logoComune,
-    #logoCampoteatrale,
-    #logoTop1,
-    #logoTop2 {
-      height: 48px;
-    }
+		/* Standardize mobile sizes */
+		#logoMottola,
+		#logoComune,
+		#logoCampoteatrale,
+		#logoTop1,
+		#logoTop2 {
+			height: 48px;
+		}
 
-    #logoNavigare,
-    #logoZetafonts {
-      height: 24px;
-    }
+		#logoNavigare,
+		#logoZetafonts {
+			height: 24px;
+		}
 
-    .logo-group h4 {
-      font-size: 0.9em;
-      white-space: nowrap;
-    }
-  }
+		.logo-group h4 {
+			font-size: 0.9em;
+			white-space: nowrap;
+		}
+	}
 </style>
