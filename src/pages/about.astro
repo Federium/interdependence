@@ -60,25 +60,15 @@ import logoMobile from "../assets/logos/interdependence-white-short.svg";
 
 .logo-container {
             display: flex;
-            &.desktop {
+}
+            
+            .desktop {
               mix-blend-mode: difference;
-              
 
             }
 
-            &.mobile {
-            display: none;
-        }
-
         img {
             width: 100%;
-
-            mix-blend-mode: difference;
-            align-self: left;
-        }
-        }
-        img {
-            width: 40%;
 
             mix-blend-mode: difference;
             align-self: left;
@@ -104,6 +94,13 @@ import logoMobile from "../assets/logos/interdependence-white-short.svg";
 
         #interdependence-2024 {
             padding-top: 1em;
+        }
+
+        @media (min-width: 768px) {
+            .mobile {
+                display: none;
+            }
+          
         }
 
         @media (max-width: 768px) {
