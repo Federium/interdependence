@@ -1,41 +1,41 @@
 ---
-
 export interface Props {
-    index: number;
-    opposite1: string;
-    opposite2: string;
-   description:string;
-   descriptionExtra?:string;
-
+	index: number;
+	opposite1: string;
+	opposite2: string;
+	description: string;
+	descriptionExtra?: string;
 }
 
-const { index, opposite1, opposite2, description, descriptionExtra=""} = Astro.props as Props;
+const {
+	index,
+	opposite1,
+	opposite2,
+	description,
+	descriptionExtra = "",
+} = Astro.props as Props;
 const isRightAligned = index % 2 === 1;
 ---
-<div class={`category-main-container ${isRightAligned ? 'right' : ''}`}>
-    <div class = "category-container">
-        <div class="category-opposite-container">
-            <div class="category-opposite opposite-1">
-                <div>{opposite1} /</div>
-            </div>
-        </div>
-        <div class="category-description">
-            <p class="txt-small">
-                {description}
-            </p>
-        </div>
-        <div class="category-opposite-container invert-position">
-            <div class="category-opposite opposite-2">
-                <div>{opposite2}</div>
-            </div>
-        </div>
-    </div>
+
+<div class={`category-main-container ${isRightAligned ? "right" : ""}`}>
+	<div class="category-container">
+		<div class="category-opposite-container">
+			<div class="category-opposite opposite-1">
+				<div>{opposite1} /</div>
+			</div>
+		</div>
+		<div class="category-description">
+			<p class="txt-small">
+				{description}
+			</p>
+		</div>
+		<div class="category-opposite-container invert-position">
+			<div class="category-opposite opposite-2">
+				<div>{opposite2}</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-
-
-
-
 
 <!-- <script>
   import { gsap } from "gsap";
@@ -57,9 +57,6 @@ const isRightAligned = index % 2 === 1;
           /* onLeaveBack: () => description.classList.add('hide') */
       });
   }); -->
-
-  
-</script>
 
 <!-- <script>
   import { gsap } from "gsap";
@@ -110,109 +107,103 @@ const isRightAligned = index % 2 === 1;
 </script> -->
 
 <style>
-    .category-main-container {
-        width: 100%;
-        display: flex;
-            justify-content: center; 
-        max-width: 1000px;
-    }
-    .category-container {
-        width: 800px;
-        margin: 2em 0;
-        transition: opacity 0.5s ease;
-        opacity: 0.3;
-        transition: opacity 0.3s ease;
-    }
+	.category-main-container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		max-width: 1000px;
+	}
+	.category-container {
+		width: 800px;
+		margin: 2em 0;
+		transition: opacity 0.5s ease;
+		opacity: 0.3;
+		transition: opacity 0.3s ease;
+	}
 
+	.category-opposite-container {
+		width: 100%;
+		padding: 0.5em 0;
+		text-align: right;
+		display: flex;
 
-    .category-opposite-container {
-        width: 100%;
-        padding: 0.5em 0;
-        text-align: right;
-        display: flex;
+		.category-opposite {
+			font-size: 1.4em;
+			display: flex;
+			transition: width 0.4s ease;
+		}
+		&.invert-position {
+			text-align: left;
+			justify-content: end;
+		}
+	}
 
-        .category-opposite {
-            font-size: 1.4em;
-            display: flex;
-            transition: width 0.4s ease;
-        }
-        &.invert-position {
-            text-align: left;
-            justify-content: end;
-        }
+	.opposite-1 {
+		justify-content: end;
+	}
+	.opposite-2 {
+		justify-content: start;
+	}
 
-    }
+	.category-opposite div {
+		width: fit-content;
+		white-space: nowrap;
+	}
 
-.opposite-1 {
-    justify-content: end;
-}
-.opposite-2 {
-    justify-content: start;
-}
+	@property --borderColor1 {
+		syntax: "<color>";
+		initial-value: rgb(0, 0, 0);
+		inherits: false;
+	}
 
-    .category-opposite div{
-        width: fit-content;
-        white-space: nowrap;
-    }
+	@property --borderColor2 {
+		syntax: "<color>";
+		initial-value: rgb(104, 104, 104);
+		inherits: false;
+	}
 
-    @property --borderColor1 {
-  syntax: '<color>';
-  initial-value: rgb(0, 0, 0);
-  inherits: false;
-}
+	.category-description {
+		background:
+			linear-gradient(to right, var(--borderColor1), var(--borderColor2)) top,
+			linear-gradient(to left, var(--borderColor1), var(--borderColor2)) bottom;
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+		transition:
+			--borderColor1 0.5s,
+			--borderColor2 0.5s;
+		overflow: hidden;
+		p {
+			text-align: left;
+			margin: 1em 0;
+			opacity: 1;
+			transition: all 0.5s ease-in-out;
+		}
 
-@property --borderColor2 {
-  syntax: '<color>';
-  initial-value: rgb(104, 104, 104);
-  inherits: false;
-}
+		&.invert-borders {
+			background:
+				linear-gradient(to right, var(--borderColor1) 0%, var(--borderColor2))
+					top,
+				linear-gradient(to left, var(--borderColor1) 0%, var(--borderColor2))
+					bottom;
+			background-size: 100% 1px;
+			background-repeat: no-repeat;
+			--borderColor1: rgb(104, 104, 104);
+			--borderColor2: rgb(0, 0, 0);
+		}
 
-
-
-    .category-description {
-        background: linear-gradient(to right, var(--borderColor1) ,var(--borderColor2)) top,
-                linear-gradient(to left,  var(--borderColor1),var(--borderColor2)) bottom;
-        background-size: 100% 1px;
-        background-repeat: no-repeat;
-        transition: --borderColor1 0.5s, --borderColor2 0.5s;
-        overflow: hidden;
-        p {
-            text-align: left;
-            margin: 1em 0;
-            opacity: 1;
-            transition: all 0.5s ease-in-out;
-        }
-
-        &.invert-borders {
-            background: linear-gradient(to right, var(--borderColor1)0%,var(--borderColor2)) top,
-                linear-gradient(to left,  var(--borderColor1) 0%,var(--borderColor2)) bottom;
-        background-size: 100% 1px;
-        background-repeat: no-repeat;
-            --borderColor1: rgb(104, 104, 104);
-            --borderColor2: rgb(0, 0, 0);
-
-
-        }
-
-        &.hide {
-            /* border-top: 0.5px solid #000;
+		&.hide {
+			/* border-top: 0.5px solid #000;
             border-bottom: 0.5px solid #000; */
+		}
 
-        }
+		&.hide p {
+			opacity: 0;
+			margin: 0;
+			height: 0;
+		}
+	}
 
-        &.hide p{
-            opacity: 0;
-            margin:0;
-            height: 0;
-
-        }
-
-    }
-
-    [class^="gsap-marker-"] {
-        z-index: 9999 !important;
-    }
-
-
-
+	[class^="gsap-marker-"] {
+		z-index: 9999 !important;
+	}
 </style>

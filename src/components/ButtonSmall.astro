@@ -1,110 +1,95 @@
 ---
+import { Image } from "astro:assets";
 
-import { Image } from 'astro:assets';
-
-import arrow from '../assets/icons/arrow-right-black.svg';
-
+import arrow from "../assets/icons/arrow-right-black.svg";
 
 export interface Props {
-  label: string;
-  href: string;
-  id?: string;
-  target?:string;
+	label: string;
+	href: string;
+	id?: string;
+	target?: string;
 }
 
-const { label, href, id, target="" } = Astro.props as Props;
-
+const { label, href, id, target = "" } = Astro.props as Props;
 ---
 
-
-<div >
-    <a class="button-container" href={href} id={id} {...(target ? { target } : {})}>
-        <label>{label}</label>
-        <span><Image  src={arrow} alt = "Freccia a destra"/></span>
-    </a>
+<div>
+	<a class="button-container" href={href} id={id} {...target ? { target } : {}}>
+		<label>{label}</label>
+		<span><Image src={arrow} alt="Freccia a destra" /></span>
+	</a>
 </div>
 
-
 <style>
+	.button-container {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
 
-.button-container {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+		span {
+			display: flex;
+			align-items: center;
+		}
+	}
 
-    span {
-        display: flex;
-        align-items: center;
-    }
-}
+	a {
+		display: flex;
+		flex-direction: row;
+		width: auto;
+		transition: all 0.5s ease-out;
+	}
 
+	.button-container:hover * {
+		color: black;
+	}
 
-a {
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    transition: all 0.5s ease-out;
-}
+	span {
+	}
 
-.button-container:hover * {
-    color: black;
-}
+	.button-container:hover label {
+		padding-right: 2em;
+	}
 
+	label {
+		font-size: 1.5em;
+		color: grey;
+		text-decoration: none;
+		padding-right: 0.5em;
+		transition: all 0.5s ease;
+	}
 
-span {
+	img {
+		height: 100%;
+	}
 
-}
-
-.button-container:hover label {
-    padding-right: 2em;
-}
-
-
-label {
-    font-size: 1.5em;
-    color: grey;
-    text-decoration: none;
-    padding-right: 0.5em;
-    transition: all 0.5s ease;
-
-}
-
-
-img {
-    height: 100%;
-}
-
-@media (max-width:768px) {
-    label {
-    font-size: 1.2em;
-
-}
-}
+	@media (max-width: 768px) {
+		label {
+			font-size: 1.2em;
+		}
+	}
 </style>
 
 <script>
-//     document.querySelectorAll(".button-container").forEach(box => {
-//         const span = box.querySelector("span"); // Trova lo span dentro il bottone specifico
-//         if (!span) return;
-  
-//         box.addEventListener("mouseenter", function() {
-//             console.log("mouse enter");
-//             console.log(span)
-//             const spanX = span.offsetLeft; // Posizione attuale dell'elemento
-//             const centerX = window.innerWidth / 4; // Centro dello schermo
-//             const distance = centerX - spanX; // Quanto deve spostarsi
-//             if (span) {
-//                 span.style.transform = `translateX(${distance}px)`;
-//                 console.log("distance", distance);
-//             }
-          
-  
-//         box.addEventListener("mouseleave", function() {
-//             span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
-//         });
-//     });
-// });
-  </script>
-  
+	//     document.querySelectorAll(".button-container").forEach(box => {
+	//         const span = box.querySelector("span"); // Trova lo span dentro il bottone specifico
+	//         if (!span) return;
+
+	//         box.addEventListener("mouseenter", function() {
+	//             console.log("mouse enter");
+	//             console.log(span)
+	//             const spanX = span.offsetLeft; // Posizione attuale dell'elemento
+	//             const centerX = window.innerWidth / 4; // Centro dello schermo
+	//             const distance = centerX - spanX; // Quanto deve spostarsi
+	//             if (span) {
+	//                 span.style.transform = `translateX(${distance}px)`;
+	//                 console.log("distance", distance);
+	//             }
+
+	//         box.addEventListener("mouseleave", function() {
+	//             span.style.transform = "translateX(0)"; // Torna alla posizione iniziale
+	//         });
+	//     });
+	// });
+</script>

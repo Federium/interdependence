@@ -2,129 +2,162 @@
 import Contenuto from "../layouts/Contenuto.astro";
 import Heading from "../components/Heading.astro";
 import ButtonSmall from "../components/ButtonSmall.astro";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 
 import logoDesktop from "../assets/logos/interdependence-white-long.svg";
 import logoMobile from "../assets/logos/interdependence-white-short.svg";
-
-
 ---
+
 <Contenuto name="About">
-    <Heading title="" background={true} backgroundMobile={true}></Heading>
-    <div class="logo-container desktop">
-        <Image src={logoDesktop} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
-      </div>
-      <div class="logo-container mobile">
-        <Image src={logoMobile} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
-      </div>
+	<Heading title="" background={true} backgroundMobile={true} />
+	<div class="logo-container desktop">
+		<Image
+			src={logoDesktop}
+			alt="interdependence - exploring opposites"
+			id="logo-interdependence"
+		/>
+	</div>
+	<div class="logo-container mobile">
+		<Image
+			src={logoMobile}
+			alt="interdependence - exploring opposites"
+			id="logo-interdependence"
+		/>
+	</div>
 
-    <div class="col-8">
+	<div class="col-8">
+		<h2 class="gradient-text quote">
+			In a society characterized by a growing sense of increasing polarization,
+			how can design deal with opposites and the nuances in-between polarities
+			to drive towards constructive change?
+		</h2>
 
-    <h2 class="gradient-text quote">
-        In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
-    </h2>
-   
-    <p class="txt-large">
-        The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents <span class="bold gradient-text right">“INTERDEPENDENCE: exploring opposites”</span>, a set of initiatives to reflect on how design interacts with polarities and contrasting dimensions, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
-    </p>
+		<p class="txt-large">
+			The Polimi Design System (the School of Design, the Department of Design,
+			and POLI.Design) presents <span class="bold gradient-text right"
+				>“INTERDEPENDENCE: exploring opposites”</span
+			>, a set of initiatives to reflect on how design interacts with polarities
+			and contrasting dimensions, through a selection of projects by students
+			from Politecnico and from a network of about 40 design universities around
+			the world.
+		</p>
 
-    <div id = "content">
-        <p class="txt-small">
-            Opposites exist in an <span class="bold">inherently interdependent state</span>: in philosophy, physics, psychology and spirituality, the opposites are complementary forces, where one cannot exist without the other.  Indeed, opposing forces influence and rely on each other to create balance or transformation: they are connected by a continuous spectrum of ways of being that blend and <b>reconcile the extremes</b>.  
-        </p>
-    
-    
-        <p class="txt-small">
-            As the gap between these opposites grows, it can lead to increased tension, misunderstanding, and conflict, making it harder to find common ground. Yet, the interdependence between these polarities can also drive debate, reflection, and the evolution of ideas, if managed constructively. <br/>
-            In <b>Design</b>, these polarities are not problems to be solved but <b>dynamics to be managed</b>.  
-            </p>
-    
-            <p class="txt-small">
-                With the aim of exploring the interdependence of opposites, the Polimi Design System organizes a <b>widespread event</b>, in close relationship with the Design Week and the city, taking place in three main venues - <b>Fabbrica del Vapore</b>, <b>Campus Bovisa Durando</b>, and <b>SaloneSatellite</b>. <br/>In addition to them, a constellation of other smaller initiatives populates the city. 
-            </p>
-    </div>
-    
-    </div>
-    <div>
-        <ButtonSmall href="/assets/Interdependence2025_PressKitENG.pdf" label="PRESS KIT (ENG)" target="_blank"></ButtonSmall>
-        <ButtonSmall href="/assets/Interdependence2025_PressKitITA.pdf" label="PRESS KIT (ITA)" target="_blank"></ButtonSmall>
-    
-    </div>
-    <div id="interdependence-2024">
-        <ButtonSmall href="/2024/index.html" label="INTERDEPENDENCE 2024" target="_blank" ></ButtonSmall>
-    </div>
+		<div id="content">
+			<p class="txt-small">
+				Opposites exist in an <span class="bold"
+					>inherently interdependent state</span
+				>: in philosophy, physics, psychology and spirituality, the opposites
+				are complementary forces, where one cannot exist without the other.
+				Indeed, opposing forces influence and rely on each other to create
+				balance or transformation: they are connected by a continuous spectrum
+				of ways of being that blend and <b>reconcile the extremes</b>.
+			</p>
 
-    </Contenuto>
+			<p class="txt-small">
+				As the gap between these opposites grows, it can lead to increased
+				tension, misunderstanding, and conflict, making it harder to find common
+				ground. Yet, the interdependence between these polarities can also drive
+				debate, reflection, and the evolution of ideas, if managed
+				constructively. <br />
+				In <b>Design</b>, these polarities are not problems to be solved but <b
+					>dynamics to be managed</b
+				>.
+			</p>
 
-    <style>
+			<p class="txt-small">
+				With the aim of exploring the interdependence of opposites, the Polimi
+				Design System organizes a <b>widespread event</b>, in close relationship
+				with the Design Week and the city, taking place in three main venues - <b
+					>Fabbrica del Vapore</b
+				>, <b>Campus Bovisa Durando</b>, and <b>SaloneSatellite</b>. <br />In
+				addition to them, a constellation of other smaller initiatives populates
+				the city.
+			</p>
+		</div>
+	</div>
+	<div>
+		<ButtonSmall
+			href="/assets/Interdependence2025_PressKitENG.pdf"
+			label="PRESS KIT (ENG)"
+			target="_blank"
+		/>
+		<ButtonSmall
+			href="/assets/Interdependence2025_PressKitITA.pdf"
+			label="PRESS KIT (ITA)"
+			target="_blank"
+		/>
+	</div>
+	<div id="interdependence-2024">
+		<ButtonSmall
+			href="/2024/index.html"
+			label="INTERDEPENDENCE 2024"
+			target="_blank"
+		/>
+	</div>
+</Contenuto>
 
-.logo-container {
-            display: flex;
-}
-            
-            .desktop {
-              mix-blend-mode: difference;
+<style>
+	.logo-container {
+		display: flex;
+	}
 
-            }
+	.desktop {
+		mix-blend-mode: difference;
+	}
 
-        .mobile img, .desktop img {
-            width: 100%;
+	.mobile img,
+	.desktop img {
+		width: 100%;
 
-            mix-blend-mode: difference;
-            align-self: left;
-        }
+		mix-blend-mode: difference;
+		align-self: left;
+	}
 
-        .bold {
-            font-weight: bold;
-        }
-        h2.quote  {
-            margin-bottom: 6vh;
-            padding: 0;
-        }
+	.bold {
+		font-weight: bold;
+	}
+	h2.quote {
+		margin-bottom: 6vh;
+		padding: 0;
+	}
 
+	#content {
+		margin-bottom: 3vh;
+	}
 
-        #content {
-            margin-bottom: 3vh;
-        }
+	.content-main {
+		margin-bottom: 6vh;
+		background-color: white;
+	}
 
-        .content-main {
-            margin-bottom: 6vh;
-            background-color: white;
-        }
+	#interdependence-2024 {
+		padding-top: 1em;
+	}
 
-        #interdependence-2024 {
-            padding-top: 1em;
-        }
+	@media (min-width: 768px) {
+		.mobile {
+			display: none;
+		}
+	}
 
-        @media (min-width: 768px) {
-            .mobile {
-                display: none;
-            }
-          
-        }
+	@media (max-width: 768px) {
+		.logo-container {
+			padding: 0 !important;
+		}
 
-        @media (max-width: 768px) {
-           
+		.desktop {
+			display: none;
+		}
 
-            .logo-container {
-          padding: 0 !important;
-            }
-
-          .desktop {
-            display: none;
-          }
-
-          .mobile {
-            display: block;
-            filter: invert(1);
-            margin-bottom: 3em;
-            margin-top: 8vh;
-          }
-            .mobile img {
-              height: auto;
-              padding: 2rem;
-            }
-        }
-        
-
-    </style>
+		.mobile {
+			display: block;
+			filter: invert(1);
+			margin-bottom: 3em;
+			margin-top: 8vh;
+		}
+		.mobile img {
+			height: auto;
+			padding: 2rem;
+		}
+	}
+</style>

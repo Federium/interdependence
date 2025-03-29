@@ -1,557 +1,554 @@
 ---
-import { number } from 'astro:schema';
-
+import { number } from "astro:schema";
 
 export interface Props {
-    subsection?: boolean;
-    subsectionActive?: number;
-   active:string;
-   background?: boolean
-   hideHeaderWhileScrollingMobile?: boolean;
+	subsection?: boolean;
+	subsectionActive?: number;
+	active: string;
+	background?: boolean;
+	hideHeaderWhileScrollingMobile?: boolean;
 }
 
-const { subsection = false, subsectionActive=0, active, background=false, hideHeaderWhileScrollingMobile=false} = Astro.props as Props;
+const {
+	subsection = false,
+	subsectionActive = 0,
+	active,
+	background = false,
+	hideHeaderWhileScrollingMobile = false,
+} = Astro.props as Props;
 ---
 
-
-
 <div class="header_desktop">
-  <div class={`sidebar left-sidebar ${background ? 'background' : ''}`}>
-    <a href="/designxdesigners" class={`button left-button ${active === "1" ? 'active' : ''}`} id="button-1" style="text-align: right;">
-      <div>Design x Designers</div>
-    </a>
-    <a href="/salonesatellite" class={`button ${active === "2" ? 'active' : ''}`}id="button-2" style="text-align: center;">
-      <div>SaloneSatellite</div>
-      </a>
-    { subsection ? (
-      <div  class="button active" id="button-3" >
-        <a href="/fabbricadelvapore"><div >Fabbrica del Vapore</div></a>
-        <div class="secondary-menu">
-        <span><a class={`button ${subsectionActive === 1 ? 'active' : ''}`} href="/fabbricadelvapore/catalogue">Catalogue</a></span>
-        <span><a class={`button ${subsectionActive === 2 ? 'active' : ''}`} href="/fabbricadelvapore/program">Program</a></span>
-        </div>
-      </div>
-      ) : (
-      <a href="/fabbricadelvapore" class="button" id="button-3">
-        <div>Fabbrica del Vapore</div>
-      </a>
-      )
-    }
-
-  </div>
-  <div class="sidebar right-sidebar">
-    <a href="/" class="button " id="interdependence-button">
-       <div>interdependence</div>
-    </a>
-    <a href="/about" class="button" id="about-button">
-      <div>About</div>
-   </a>
-   <a href="/credits" class="button" id="credits-button">
-    <div>Credits</div>
- </a>
-  </div>
+	<div class={`sidebar left-sidebar ${background ? "background" : ""}`}>
+		<a
+			href="/designxdesigners"
+			class={`button left-button ${active === "1" ? "active" : ""}`}
+			id="button-1"
+			style="text-align: right;"
+		>
+			<div>Design x Designers</div>
+		</a>
+		<a
+			href="/salonesatellite"
+			class={`button ${active === "2" ? "active" : ""}`}
+			id="button-2"
+			style="text-align: center;"
+		>
+			<div>SaloneSatellite</div>
+		</a>
+		{
+			subsection ? (
+				<div class="button active" id="button-3">
+					<a href="/fabbricadelvapore">
+						<div>Fabbrica del Vapore</div>
+					</a>
+					<div class="secondary-menu">
+						<span>
+							<a
+								class={`button ${subsectionActive === 1 ? "active" : ""}`}
+								href="/fabbricadelvapore/catalogue"
+							>
+								Catalogue
+							</a>
+						</span>
+						<span>
+							<a
+								class={`button ${subsectionActive === 2 ? "active" : ""}`}
+								href="/fabbricadelvapore/program"
+							>
+								Program
+							</a>
+						</span>
+					</div>
+				</div>
+			) : (
+				<a href="/fabbricadelvapore" class="button" id="button-3">
+					<div>Fabbrica del Vapore</div>
+				</a>
+			)
+		}
+	</div>
+	<div class="sidebar right-sidebar">
+		<a href="/" class="button" id="interdependence-button">
+			<div>interdependence</div>
+		</a>
+		<a href="/about" class="button" id="about-button">
+			<div>About</div>
+		</a>
+		<a href="/credits" class="button" id="credits-button">
+			<div>Credits</div>
+		</a>
+	</div>
 </div>
-
-
-
-
 
 <!-- HEADER MOBILE -->
 <header class="header_mobile">
-  <div class="header__head">
-    <a class="header__logo" href="/">interdependence</a>
-    <div class="icon-hamburger">
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-    <div class="header__menu__mobile__container">
-      <ul class="header__menu">
-        <li><a href="/designxdesigners">Design x Designers</a></li>
-        <li><a href="/salonesatellite">Salone Satellite</a></li>
-        <li id ="fdv-button-mobile"><a href="/fabbricadelvapore">Fabbrica del Vapore</a></li>
-        <!-- <li class="subsection-mobile"><a href="/fabbricadelvapore/catalogue">Catalogue</a></li>
+	<div class="header__head">
+		<a class="header__logo" href="/">interdependence</a>
+		<div class="icon-hamburger">
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<div class="header__menu__mobile__container">
+		<ul class="header__menu">
+			<li><a href="/designxdesigners">Design x Designers</a></li>
+			<li><a href="/salonesatellite">Salone Satellite</a></li>
+			<li id="fdv-button-mobile">
+				<a href="/fabbricadelvapore">Fabbrica del Vapore</a>
+			</li>
+			<!-- <li class="subsection-mobile"><a href="/fabbricadelvapore/catalogue">Catalogue</a></li>
         <li class="subsection-mobile"><a href="/fabbricadelvapore/program">Program</a></li> -->
-    
-      </ul>
-  
-      <ul class="header__menu header__menu__bottom">
-        <li><a href="/about">About</a></li>
-        <li><a href="/credits">Credits</a></li>
-      </ul>
-    </div>
-    
+		</ul>
 
-  </div>
+		<ul class="header__menu header__menu__bottom">
+			<li><a href="/about">About</a></li>
+			<li><a href="/credits">Credits</a></li>
+		</ul>
+	</div>
 </header>
-
-
 
 <!-- ---------- CSS STYLE ---------- -->
 <style>
+	.sidebar {
+		position: fixed;
+		top: 0;
+		height: 100vh;
+		width: 10%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		transition: width 0.3s ease-in-out;
+		overflow: hidden;
+		z-index: 9999 !important;
+		mix-blend-mode: difference;
+		cursor: none;
+		padding: 2vh 1vh;
+	}
+	.left-sidebar {
+		left: 0;
+		align-items: flex-start;
+		font-size: 1.3em;
+		&.background {
+			background: linear-gradient(
+				to right,
+				rgba(255, 255, 255, 0.674),
+				transparent
+			);
+		}
+		mix-blend-mode: normal;
+		/* gap: 2vh; */
+	}
 
+	@property --myColor1 {
+		syntax: "<color>";
+		initial-value: rgba(255, 255, 255, 0);
+		inherits: false;
+	}
 
+	@property --myColor2 {
+		syntax: "<color>";
+		initial-value: rgba(255, 255, 255, 0);
+		inherits: false;
+	}
 
-  .sidebar {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: width 0.3s ease-in-out;
-    overflow: hidden;
-    z-index: 9999 !important;
-    mix-blend-mode: difference;
-    cursor: none;
-    padding: 2vh 1vh;
-  }
-  .left-sidebar {
-    left: 0;
-    align-items: flex-start;
-    font-size: 1.3em;
-    &.background {
-      background: linear-gradient(to right, rgba(255, 255, 255, 0.674), transparent); }
-    mix-blend-mode: normal;
-   /* gap: 2vh; */
-  }
+	.right-sidebar {
+		right: 0;
+		align-items: flex-end;
+		font-size: 1.3em;
+		background: linear-gradient(to left, var(--myColor1), var(--myColor2));
+		transition: --myColor1 0.5s;
+	}
 
-  @property --myColor1 {
-  syntax: '<color>';
-  initial-value: rgba(255,255,255,0);
-  inherits: false;
-}
+	.right-sidebar:hover {
+		--myColor1: rgba(255, 255, 255, 0.16);
+	}
 
-@property --myColor2 {
-  syntax: '<color>';
-  initial-value: rgba(255,255,255,0);
-  inherits: false;
-}
+	.button {
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+		padding: 0 0 0 0;
+		font-weight: bold;
+		flex: 0;
+		transition: all 0.5s ease;
+		width: 100%;
+	}
 
-  .right-sidebar {
-    right: 0;
-    align-items: flex-end;
-    font-size: 1.3em;
-    background: linear-gradient(to left, var(--myColor1), var(--myColor2));
-    transition: --myColor1 0.5s;
-  }
+	.right-sidebar .button {
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+	}
 
-  .right-sidebar:hover {
-    --myColor1: rgba(255, 255, 255, 0.16);
-  }
+	.right-sidebar a {
+		width: auto;
+		&:not(#interdependence-button) {
+			opacity: 0;
+			pointer-events: none;
+			padding-bottom: 1em;
+			&.show {
+				opacity: 1;
+				pointer-events: all;
+			}
+		}
+	}
 
-  .button {
-    writing-mode: vertical-rl; 
-    transform: rotate(180deg);
-    padding: 0 0 0 0;
-    font-weight: bold;
-    flex: 0;
-    transition: all 0.5s ease;
-    width: 100%;
-  }
+	.right-sidebar a.show {
+	}
 
-  .right-sidebar .button {
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
- 
-  }
-
-  .right-sidebar a {
-    width: auto;
-    &:not(#interdependence-button) {
-      opacity: 0;
-      pointer-events: none;
-      padding-bottom: 1em;
-      &.show {
-        opacity: 1;
-        pointer-events: all;
-      }
-    }
-  }
-
-  .right-sidebar a.show {
- 
-  }
-  
-
-  /* .sidebar:hover div {
+	/* .sidebar:hover div {
     text-align: left;
     flex-grow: 1;
     transition: all 0.6s ease;
   } */
 
-  .sidebar-area {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-  }
+	.sidebar-area {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+	}
 
-  #button-1 {
-    text-align: right;
-  }
-  
-  /* .button.active {
+	#button-1 {
+		text-align: right;
+	}
+
+	/* .button.active {
     flex-grow: 3;
     transition: all 1.6s ease;
   }
 */
-  .button:hover div  { 
-    text-decoration: none;
-    color: black;
-  }
+	.button:hover div {
+		text-decoration: none;
+		color: black;
+	}
 
-  .right-sidebar .button:hover div {
-    text-decoration: none;
-    color: white;
-  }
+	.right-sidebar .button:hover div {
+		text-decoration: none;
+		color: white;
+	}
 
-  
-  .button.active:not(.disactive) div  { 
-    text-decoration: none;
-    color: black;
-  }
+	.button.active:not(.disactive) div {
+		text-decoration: none;
+		color: black;
+	}
 
-  #button-3 a {
-    flex:2;
-  
-     text-align: right;
-    
-  }
-  #button-1,
-  #button-2 {
-    padding-top: 1vh;
-  }
+	#button-3 a {
+		flex: 2;
 
-  #button-2,
-  #button-3 {
-    padding-bottom: 1vh;
-  }
+		text-align: right;
+	}
+	#button-1,
+	#button-2 {
+		padding-top: 1vh;
+	}
 
-  #button-3:hover
-{
-    padding-top: 7vh; /* Per migliorare uscita da hover */
-  }
+	#button-2,
+	#button-3 {
+		padding-bottom: 1vh;
+	}
 
+	#button-3:hover {
+		padding-top: 7vh; /* Per migliorare uscita da hover */
+	}
 
-  #button-1:hover,
-  #button-2:hover {
-    padding-top: 7vh;
-  }
+	#button-1:hover,
+	#button-2:hover {
+		padding-top: 7vh;
+	}
 
-  #button-2:hover,
-  #button-3:hover {
-    padding-bottom: 7vh;
-  }
+	#button-2:hover,
+	#button-3:hover {
+		padding-bottom: 7vh;
+	}
 
-  #button-1.active:not(.disactive),
-  #button-2.active:not(.disactive) {
-    padding-top: 7vh;
-  }
+	#button-1.active:not(.disactive),
+	#button-2.active:not(.disactive) {
+		padding-top: 7vh;
+	}
 
-  #button-2.active:not(.disactive),
-  #button-3.active:not(.disactive) {
-    padding-bottom: 7vh;
-  }
-  /* .sidebar div:hover {
+	#button-2.active:not(.disactive),
+	#button-3.active:not(.disactive) {
+		padding-bottom: 7vh;
+	}
+	/* .sidebar div:hover {
     flex-grow: 18;
     transition: all 1.6s ease;
   } */
 
-  .button div {
-    margin: 0;
-    color: #9c9c9c;
-    font-family: "Milligram";
-    font-weight: bold;
-    transition: color 0.6s ease;
-    text-decoration: none;
-    white-space: nowrap;
-    /* text-shadow: 0 0 20px rgb(0, 0, 0); */
-  }
+	.button div {
+		margin: 0;
+		color: #9c9c9c;
+		font-family: "Milligram";
+		font-weight: bold;
+		transition: color 0.6s ease;
+		text-decoration: none;
+		white-space: nowrap;
+		/* text-shadow: 0 0 20px rgb(0, 0, 0); */
+	}
 
-  /* diventa superfluo*/
-  .button:hover div {
-  
-  }
+	/* diventa superfluo*/
+	.button:hover div {
+	}
 
-  
-  #interdependence-button div{
-    font-family: "Milligram Macro";
-    font-weight: bold;
-    font-size: 2.5rem;
-  }
+	#interdependence-button div {
+		font-family: "Milligram Macro";
+		font-weight: bold;
+		font-size: 2.5rem;
+	}
 
-  .button-area div {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+	.button-area div {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
 
-  .secondary-menu {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+	.secondary-menu {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
 
-    span a{
-      font-weight: normal; 
-      color: #9c9c9c;
-      transition: color 0.2s ease;
-      padding-left: 100%; /*per aumentare area cliccabile*/
-    }
-    span a:hover {
-      color:black
-    }
+		span a {
+			font-weight: normal;
+			color: #9c9c9c;
+			transition: color 0.2s ease;
+			padding-left: 100%; /*per aumentare area cliccabile*/
+		}
+		span a:hover {
+			color: black;
+		}
 
-    span a.active:not(.disactive ){
-      color:black
-    }
-  }
+		span a.active:not(.disactive) {
+			color: black;
+		}
+	}
 
-  span a.button{
-    width: auto;
-  }
+	span a.button {
+		width: auto;
+	}
 
-  .header_mobile {
-    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.97), transparent);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100 !important;
-    width: 100%;
-    height: 10vh;
-    padding: 10px 20px 30px 20px;
-    mix-blend-mode: normal;
-    transition: all 0.5s ease;
-    display: flex;
-    flex-direction: column;
+	.header_mobile {
+		background: linear-gradient(to bottom, rgba(10, 10, 10, 0.97), transparent);
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100 !important;
+		width: 100%;
+		height: 10vh;
+		padding: 10px 20px 30px 20px;
+		mix-blend-mode: normal;
+		transition: all 0.5s ease;
+		display: flex;
+		flex-direction: column;
+	}
+	.header__head {
+		max-width: 1200px;
+		width: 100%;
+		margin: 0;
+		display: flex;
+		justify-content: space-between;
+		mix-blend-mode: difference;
+	}
 
-  }
-  .header__head {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    mix-blend-mode: difference;
+	.header__logo {
+		display: flex;
+		align-items: center;
+		color: var(--gradient);
+		font-family: "Milligram Macro";
+		font-weight: bold;
+		text-decoration: none;
+		font-size: 2rem;
+	}
 
-  }
+	.header__menu {
+		padding: 0;
+		margin: 0;
+	}
+	.header__menu li {
+		display: inline-block;
+	}
+	.header__menu li a {
+		color: var(--menu-color);
+		opacity: 0.8;
+		display: block;
+		padding: 16px 0;
+		font-size: 15px;
+	}
 
-  .header__logo {
-    display: flex;
-    align-items: center;
-    color: var(--gradient);
-    font-family: "Milligram Macro";
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 2rem;
-  }
+	.header__menu li.subsection a {
+	}
 
-  .header__menu {
-    padding: 0;
-    margin: 0;
-  }
-  .header__menu li {
-    display: inline-block;
-  }
-  .header__menu li a {
-    color: var(--menu-color);
-    opacity: 0.8;
-    display: block;
-    padding: 16px 0;
-    font-size: 15px;
+	@media (max-width: 768px) {
+		.header_desktop {
+			display: none;
+		}
+		.header__menu {
+			top: 70px;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0);
+			width: 100%;
+			opacity: 0;
+			overflow: hidden;
+			transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+			pointer-events: none;
+		}
 
+		.header__menu li {
+			width: 100%;
+		}
+		:global(.menu-open) .header__menu {
+			opacity: 1;
+			z-index: 100 !important;
+			background-color: transparent;
+			pointer-events: all;
+		}
 
-  }
+		:global(.menu-open) .header_mobile {
+			height: 600vh !important;
+		}
 
-  .header__menu li.subsection a {
-  }
-  
+		.header__menu__mobile__container {
+			height: 60vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-top: 8px;
+			pointer-events: none;
+		}
 
-  @media (max-width: 768px) {
+		:global(.menu-open) .header__menu__mobile__container {
+			pointer-events: all;
+		}
 
-    .header_desktop {
-      display: none;
-    }
-    .header__menu {
-      top: 70px;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0);
-      width: 100%;
-      opacity: 0;
-      overflow: hidden;
-      transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-      pointer-events: none;
-    }
-    
+		#fdv-button-mobile a {
+			padding-bottom: 8px;
+		}
+		.header__menu li a {
+			color: var(--gradient);
+			font-size: 1.5em;
+			font-family: "Milligram";
+			font-weight: bold;
+			:hover {
+				color: white;
+			}
+		}
 
-    .header__menu li {
-      width: 100%;
-    }
-    :global(.menu-open) .header__menu {
-      opacity: 1;
-      z-index: 100 !important;
-      background-color: transparent;
-      pointer-events: all;
-    }
+		.header__menu__bottom li a {
+			padding: 0;
+			padding-top: 16px;
+		}
 
-    :global(.menu-open) .header_mobile {
-      height: 600vh !important;
-    }
+		.header__menu li.subsection-mobile a {
+			padding: 0 0 8px 0;
+			font-weight: normal;
+		}
 
-    .header__menu__mobile__container {
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding-top: 8px;
-      pointer-events: none;
-    }
+		.icon-hamburger {
+			height: 50px;
+			width: 35px;
+			margin-left: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+		}
+		.icon-hamburger span {
+			height: 4px;
+			width: 35px;
+			background: rgb(255, 255, 255);
+			position: relative;
+			display: block;
+			transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
 
-    :global(.menu-open)  .header__menu__mobile__container  {
-      pointer-events: all;
+		:global(.menu-open) .icon-hamburger span:nth-child(1) {
+			transform: rotate(45deg) translateY(12.5px);
+		}
+		:global(.menu-open) .icon-hamburger span:nth-child(2) {
+			transform: rotate(-45deg) translateY(-12.5px);
+		}
+	}
 
-    }
+	/* Tablet */
+	@media (min-width: 769px) and (max-width: 1024px) {
+		.header_mobile {
+			display: none;
+		}
+	}
 
-    #fdv-button-mobile a{
-      padding-bottom: 8px;
-    }
-    .header__menu li a {
-      color: var(--gradient);
-      font-size: 1.5em;
-      font-family: "Milligram";
-      font-weight: bold;
-      :hover {
-      color:white;
-    }
-    }
-
-       .header__menu__bottom li a {
-      padding: 0;
-padding-top: 16px;
-    }
-
-    .header__menu li.subsection-mobile a {
-      padding: 0 0 8px 0 ;
-      font-weight: normal;
-      
-    }
-
-    .icon-hamburger {
-      height: 50px;
-      width: 35px;
-      margin-left: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-    }
-    .icon-hamburger span {
-      height: 4px;
-      width: 35px;
-      background: rgb(255, 255, 255);
-      position: relative;
-      display: block;
-      transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-
-    :global(.menu-open) .icon-hamburger span:nth-child(1) {
-      transform: rotate(45deg) translateY(12.5px);
-    }
-    :global(.menu-open) .icon-hamburger span:nth-child(2) {
-      transform: rotate(-45deg) translateY(-12.5px);
-    }
-  }
-
-
-/* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .header_mobile {
-      display: none;
-    }
-}
-
-/* Desktop */
-@media (min-width: 1025px) {
-    .header_mobile {
-      display: none;
-    }
-}
-
-
+	/* Desktop */
+	@media (min-width: 1025px) {
+		.header_mobile {
+			display: none;
+		}
+	}
 </style>
-
-
-
-
 
 <!-- ANIMAZIONE HEADER DESKTOP -->
 <script>
-      // document.addEventListener("astro:page-load", () => {
+	// document.addEventListener("astro:page-load", () => {
 
-  // const areaButtonsS = document.querySelectorAll('.button-area');
-  //   const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
-  //     const targetId = div.getAttribute("target-id");
-  //     if (targetId) {
-  //       const targetDiv = document.getElementById(targetId);
-    
-  //       if (targetDiv) {
-  //           div.addEventListener("mouseenter", () => targetDiv.classList.add("active"));
-  //           div.addEventListener("mouseleave", () => targetDiv.classList.remove("active"));
-  //       }
-  //     }
-  
-  // })
-  // console.log(areaButtonsS); 
+	// const areaButtonsS = document.querySelectorAll('.button-area');
+	//   const areaButtons = document.querySelectorAll('.button-area').forEach((div) => {
+	//     const targetId = div.getAttribute("target-id");
+	//     if (targetId) {
+	//       const targetDiv = document.getElementById(targetId);
 
+	//       if (targetDiv) {
+	//           div.addEventListener("mouseenter", () => targetDiv.classList.add("active"));
+	//           div.addEventListener("mouseleave", () => targetDiv.classList.remove("active"));
+	//       }
+	//     }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll('.button:not(.button-evento)');
+	// })
+	// console.log(areaButtonsS);
 
-    buttons.forEach(button => {
-      button.addEventListener('mouseenter', () => {
-        buttons.forEach(btn => {
-          if (btn !== button) {
-            btn.classList.add('disactive');
-          }
-        });
-      });
+	document.addEventListener("DOMContentLoaded", () => {
+		const buttons = document.querySelectorAll(".button:not(.button-evento)");
 
-      button.addEventListener('mouseleave', () => {
-        buttons.forEach(btn => {
-          btn.classList.remove('disactive');
-        });
-      });
-    });
-  });
-// });
-  </script>
+		buttons.forEach(button => {
+			button.addEventListener("mouseenter", () => {
+				buttons.forEach(btn => {
+					if (btn !== button) {
+						btn.classList.add("disactive");
+					}
+				});
+			});
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const rightSidebar = document.querySelector('.right-sidebar');
-      const creditsButton = document.getElementById('credits-button');
-      const aboutButton = document.getElementById('about-button');
+			button.addEventListener("mouseleave", () => {
+				buttons.forEach(btn => {
+					btn.classList.remove("disactive");
+				});
+			});
+		});
+	});
+	// });
+</script>
 
-      if (rightSidebar) {
-        rightSidebar.addEventListener('mouseenter', () => {
-          creditsButton.classList.add('show');
-          aboutButton.classList.add('show');
-        });
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const rightSidebar = document.querySelector(".right-sidebar");
+		const creditsButton = document.getElementById("credits-button");
+		const aboutButton = document.getElementById("about-button");
 
-        rightSidebar.addEventListener('mouseleave', () => {
-          creditsButton.classList.remove('show');
-          aboutButton.classList.remove('show');
-        });
-      }
-    });
-  </script>
-  
-  <!-- ---------- MENU HEADER MOBILE ---------- -->
- 
- <!-- SCRIPT CON TIMER -->
-  <!-- <script>
+		if (rightSidebar) {
+			rightSidebar.addEventListener("mouseenter", () => {
+				creditsButton.classList.add("show");
+				aboutButton.classList.add("show");
+			});
+
+			rightSidebar.addEventListener("mouseleave", () => {
+				creditsButton.classList.remove("show");
+				aboutButton.classList.remove("show");
+			});
+		}
+	});
+</script>
+
+<!-- ---------- MENU HEADER MOBILE ---------- -->
+
+<!-- SCRIPT CON TIMER -->
+<!-- <script>
 // const hideHeadingMobile = hideHeaderWhileScrollingMobile;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -611,71 +608,70 @@ document.addEventListener("DOMContentLoaded", function() {
 });
   </script> -->
 
-   <!-- SCRIPT SENZA TIMER -->
+<!-- SCRIPT SENZA TIMER -->
 
-<script define:vars={{hideHeaderWhileScrollingMobile}}>
-  const hideHeadingMobile = hideHeaderWhileScrollingMobile;
+<script define:vars={{ hideHeaderWhileScrollingMobile }}>
+	const hideHeadingMobile = hideHeaderWhileScrollingMobile;
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.querySelector('.icon-hamburger');
-    const body = document.body;
-    const header = document.querySelector('.header_mobile');
-    let lastScroll = 0;
-    
-    // Toggle menu function
-    function toggleMenu(isOpening) {
-      body.classList.toggle('menu-open');
-      
-      // if (isOpening) {
-      //   body.style.overflow = 'hidden';
-      //   // body.style.height = '100vh';
-      // } else {
-      //   body.style.overflow = '';
-      //   body.style.height = '';
-      // }
-    }
+	document.addEventListener("DOMContentLoaded", function () {
+		const hamburger = document.querySelector(".icon-hamburger");
+		const body = document.body;
+		const header = document.querySelector(".header_mobile");
+		let lastScroll = 0;
 
-    // Hide header on scroll
-    
-    if (hideHeadingMobile) {
-      function handleScroll() {
-      const currentScroll = window.scrollY;
-      console.log("controllando");
-      const heading = document.querySelectorAll('.header-container')[1];
-      const animatedbackground = document.querySelector('.animated-background');
+		// Toggle menu function
+		function toggleMenu(isOpening) {
+			body.classList.toggle("menu-open");
 
-      if (!body.classList.contains('menu-open')) {
-        if (currentScroll > lastScroll && currentScroll > 50) {
-          // Scrolling down
-          header.style.transform = 'translateY(-100%)';
-          if(heading) {
-              heading.classList.add('trasla'); 
-          }
-          if(animatedbackground) animatedbackground.classList.add('trasla'); 
-        } else {
-          // Scrolling up
-          header.style.transform = 'translateY(0)';
-          if(heading) heading.classList.remove('trasla');
-          if(animatedbackground) animatedbackground.classList.remove('trasla'); 
+			// if (isOpening) {
+			//   body.style.overflow = 'hidden';
+			//   // body.style.height = '100vh';
+			// } else {
+			//   body.style.overflow = '';
+			//   body.style.height = '';
+			// }
+		}
 
+		// Hide header on scroll
 
-        }
-      }
-      
-      lastScroll = currentScroll;
-    }
+		if (hideHeadingMobile) {
+			function handleScroll() {
+				const currentScroll = window.scrollY;
+				console.log("controllando");
+				const heading = document.querySelectorAll(".header-container")[1];
+				const animatedbackground = document.querySelector(
+					".animated-background"
+				);
 
-    }
-   
+				if (!body.classList.contains("menu-open")) {
+					if (currentScroll > lastScroll && currentScroll > 50) {
+						// Scrolling down
+						header.style.transform = "translateY(-100%)";
+						if (heading) {
+							heading.classList.add("trasla");
+						}
+						if (animatedbackground) animatedbackground.classList.add("trasla");
+					} else {
+						// Scrolling up
+						header.style.transform = "translateY(0)";
+						if (heading) heading.classList.remove("trasla");
+						if (animatedbackground)
+							animatedbackground.classList.remove("trasla");
+					}
+				}
 
-    // Event listeners
-    if (hamburger) {
-      hamburger.addEventListener("click", function() {
-        const isOpening = !body.classList.contains('menu-open');
-        toggleMenu(isOpening);
-      });
-    }
+				lastScroll = currentScroll;
+			}
+		}
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-  });
+		// Event listeners
+		if (hamburger) {
+			hamburger.addEventListener("click", function () {
+				const isOpening = !body.classList.contains("menu-open");
+				toggleMenu(isOpening);
+			});
+		}
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+	});
 </script>
