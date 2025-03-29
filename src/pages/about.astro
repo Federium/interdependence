@@ -7,7 +7,6 @@ import {Image} from "astro:assets";
 import logoDesktop from "../assets/logos/interdependence-white-long.svg";
 import logoMobile from "../assets/logos/interdependence-white-short.svg";
 
-import presskit from "../../public/Interdependence2025_PressKit.pdf";
 
 ---
 <Contenuto name="About">
@@ -46,7 +45,9 @@ import presskit from "../../public/Interdependence2025_PressKit.pdf";
     </div>
     
     </div>
-    <ButtonSmall href={presskit} label="PRESS KIT" target="_blank"></ButtonSmall>
+    <ButtonSmall href="/assets/Interdependence2025_PressKitENG.pdf" label="PRESS KIT (ENG)" target="_blank"></ButtonSmall>
+    <ButtonSmall href="/assets/Interdependence2025_PressKitITA.pdf" label="PRESS KIT (ITA)" target="_blank"></ButtonSmall>
+
     <ButtonSmall href="/2024/index.html" label="INTERDEPENDENCE 2024" target="_blank" id="interdependence-2024"></ButtonSmall>
 
     </Contenuto>
@@ -95,6 +96,10 @@ import presskit from "../../public/Interdependence2025_PressKit.pdf";
         .content-main {
             margin-bottom: 6vh;
             background-color: white;
+        }
+
+        #interdependence-2024 {
+            padding-top: 2em;
         }
 
         @media (max-width: 768px) {
