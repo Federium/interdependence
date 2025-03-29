@@ -1,35 +1,31 @@
 ---
-import PaginaLuogo from "../layouts/PaginaLuogo.astro";
+import PaginaLuogo from '../layouts/PaginaLuogo.astro'
 import bckImg from "/src/assets/img/designxdesigners.jpg";
-import ChasingWord from "../components/ChasingWord.astro";
+import ChasingWord from '../components/ChasingWord.astro';
 
-import locations from "../assets/data/location.json";
+import locations from '../assets/data/location.json'
 
 const location = locations[1];
 
 const info = {
-	index: location.index,
-	place: location.place,
-	name: location.title,
-	opening: location.opening,
-	location: location.location,
-	dates: location.dates,
-	description: location.description,
-	locationUrl: location.locationurl,
-	backgroundImg: bckImg,
-	hours: location.hours,
-};
+    index: location.index,
+    place: location.place,
+    name: location.title,
+    opening: location.opening,
+    location: location.location,
+    dates: location.dates,
+    description: location.description,
+    locationUrl: location.locationurl,
+    backgroundImg: bckImg,
+    hours: location.hours
+
+}
+
+
 ---
 
-<PaginaLuogo
-	index={info.index}
-	place={info.place}
-	name={info.name}
-	opening={info.opening}
-	location={info.location}
-	dates={info.dates}
-	description={info.description}
-	locationUrl={info.locationUrl}
-	backgroundImg={info.backgroundImg.src}
-	hours={info.hours}
-/>
+<PaginaLuogo index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src} hours={info.hours}>
+
+
+
+</PaginaLuogo>

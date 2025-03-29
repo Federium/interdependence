@@ -1,172 +1,162 @@
 ---
 export interface Props {
-	title: string;
-	subtitle?: string;
-	description?: string;
-	background?: boolean;
-	backgroundMobile?: boolean;
-	mobile?: boolean;
-	id?: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  background?: boolean;
+  backgroundMobile?: boolean;
+  mobile?:boolean;
+  id?:string;
 }
 
-const {
-	title,
-	subtitle,
-	description,
-	background = false,
-	mobile = true,
-	backgroundMobile = false,
-	id = "",
-} = Astro.props as Props;
+const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false, id="" } = Astro.props as Props;
 ---
 
 {
-	background && mobile && (
-		<>
-			<div
-				class={`animated-background ${backgroundMobile ? "" : "nascondi"}`}
-				id={"back-" + id}
-			>
-				<div id="p5-canvas" />
-				<div class="header-gradient" />
-			</div>
-		</>
-	)
+background && mobile && <>
+<div class={`animated-background ${backgroundMobile ? '' : 'nascondi'}`} id={"back-"+id}>
+    <div id="p5-canvas"></div>
+    <div class="header-gradient"></div>
+</div>
+</>
 }
 
-<div class={`header-container ${mobile ? "" : "nascondi"}`} id={"testi-" + id}>
-	<h2 class="title">{title}</h2>
-	{
-		subtitle && (
-			<>
-				<h3 class="subtitle">{subtitle}</h3>
-			</>
-		)
-	}
+<div class={`header-container ${mobile ? '' : 'nascondi'}`}  id={"testi-"+id}>
+    <h2 class="title">{title}</h2>
+    {
+    subtitle && <>
+        <h3 class="subtitle">{subtitle}</h3>
+    </>
+    }
 </div>
 
-<slot />
+<slot/>
+
+
 
 <style>
-	.animated-background,
-	.header-gradient {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 35vh;
-		z-index: -2 !important;
-		transition: transform 0.5s ease;
-	}
+    .animated-background,
+    .header-gradient {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100vw;
+        height: 35vh;
+        z-index: -2 !important;
+        transition: transform 0.5s ease;
+       
+    }
 
-	.header-gradient {
-		z-index: 0 !important;
-		background: linear-gradient(
-			to top,
-			white 70%,
-			rgba(255, 255, 255, 0.5) 100%
-		);
-		height: 100vh;
-	}
+    .header-gradient {
+        z-index: 0 !important;
+        background: linear-gradient(to top, white 70%,  rgba(255, 255, 255, 0.5) 100%);
+        height: 100vh;
 
-	#p5-canvas {
-		width: 100%;
-		height: 35vh;
-		/* -webkit-mask-image: linear-gradient(to top,black 70%, transparent 100%);
+
+    }
+
+
+
+    #p5-canvas {
+        width: 100%;
+        height: 35vh;
+        /* -webkit-mask-image: linear-gradient(to top,black 70%, transparent 100%);
         mask-image: linear-gradient(to top, black 70%, transparent 100%) ;  */
-	}
+        
+    }
 
-	#p5-canvas * {
-		opacity: 0.1;
-	}
+    #p5-canvas * {
+        opacity: 0.1;
+    }
 
-	.header-container {
-		position: fixed;
-		margin-top: 20px;
-		margin-bottom: 30px;
-		transition: transform 0.5s ease;
-	}
+    .header-container {
+        position: fixed;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        transition: transform 0.5s ease;
 
-	.title,
-	.subtitle {
-		color: black;
-	}
-	.title {
-		margin: 0;
-		padding-bottom: 0.2em;
-	}
-	h3.subtitle {
-		font-weight: normal;
-		padding-top: 0;
-	}
 
-	@media (min-width: 769px) {
-		#testi-header-mobile-2 {
-			top: 0;
-			left: 10vw;
-		}
+    }
+    
+    .title, .subtitle {
+        color: black;
+    }
+    .title {
+        margin: 0;
+        padding-bottom: 0.2em;
+    }
+    h3.subtitle {
+        font-weight: normal;
+        padding-top: 0;
+    }
+    
+    @media (min-width: 769px) {
+        #testi-header-mobile-2 {
+        top: 0;
+        left: 10vw;
+    }
 
-		#back-header-mobile-2.animated-background {
-			height: 18vh;
-			-webkit-mask-image: linear-gradient(
-				to bottom,
-				black 60%,
-				transparent 100%
-			);
-			mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-			z-index: 0 !important;
-			pointer-events: none;
-		}
+        #back-header-mobile-2.animated-background
+        {
+            height: 18vh;
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        z-index: 0 !important;
+        pointer-events: none;
+    }
 
-		.header-gradient {
-			z-index: 0 !important;
-			background: linear-gradient(
-				to top,
-				white 90%,
-				rgba(255, 255, 255, 0.8) 100%
-			);
-			height: 100vh;
-		}
-	}
+    .header-gradient {
+        z-index: 0 !important;
+        background: linear-gradient(to top, white 90%,  rgba(255, 255, 255, 0.8) 100%);
+        height: 100vh;
 
-	@media (max-width: 768px) {
-		.header-container {
-			top: 7vh;
-		}
 
-		.trasla {
-			transform: translateY(-8vh);
-		}
+    }
+    }
 
-		.nascondi {
-			display: none;
-		}
+    
 
-		.animated-background {
-			-webkit-mask-image: linear-gradient(
-				to bottom,
-				black 70%,
-				transparent 100%
-			);
-			mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-			height: 25vh;
-		}
 
-		#testi-header-mobile-2 {
-			padding-left: 20px;
-		}
-	}
+    @media (max-width: 768px) {
+    .header-container {
+        top:7vh;
+    }
+
+    .trasla {
+            transform: translateY(-8vh);
+        }
+
+
+    .nascondi {
+        display: none;
+    }
+
+        .animated-background {
+        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        height: 25vh;
+    }
+
+    #testi-header-mobile-2 {
+        padding-left: 20px;
+    
+    }
+
+
+
+}
+
 </style>
 
-{
-	background && (
-		<>
-			<script>
-				import p5 from 'p5' import {mySketch} from '../scripts/sketch.js'
-				console.log('"=^.^="'); new
-				p5(mySketch(window.innerWidth,0.35*window.innerHeight),
-				document.getElementById('p5-canvas'));
-			</script>
-		</>
-	)
-}
+
+
+{background && <>
+<script>
+    import p5 from 'p5'
+    import { mySketch } from '../scripts/sketch.js'
+    
+    console.log('"=^.^="');
+    new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'));
+</script>
+
+</>}

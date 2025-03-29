@@ -1,49 +1,51 @@
 ---
-import { Image } from "astro:assets";
+import {Image} from 'astro:assets';
 
-import logoMottola from "../assets/logos/mottola-black.svg";
-import logoZetafonts from "../assets/logos/zetafonts-black.svg";
-import logoNavigare from "../assets/logos/navigare.svg";
-import logoComune from "../assets/logos/logo-comune-milano.svg";
-import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
+import logoMottola from '../assets/logos/mottola-black.svg';
+import logoZetafonts from '../assets/logos/zetafonts-black.svg';
+import logoNavigare from '../assets/logos/navigare.svg';
+import logoComune from '../assets/logos/logo-comune-milano.svg';
+import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
+
 ---
 
+
 <div class="logos-section">
-	<!-- Left column - Technical partners -->
-	<div class="logos-left">
-		<div class="logo-group">
-			<h4>Technical partners</h4>
-			<div class="logo-row">
-				<Image src={logoMottola} alt="Mottola" id="logoMottola" />
-				<Image src={logoZetafonts} alt="Zetafonts" id="logoZetafonts" />
-				<Image src={logoNavigare} alt="Navigare" id="logoNavigare" />
-			</div>
-		</div>
-	</div>
+  <!-- Left column - Technical partners -->
+  <div class="logos-left">
+    <div class="logo-group">
+      <h4>Technical partners</h4>
+      <div class="logo-row">
+        <Image src={logoMottola} alt="Mottola" id="logoMottola" />
+        <Image src={logoZetafonts} alt="Zetafonts" id="logoZetafonts" />
+        <Image src={logoNavigare} alt="Navigare" id="logoNavigare" />
+      </div>
+    </div>
+  </div>
 
-	<!-- Right column - Patronage and Support -->
-	<div class="logos-right">
-		<div class="right-logos-container">
-			<div class="logo-group patronage">
-				<h4>With the patronage of</h4>
-				<div class="logo-row">
-					<Image src={logoComune} alt="Comune di Milano" id="logoComune" />
-				</div>
-			</div>
+  <!-- Right column - Patronage and Support -->
+  <div class="logos-right">
+    <div class="right-logos-container">
+      <div class="logo-group patronage">
+        <h4>With the patronage of</h4>
+        <div class="logo-row">
+          <Image src={logoComune} alt="Comune di Milano" id="logoComune" />
+        </div>
+      </div>
 
-			<div class="logo-group support">
-				<h4>With the support of</h4>
-				<div class="logo-row">
-					<Image
-						src={logoCampoTeatrale}
-						alt="Campo Teatrale"
-						id="logoCampoteatrale"
-					/>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="logo-group support">
+        <h4>With the support of</h4>
+        <div class="logo-row">
+          <Image src={logoCampoTeatrale} alt="Campo Teatrale" id="logoCampoteatrale" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
 
 <style>
   /* Logo section container */
@@ -69,24 +71,24 @@ import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
   justify-content: center;
 }
 
-	.logo-group h4 {
-		text-align: left;
-		margin: 0;
-		white-space: nowrap;
-		display: flex;
-	}
+.logo-group h4 {
+  text-align: left;
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+}
 
-	.logos-right {
-		justify-content: space-between;
-	}
+.logos-right {
+  justify-content: space-between;
+}
 
-	/* Right logos container */
-	.right-logos-container {
-		display: flex;
-		gap: 4rem;
-		height: 100%;
-		justify-content: flex-end;
-	}
+/* Right logos container */
+.right-logos-container {
+  display: flex;
+  gap: 4rem;
+  height: 100%;
+  justify-content: flex-end;
+}
 
 /* Logo group container */
 .logo-group {
@@ -98,11 +100,11 @@ import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
   column-gap: 2rem;
 }
 
-	/* Logo group header */
-	.logo-group h4 {
-		text-align: left;
-		margin: 0;
-	}
+/* Logo group header */
+.logo-group h4 {
+  text-align: left;
+  margin: 0;
+}
 
 /* Logo row container */
 .logo-row {
@@ -113,11 +115,11 @@ import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
   height: max(5vw,70px);
 }
 
-	/* Base logo styles */
-	.logo-row img {
-		height: 2vw; /* Standardized base height */
-		width: auto;
-	}
+/* Base logo styles */
+.logo-row img {
+  height: 2vw; /* Standardized base height */
+  width: auto;
+}
 
 /* Specific logo adjustments */
 #logoMottola {
@@ -140,12 +142,6 @@ import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
   height: max(5vw,65px);
 }
 
-	@media (max-width: 768px) {
-		.logos-section {
-			flex-direction: column;
-			gap: 3rem;
-			margin: 18rem 0 3rem 0;
-		}
 
 
 
@@ -165,24 +161,30 @@ import logoCampoTeatrale from "../assets/logos/campoteatrale.svg";
     gap: 2rem;
   }
 
-		#logoNavigare {
-			height: 36px;
-		}
+  /* Adjust logo sizes for mobile */
+  #logoMottola {
+    height: 48px;
+  }
 
-		#logoZetafonts {
-			height: 18px;
-		}
+  #logoNavigare {
+    height: 36px;
+  }
 
-		#logoComune {
-			height: 64px;
-		}
-		#logoCampoteatrale {
-			height: 74px;
-		}
+  #logoZetafonts {
+    height: 18px;
+  }
 
-		.logo-group h4 {
-			font-size: 0.9em;
-			white-space: nowrap;
-		}
-	}
+  #logoComune {
+    height: 64px;
+  }
+  #logoCampoteatrale {
+    height: 74px;
+  }
+
+  .logo-group h4 {
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+}
+
 </style>

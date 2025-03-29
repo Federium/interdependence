@@ -1,47 +1,40 @@
 ---
-import PaginaLuogo from "../layouts/PaginaLuogo.astro";
-import ButtonSmall from "../components/ButtonSmall.astro";
-import bckImg from "/src/assets/img/fabbricadelvapore.jpg";
+import PaginaLuogo from '../layouts/PaginaLuogo.astro'
+import ButtonSmall from '../components/ButtonSmall.astro'
+import bckImg from "/src/assets/img/fabbricadelvapore.jpg"
 
-import locations from "../assets/data/location.json";
+import locations from '../assets/data/location.json'
 
 const location = locations[0];
 
 const info = {
-	index: location.index,
-	place: location.place,
-	name: location.title,
-	opening: location.opening,
-	location: location.location,
-	dates: location.dates,
-	description: location.description,
-	locationUrl: location.locationurl,
-	backgroundImg: bckImg,
-	hours: location.hours,
-};
+    index: location.index,
+    place: location.place,
+    name: location.title,
+    opening: location.opening,
+    location: location.location,
+    dates: location.dates,
+    description: location.description,
+    locationUrl: location.locationurl,
+    backgroundImg: bckImg,
+    hours: location.hours
+}
+
+
+
+
 ---
 
-<PaginaLuogo
-	subsection={false}
-	index={info.index}
-	place={info.place}
-	name={info.name}
-	opening={info.opening}
-	location={info.location}
-	dates={info.dates}
-	description={info.description}
-	locationUrl={info.locationUrl}
-	backgroundImg={info.backgroundImg.src}
-	hours={info.hours}
->
-	<div class="buttons">
-		<!-- <ButtonSmall label="CATALOGUE" href="/fabbricadelvapore/catalogue"></ButtonSmall> -->
-		<!-- <ButtonSmall label="PROGRAM" href="/fabbricadelvapore/program"></ButtonSmall>     -->
-	</div>
+<PaginaLuogo subsection = {false} index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src} hours={info.hours}>
+    <div class="buttons">
+        <!-- <ButtonSmall label="CATALOGUE" href="/fabbricadelvapore/catalogue"></ButtonSmall> -->
+        <!-- <ButtonSmall label="PROGRAM" href="/fabbricadelvapore/program"></ButtonSmall>     -->
+    </div>
 </PaginaLuogo>
 
+
 <style>
-	.buttons {
-		padding-top: 50px;
-	}
+    .buttons {
+        padding-top: 50px;
+    }
 </style>
