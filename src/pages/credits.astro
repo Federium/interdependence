@@ -9,16 +9,7 @@ import {Image} from "astro:assets";
 import logoDesktop from "../assets/logos/interdependence-white-long.svg";
 import logoMobile from "../assets/logos/interdependence-white-short.svg";
 
-
-import logoDesignWeek from '../assets/logos/logo-design-week.svg';
-import logoPolimi from '../assets/logos/Polimi.svg';
-import logoPolimiDesign from '../assets/logos/logo_poli_uniti.svg'
-import logoPoliDesign from '../assets/logos/Poli.design.svg';
-import logoMottola from '../assets/logos/mottola-black.svg';
-import logoZetafonts from '../assets/logos/zetafonts-black.svg';
-import logoNavigare from '../assets/logos/navigare.svg';
-import logoComune from '../assets/logos/logo-comune-milano.svg';
-import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
+import LogosPlus from "../components/LogosPlus.astro";
 
 ---
 
@@ -84,92 +75,8 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
     </div>
 
 <!-- LOGOS -->
-<div class="logo-container-bottom" >
-  <!-- <div class="logo-left">
-    <Image src={logoPolimi} alt="Logo del Politecnico di Milano" id="logo-polimi"  />
-    <Image src={logoPoliDesign} alt="Logo di Poli.design" id="logo-polidesign" />
-  </div>
-  <div class="logo-right">
-    <Image src={logoDesignWeek} alt="Logo Milano Design Week" id="logo-mdw"/>
-  </div> -->
-  
 
-          <div class="logos-partners-row" id="loghi-partner-row-1">
-            <div class="loghi-partner-main">
-
-              <h4>From an idea by</h4> 
-
-   
-                <div class="loghi-partner" id="loghi-support">
-                  <div>
-                    <Image src={logoPolimiDesign} alt="Politecnico di Milano">
-                  </div>
-                  <div id="polidesign">
-                    <Image src={logoPoliDesign} alt="PoliDesign">
-                  </div>
-                </div>
-            </div>
-
-         
-            
-
-             
-             
-          </div>
-          <div class="logos-partners-row">
-
-
-            <div class="loghi-partner-main">
-              <h4>Technical partners</h4> 
-   
-               <div class="loghi-partner">
-                <div >
-                  <Image src={logoMottola} alt="Mottola" id="logoMottola">
-                </div>
-                <div id="zetafonts">
-                  <Image src={logoZetafonts} alt="Zetafonts">
-                </div>
-                <div >
-                 <Image src={logoNavigare} alt="Navigare" id="logoNavigare">
-               </div>
-             </div>
-             
-          </div>
-          <div class="loghi-partner-main">
-            <h4>With the patronage of</h4> 
-             <div class="loghi-partner" id="loghi-comune-mdw">
-              <div >
-               
-
-                <Image src={logoComune} alt="Comune di Milano" id="logoComune">
-              </div>
-          
-            </div>
-           </div>
-        
-            <div class="loghi-partner-main">
-
-            <h4>With the support of</h4> 
-
-   
-                <div class="loghi-partner" id="loghi-support">
-           
-                  <div >
-                    <Image src={logoCampoTeatrale} alt="Campo Teatrale" id="logoCampoteatrale">
-                  </div>
-                
-                </div>
-            </div>
-
-         
-          
-         
-       
-        
-        </div>
-
-</div>
-</div>
+    <LogosPlus></LogosPlus>
 
 
   </main>
