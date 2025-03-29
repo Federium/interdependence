@@ -2,55 +2,25 @@ import { frag, vert } from "./shader.js";
 import { pauseHero as paused } from "./mapdesk.js";
 
 export const mySketch = (width, height) => (p) => {
-  let capturer;
 
-  let n = 10;
-  let points = [];
   let worleyShader;
   let observationPoint;
   let delta;
   let canvas;
   let goingBackwards = false;
   let speedMultiplier = 0.002;
-
+  let zDistribution = 0.5;
+  let speed = 0.3;
+  
   p.windowResized = windowResized;
 
   //da settings
-  let settings = {
-    canvas: {
-      width: width,
-      height: height,
-    },
-    number: n,  // valore iniziale di n
-    zDistribution: 1,
-    size: 0.5,
-    range: [0.2, 0.8],
-    speed: 0.3,
-    animate: true,
-    duration: 10,
-  };
 
-  let recording = false;
-  let timeLimit = 0;
 
-  function createPoints() {
-    points = [];
-    // const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
-
-    // points.push(new Point({ pos: p.createVector(normalizedMouse) }));
-    for (let i = 0; i < n; i++) {
-      let randomPos = p.createVector(
-        p.random(),
-        p.random(),
-        p.random(settings.zDistribution)
-      );
-      const point = new Point({ pos: randomPos });
-      points.push(point);
-    }
-  }
+  
 
   function preload() {
-    worleyShader = p.createShader(vert, frag(n));
+    worleyShader = p.createShader(vert, frag);
   }
 
   function setup() {
@@ -64,51 +34,35 @@ export const mySketch = (width, height) => (p) => {
     resize();
     p.noStroke();
 
-    createPoints();
 
     observationPoint = 0;
-    const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
   }
 
   function draw() {
     if (paused) return;
     p.background(220);
 
-    timeLimit = settings.duration * 30;
 
-    delta = settings.speed * speedMultiplier;
+    delta = speed * speedMultiplier;
 
-    if (settings.animate) {
       delta = delta * (goingBackwards ? -1 : 1);
-      if (observationPoint + delta >= settings.zDistribution) {
+      if (observationPoint + delta >= zDistribution) {
         goingBackwards = true;
       } else if (observationPoint + delta <= 0) {
         goingBackwards = false;
       }
 
       observationPoint += delta;
-    }
+    
 
     const normalizedMouse = [p.mouseX / width, (height - p.mouseY) / height, observationPoint];
 
-    points[0].pos.x = normalizedMouse[0];
-    points[0].pos.y = normalizedMouse[1];
-    points[0].pos.z = normalizedMouse[2];
-    
 
 
     worleyShader.setUniform("u_z", observationPoint);
     worleyShader.setUniform("u_ratio", width / height);
-    worleyShader.setUniform("u_points", [
-      ...points.flatMap((p) => [p.pos.x, p.pos.y, p.pos.z]),
-      observationPoint,
-    ]);
     worleyShader.setUniform("u_time", p.frameCount / 100);
     worleyShader.setUniform("u_mouse", normalizedMouse);
-    worleyShader.setUniform("u_contrast", settings.size);
-    worleyShader.setUniform("u_n", n);
-    worleyShader.setUniform("u_exposure", settings.exposure);
-    worleyShader.setUniform("u_range", settings.range);
   
     p.shader(worleyShader);
 
@@ -125,24 +79,9 @@ export const mySketch = (width, height) => (p) => {
       p.line(i, 0, i, height);
     }
 
-    // if (recording) {
-    //   if (recordedFrames === timeLimit) {
-    //     toggleRecord();
-    //     return;
-    //   }
-    //   p.requestAnimationFrame(draw);
-    //   capturer.capture(canvas.elt);
-    //   recordedFrames++;
-
-    //   progressPercentageEl.innerHTML = `${Math.round(
-    //     (recordedFrames / timeLimit) * 100
-    //   )}%`;
-    //   progressEl.style = `--progress: ${(recordedFrames / timeLimit) * 100}%`;
-    // }
   }
 
   function resize() {
-    const { width, height } = settings.canvas;
 
     const wRatio = p.windowWidth / width;
     const hRatio = p.windowHeight / height;
@@ -165,29 +104,14 @@ export const mySketch = (width, height) => (p) => {
     p.resizeCanvas(p.windowWidth, p.windowHeight);
   }
 
-  async function restart() {
-    n = settings.number;
-
-    if (paused) return;
 
 
-    worleyShader = p.createShader(vert, frag(n));
-    createPoints();
 
-  }
-
-  function toggleAnimation() {}
-
-  class Point {
-    constructor({ pos }) {
-      this.pos = pos;
-    }
-  }
 
   p.preload = preload;
   p.setup = setup;
   p.draw = draw;
 
 
-  return { n, resize, restart, toggleAnimation, recording };
+  return { resize };
 };
