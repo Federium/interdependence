@@ -44,7 +44,7 @@ export const mySketch = (width, height) => (p) => {
       lowFpsCounter = 0;
     }
 
-    if (lowFpsCounter <= maxLowFpsTime) {
+    if (lowFpsCounter >= maxLowFpsTime) {
       switchToVideo();
       return;
     }
