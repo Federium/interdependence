@@ -51,6 +51,8 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
   /* Logo section container */
 .logos-section {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   gap: 4rem;
   padding: 2rem 0;
@@ -60,10 +62,13 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
 /* Left and right columns */
 .logos-left,
 .logos-right {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+.logos-right .logo-row {
+  justify-content: center;
 }
 
 .logo-group h4 {
@@ -91,7 +96,8 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  gap: 2rem;
+  row-gap: 1rem;
+  column-gap: 2rem;
 }
 
 /* Logo group header */
@@ -105,7 +111,8 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
   display: flex;
   align-items: center; /* Aligns logos to bottom */
   gap: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  height: max(5vw,70px);
 }
 
 /* Base logo styles */
@@ -116,24 +123,26 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
 
 /* Specific logo adjustments */
 #logoMottola {
-  height: 4vw;
+  height: max(4vw,40px);
 }
 
 #logoNavigare {
-  height: 3vw;
+  height: max(3vw,30px);
 }
 
 #logoZetafonts {
-  height: 1.6vw;
+  height: max(1.6vw,16px);
 }
 
 #logoComune {
-  height: 4vw;
+  height: max(4vw,60px);
 }
 
 #logoCampoteatrale {
-  height: 5vw;
+  height: max(5vw,65px);
 }
+
+
 
 
 @media (max-width: 768px) {
@@ -142,7 +151,11 @@ import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
     gap: 3rem;
     margin: 18rem 0 3rem 0;
   }
+  .logo-row {
+    flex-wrap: wrap;
+    height: auto;
 
+  }
   .right-logos-container {
     justify-content: flex-start;
     gap: 2rem;
