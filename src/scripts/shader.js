@@ -18,69 +18,66 @@ const vert = `
  const frag =  `precision mediump float;
 
 varying vec2 vTexCoord;
-uniform vec2 u_mouse;
+uniform vec3 u_mouse;
 uniform float u_time;
 uniform float u_ratio;
+uniform float u_z;
 
-const float SIZE = 0.6; // Dimensione massima dell'effetto
-const vec2 RANGE = vec2(0.2, 0.8); // Range di transizione dell'effetto
+const float SIZE = 0.6; 
+const vec2 RANGE = vec2(0.2, 0.8); 
 
 void main() {
     vec2 normalizedTexCoord = vTexCoord;
 
-    // Adattamento delle coordinate per mantenere la proporzione
-    if (u_ratio > 1.0) { 
-        normalizedTexCoord.y = normalizedTexCoord.y / u_ratio - 0.5 / u_ratio + 0.5;
-    } else {
+   if (u_ratio > 1.0) { 
+      normalizedTexCoord.y = normalizedTexCoord.y / u_ratio - 0.5 / u_ratio + 0.5;
+      } else {
         normalizedTexCoord.x = normalizedTexCoord.x * u_ratio - 0.5 * u_ratio + 0.5;   
-    }
+   }
 
-    vec3 color = vec3(0.0); // Colore di base nero
+    vec3 color = vec3(.0);
 
-    // Posizioni dei punti di riferimento
-    // vec3 point[15];
-    // point[0] = vec3(0.83, 0.75, 0.50);   // Max z-value at 0.5
-    // point[1] = vec3(0.60, 0.07, 0.40);
-    // point[2] = vec3(0.28, 0.64, 0.30);
-    // point[3] = vec3(0.31, 0.26, 0.20);
-    // point[4] = vec3(0.15, 0.85, 0.10);
-    // point[5] = vec3(0.76, 0.32, 0.00);   // Middle point at 0.0
-    // point[6] = vec3(0.45, 0.50, -0.10);
-    // point[7] = vec3(0.22, 0.12, -0.20);
-    // point[8] = vec3(0.90, 0.42, -0.30);
-    // point[9] = vec3(0.55, 0.81, -0.40);
-    // point[10] = vec3(0.38, 0.92, -0.50); // Min z-value at -0.5
-    // point[11] = vec3(0.67, 0.18, 0.35);
-    // point[12] = vec3(0.12, 0.35, -0.35);
-    // point[13] = vec3(0.48, 0.67, 0.25);
-    // point[14] = u_mouse;
-
-    vec2 point[5];
-    point[0] = vec2(0.83, 0.75);   // Max z-value at 0.5
-    point[1] = vec2(0.76, 0.32);   // Middle point at 0.0
-    point[2] = vec2(0.45, 0.50);
-    point[3] = vec2(0.12, 0.35);
-    point[4] = u_mouse;
+    // Cell positions
+    vec3 point[15];
+    point[0] = vec3(0.83, 0.75, 0.50);   // Max z-value at 0.5
+    point[1] = vec3(0.60, 0.07, 0.40);
+    point[2] = vec3(0.28, 0.64, 0.30);
+    point[3] = vec3(0.31, 0.26, 0.20);
+    point[4] = vec3(0.15, 0.85, 0.10);
+    point[5] = vec3(0.76, 0.32, 0.00);   // Middle point at 0.0
+    point[6] = vec3(0.45, 0.50, -0.10);
+    point[7] = vec3(0.22, 0.12, -0.20);
+    point[8] = vec3(0.90, 0.42, -0.30);
+    point[9] = vec3(0.55, 0.81, -0.40);
+    point[10] = vec3(0.38, 0.92, -0.50); // Min z-value at -0.5
+    point[11] = vec3(0.67, 0.18, 0.35);
+    point[12] = vec3(0.12, 0.35, -0.35);
+    point[13] = vec3(0.48, 0.67, 0.25);
+    point[14] = u_mouse;
 
     float max_dist = SIZE;
-    float m_dist = max_dist; // Distanza minima inizializzata al massimo
 
-    // Iterazione attraverso i punti per calcolare la distanza minima
-    for (int i = 0; i < 5; i++) {
-        float dist = distance(normalizedTexCoord, point[i]);
+    float m_dist = max_dist; 
+
+    // Iterate through the points positions
+    for (int i = 0; i < 15; i++) {
+      vec3 obs = vec3(normalizedTexCoord.x, normalizedTexCoord.y, u_z);
+      
+      float dist = distance(obs, point[i]);
         
         // Keep the closest distance
         m_dist = min(m_dist, dist);
     }
 
-    // Disegna il campo di distanza minima
+    // Draw the min distance (distance field)
     color += m_dist;
+
     color = smoothstep(max_dist * RANGE.x, max_dist * RANGE.y, color);
+
     color = 1.0 - color;
 
-    gl_FragColor = vec4(color, 1.0); // Output finale del colore
+    gl_FragColor = vec4(color, 1.0);
 }
-
      `;
  
  export { frag, vert };
