@@ -36,8 +36,9 @@ import Logos from '../components/Logos.astro';
       
       <div class="container">
         
-
-        <Logos></Logos>
+        <div class="logos">
+          <Logos></Logos>
+        </div>
 
         <div class="col-8">
           <h2 class="gradient-text quote">
@@ -503,6 +504,10 @@ h1,h2,h3,h4,h5,h6, p{
   overflow: hidden;
 }
 
+.logos {
+  margin-top: 24rem;
+  width: 100%;
+}
 /* Logo section container */
 .logos-section {
   display: flex;
@@ -585,6 +590,10 @@ h1,h2,h3,h4,h5,h6, p{
   .logos-section {
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .logos {
+    margin-top: 18rem;
   }
 
   .right-logos-container {

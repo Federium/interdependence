@@ -7,7 +7,7 @@ import logoZetafonts from '../assets/logos/zetafonts-black.svg';
 import logoNavigare from '../assets/logos/navigare.svg';
 import logoComune from '../assets/logos/logo-comune-milano.svg';
 import logoCampoTeatrale from '../assets/logos/campoteatrale.svg';
-import logoTop1 from '../assets/logos/Polimi.svg';
+import logoTop1 from '../assets/logos/logo_poli_polidesign.svg';
 import logoTop2 from '../assets/logos/Poli.design.svg';
 ---
 
@@ -15,10 +15,10 @@ import logoTop2 from '../assets/logos/Poli.design.svg';
   <!-- Top logos section -->
   <div class="logos-top">
     <div class="logo-group">
-      <h4>Main partners</h4>
+      <h4>From an idea by</h4>
       <div class="logo-row">
-        <Image src={logoTop1} alt="Top Logo 1" id="logoTop1" />
-        <Image src={logoTop2} alt="Top Logo 2" id="logoTop2" />
+        <div>        <Image src={logoTop1} alt="Politecnico di Milano" id="logoTop1" />        </div>
+         </div>
       </div>
     </div>
   </div>
@@ -41,6 +41,7 @@ import logoTop2 from '../assets/logos/Poli.design.svg';
     width: 100%;
     display: flex;
     justify-content: left;
+    margin-bottom: 2rem;
   }
 
   .logos-top .logo-row {
@@ -54,10 +55,7 @@ import logoTop2 from '../assets/logos/Poli.design.svg';
   }
 
   /* Top logos specific sizes */
-  #logoTop1 {
-    mix-blend-mode: difference;
-    filter: invert(1);
-  }
+
 
   /* Existing logos section styles */
   .logos-section {
@@ -118,27 +116,25 @@ import logoTop2 from '../assets/logos/Poli.design.svg';
     flex-wrap: wrap;
   }
 
+  .logo-row div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
   /* Base logo styles - group all common properties */
   .logo-row img,
-  #logoTop1,
-  #logoTop2 {
+  #logoTop1
+   {
     width: auto;
-    height: 3vw; /* Base height for all logos */
+    height: max(7vw,80px); /* Base height for all logos */
+    align-items: center;
+    display: flex;
   }
 
-  /* Specific logo adjustments */
-  #logoMottola,
-  #logoComune,
-  #logoCampoteatrale,
-  #logoTop1,
-  #logoTop2 {
-    height: 3vw;
-  }
+ 
 
-  #logoNavigare,
-  #logoZetafonts {
-    height: 1.5vw;
-  }
+
 
   /* Mobile adjustments */
   @media (max-width: 768px) {
@@ -147,10 +143,6 @@ import logoTop2 from '../assets/logos/Poli.design.svg';
       margin: 18rem 0 3rem 0;
     }
 
-    #logoTop1,
-    #logoTop2 {
-      height: 48px;
-    }
 
     .logos-top .logo-row {
       gap: 3rem;
@@ -168,13 +160,7 @@ import logoTop2 from '../assets/logos/Poli.design.svg';
     }
 
     /* Standardize mobile sizes */
-    #logoMottola,
-    #logoComune,
-    #logoCampoteatrale,
-    #logoTop1,
-    #logoTop2 {
-      height: 48px;
-    }
+
 
     #logoNavigare,
     #logoZetafonts {
