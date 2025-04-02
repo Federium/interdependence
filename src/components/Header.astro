@@ -24,7 +24,7 @@ const { subsection = false, subsectionActive=0, active, background=false, hideHe
       <div>SaloneSatellite</div>
       </a>
     { subsection ? (
-      <div  class="button active" id="button-3" >
+      <div  class={`button ${active === "0" ? 'active' : ''}`} id="button-3" >
         <a href="/fabbricadelvapore"><div >Fabbrica del Vapore</div></a>
         <div class="secondary-menu">
         <span><a class={`button ${subsectionActive === 1 ? 'active' : ''}`} href="/fabbricadelvapore/catalogue">Catalogue</a></span>
@@ -32,7 +32,8 @@ const { subsection = false, subsectionActive=0, active, background=false, hideHe
         </div>
       </div>
       ) : (
-      <a href="/fabbricadelvapore" class="button" id="button-3">
+
+      <a href="/fabbricadelvapore" class={`button ${active === "3" ? 'active' : ''}`} style="width: 100%;" id="button-3">
         <div>Fabbrica del Vapore</div>
       </a>
       )

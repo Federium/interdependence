@@ -263,6 +263,13 @@ import mappa from  '../assets/img/MapImage_cut.png';
   justify-content: center;
   align-items: center;
   mix-blend-mode: normal;
+  :before {
+
+  }
+
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.065) 0%, black 30%, black 70%, rgba(0, 0, 0, 0.065));
+
 }
 
 #map {
@@ -273,9 +280,7 @@ import mappa from  '../assets/img/MapImage_cut.png';
   /* transform-origin: center; */
   mix-blend-mode: normal;
   transition: all 1s ease;
-  ::after {
 
-  }
   -webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 10%, black 90%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 90%, transparent 100%) ;
 
@@ -358,8 +363,6 @@ pointer-events: none;
 pointer-events: none;
 
 }
-
-
 
 
 .title-container {
@@ -467,6 +470,7 @@ background-blend-mode: darken;
 .map-bg {
   -webkit-mask-image: linear-gradient(to bottom,black 80%, transparent 90%);
   mask-image: linear-gradient(to bottom, black 80%, transparent 90%) ;
+
 }
 .paragraph-box {  transform: translateY(100px);
 }

@@ -163,6 +163,8 @@ import LogosPlus from "../components/LogosPlus.astro";
 
 .logo-container {
             display: flex;
+            width: 100%;
+            justify-content: center;
 }
             
             .desktop {
@@ -171,10 +173,8 @@ import LogosPlus from "../components/LogosPlus.astro";
             }
 
         .mobile img, .desktop img {
-            width: 100%;
-
-            mix-blend-mode: difference;
-            align-self: left;
+            width: 80%;
+             mix-blend-mode: difference;
         }
        
 
@@ -268,7 +268,6 @@ import LogosPlus from "../components/LogosPlus.astro";
           }
 
           .mobile {
-            display: block;
             filter: invert(1);
             margin-bottom: 3em;
             margin-top: 8vh;
@@ -276,6 +275,7 @@ import LogosPlus from "../components/LogosPlus.astro";
             .mobile img {
               height: auto;
               padding: 2rem;
+              width: 60%;
             }
         
 }

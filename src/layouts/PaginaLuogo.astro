@@ -44,7 +44,7 @@ const infos = [
 ].filter(Boolean);
 ---
 
-<Layout subsection = {subsection} title = {title} active = {index} subsectionActive = {subsectionActive} headerBg={true}>
+<Layout subsection = {subsection} title = {title} active = {index} subsectionActive = {subsectionActive} headerBg={false}>
     <div class="background-image"></div>
     <div class="content">
         <div class="gradient-overlay">
@@ -100,7 +100,7 @@ const infos = [
             </div>
         </div>
         <div class="details">
-            <p>
+            <p class="txt-small">
                 {description}
             </p>
 
@@ -115,6 +115,9 @@ const infos = [
             width: 100%;
             height: 100%;
             background: var(--bg-img) center/cover no-repeat;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, black 10%, black 90%, rgba(0, 0, 0, 0.3));
+
         }
 
         .content {
@@ -145,7 +148,7 @@ const infos = [
             bottom: 20px;
             width: 100%;
             color: black;
-            font-size: clamp(0.8rem, 5vw, 1.5rem);
+            font-size: 1.3rem;
             padding: 20px 10%;
       
         }
@@ -194,7 +197,7 @@ const infos = [
 
         span {
         position: relative;
-        top:0.1em;
+        top:0em;
         padding-left: 0;
         transition: all 0.5s ease;
     
@@ -215,7 +218,12 @@ const infos = [
             border-spacing: 0;
 
         }
+        
         h1,h2 {margin:0}
+
+        .main-title {
+            margin-bottom: 1em;
+        }
         @media(max-width:768px) {
             .background-image {
                 height: 50%;
@@ -227,12 +235,22 @@ const infos = [
                 flex-direction: column;
             }
 
+            .text-container {
+                font-size: 1.2rem;
+
+            }
             h1 {
                 font-size: 1.6em;
             }
             h2 {
                 font-size: 1.2em;
             }
+            span {
+        position: relative;
+        left:-0.3em;
+
+    
+        }
         }
 
 </style>
