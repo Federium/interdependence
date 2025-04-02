@@ -32,11 +32,19 @@ const projects = defineCollection({
     ay: z.string(),
     team: z.array(z.string()),
     faculty: z.array(z.string()),
-    university: z.string(),
-    department: z.string(),
-    city: z.string(),
-    state: z.string(),
-    school_instagram: z.string(),
+    school: z.string(),
+    hasVideo: z.string().transform((val) => (val && val.trim() !== "" ? val : "false")),
+    videoLink: z.string().optional().transform((val) => {
+      if (val) {
+        try {
+          new URL(val);  // Verifica se è un URL valido
+          return val;  // Se valido, restituisce il valore originale
+        } catch {
+          return 'none';  // Se non è valido, restituisce 'none'
+        }
+      }
+      return undefined;
+    }),
     images: z.array(z.string()).optional(),  // Array per le immagini
   }),
 });

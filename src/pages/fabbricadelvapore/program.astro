@@ -11,8 +11,8 @@ import programData from "../../assets/data/program.json";
         <div class="col-4 days">
             <Heading title="Program" subtitle="Fabbrica del Vapore" background={false} mobile={false}></Heading>
             <div class="day-selector">
-                {programData.map((dayData, index) => (
-                    <div class="day" id={`day-${dayData.index}`}>
+                {programData.days.map((dayData, index) => (
+                    <div class="day" id={`day-${dayData.index}`} key={dayData.index}>
                         <h3>{dayData.day}</h3>
                     </div>
                 ))}
@@ -20,36 +20,43 @@ import programData from "../../assets/data/program.json";
         </div>
         <div class="col-8 events">
             <div class="mask">
-                {programData.map((dayData) => (
-                    <div class="events-day" id={`events-day-${dayData.index}`}>
+                {programData.days.map((dayData) => (
+                    <div class="events-day" id={`events-day-${dayData.index}`} key={dayData.index}>
                         <h2>{dayData.weekday}, {dayData.day} <hr /></h2>
-                       
-                        {dayData.events.map((event) => (
-                            <div class="event" key={event.time}>
-                                <div class="event-date">
-                                    <span class="time">{event.time}</span>
-                                </div>
-                                <div class="event-title">
-                                    <h2>{event.title}</h2>
-                                </div>
-                                {event.name && (
-                                    <div class="event-name">
-                                        {event.name}
+                        {dayData.events.map((event) => {
+                            // Recuperiamo i dati dell'evento in base all'event-id
+                            const eventDetails = programData["metadata-events"][event["event-id"]];
+        
+                            return (
+                                <div class="event" key={event.time}>
+                                    <div class="event-date">
+                                        <span class="time">{event.time}</span>
                                     </div>
-                                )}
-                                {event.description && (
-                                    <div class="event-description">
-                                        <p>{event.description}</p>
+                                    <div class="event-title">
+                                        <h2>{eventDetails.title}</h2>
                                     </div>
-                                )}
-                            </div>
-                        ))}
+                                    {eventDetails.people && (
+                                        <div class="event-name">
+                                            {eventDetails.people}
+                                        </div>
+                                    )}
+                                    {eventDetails.description && (
+                                        <div class="event-description">
+                                           <p class="main-description">{eventDetails.description}</p> 
+                                            {eventDetails["extra-description"] && (
+                                                <p class="extra-description" set:html={eventDetails["extra-description"] }></p>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 ))}
             </div>
-         
         </div>
     </div>
+    
     <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true}>
 
     </Heading>
@@ -102,7 +109,7 @@ import programData from "../../assets/data/program.json";
     }
     .events-day>h2 {
         font-weight: normal;
-        margin-bottom: 0.2em;
+        margin-bottom: 0;
     }
     .event {
         margin-bottom: 6em;
@@ -112,17 +119,36 @@ import programData from "../../assets/data/program.json";
         font-size: 1.3em;
         font-weight: bold;
         margin-right: 1em;
+        padding-top: 0.2em;
+    }
+
+    .event-name {
+        padding-bottom: 1em;
+    }
+
+    .event-date {
+        padding-bottom: 0em;
+
     }
     .time {
         font-weight: normal;
+
     }
     .event-title h2 {
         margin-bottom: 0;
         padding-bottom: 0.3em;
     }
     .event-description {
-        padding-top: 2em;
+        padding-top: .5em;
     }
+
+    .event-description .main-description {
+        font-size: 1.2em;
+    }
+    .event-description .extra-description {
+        font-size: 1em;
+    }
+
 
     @media (max-width: 768px) {
 
