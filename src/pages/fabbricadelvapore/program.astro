@@ -243,8 +243,8 @@ document.querySelectorAll('.events-day').forEach((eventsDay) => {
     gsap.to('.day', {
         scrollTrigger: {
             trigger: eventsDay,
-            start: 'top 10%',
-            end: 'bottom 10%',
+            start: 'top 25%',
+            end: 'bottom 25%',
             onEnter: () => {
                 const dayId = eventsDay.id.replace('events-day-', '');
                 document.querySelectorAll('.day').forEach(d => d.classList.remove('selected-day'));

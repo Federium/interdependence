@@ -8,15 +8,16 @@ export interface Props {
   name: string;
   subsection?: boolean;
   subsectionActive?: number;
+  darkbg?: string
 }
-const { name, subsection = false, subsectionActive = 0 } = Astro.props as Props;
+const { name, subsection = false, subsectionActive = 0, darkbg="none" } = Astro.props as Props;
 
 const title = name + " – interdependence"; 
 
 ---
 
 <Layout subsection={subsection} subsectionActive={subsectionActive} title = {title} hideHeaderWhileScrollingMobile={true}>
-    <div class="main-container">
+    <div class="main-container darkbg-high ">
         <slot/>
     </div>
 
@@ -31,6 +32,13 @@ const title = name + " – interdependence";
         min-height: 100vh;
         padding-bottom: min(15rem, 18%);
     }
+
+    /* .main-container.darkbg-high {
+        transition: all 1s ease;
+        background-position: 0% 0%;
+
+        /* background-color: aqua; */
+     
 
     @media (max-width: 768px) {
     .main-container {

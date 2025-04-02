@@ -11,7 +11,7 @@ def get_images(project_path, category_folder):
     if os.path.exists(img_folder):
         for img_file in os.listdir(img_folder):
             # Verifica che sia una immagine (puoi aggiungere più estensioni se necessario)
-            if img_file.endswith(('.png', '.jpg', '.jpeg', '.webp')):
+            if img_file.endswith(('.png', '.jpg', '.jpeg', '.webp','.JPG')):
                 # Correzione del percorso relativo dell'immagine
                 img_path = os.path.join('../','projects', category_folder, os.path.basename(project_path), 'img', img_file)  # Path corretto
                 images.append(img_path)

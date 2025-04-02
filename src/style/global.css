@@ -155,7 +155,7 @@ h6 {
 
 p {
     font-family: 'Milligram Text', sans-serif;
-    font-size: clamp(0.8rem, 5vw, 1.5rem);
+    font-size: clamp(0.8rem, 5vw, 1.4rem);
     line-height: 1.4;
     color: var(--textColor);
     margin: 0;

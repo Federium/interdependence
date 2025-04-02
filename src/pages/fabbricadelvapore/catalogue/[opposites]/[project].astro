@@ -45,7 +45,7 @@ const images = await getCollection('images', (entry) =>
 ---
 
 
-<Contenuto name="Catalogue" subsection={true}, subsectionActive={1}>
+<Contenuto name="Catalogue" subsection={true}, subsectionActive={1} darkbg={"high"}>
   <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
   </Heading>
   <ProjectsLayout category={category} isSingleProject = {true}>
@@ -65,7 +65,7 @@ const images = await getCollection('images', (entry) =>
             </div>
           
           </div>
-            <div class="col-8">
+            <div class="col-right">
             {images.length > 0 && (
               <div class="img-container">
               {images[0].data.images.map((image) => (
@@ -108,8 +108,8 @@ const images = await getCollection('images', (entry) =>
               <p class="txt-small em">{data.school}</p>
             </div>
         </div>
-        <div class="col-8" id="descrizione">
-            <p class="txt-small em">{project.body}</p>
+        <div class="col-right" id="descrizione">
+            <p class="txt-small">{project.body}</p>
         </div>
       </div>
 
@@ -136,8 +136,10 @@ const images = await getCollection('images', (entry) =>
 
 
 <style>
-  h1,p {
-    color: black;
+  h1,p,h4 {
+    color: rgb(0, 0, 0);
+
+
   }
 
   .project-container {
@@ -146,13 +148,22 @@ const images = await getCollection('images', (entry) =>
     flex-direction: column;
     flex-wrap: nowrap;
     gap:2em;
+    margin-top: 1.5em;
+  
   }
 
   .project-row {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
     min-height: 400px;
+
+  }
+
+  .col-right {
+    width: 60%;
+    display: flex;
   }
 
   #nome-progetto {
@@ -166,7 +177,8 @@ const images = await getCollection('images', (entry) =>
 
     h3 {
       padding-bottom: 0;
-
+      margin-top: 0em;
+      padding-top: 0.3em;
     }
 
     .close-button {
@@ -215,6 +227,8 @@ const images = await getCollection('images', (entry) =>
     img {
       height: 100%;
     }
+
+
   }
 
   .info-container {
@@ -230,6 +244,16 @@ const images = await getCollection('images', (entry) =>
 
   .em {
     font-size: 1em;
+  }
+
+  @media (max-width:768px) {
+    .col-right {
+    width: 100%;
+  }
+  .titolo-sottotitolo-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
   }
 
 </style>
