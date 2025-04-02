@@ -1,22 +1,19 @@
 ---
 category: FEW
 id: 2
-slug: balanc
-title: "Balanc"
-subtitle: "Body extensions, espression of identity, and well-being of the elderly"
+slug: passepartout
+title: "Passepartout"
+subtitle: "Inclusive Art Museum Experiences for Visually Impaired Visitors"
 project_website: "nan"
-degree: "Bachelor's Degree"
-course: "Product and Innovation Design"
-ay: "2024"
-team: ["Bruna Chambarelli Wolter"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "Pontifcia Universidade Catlica - PUC Rio"
-department: "Departamento de Artes e Design (DAD)"
-city: "Rio de Janeiro"
-state: "Brasil"
-school_website: "https://www.puc-rio.br/index.html"
-school_instagram: "@pucrio.oficial"
+degree: "MSc Product Service System Design (PSSD)"
+course: "Final Synthesis Design Studio (PS2)"
+ay: "2024/2025"
+team: ["Kairui Chen", "Lorenzo Mangili", "Ganjar Satrio", "Bianca Selvatici", "Francesco Tomio", "Laura Margarida Faria Vieira"]
+faculty: ["Daniela Sangiorgi", "Beatrice Villari", "Davide Fassi", "Claudio Dell’Era"]
+school: "Politecnico di Milano, School of Design, Milan, Italy"
+school_website: "www.pssd.polimi.it"
+hasVideo: "youtube"
+video_link: "https://youtu.be/AR_75xVVFSA?feature=shared"
 ---
 
-The Balanc walking support was created for elderly individuals who seek a more elegant and personalized alternative to traditional canes, which often fail to represent their identity. By integrating biomimicry and emotional design, it offers a natural, balanced gait while breaking the stigma associated with mobility aids. The project reimagines assistive devices as tools for dignity and self-expression.
-Under the theme "Interdependence - Exploring Opposites" and the subtheme Enabling/Relieving, Balanc explores how design can empower users by supporting their mobility needs while reducing the physical and emotional burden of traditional aids. It harmonizes practicality and individuality, redefining the relationship between users and the objects they rely on.
+Passepartout explores the tension between exclusivity and inclusivity in the context of art museums. It tackles the challenge of unequal access to cultural content and expression particularly looking at the inaccessibility faced by visually impaired individuals. Through a system that integrates human verification and advanced AI tools, the project provides consistent and coherent artwork descriptions, bridging access gaps and allowing independent visits for visually impaired individuals. This innovative approach fosters a more inclusive museum experience, ensuring that all visitors, regardless of ability, can engage with art in meaningful ways.

@@ -1,21 +1,19 @@
 ---
 category: ART
 id: 3
-slug: a-life
-title: "A-Life"
-subtitle: "Opportunities for reconstruction following the 2023 Marrakech-Safi earthquake"
-project_website: "https://www.politesi.polimi.it/handle/10589/223532"
-degree: "Architecture and Urban Design"
-course: "Master Degree in Architecture and Urban Desin"
+slug: designing-for-death-in-a-divided-future
+title: "Designing for Death in a Divided Future"
+subtitle: "Future Death Rites Amidst a Climate Crisis"
+project_website: "https://konstfack2024.se/en/master-en/ma-de-en/hillevi-hesseldahl/"
+degree: "MFA Design Ecologies"
+course: "Degree Work"
 ay: "2024"
-team: ["Sara Michelotti", "Vittoria Ugazio"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "Politecnico di Milano"
-department: "School of Architecture, Urban Planning and Construction Engineering"
-city: "Milan"
-state: "Italy"
-school_website: "https://www.auic.polimi.it/en/"
-school_instagram: "https://www.instagram.com/polimi/"
+team: ["Hillevi Hesseldahl"]
+faculty: ["Martin Avila", "Katja Pettersson"]
+school: "Konstfack, Department of Design, Interior Architecture and Visual Communication, Stockholm, Sweden"
+school_website: "https://www.konstfack.se/sv/"
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-The village of Asni is situated along an epistemological boundary where the notion of centrality contrasts with the fluidity of the border. The earthquake of September 2023 intensified the deep tension between permanence and change, between rootedness in memory and the need to redefine its future. In this context, the project of redesigning an applicable settlement model takes shape as an act of deconstruction and redefinition of spatial meaning, where the centre dissolves into the fractures of the crisis, and the border emerges as a space of rewriting, where informal dwelling assumes new forms and functions, becoming a plural point of reference.
+Designing for Death in a Divided Future explores possible future death rites amidst a climate crisis. In two scenarios, the tenets of two different societies have shaped two very different ways of approaching life and death. In the first scenario, “Gaian Sympoiesis”, a full-scale body urn brings the body back to the soil to eventually decompose and re-integrate into ecological flows. The cycles of life guide the principles of this proposal, offering a material reincarnation.  In the second scenario, “Cybernetic Ascendancy”, a lifetime of a person’s digital footprint has been collected, removed, and compressed into a crystal orb. This artefact exemplifies the ideology of the mind capturing the essence of a human.

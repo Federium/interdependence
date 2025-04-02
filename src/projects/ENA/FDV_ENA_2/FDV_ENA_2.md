@@ -1,21 +1,19 @@
 ---
 category: ENA
 id: 2
-slug: re-viewing-the-gaze
-title: "Re-Viewing the Gaze"
-subtitle: "Bridging interdependent discourse by unveiling polarised views on Gender, Sex, and Sexuality in psychosocial contexts"
-project_website: "https://josflint.github.io/RE-VIEWING_THE_GAZE/"
-degree: "Master of Arts"
-course: "Master of Arts: Graphic Design and Visualisation"
+slug: paws-ability
+title: "PAWS-ABILITY"
+subtitle: "An affordable, Sustainable, AI-driven Prosthetics Empowering Pets and Supporting Owners"
+project_website: "nan"
+degree: "Bachelor's Degree - Assistant Designer in Sustainable Innovation"
+course: "Major Project"
 ay: "2024"
-team: ["Jo Flint"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "Loughborough University"
-department: "School of Design and Creative Arts"
-city: "Loughborough"
-state: "United Kingdom"
-school_website: " https://www.lboro.ac.uk/ "
-school_instagram: "@lborouniversity"
+team: ["Elizabeth Nazarova"]
+faculty: ["Julien Chartier"]
+school: "BESIGN The Sustainable Design School, Nice, France"
+school_website: "https://besignschool.com/"
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-ÔRe-Viewing the GazeÕ challenges the polarised constructions of gender and identity, by critiquing expected societal norms and biases. Employing an interactive exhibition design, the cognitive tension between opposing worldviews is explored. This provokes viewers to rethink their rigid expectations, through facilitated visual and narrative means. The projectÕs requirement of viewers to actively shift their gaze, reveals the cognitive dissonance which would usually blind them to alternative thought
+PAWS-ABILITY tackles the challenge of creating an affordable, sustainable, and smart dog prosthetic to optimize post-surgical recovery, simplify production, and support owners facing new responsibilities and emotions. Using AI, an app scans the pet, generates a CAD model, and employs additive manufacturing for a tailored prosthetic, while a vital sensor provides live health feedback, aiding decision-making and recovery. Sustainability is ensured with recyclable materials, replaceable parts, and reduced CO2 emissions through streamlined processes and minimized transportation.

@@ -1,21 +1,19 @@
 ---
 category: FEW
 id: 1
-slug: bio-diverse-enclaves
-title: "Bio-diverse Enclaves"
-subtitle: "Returning urban spaces to the local bioceNOse"
+slug: sensory-jewelry
+title: "Sensory Jewelry"
+subtitle: "Safe Tool for Emotional Regulation of Neurodivergent People"
 project_website: "nan"
-degree: "Bachelor"
-course: "Department of Design - Bachelor's course"
-ay: "A.Y. 2023/2024"
-team: ["Zuzanna Szym_owska"]
-faculty: ["Wojciech Ma_olepszy"]
-university: "Academy of Fine Arts in Warsaw"
-department: "Faculty of Design"
-city: "Warsaw"
-state: "Poland"
+degree: "Bachelor's Degree"
+course: "Social Design Studio"
+ay: "2023/2024"
+team: ["Michalina Wróblewska"]
+faculty: ["Michał Stefanowski"]
+school: "Academy of Fine Arts in Warsaw, Faculty of Design, Warsaw, Poland"
 school_website: "https://asp.waw.pl/"
-school_instagram: "@aspwwarszawie"
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-The Enclave is meant for the non-human residents of Warsaw. It's existence is made possible through bottom-up citizen initiatives and it's construction does not require expertise in building or design. The clay composite enters into a relation with local organisms and is in turn shaped by them and the environment - the resultant cracks and crevices can be colonized by plants and invertebrates, the top of the structure can be a place for birds to rest and feed. The project is a space in which the work of humans can be given over to non-humans, and the city | nature dichotomy can be blurred.
+The Sensory Jewelry project is a response to the needs and adaptation mechanisms of neurodivergent people. It aims to provide a safe and discreet tool that supports emotional regulation for people with impaired sensory integration. Although society is becoming more compassionate towards individuals who go beyond broadly understood social norms, stigmatization is still a significant issue. Inclusive design is crucial not only to improving the lives of the few, but also sensitizing others to the challenges they face, allowing for society to reconnect and create a better environment for all.

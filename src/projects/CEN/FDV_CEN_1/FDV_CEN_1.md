@@ -1,21 +1,19 @@
 ---
 category: CEN
 id: 1
-slug: civic-playground-project
-title: "Civic Playground Project"
-subtitle: "Version 01"
-project_website: "https://www.materialpropositions.org/civic-playground-project-v01"
-degree: "Design & Environmental Analysis - Laboratory for Material Propositions"
-course: "nan"
+slug: liquo-filter-syringe-for-dry-vaccines
+title: "Liquo: Filter Syringe for Dry Vaccines"
+subtitle: "Improving Vaccination Access in the Periphery"
+project_website: "-"
+degree: "BA Design"
+course: "Industrial Manufacturing"
 ay: "2024"
-team: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan", "Elena Sabinson"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "Cornell University, College of Human Ecology"
-department: "Department of Human Centered Design"
-city: "Ithaca"
-state: "United States of America"
-school_website: "https://www.human.cornell.edu/hcd"
-school_instagram: "@cornell.design"
+team: ["Delia Aho", "Elisa Kallio", "Erno Hassi"]
+faculty: ["Teppo Vienamo", "Irina Viippola"]
+school: "Aalto University, School of Arts, Design and Architecture, Department of Design, Espoo, Finland"
+school_website: "https://www.aalto.fi/en/school-of-arts-design-and-architecture"
+hasVideo: "youtube"
+video_link: "https://www.youtube.com/watch?v=S3fciDvvKow"
 ---
 
-The Civic Playground Project is a speculative research initiative centered on Òcivic toysÓÑmanipulable, community-oriented 3D objects that encourage collaborative creativity and problem-solving. The first iteration aims to enable individuals from diverse backgrounds, skills, and abilities to engage in shared making while easing tensions inherent in collaborative processes. By balancing individual contributions with collective configurations, civic toys provide inclusive frameworks that foster imaginative exploration, cooperative interaction, and participatory expression.
+Liquo is a syringe with an integrated filter for water activated vaccines, aiming to improve vaccination access in the periphery. Unequal distribution of resources creates centers of abundance and peripheries of scarcity. The strict cold chain required for some vaccines contributes to the deepening of geographical inequalities. Freeze-dried vaccines that can be activated with water at the time and location of use help bridge that gap. The Liquo-syringe was born as an assignment to create a user-powered water filter that could be used in any kind of environment.

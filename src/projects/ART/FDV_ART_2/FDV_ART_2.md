@@ -1,21 +1,19 @@
 ---
 category: ART
 id: 2
-slug: plnta
-title: "Plnta"
-subtitle: "Community powered coastal protection"
-project_website: "https://readymag.website/u1772937991/4650793/planta/"
-degree: "BA, Interaction Design "
-course: "Interaction Design studio, final project"
+slug: rapid-autografting
+title: "Rapid Autografting"
+subtitle: "Body-Hacking for Physiological Customization"
+project_website: "https://konstfack2024.se/en/master-en/ma-de-en/wolfgang-laimer/"
+degree: "MFA Design Ecologies"
+course: "Degree Work"
 ay: "2024"
-team: ["Jack Brady"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "National College of Art and Design (NCAD)"
-department: "Department of Product Design"
-city: "Dublin"
-state: "Ireland"
-school_website: "https://www.ncad.ie/"
-school_instagram: "@ncad_dublin"
+team: ["Wolfgang Laimer"]
+faculty: ["Katja Pettersson", "Bettina Schwalm", "Charles Windlin"]
+school: "Konstfack, Department of Design, Interior Architecture and Visual Communication, Stockholm, Sweden"
+school_website: "https://www.konstfack.se/sv/"
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-Coastal erosion is destroying homes all around Ireland. Communities struggle for coastal protection options that are attainable and respect biodiversity laws. Marram grass planting, a proven solution, has protected the town of the Maharees in the West of Ireland since 2016. Plnta provides the knowhow & community management capabilities of the Maharees community to all communities in Ireland, creating programs that balance the needs of communities with biodiversity and regulation. Allowing individuals to organise collective action for the betterment of both human, plant and animal life.
+Rapid Autografting explores a reality where biotechnological processes and body-hacking have evolved, and individuals customize their physiology to meet specific and temporary needs. Drawing on principles from design ecologies and design fiction, it speculates on the transformative potential of biotechnological advancements and the integration of biotechnology into sports footwear. This investigation materializes in possibility of a growing ability to control human’s biological conditions. The wearer’s own biomaterials are processed through advanced tissue engineering to improve customization and performance. In this application, the concept redefines long-distance running by creating an intimate, bioengineered bond between footwear and feet, tying together natural materials and artificial processes.

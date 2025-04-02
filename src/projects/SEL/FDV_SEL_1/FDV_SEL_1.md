@@ -1,21 +1,19 @@
 ---
 category: SEL
 id: 1
-slug: apu-changing-the-climate-of-play
-title: "Apu: Changing the Climate of Play"
-subtitle: "Apu is a toy brand that fosters environmental empathy through play, inspiring future generations to protect the Earth."
-project_website: "https://www.youtube.com/watch?v=rNJgLphC3dQ"
-degree: "Bachelor"
-course: "Design Undergraduate Program"
+slug: buzz-beyond-borders
+title: "Buzz Beyond Borders"
+subtitle: "Transborder Realities: Stories of Resilience and Connection Across Borders"
+project_website: "https://www.instagram.com/buzzbeyondborders/       -https://www.newschool.edu/parsons/profile/frida-moreNO-and-skylar-wang/"
+degree: "MFA Transdisciplinary Design"
+course: "Borders Media and Boundaries - Thesis Studio"
 ay: "2024"
-team: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "Universidade de So Paulo"
-department: "Faculdade de Arquitetura e Urbanismo e de Design"
-city: "So Paulo"
-state: "Brazil"
-school_website: "https://www.fau.usp.br/"
-school_instagram: "@fauusp"
+team: ["Frida Moreno Cabrera", "Skylar Wang"]
+faculty: ["Lara Penin", "Amir Husak"]
+school: "Parsons School of Design / The Newschool, School of Design Strategies, New York, NY, United States of America"
+school_website: "https://www.newschool.edu/parsons/"
+hasVideo: "youtube"
+video_link: "https://youtu.be/2PSL_hjUir0"
 ---
 
-Apu's Save the Penguin toy demonstrates the power of design to address urgent global challenges, such as climate change, by engaging the next generation through the universal language of play. By focusing on children, it fosters the development of the next generation of climate and environmental stewards, cultivating empathy, curiosity, and confidence to imagine and create a more sustainable future. Design brings a greater purpose to play in a playful way, ensuring that even the smallest hands can help shape a healthier planet. 
+Buzz Beyond Borders amplifies the unheard voices of 39,600 transborder students who navigate daily crossings between Mexico and the U.S. for their K through college education. Rooted in collaborative storytelling, this initiative uses a simple yet transformative tool, a phone, to document and share stories, fostering solidarity and understanding across boundaries. These iterative exchanges cultivate a community where students, families, and educators shape collective imagination and extend resources. Created by transborder students themselves, the initiative aims to reach policymakers to drive meaningful change.

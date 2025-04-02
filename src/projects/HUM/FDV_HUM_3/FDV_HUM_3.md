@@ -1,21 +1,19 @@
 ---
 category: HUM
 id: 3
-slug: a-life
-title: "A-Life"
-subtitle: "Sound as a social and spiritual bond"
+slug: biodivercities-ii
+title: "Biodivercities II"
+subtitle: "Bringing Back Wilderness in Urban Regenerated Green Areas"
 project_website: "nan"
-degree: "LAUREA MAGISTRALE, ACI, ARCHITETTURA - AMBIENTE COSTRUITO INTERNI"
-course: "LABORATORIO DI ARCHITETTURA DEGLI INTERNI"
-ay: "2024"
-team: ["Fabio Girelli", "Camilla Margherita Giussani", "Alessandra Introini"]
-faculty: ["Matteo Umberto Poli", "Pierluigi Salvadeo"]
-university: "Politecnico di Milano"
-department: "School of Architecture, Urban Planning and Construction Engineering"
-city: "Milan"
-state: "Italy"
-school_website: "https://www.polimi.it/"
-school_instagram: "https://www.instagram.com/polimi/"
+degree: "BSc Industrial Design Engineering"
+course: "Product Design"
+ay: "2023/2024"
+team: ["Justina Klėjūtė", "Niccolò Lelli", "Kotryna Lenkauskaitė", "Hari Prasanna", "Justė Motuzaitė", "Giuseppe Donvito"]
+faculty: ["Lorenzo Piazzi"]
+school: "Kaunas University of Technology, Faculty of Mechanical Engineering and Design, KTU Design Centre, Kaunas, Lithuania"
+school_website: "https://fmed.ktu.edu/dc/"
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-This project is based on the role of a sacred space in a big cityÕs life (Milano). Music is the answer to this inclusion problem: the sound of a choir or prayers immediately reminds us about the nouminous and can be recognisable by everyone, even from a busy street and even tho the main mass is underground. The sacred space, in relation to the front church of San Sepolcro, has an underground level, where there are three different devices hiding the pipe organ, the choir and the prayer sound, that spread through the upper level, a little square, where everyone can interact with the church.
+Biodivercities II wants to address a growing global issue: the decline of insect pollinators in urban areas. Rapid urbanization and large-scale agriculture reduce food sources and nesting areas, threatening wild insects. Nonetheless, humans depend on biodiversity for clean air, water, and food, and cities can support insects by creating wildlife areas within their boundaries. Biodivercities II promotes urban biodiversity through an educational DIY toolkits for nesting sites.

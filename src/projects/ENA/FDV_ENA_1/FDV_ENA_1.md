@@ -1,21 +1,19 @@
 ---
 category: ENA
 id: 1
-slug: space-for-others
-title: "Space for Others"
-subtitle: "Intuitive Grammars for Inclusive Space-Making"
-project_website: "https://www.materialpropositions.org/space-for-others"
-degree: "Bachelor of Science, Design + Environmental Analysis"
-course: "DEA 2201"
-ay: "A.Y. 2024/2025 "
-team: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-faculty: ["Leighton Beaman"]
-university: "Cornell University, College of Human Ecology"
-department: "Department of Human Centered Design"
-city: "Ithaca"
-state: "United States of America"
-school_website: "https://www.human.cornell.edu/hcd"
-school_instagram: "@cornell.design"
+slug: healtogether
+title: "HealTogether"
+subtitle: "Supporting Colorectal Cancer Patients Through Post-Treatment Challenges"
+project_website: "nan"
+degree: "Service Systems Design Master"
+course: "Services as Interactions"
+ay: "2024/2025"
+team: ["Blom van der Toom", "Emily Brophy", "Erika Strazio", "Martina Stüssi"]
+faculty: ["Hadas Zohar"]
+school: "Aalborg University, Department of Architecture, Design and Media Technology, Copenhagen, Denmark"
+school_website: "https://www.en.aau.dk/education/master/service-systems-design "
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-Space for Others is an interdisciplinary design research studio studying the dynamics of co-creating spaces, balancing individual agency and collective collaboration. The project uses aggregate building systems and intuitive assembly grammars to explore this dichotomy. Through computational modeling, digital fabrication, and participatory play scenarios, the studio developed toy-scale 3D printed prototypes for collaborative studies. These experiments informed a full-scale kit, now tested in public play workshops to refine approaches to inclusivity, accessibility, and shared authorship.
+Life after cancer treatment can be overwhelming, with many patients struggling to manage emotional and physical side effects while adjusting to a new reality. HealTogether is a personalized support app designed to relieve patients of this emotional and physical distress while enabling them to regain control of their lives with confidence. It offers a step-by-step pathway with an emotional and physical self-tracker, providing tailored guidance. Through collective peer-to-peer support, it fosters a sense of belonging and validation.

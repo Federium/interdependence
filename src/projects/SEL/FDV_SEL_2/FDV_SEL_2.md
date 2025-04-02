@@ -1,21 +1,19 @@
 ---
 category: SEL
 id: 2
-slug: commonplace
-title: "Commonplace"
-subtitle: "Spatial Tactics for the Urban Interior"
-project_website: "nan"
-degree: "Bachelor of Interior Design (Honours)"
-course: "Research Major Project"
+slug: mandala-project
+title: "Mandala Project"
+subtitle: "A Nature-Centered Perspective"
+project_website: "https://www.brain.rcast.u-tokyo.ac.jp/aad/mandala/"
+degree: "Master's and Doctoral Program in Design"
+course: "Advanced Art and Design"
 ay: "2024"
-team: ["Olivia Reiher"]
-faculty: ["James Carey"]
-university: "RMIT University"
-department: "School of Architecture and Urban Design"
-city: "Naarm - Melbourne"
-state: "Australia"
-school_website: "https://rmitinteriordesign.website/"
-school_instagram: "@interiordesign.rmit"
+team: ["Kei Nakagawa", "Ikumi Kenjyo", "Sorayo Ooshima", "Masaya Teramoto", "Tomoaki Takuma", "Atsuki Nakagami", "Fumiko Yamauchi", "Hiroshi Wakui", "Yuri Koshima", "Ippei Murata", "Takuho Sasaki", "Ryosuke Mashiko", "Kiminori Takahata", "Akira Okui", "Natsuko Nakamura", "Kazuhiro Fujiwara"]
+faculty: ["Ryohei Kanzaki", "Kaoru Kondo", "Hideki Yoshimoto", "Jyunkei Matsunaga", "Jun Sakuragi"]
+school: "The University of Tokyo, Research Center for Advanced Science and Technology, Tokyo, Japan"
+school_website: "www.rcast.u-tokyo.ac.jp"
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-Commonplace, a non-profit center for tactical urbanism, resists capitalist frameworks by amplifying the contributions of laborers whose efforts sustain from the boundaries. Using disobedient guerrilla tactics, it defines the urban interior as a collective commons. Materialist culture, driven by relentless innovation, places the 1% at the center, relegating the 99% to the boundary. Commonplace urges a shift from obedient self-interest to common interest, advocating for participation, agency, and acts of resistance to catalyze a care movement.
+"A shift in perspective to a nature-centered approach: we have a conviction this is the key for the symbiotic future between nature and humanity. This project is inspired by Mandala, the diagram of harmony among various beings. At this year's Osaka Expo, we plan to exhibit this work incorporating traditional craftsmanship and wishes of children for the future. And the fragrance based on the legends about the lotuses and roses will be added to this. This is composed of altruistic behavior toward each other."

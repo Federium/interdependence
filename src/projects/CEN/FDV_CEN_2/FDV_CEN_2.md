@@ -1,21 +1,19 @@
 ---
 category: CEN
 id: 2
-slug: liquo-filter-syringe-for-dry-vaccines
-title: "Liquo: Filter Syringe for Dry Vaccines"
-subtitle: "A syringe with an integrated filter for water activated vaccines, improving vaccination access in the periphery"
-project_website: "-"
-degree: "BA Design"
-course: "Industrial Manufacturing"
+slug: visualizing-the-state-budget-of-estonia
+title: "Visualizing the State Budget of Estonia"
+subtitle: "Accessibility to Information for a More Democratic Society"
+project_website: "nan"
+degree: "Bachelor Degree"
+course: "nan"
 ay: "2024"
-team: ["Delia Aho", "Elisa Kallio", "Erno Hassi"]
-faculty: ["Teppo Vienamo", "Irina Viippola"]
-university: "Aalto University, School of Arts, Design and Architecture"
-department: "Department of Design"
-city: "Espoo"
-state: "Finland"
-school_website: "https://www.aalto.fi/en/school-of-arts-design-and-architecture"
-school_instagram: "@aaltouniversity"
+team: ["Mariann Hendrikson", "Helen Bender"]
+faculty: ["Maarja Mõtus", "Kristjan Mändmaa", "Gijs Ipres"]
+school: "Estonian Academy of Arts, Faculty of Design, Tallinn, Estonia"
+school_website: "www.artun.ee"
+hasVideo: "nan"
+video_link: "Video walkthrough in arrivo il 20 marzo"
 ---
 
-A syringe with an integrated filter for water activated vaccines Ð improving vaccination access in the periphery. Unequal distribution of resources creates centers of abundance and peripheries of scarcity. The strict cold chain needed for some vaccines produces a need that contributes to the geographical inequalities. Freeze-dried vaccines that can be activated with water at the time and location of use help bridge that gap. The Liquo-syringe was born as an assignment to create a user-powered water filter in an Industrial Manufacturing course as part of a Design BA in Aalto University in 2024.
+Designed in collaboration with the Estonian Ministry of Finance, this project aims to make the Estonian state budget more accessible and understandable through an interactive dashboard. Based on stakeholder interviews and an iterative design process, the project resulted in a budget visualization that makes complex financial data more accessible. The dashboard helps users easily explore how state funds are allocated, showing connections between outcome areas, activities, institutions, resources, and metrics. It promotes transparency and a deeper understanding of the budget's workings for politicians, analysts, journalists, and citizens. Making budget data more accessible, ultimately fosters more informed democratic discussion and encourages public engagement with government actions.

@@ -1,24 +1,19 @@
 ---
 category: MAT
 id: 1
-slug: raranga-weaving-our-tangata-tiriti-journeys
-title: "Raranga | Weaving our Tangata Tiriti Journeys"
-subtitle: "Kotahi te aho ka whati, ki te k_puia e kore e whati  One strand of flax is easy to break, but many strands together will stand strong."
-project_website: "https://redesign.ac.nz/projects/raranga-weaving-our-tangata-tiriti-journeys"
-degree: "Bachelor in Design"
-course: "Capstone Project"
-ay: "2024"
-team: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-faculty: ["Lee Brunco", "Arleigh Parr", "Gracie Meek", "Julia Kan"]
-university: "The University of Auckland - Waipapa Taumata Rau"
-department: "Faculty of Engineering and Design"
-city: "Auckland"
-state: "New Zealand"
-school_website: "https://www.auckland.ac.nz/en/creative/about-the-faculty/design-programme.html"
-school_instagram: "https://www.instagram.com/design.uoa/"
+slug: alphablocs
+title: "Alphablocs"
+subtitle: "Playfully Learning Letters and Numbers Through Two Simple Shapes"
+project_website: "nan"
+degree: "BA Création d’Intérieurs"
+course: "Furniture Design / Furniture and Objects Design"
+ay: "2024/2025"
+team: ["Adèle Remacle", "Alix Sironval"]
+faculty: ["Jérémy Husquin", "Maxence Matthieu"]
+school: "ESA Saint-Luc Bruxelles, Brussels, Belgium"
+school_website: "www.stluc-bruxelles-esa.be "
+hasVideo: "nan"
+video_link: "nan"
 ---
 
-How might we facilitate kaimahi (employees) on their tangata tiriti (treaty partnership) journeys in order to improve M_ori workplace satisfaction for better systemic outcomes?"
-Raranga is an educational gamified toolkit developed to equip kaimahi with the skills and kNOwledge to assist them as Tangata Tiriti. The k_mu (game) centres learning through collaboration, reflecting the traditional M_ori art of Raranga (weaving). The practice weaves together individual strands of harakeke to create something stronger, symbolising the collective journey towards understanding and embodying Te Tiriti. 
-
-Raranga breaks down the hierarchical power dynamics that exist within workplaces, creating a safe environment for collaboration and kNOwledge sharing. 
+Alphablocs is an educational object for children aged 5-6. Made from two simple yet versatile shapes, obtained from recycled wood panel offcuts, it helps children learn to write letters and numbers turning children’s thoughts into tangible creations. By shaping and assembling forms, kids can explore meaningful links between mind and matter in a playful, enriching way, while fostering creativity through free play, self-expression, and discovery.
