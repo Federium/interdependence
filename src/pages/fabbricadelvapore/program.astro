@@ -42,10 +42,15 @@ import programData from "../../assets/data/program.json";
                                     )}
                                     {eventDetails.description && (
                                         <div class="event-description">
-                                           <p class="main-description">{eventDetails.description}</p> 
-                                            {eventDetails["extra-description"] && (
-                                                <p class="extra-description" set:html={eventDetails["extra-description"] }></p>
+                                           <p class="main-description">{eventDetails.description} 
+                                           {eventDetails["extra-description"] && (
+                                                 <a class="toggle-extra-description">
+                                                    SHOW MORE
+                                                </a>
+                                                <p class="extra-description" set:html={eventDetails["extra-description"]}></p>
                                             )}
+                                            </p> 
+                                           
                                         </div>
                                     )}
                                 </div>
@@ -54,9 +59,9 @@ import programData from "../../assets/data/program.json";
                     </div>
                 ))}
             </div>
+         
         </div>
     </div>
-    
     <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true}>
 
     </Heading>
@@ -64,6 +69,9 @@ import programData from "../../assets/data/program.json";
 </Contenuto>
 
 <style>
+    .lista {
+        color: ;
+    }
     .program-container {
         display: flex;
     }
@@ -106,16 +114,21 @@ import programData from "../../assets/data/program.json";
  
     .events {
         margin-top: 12vh;
+        margin-bottom: 15vh;
+
     }
     .events-day>h2 {
         font-weight: normal;
-        margin-bottom: 0;
+        margin-bottom: 0em;
     }
     .event {
         margin-bottom: 6em;
     }
     .event-date,
     .event-name {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-right: 1em;
         font-size: 1.3em;
         font-weight: bold;
         margin-right: 1em;
@@ -129,10 +142,10 @@ import programData from "../../assets/data/program.json";
     .event-date {
         padding-bottom: 0em;
 
+    
     }
     .time {
         font-weight: normal;
-
     }
     .event-title h2 {
         margin-bottom: 0;
@@ -142,14 +155,39 @@ import programData from "../../assets/data/program.json";
         padding-top: .5em;
     }
 
+    
     .event-description .main-description {
         font-size: 1.2em;
     }
-    .event-description .extra-description {
+    .extra-description {
         font-size: 1em;
+        max-height: 0;
+        opacity: 0;
+        height: auto;
+        transition: all 0.5s ease;
     }
 
+    .show-extra-description {
+        max-height: 500px;
+        opacity: 0.7;
 
+    }
+
+    .event-description li {
+        padding-inline-start: 0 !important;
+        color: red;
+    }
+
+    .toggle-extra-description {
+        font-size: 0.8em;
+        padding-left: 0.5em;
+        color: #8d8d8d;
+    }
+    
+    .toggle-extra-description:hover {
+        color: #595959;
+    }
+  
     @media (max-width: 768px) {
 
         .program-container {
@@ -243,8 +281,8 @@ document.querySelectorAll('.events-day').forEach((eventsDay) => {
     gsap.to('.day', {
         scrollTrigger: {
             trigger: eventsDay,
-            start: 'top 10%',
-            end: 'bottom 10%',
+            start: 'top 30%',
+            end: 'bottom 30%',
             onEnter: () => {
                 const dayId = eventsDay.id.replace('events-day-', '');
                 document.querySelectorAll('.day').forEach(d => d.classList.remove('selected-day'));
@@ -264,4 +302,28 @@ document.querySelectorAll('.events-day').forEach((eventsDay) => {
         }
     });
 });
+</script>
+
+
+<script>
+   const toggleButtons = document.querySelectorAll('.toggle-extra-description');
+
+toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Trova il genitore che contiene l'evento e il relativo .extra-description
+        const eventContainer = button.closest('.event'); // Supponiamo che il genitore abbia la classe "event"
+        const extraDescription = eventContainer.querySelector('.extra-description'); // Trova l'elemento .extra-description all'interno
+
+        // Aggiungi o rimuovi la classe per mostrare/nascondere l'extra-description
+        extraDescription.classList.toggle('show-extra-description');
+
+        // Cambia il testo del pulsante
+        if (extraDescription.classList.contains('show-extra-description')) {
+            button.textContent = 'SHOW LESS';
+        } else {
+            button.textContent = 'SHOW MORE';
+        }
+    });
+});
+
 </script>
