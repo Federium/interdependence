@@ -1,166 +1,229 @@
-[
-  {
-    "index": "1",
-    "day": "April 5",
-    "weekday": "Wednesday",
-    "events": [
+{
+    "metadata-events": [
       {
-        "time": "18.30-22.00",
-        "title": "Grand opening",
-        "name": "",
-        "description": ""
+        "event-id": 0,
+        "title": "Grand Opening",
+        "description": "Opening and introduction to the exhibition.",
+        "extra-description": "<ul><li>Francesco Zurlo and Anna Meroni (Dean and Deputy Dean of the School of Design)</li><li>Alessandro Deserti (Director Department of Design)</li><li>Anna Barbara (President of Poli.design)</li><li>Isabella Nova (Executive Vice Rector)</li><li>Maria Fratelli (Director of Fabbrica del Vapore) and Andrea Gianni (Executive manager, FdV)</li><li>Umberto Tolino (Vice Rector for Communication and Cultural Events)</li><li>Davide Fassi (Rector's Delegate for Cultural Activities)</li><li>Silvia Ferraris (Rector’s Delegate for International relations of the School of Design)</li><li>Francesco Guida (Delegate of the School of Design for Events)</li><li>Francesca Piredda (Delegate of the School of Design for Communication)</li></ul>"
+      },
+      {
+        "event-id": 1,
+        "title": "Campo Teatrale: Somewhere Between",
+        "description": "Performance in Italian and English. “Somewhere, Between” is a participatory audio-visual performance where audience and performers blur together, boundaries fade, and opposites reveal themselves to be inextricably intertwined in a co-becoming entanglement.",
+        "extra-description": "Beings do not precede relationships but are born together with them, mutually shaping one another in the infinite weaving of threads that tangle and give rise to worlds upon worlds. Some call it entanglement, but here, it’s just a game—you’re about to step inside.</n>The performance, produced by Campo Teatrale for the event INTERDEPENDENCE – Exploring Opposites 2025, is conceived and created by Usine Baug in collaboration with Pietro Francesco Pingitore (visual artist) and Matrix (New Media Artist – Interactive Sound & Visuals)."
+      },
+      {
+        "event-id": 2,
+        "title": "National College of Art and Design: Alumni Connectivity",
+        "people": "Dobrawa Brach Kaluzna, Jack Brady, Kathy Mooney, and Sam Russell",
+        "description": "Join a panel of Ireland's National College of Art & Design (NCAD) faculty and alumni as they come together on the occasion of Politecnico di Milano's INTERDEPENDENCE exhibition during Salone / Milan Design Week 2025.",
+        "extra-description": "During the panel, NCAD alumni and staff will join together to discuss design practices, establishing studios in the world, and design that demonstrates the vitality of being interdependent in society, globally, and with communities and nature. Panelists will include: Dobrawa Brach Kaluzna (Designer, NCAD Alumni); Jack Brady (Designer, NCAD Alumni); Kathy Mooney (NCAD, Design for Body and Environment), and Sam Russell (NCAD, Product Design)."
+      },
+      {
+        "event-id": 3,
+        "title": "Arte & Magia: Mirror Effect",
+        "description": "Mirror Effect is a mentalism show created and performed by the Arte & Magia group, where psychological experiments and a touch of comedy intertwine to unveil the mystery of the mirror effect."
+      },
+      {
+        "event-id": 4,
+        "title": "Creatives for climate - C4C",
+        "people": "Angela De Marco, with Francesco Zurlo, Anna Luciano, Ilaria Giuliani, Chiara Barozzi, Elisa Flamini, Giancarlo Fabbro, Mattia Battagion, Laura Corà, Matteo Brambilla.",
+        "description": "The Individual/collective dimension of sustainable communication. A roundtable moderated by Angela De Marco.",
+        "extra-description": "Selling sustainability' means finding the right balance between two apparent polarities: promoting long-term, collective 'planetary' well-being and highlighting the immediate, concrete, and personal benefits for 'consumers' (or better yet, people). Focusing exclusively on one side risks relegating sustainable initiatives to a niche or diluting their broader impact. The goal, then, is to integrate both perspectives, creating a narrative that appeals to personal motivations while fostering a collective commitment to sustainability. How do we achieve this?"
+      },
+      {
+        "event-id": 5,
+        "title": "Designing together: Interdependences of diverse design cultures",
+        "people": "James Postell",
+        "description": "Guided visit to the exhibition and discussion with the students of the Blended Intensive Programme 'Designing together', coordinated by Politecnico di Milano - prof. James Postell (Politecnico di Milano)."
+      },
+      {
+        "event-id": 6,
+        "title": "JEMP: From Contrast to Identity"
+      },
+      {
+        "event-id": 7,
+        "title": "Design e autismo",
+        "description": "Venanzio"
+      },
+      {
+        "event-id": 8,
+        "title": "Towards PDC.2026: Design Diplomacy: Comprising Opposites",
+        "description": "A collective reflection on the role of design, as an activity of istitutional organisations, on  "
+      },
+      {
+        "event-id": 9,
+        "title": "WE MED: We Mediterranean",
+        "description": "[Evento in lingua italiana] Un racconto curato da We Mediterranean. Limiti e opportunità di un'utopia contemporanea, tra limiti, attivismo e senso di comunità."
+      },
+      {
+        "event-id": 10,
+        "title": "POLIMI - DIGITAL AND INTERACTION DESIGN: UNVEILING FUTURES – Interaction Design Beyond the Human",
+        "description": "From self-driving cars to more-than-human ecologies — glimpse the futures of interaction design.",
+        "extra-description": "Join us for an interactive session that peeks beyond the horizon of today, offering a window into the possible futures of humanity and our entanglements with the environment. From the future of mobility to radical visions of multispecies governance, this session will traverse the evolving landscape of design—moving from human-centred approaches to more-than-human ways of thinking and making.</n> Lightning talks 18:00 Digital and Interaction Design by Davide Spallazzo, 18:10 Mobility Futures by Marco Ajovalasit, 18:20 More-than-human Bodies by Elisa Giaccardi"
+      },
+      {
+        "event-id": 11,
+        "title": "Nazareno e il club della noia"
+      },
+      {
+        "event-id": 12,
+        "title": "Live performance di Raddice"
       }
-    ]
-  },
-  {
-    "index": "2",
-    "day": "April 6",
-    "weekday": "Thursday",
-    "events": [
+    ],
+    "days": [
       {
-        "time": "11.30-12.30",
-        "title": "Material Intelligence_ Beyond Image",
-        "name": "Tania Winkler",
-        "description": "With both AI and Material Intelligence rooted in collective memory, this year superMATTER RCA Platform proposes materiality as container (repository) and signs of human capital to explore the incursion of new technologies in the production of new spatial identities."
+        "index": "1",
+        "day": "April 5",
+        "weekday": "Saturday",
+        "events": [
+          {
+            "event-id": 0,
+            "time": "17.00–19.00"
+          }
+        ]
       },
       {
-        "time": "13.30-14.30",
-        "title": "Fashion sustainability",
-        "name": "Zang Yingchun",
-        "description": ""
+        "index": "2",
+        "day": "April 6",
+        "weekday": "Sunday",
+        "events": [
+          {
+            "event-id": 1,
+            "time": "14.30"
+          },
+          {
+            "event-id": 1,
+            "time": "16.00"
+          },
+          {
+            "event-id": 1,
+            "time": "18.00"
+          }
+        ]
       },
       {
-        "time": "14.30-15.30",
-        "title": "Design and design schools in/for the ecological transition. Care, proximity, empowering, communing: four keywords to orient design education",
-        "name": "Ezio Manzini",
-        "description": "How do design and design education change if, instead of focusing on designing for the production of new products, we focus on designing for care, proximity, empowering and communing?"
+        "index": "3",
+        "day": "April 7",
+        "weekday": "Monday",
+        "events": [
+          {
+            "event-id": 2,
+            "time": "14.30–16.30"
+          },
+          {
+            "event-id": 4,
+            "time": "18.00–21.00"
+          }
+        ]
       },
       {
-        "time": "15.30-16.30",
-        "title": "The Hidden Neighborhood.",
-        "name": "Francesca Piredda, Mariana Ciancia, Silvia Barozzi, & students",
-        "description": "In collaboration with Off Campus San Vittore, design students developed transmedia documentaries to include prison in the storytelling of the neighborhood."
+        "index": "4",
+        "day": "April 8",
+        "weekday": "Tuesday",
+        "events": [
+          {
+            "event-id": 3,
+            "time": "19.00–20.00"
+          }
+        ]
       },
       {
-        "time": "17.00-18.00",
-        "title": "Climate Curriculum(s)",
-        "name": "Graeme Brooker",
-        "description": "How does the RCA Interior Design Programme engage with the challenges we are currently facing in the world? Climate Curriculums describes thinking and work that relates to climatic and socially based challenges."
+        "index": "5",
+        "day": "April 9",
+        "weekday": "Wednesday",
+        "events": [
+          {
+            "event-id": 5,
+            "time": "16.00–17.30"
+          },
+          {
+            "event-id": 1,
+            "time": "18.00"
+          },
+          {
+            "event-id": 1,
+            "time": "20.00"
+          }
+        ]
       },
       {
-        "time": "18.00-19.00",
-        "title": "Spatial design experiences for sustainable futures in hospitality",
-        "name": "Francesco Scullica and Elena Elgani with a group of students",
-        "description": "What future for hospitality? Presentation of research experiences and projects for the application of sustainability principles in the hospitality sector."
-      }
-    ]
-  },
-  {
-    "index": "3",
-    "day": "April 7",
-    "weekday": "Friday",
-    "events": [
-      {
-        "time": "12.00-13.00",
-        "title": "Enabling circularity and clean energy with thermochemical waste valorization and upcycling: a game of interdependencies",
-        "name": "Matteo Pelucchi",
-        "description": "Thermochemical conversion of waste and its integration with renewable energy and value chains of the chemical industry is expected to play a key role in production of carbon free energy carriers and chemicals."
+        "index": "6",
+        "day": "April 10",
+        "weekday": "Thursday",
+        "events": [
+          {
+            "event-id": 6,
+            "time": "14.00–16.00"
+          },
+          {
+            "event-id": 8,
+            "time": "17.00–19.00"
+          },
+          {
+            "event-id": 12,
+            "time": "20.00–22.00"
+          }
+        ]
       },
       {
-        "time": "13.00-14.00",
-        "title": "Aurora: Ai assistance to mental Well-Being",
-        "name": "Emanuele Andaloro, Martina Braidotti, Matteo Lombardi & Students",
-        "description": "Aurora is an empathetic and personalized AI that evolves with the user to take care of their mental wellbeing."
+        "index": "7",
+        "day": "April 11",
+        "weekday": "Friday",
+        "events": [
+          {
+            "event-id": 7,
+            "time": "12.00–14.00"
+          },
+          {
+            "event-id": 10,
+            "time": "14.30–19.30"
+          },
+          {
+            "event-id": 11,
+            "time": "20.00–22.00"
+          }
+        ]
       },
       {
-        "time": "14.00-15.30",
-        "title": "Alimentazione del Futuro: verso un Mondo Sostenibile",
-        "name": "Marita Canina & students",
-        "description": "Un talk a più voci del Dipartimento per il Future Food del Ministero per il Futuro. Unisciti a noi mentre immaginiamo insieme un futuro in cui il cibo non solo nutre il corpo, ma anche il pianeta. </br></br> [event in Italian]"
+        "index": "8",
+        "day": "April 12",
+        "weekday": "Saturday",
+        "events": [
+          {
+            "event-id": 1,
+            "time": "12.30"
+          },
+          {
+            "event-id": 1,
+            "time": "14.30"
+          },
+          {
+            "event-id": 1,
+            "time": "16.00"
+          },
+          {
+            "event-id": 1,
+            "time": "18.00"
+          },
+          {
+            "event-id": 1,
+            "time": "20.00"
+          }
+        ]
+
       },
       {
-        "time": "16.30-17.30",
-        "title": "Phenomenology of a young design student",
-        "name": "Collettivo STUPIDIO",
-        "description": "Exhaustion in front of the screen, anxiety about the future, but a burning desire for knowledge (and to make it shine before the eyes of others). Will new designers be able to emerge from the storm of doubts and long hours spent at the computer? </br> </br>  [event in Italian]"
-      },
-      {
-        "time": "18.00-19.00",
-        "title": "Zen and Design",
-        "name": "Master Jiqun",
-        "description": "Buddist master Jiqun meets students, scholars and designers."
-      }
-    ]
-  },
-  {
-    "index": "4",
-    "day": "April 8",
-    "weekday": "Saturday",
-    "events": [
-      {
-        "time": "14.30-15.00",
-        "title": "Design education in Japan: interdisciplinarity",
-        "name": "Setsu Ito, University of Tsukuba, Japan",
-        "description": "A flexible education and research structure and a university system thought to meet the needs of the next generation."
-      },
-      {
-        "time": "15.00-15.30",
-        "title": "Design education in Japan: nature centricity",
-        "name": "Shinobu Ito - University of Tokyo-RCAST, Japan",
-        "description": "Japan's original science, technology, art and design for the creation of a sustainable and inclusive society."
-      },
-      {
-        "time": "15.30-16.30",
-        "title": "Moving minds with objects",
-        "name": "Odo Fioravanti",
-        "description": "The industrial design practice as a researching tool."
-      },
-      {
-        "time": "16.30-17.00",
-        "title": "Interior Design - a relational practice - EVENT CANCELLED",
-        "name": "Suzie Attiwill, School of Architecture & Urban Design, RMIT University, Melbourne, Australia",
-        "description": "Thinking time before space, interior design is re-framed as a relational practice of making arrangements and connections immersed in social-cultural-historical-mental-political-environmental ecologies."
-      },
-      {
-        "time": "17.00-18.00",
-        "title": "Exo-publishing for social innovation",
-        "name": "Elena Caratti, Sara Lavazza e Francesco Scagliarini",
-        "description": "Social Indie Magazines as an expression of the interdependence between research areas, content, codes and the socio-political context.</br> </br>  [event in Italian]"
-      }
-    ]
-  },
-  {
-    "index": "5",
-    "day": "April 9",
-    "weekday": "Sunday",
-    "events": [
-      {
-        "time": "11.00-13.00",
-        "title": "Where Do We Go From Here",
-        "name": "Campo Teatrale"
-      },
-      {
-        "time": "15.00-17.00",
-        "title": "Where Do We Go From Here",
-        "name": "Campo Teatrale"
-      },
-      {
-        "time": "18.00-20.00",
-        "title": "Where Do We Go From Here",
-        "name": "Campo Teatrale"
-      }
-    ]
-  },
-  {
-    "index": "6",
-    "day": "April 10",
-    "weekday": "Monday",
-    "events": [
-      {
-        "time": "11.00-13.00",
-        "title": "Where Do We Go From Here",
-        "name": "Campo Teatrale"
+        "index": "9",
+        "day": "April 13",
+        "weekday": "Sunday",
+        "events": [
+          {
+            "event-id": 9,
+            "time": "11.00–13.00"
+          }
+        ]
       }
     ]
   }
-]
+  

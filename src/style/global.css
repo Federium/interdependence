@@ -171,6 +171,17 @@ p.txt-small {
     font-size: 1.2em;
 }
 
+ul {
+    padding-inline-start: 1em;
+    list-style-type:none;
+}
+
+ul li:before {
+    content: '\2013';
+    position: absolute;
+    margin-left: -15px;
+  }
+
 section {
     width: 100%;
     min-height: 100vh;
