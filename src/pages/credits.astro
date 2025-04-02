@@ -2,6 +2,7 @@
 
 import Contenuto from "../layouts/Contenuto.astro";
 import credits from '../assets/data/credits.json';
+import {faculty,exhibition, students} from '../assets/data/credits-satellite.json';
 import Heading from "../components/Heading.astro";
 
 import {Image} from "astro:assets";
@@ -10,6 +11,7 @@ import logoDesktop from "../assets/logos/interdependence-white-long.svg";
 import logoMobile from "../assets/logos/interdependence-white-short.svg";
 
 import LogosPlus from "../components/LogosPlus.astro";
+
 
 ---
 
@@ -23,6 +25,7 @@ import LogosPlus from "../components/LogosPlus.astro";
     <Image src={logoMobile} alt="interdependence - exploring opposites" id="logo-interdependence"></Image>
   </div>
   <main class="credits-page">
+    <!-- CREDITI PRINCIPALI -->
     <div class="credits-grid">
       <div class="credits-column">
         {credits.slice(0, Math.ceil(credits.length/4)).map((section) => (
@@ -74,6 +77,74 @@ import LogosPlus from "../components/LogosPlus.astro";
       </div>
     </div>
 
+    <!-- CREDITI SATELLITE -->
+     <div class="credits-satellite">
+     <div class="credits-intro">
+      <h3><span style="font-family: 'Milligram Macro';">interdependence</span> @ SaloneSatellite</h3>
+      <div class="section-title">Anthropogenic Scenarios <br/> Nature vs Human Matters: Narratives through Design </div>  
+     </div>
+
+     <div class="credits-grid satellite">
+
+      <div class="credits-column">
+        <div class="credits-section">
+          <p class="section-title"><b>Communication Design Final Synthesis Studio C1</b></p>
+          <p class="course">
+           BSc in Communication Design<br/>
+           School of Design<br/>
+           Politecnico di Milano<br/>
+           AA.YY. 2022-2023,<br/> 2023-2024</p>    </div>
+           {faculty.map((section) => (
+             <div class="credits-section">
+               <p class="section-title">{section.section}</p>
+               <div class="people-list">
+                 {section.people.map((person) => (
+                   <p class="person">{person}</p>
+                 ))}
+               </div>
+             </div>
+           ))}
+        </div>
+        
+    
+      
+
+   
+      <div class="credits-column"> <!-- DOCENTI -->
+        {exhibition.map((section) => (
+          <div class="credits-section">
+            <p class="section-title">{section.section}</p>
+            <div class="people-list">
+              {section.people.map((person) => (
+                <p class="person">{person}</p>
+              ))}
+            </div>
+          </div>
+        ))}
+        </div>  
+      <div class="credits-column">
+          <div class="credits-section">
+            <p class="section-title">Projects by<br/>{students[0].section}<br/></p>
+            <div class="people-list">
+              {students[0].people.map((person) => (
+                <p class="person">{person}</p>
+              ))}
+            </div>
+          </div>
+      </div> <!--  2022-23 -->
+      <div class="credits-column">
+        <div class="credits-section">
+          <p class="section-title"><br/>{students[1].section}<br/></p>
+          <div class="people-list">
+            {students[1].people.map((person) => (
+              <p class="person">{person}</p>
+            ))}
+          </div>
+        </div>
+    </div> <!--  2022-23 -->
+
+     </div>
+    </div>
 <!-- LOGOS -->
 
     <LogosPlus></LogosPlus>
@@ -115,12 +186,17 @@ import LogosPlus from "../components/LogosPlus.astro";
     /* background-color: var(--bg-color); */
   }
 
+
+
   .credits-grid {
     display: flex;
     flex-direction: row;
     gap: clamp(2rem, 4vw, 4rem);
     max-width: 1400px;
     margin: 0 auto;
+  }
+  .credits-grid.satellite{
+    margin-top: 2em;
   }
 
   .credits-column {
@@ -151,16 +227,22 @@ import LogosPlus from "../components/LogosPlus.astro";
     gap: 0.5rem;
   }
 
-  .person {
+  .person, .course {
     font-family: 'Milligram Text';
     font-size: 1em;
     color: var(--text-color);
     margin: 0;
   }
+
+  .credits-satellite {
+    margin-top: 4em;
+  }
+
   #logo-polimi {
     mix-blend-mode: difference;
     filter: invert(1);
   }
+
 
 
 
