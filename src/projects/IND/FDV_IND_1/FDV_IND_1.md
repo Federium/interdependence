@@ -1,5 +1,5 @@
 ---
-category: ﻿IND
+category: IND
 id: 1
 slug: living-tomorrow
 title: "Living Tomorrow"
