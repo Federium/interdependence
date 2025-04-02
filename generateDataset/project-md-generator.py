@@ -26,14 +26,14 @@ import pandas as pd
 
 
 # 📂 Percorso del file CSV e della cartella di output
-CSV_FILE = "projects.csv"
+CSV_FILE = "projects-utf16.csv"
 OUTPUT_DIR = "src/content/"
 
 # 📁 Crea la cartella di output se non esiste
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 📖 Legge il CSV
-df = pd.read_csv(CSV_FILE, sep=";", encoding="latin1")  # Oppure prova encoding="utf-8"
+df = pd.read_csv(CSV_FILE, delimiter=";", encoding="utf-16", quoting=3, on_bad_lines="skip")
 
 # 🔄 Converte ogni riga in un file .md
 for _, row in df.iterrows():
@@ -68,12 +68,10 @@ course: "{row["course"]}"
 ay: "{row["ay"]}"
 team: [{team_array}]
 faculty: [{faculty_array}]
-university: "{row["university"]}"
-department: "{row["department"]}"
-city: "{row["city"]}"
-state: "{row["state"]}"
+school: "{row["school"]}"
 school_website: "{row["school_website"]}"
-school_instagram: "{row["school_instagram"]}"
+hasVideo: "{row["hasVideo"]}"
+video_link: "{row["video_link"]}"
 ---
 
 {row["description"]}

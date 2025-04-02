@@ -1,0 +1,19 @@
+---
+category: CEN
+id: 5
+slug: threshold-a-call-for-action
+title: "Threshold: A Call for Action"
+subtitle: "Addressing Manual Scavengers' Exploitation"
+project_website: "nan"
+degree: "Bachelors of Design"
+course: "nan"
+ay: "2024"
+team: ["Priya Chaudhary"]
+faculty: ["Anusha Dhawan"]
+school: "The Design Village, Noida, India"
+school_website: "https://www.thedesignvillage.org/"
+hasVideo: "youtube"
+video_link: "https://youtu.be/S2VHHdcCMtY?si=JzqJcAKn2uTw5bYM"
+---
+
+Threshold addresses the exploitation of manual scavengers, rooted in caste discrimination, poverty, and neglect. Despite its illegality, this practice persists due to interconnected issues like health risks, lack of education, and systemic bias. The project aims to amplify marginalized voices and foster collective responsibility. Leveraging stories (Vocalization), facts (Perceptions), and actionable steps (Actions) it attempts to bridge disparities through an immersive publication initiating dialogue, building empathy, and driving systemic change.
