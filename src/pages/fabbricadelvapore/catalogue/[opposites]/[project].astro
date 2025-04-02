@@ -4,6 +4,7 @@ import categories from '../../../../assets/data/categories.json';
 import Contenuto from '../../../../layouts/Contenuto.astro';
 import Heading from '../../../../components/Heading.astro';
 import ProjectsLayout from '../../../../layouts/ProjectsLayout.astro';
+import Modal from '../../../../components/Modal.jsx'; // Importa il componente React
 
 
 // 1. Generiamo correttamente i percorsi con entrambi i parametri
@@ -65,7 +66,7 @@ const images = await getCollection('images', (entry) =>
             </div>
           
           </div>
-            <div class="col-right">
+            <div class="col-6">
             {images.length > 0 && (
               <div class="img-container">
               {images[0].data.images.map((image) => (

@@ -22,8 +22,9 @@ const categories = [...new Set(projects.map(project => project.data.category))];
     </Heading>
 
     <div class="text-container">
-        <p>
-            At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives.
+        <p class="txt-small">
+            At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.
+            <br/>The exhibition collects 150 projects and is animated by a palimpsest of initiatives.
         </p>
     </div>
          
@@ -76,6 +77,7 @@ const categories = [...new Set(projects.map(project => project.data.category))];
         max-width: 1200px;
         padding-top: 15vh;
         z-index: -5 !important;
+        margin-bottom: 4em;
     }
 
     .categories-container {
@@ -94,7 +96,7 @@ const categories = [...new Set(projects.map(project => project.data.category))];
 
     @media (max-width: 768px) {
         .text-container {
-        padding-top: 20vh;
+        padding-top: 15vh;
     }
 
        
