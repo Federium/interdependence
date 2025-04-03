@@ -35,21 +35,36 @@ import programData from "../../assets/data/program.json";
                                     <div class="event-title">
                                         <h2>{eventDetails.title}</h2>
                                     </div>
+                                    {eventDetails.subtitle && (
+                                        <div class="event-subtitle">
+                                        <h2>{eventDetails.subtitle}</h2>
+                                    </div>
+                                    )}
                                     {eventDetails.people && (
                                         <div class="event-name">
                                             {eventDetails.people}
                                         </div>
                                     )}
+                                   
                                     {eventDetails.description && (
                                         <div class="event-description">
-                                           <p class="main-description">{eventDetails.description} 
+                                             {eventDetails.note && (
+                                        <p class="event-note">
+                                            {eventDetails.note}
+                                        </p>
+                                    )}
+                                           <p class="main-description">{eventDetails.description}                                             </p> 
+
                                            {eventDetails["extra-description"] && (
-                                                 <a class="toggle-extra-description">
-                                                    SHOW MORE
-                                                </a>
-                                                <p class="extra-description" set:html={eventDetails["extra-description"]}></p>
+                                                 
+                                                <p class="main-description extra-description" set:html={eventDetails["extra-description"]}></p>
+                                                
                                             )}
-                                            </p> 
+                                      <br>
+                                            <a class="toggle-extra-description">
+                                                    SHOW MORE
+
+                                                </a>
                                            
                                         </div>
                                     )}
@@ -69,9 +84,7 @@ import programData from "../../assets/data/program.json";
 </Contenuto>
 
 <style>
-    .lista {
-        color: ;
-    }
+   
     .program-container {
         display: flex;
     }
@@ -125,7 +138,8 @@ import programData from "../../assets/data/program.json";
         margin-bottom: 6em;
     }
     .event-date,
-    .event-name {
+    .event-name,
+    .event-note {
         font-size: 1.3em;
         font-weight: bold;
         margin-right: 1em;
@@ -133,6 +147,12 @@ import programData from "../../assets/data/program.json";
         font-weight: bold;
         margin-right: 1em;
         padding-top: 0.2em;
+    }
+    .event-note {
+        color: #8d8d8d;
+        font-weight: normal;
+        font-family: "Milligram Text";
+        font-size: 1.2em;
     }
 
     .event-name {
@@ -149,7 +169,17 @@ import programData from "../../assets/data/program.json";
     }
     .event-title h2 {
         margin-bottom: 0;
+        padding-bottom: 0em;
+        font-size: 1.8em;
+
+    }
+    .event-subtitle h2 {
+        margin-bottom: 0;
         padding-bottom: 0.3em;
+        padding-top: 0.1em;
+        font-weight: normal;
+        font-size: 1.8em;
+
     }
     .event-description {
         padding-top: .5em;
@@ -159,17 +189,22 @@ import programData from "../../assets/data/program.json";
     .event-description .main-description {
         font-size: 1.2em;
     }
+    .main-description {
+        margin-bottom: 0;
+    }
     .extra-description {
-        font-size: 1em;
         max-height: 0;
         opacity: 0;
-        height: auto;
         transition: all 0.5s ease;
+        margin-top: 0;
+        pointer-events: none;
     }
 
     .show-extra-description {
         max-height: 500px;
-        opacity: 0.7;
+        height: auto;
+        opacity: 1;
+        background-color: white;
 
     }
 
@@ -178,10 +213,10 @@ import programData from "../../assets/data/program.json";
         color: red;
     }
 
-    .toggle-extra-description {
-        font-size: 0.8em;
-        padding-left: 0.5em;
+    .toggle-extra-description  {
         color: #8d8d8d;
+        margin-top: 0.5em;
+
     }
     
     .toggle-extra-description:hover {
