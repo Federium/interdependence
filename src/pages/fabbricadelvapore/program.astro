@@ -9,7 +9,7 @@ import programData from "../../assets/data/program.json";
 <Contenuto name="Program" subsection={true}, subsectionActive={2}>
     <div class="program-container">
         <div class="col-4 days">
-            <Heading title="Program" subtitle="Fabbrica del Vapore" background={false} mobile={false}></Heading>
+            <Heading title="Program" subtitle="Fabbrica del Vapore" background={false} mobile={false} ></Heading>
             <div class="day-selector">
                 {programData.days.map((dayData, index) => (
                     <div class="day" id={`day-${dayData.index}`} key={dayData.index}>
@@ -77,7 +77,7 @@ import programData from "../../assets/data/program.json";
          
         </div>
     </div>
-    <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true}>
+    <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} zIndex={true}>
 
     </Heading>
 
@@ -87,6 +87,8 @@ import programData from "../../assets/data/program.json";
    
     .program-container {
         display: flex;
+        
+       
     }
     .days {
         display: flex;
@@ -128,6 +130,7 @@ import programData from "../../assets/data/program.json";
     .events {
         margin-top: 12vh;
         margin-bottom: 15vh;
+        
 
     }
     .events-day>h2 {
@@ -136,6 +139,7 @@ import programData from "../../assets/data/program.json";
     }
     .event {
         margin-bottom: 6em;
+        
     }
     .event-date,
     .event-name,
@@ -183,6 +187,18 @@ import programData from "../../assets/data/program.json";
     }
     .event-description {
         padding-top: .5em;
+         p{
+            color:blue;
+         
+         }
+    }
+
+.event-description:hover {
+        padding-top: .5em;
+         p{
+            color:rgb(89, 255, 0);
+         
+         }
     }
 
     
@@ -191,6 +207,8 @@ import programData from "../../assets/data/program.json";
     }
     .main-description {
         margin-bottom: 0;
+    
+        
     }
     .extra-description {
         max-height: 0;
@@ -198,6 +216,7 @@ import programData from "../../assets/data/program.json";
         transition: all 0.5s ease;
         margin-top: 0;
         pointer-events: none;
+        
     }
 
     .show-extra-description {
@@ -216,6 +235,7 @@ import programData from "../../assets/data/program.json";
     .toggle-extra-description  {
         color: #8d8d8d;
         margin-top: 0.5em;
+      
 
     }
     
@@ -243,7 +263,7 @@ import programData from "../../assets/data/program.json";
     
     .events {
         margin-top: 20vh;
-        z-index: -5 !important;
+        z-index: 0 !important;
 
 
     }
