@@ -28,11 +28,12 @@ const imageSrc = image?.src;
 
 
   <a href={`/fabbricadelvapore/catalogue/${folder}/${slug}`} class="card">
-    {image && <Image src={image} alt="image" />}
+    {image && <Image src={image} alt="image" class="h-auto max-w-full"/>}
     <div class="overlay">
       <span>{title}</span>
     </div>
   </a>
+
 
 
 
@@ -44,8 +45,8 @@ const imageSrc = image?.src;
     .card {
       position: relative;
       background: linear-gradient(to top, rgb(123, 123, 123), rgba(236, 236, 236, 0.231));
-      height: 15vh;
-      min-width: 15vw;
+      /* height: 15vh;
+      min-width: 15vw; */
       overflow: hidden;
       cursor: pointer;
     }

@@ -38,7 +38,7 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
   <ProjectsLayout category={category} isSingleProject = {false}>
 
 
-  <div class="projects-container"> 
+  <!-- <div class="projects-container"> 
     {projects.map((project) => (
       <ProjectCard 
         id = {project.id}
@@ -49,9 +49,28 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
         category={project.data.category}
       />
     ))}
+  </div> -->
+
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {[0, 1, 2, 3].map((colIndex) => (
+      <div class="grid gap-4" key={colIndex}>
+        {projects
+          .filter((_, i) => i % 4 === colIndex) // prende solo i progetti di questa "colonna"
+          .map((project) => (
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              projectId={project.data.id}
+              title={project.data.title}
+              folder={opposites}
+              slug={project.data.slug}
+              category={project.data.category}
+            />
+          ))}
+      </div>
+    ))}
   </div>
-
-
   </ProjectsLayout>
 
   
