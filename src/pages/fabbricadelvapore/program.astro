@@ -1,6 +1,8 @@
 ---
 import Contenuto from "../../layouts/Contenuto.astro";
 import Heading from "../../components/Heading.astro";
+import {Image} from 'astro:assets';
+import arrow from "../../assets/icons/arrow-right-black.svg";
 
 import programData from "../../assets/data/program.json";
 
@@ -19,6 +21,7 @@ import programData from "../../assets/data/program.json";
             </div>
         </div>
         <div class="col-8 events">
+
             <div class="mask">
                 {programData.days.map((dayData) => (
                     <div class="events-day" id={`events-day-${dayData.index}`} key={dayData.index}>
@@ -60,13 +63,20 @@ import programData from "../../assets/data/program.json";
                                                 <p class="main-description extra-description" set:html={eventDetails["extra-description"]}></p>
                                                 
                                             )}
-                                      <br>
+                                             {eventDetails["extra-description"] && (
+                                                 
+                                                 <br>
+                                      
                                             <a class="toggle-extra-description">
-                                                    SHOW MORE
+                                                    <span id="toggle-content">SHOW MORE</span>
+                                                    <Image id="arrow" src = {arrow} alt="show"></Image>
 
                                                 </a>
                                            
-                                        </div>
+                                                 
+                                             )}
+                                            </div>
+
                                     )}
                                 </div>
                             );
@@ -84,6 +94,17 @@ import programData from "../../assets/data/program.json";
 </Contenuto>
 
 <style>
+    #arrow {
+        height: 1.2em;
+        position: relative;
+        top:0.25em;
+        opacity: 0.7;
+        transform: rotate(90deg);
+        transition: all 0.5s ease;
+        &.rotate {
+            transform: rotate(-90deg);
+        }
+    }
    
     .program-container {
         display: flex;
@@ -105,6 +126,7 @@ import programData from "../../assets/data/program.json";
         opacity: 0.3;
         transition: opacity 0.3s;
         font-weight: normal;
+        font-size: 1.3em;
     }
     .day-selector {
         position: fixed;
@@ -114,13 +136,13 @@ import programData from "../../assets/data/program.json";
     }
     .active-day:not(.disable),
     .selected-day:not(.disable) {
-        padding-bottom: 3em;
+        padding-bottom: 2em;
 
         &:not(#day-1) {
-            padding-top: 3em;
+            padding-top: 2em;
 
         }
-        padding-bottom: 3em;
+        padding-bottom: 2em;
         h3 {
             opacity: 1;
 
@@ -187,20 +209,7 @@ import programData from "../../assets/data/program.json";
     }
     .event-description {
         padding-top: .5em;
-         p{
-            color:blue;
-         
-         }
     }
-
-.event-description:hover {
-        padding-top: .5em;
-         p{
-            color:rgb(89, 255, 0);
-         
-         }
-    }
-
     
     .event-description .main-description {
         font-size: 1.2em;
@@ -243,8 +252,13 @@ import programData from "../../assets/data/program.json";
         color: #595959;
     }
   
-    @media (max-width: 768px) {
+    @media (max-width: 768px) or (max-height: 768px) {
 
+.events {
+        margin-top: 18vh;
+        
+
+    }
         .program-container {
             flex-wrap: wrap;
         }
@@ -262,7 +276,6 @@ import programData from "../../assets/data/program.json";
     }
     
     .events {
-        margin-top: 20vh;
         z-index: 0 !important;
 
 
@@ -279,6 +292,14 @@ import programData from "../../assets/data/program.json";
             flex-direction: row;
             flex-wrap: wrap;
         }
+    }
+
+    @media (max-height:768px) and (min-width:769px) {
+      .events {
+        margin-top: 2em;
+        
+
+    }
     }
 
 </style>
@@ -368,15 +389,20 @@ toggleButtons.forEach(button => {
         // Trova il genitore che contiene l'evento e il relativo .extra-description
         const eventContainer = button.closest('.event'); // Supponiamo che il genitore abbia la classe "event"
         const extraDescription = eventContainer.querySelector('.extra-description'); // Trova l'elemento .extra-description all'interno
+        const arrow = eventContainer.querySelector('#arrow');
+        const content = eventContainer.querySelector('#toggle-content');
 
         // Aggiungi o rimuovi la classe per mostrare/nascondere l'extra-description
         extraDescription.classList.toggle('show-extra-description');
 
         // Cambia il testo del pulsante
         if (extraDescription.classList.contains('show-extra-description')) {
-            button.textContent = 'SHOW LESS';
+            content.textContent = 'SHOW LESS';
+            arrow.classList.add('rotate');
         } else {
-            button.textContent = 'SHOW MORE';
+            content.textContent = 'SHOW MORE';
+            arrow.classList.remove('rotate');
+
         }
     });
 });
