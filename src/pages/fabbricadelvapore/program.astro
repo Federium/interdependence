@@ -25,7 +25,7 @@ import programData from "../../assets/data/program.json";
             <div class="mask">
                 {programData.days.map((dayData) => (
                     <div class="events-day" id={`events-day-${dayData.index}`} key={dayData.index}>
-                        <h2>{dayData.weekday}, {dayData.day} <hr /></h2>
+                        <h2>{dayData.weekday}, {dayData.day} <hr  /></h2>
                         {dayData.events.map((event) => {
                             // Recuperiamo i dati dell'evento in base all'event-id
                             const eventDetails = programData["metadata-events"][event["event-id"]];
@@ -94,13 +94,18 @@ import programData from "../../assets/data/program.json";
 </Contenuto>
 
 <style>
+    hr {
+        margin-top: 0.3em;
+        margin-bottom: 1em;
+    }
     #arrow {
         height: 1.2em;
         position: relative;
-        top:0.25em;
+        
         opacity: 0.7;
         transform: rotate(90deg);
         transition: all 0.5s ease;
+        display: inline;
         &.rotate {
             transform: rotate(-90deg);
         }
