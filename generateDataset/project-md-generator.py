@@ -27,7 +27,7 @@ import pandas as pd
 
 # 📂 Percorso del file CSV e della cartella di output
 CSV_FILE = "projects-utf16.csv"
-OUTPUT_DIR = "src/content/"
+OUTPUT_DIR = "/Users/filippo/Documents/GitHub/interdependence/src/projects"
 
 # 📁 Crea la cartella di output se non esiste
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -71,13 +71,13 @@ faculty: [{faculty_array}]
 school: "{row["school"]}"
 school_website: "{row["school_website"]}"
 hasVideo: "{row["hasVideo"]}"
-video_link: "{row["video_link"]}"
+videoLink: "{row["video_link"]}"
 ---
 
 {row["description"]}
 """
     # ✍️ Scrive il file
-    with open(filename, "w", encoding="utf-8") as f:
+    with open(filename, "w", encoding="utf-16") as f:
         f.write(content)
 
 print(f"✅ Conversione completata! {len(df)} file creati in {OUTPUT_DIR}")
