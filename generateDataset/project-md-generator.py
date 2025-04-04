@@ -33,7 +33,7 @@ OUTPUT_DIR = "/Users/filippo/Documents/GitHub/interdependence/src/projects"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 📖 Legge il CSV
-df = pd.read_csv(CSV_FILE, delimiter=";", encoding="utf-16", quoting=3, on_bad_lines="skip")
+df = pd.read_csv(CSV_FILE, delimiter=";", encoding="utf-8", quoting=3, on_bad_lines="skip")
 
 # 🔄 Converte ogni riga in un file .md
 for _, row in df.iterrows():
@@ -77,7 +77,7 @@ videoLink: "{row["video_link"]}"
 {row["description"]}
 """
     # ✍️ Scrive il file
-    with open(filename, "w", encoding="utf-16") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         f.write(content)
 
 print(f"✅ Conversione completata! {len(df)} file creati in {OUTPUT_DIR}")

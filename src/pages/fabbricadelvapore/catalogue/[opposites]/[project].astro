@@ -43,12 +43,9 @@ const images = await getCollection('images', (entry) =>
 );
 
 
-import { ClientRouter } from "astro:transitions";
 
 ---
-<head>
-    <ClientRouter />
-</head>
+
 
 <Contenuto name="Catalogue" subsection={true}, subsectionActive={1} darkbg={"high"}>
   <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>

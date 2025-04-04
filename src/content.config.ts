@@ -4,7 +4,7 @@ import {glob} from "astro/loaders";
 
 // Definizione della collection "projects"
 const projects = defineCollection({
-  loader: glob({ pattern: "***/**/*.{md,mdx}", base: "src/projects" }),
+  loader: glob({ pattern: "**/*.md", base: "src/projects" }),
   schema: z.object({
     id: z.number(),
     slug: z.string(),
