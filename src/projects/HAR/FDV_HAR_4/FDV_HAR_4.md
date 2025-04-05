@@ -4,7 +4,7 @@ id: 4
 slug: commonplace
 title: "Commonplace"
 subtitle: "Spatial Tactics for the Urban Interior"
-project_website: "nan"
+project_website: ""
 degree: "Bachelor of Interior Design (Honours)"
 course: "Research Major Project"
 ay: "2024"

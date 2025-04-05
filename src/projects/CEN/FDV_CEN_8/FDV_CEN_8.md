@@ -4,7 +4,7 @@ id: 8
 slug: wimbe
 title: "WIMBE"
 subtitle: "When Water Rise so Does Our Support"
-project_website: "nan"
+project_website: ""
 degree: "MSc Product Service System Design (PSSD)"
 course: "Innovation Studio"
 ay: "2024/2025"

@@ -12,8 +12,8 @@ team: ["Nihan Aksoy", "Naz Bölükbaşı", "Görkem Çolak", "Yusuf Dönmez", "E
 faculty: ["Sebnem Timur"]
 school: "Özyeğin University, Faculty of Architecture and Design, Istanbul, Türkiye"
 school_website: "https://www.ozyegin.edu.tr/en/faculty-architecture-and-design"
-hasVideo: "nan"
-videoLink: "nan"
+hasVideo: "false"
+videoLink: ""
 ---
 
 Exploring Analog & Digital Practices aims to conduct ethnographic research making a special emphasis on the difference between the physical/analog versus digital practices. The analyzed practices were that of three groups of people between the age of 20 and 60+ in relation to time keeping, shopping, cooking, planning, working/studying and socializing. Research was conducted through activities mapping and environments, interactions, objects, and users’ analysis. Through Interviews and Visual Recording of the Process an understanding of the overall ecosystem of the users for each intended task was developed.

@@ -4,7 +4,7 @@ id: 8
 slug: passepartout
 title: "Passepartout"
 subtitle: "Inclusive Art Museum Experiences for Visually Impaired Visitors"
-project_website: "nan"
+project_website: ""
 degree: "MSc Product Service System Design (PSSD)"
 course: "Final Synthesis Design Studio (PS2)"
 ay: "2024/2025"

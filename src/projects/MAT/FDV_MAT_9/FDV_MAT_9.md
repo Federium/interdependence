@@ -4,7 +4,7 @@ id: 9
 slug: sotto-suono
 title: "SOTTO | SUONO"
 subtitle: "Sound as a Social and Spiritual Bond"
-project_website: "nan"
+project_website: ""
 degree: "MSc Architecture, Built Environment, Interiors"
 course: "Interior Design Studio"
 ay: "2024/2025 "

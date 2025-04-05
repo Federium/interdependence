@@ -4,7 +4,7 @@ id: 4
 slug: deceiving-happiness
 title: "Deceiving Happiness"
 subtitle: "Social Protection Mechanisms Turned Into Physical Space"
-project_website: "nan"
+project_website: ""
 degree: "BA Fashion & Technology"
 course: "Fashion Design BA 6"
 ay: "2024"

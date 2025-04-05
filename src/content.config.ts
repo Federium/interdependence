@@ -33,14 +33,14 @@ const projects = defineCollection({
     team: z.array(z.string()),
     faculty: z.array(z.string()),
     school: z.string(),
-    hasVideo: z.string().transform((val) => (val && val.trim() !== "" ? val : "false")),
+    hasVideo: z.string().optional().transform((val) => (val && val.trim() !== "" ? val : "false")),
     videoLink: z.string().optional().transform((val) => {
       if (val) {
         try {
           new URL(val);  // Verifica se è un URL valido
           return val;  // Se valido, restituisce il valore originale
         } catch {
-          return 'none';  // Se non è valido, restituisce 'none'
+          return '';  // Se non è valido, restituisce 'none'
         }
       }
       return undefined;

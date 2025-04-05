@@ -4,7 +4,7 @@ id: 8
 slug: virtx
 title: "VirtX"
 subtitle: "Fabric Electro-Haptic Interface Design for Somatosensory Interaction"
-project_website: "nan"
+project_website: ""
 degree: "BA Product Design"
 course: "Interaction Design"
 ay: "2024"

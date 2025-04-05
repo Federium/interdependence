@@ -43,7 +43,6 @@ const images = await getCollection('images', (entry) =>
 );
 
 
-
 ---
 
 
@@ -123,6 +122,20 @@ const images = await getCollection('images', (entry) =>
             ) : (
               <></>
             )}
+
+            {
+                        data.hasVideo === "youtube" ? (
+            <iframe 
+              src={data.videoLink} 
+              frameborder="0" 
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen 
+              title="Project Video"
+              style={{ width: '100%', height: '500px' }}
+            ></iframe>
+            ) : data.hasVideo === "file" ? (
+            <ButtonSmall href={data.videoLink} label="PROJECT VIDEO" target="_blank"></ButtonSmall>
+            ) : null}
         </div>
         
       </div>
@@ -133,7 +146,9 @@ const images = await getCollection('images', (entry) =>
     
 
   </ProjectsLayout>
+  {images.length > 0 && images[0].data.images && images[0].data.images.length > 0 && (
 <Modal gallery={images[0].data.images}></Modal>
+  )}
 </Contenuto>
 
 <script>
@@ -281,7 +296,7 @@ const images = await getCollection('images', (entry) =>
   }
 
   #descrizione label {
-font-size: 1em !important;  }
+font-size: 1em !important%;  }
 
   .project-container {
     display: flex;

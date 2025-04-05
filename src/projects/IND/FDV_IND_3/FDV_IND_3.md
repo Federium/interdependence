@@ -4,7 +4,7 @@ id: 3
 slug: decision-making-for-the-energy-transition
 title: "Decision-making for the Energy Transition "
 subtitle: "Future Collective Decision-Making as Experiences of Energy for People and the Planet"
-project_website: "nan"
+project_website: ""
 degree: "MEDes Product Design"
 course: "Collaborative Futures"
 ay: "2024"

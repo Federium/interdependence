@@ -4,8 +4,8 @@ id: 6
 slug: vision-crafters
 title: "Vision Crafters"
 subtitle: "Eye Testing for Everyone!"
-project_website: "nan"
-degree: "nan"
+project_website: ""
+degree: ""
 course: "Specializing Master in Design for Kids & Toys"
 ay: "2024/2025"
 team: ["Nina Lunderskov", "Wei Dong", "Luis Munoz Zunica"]

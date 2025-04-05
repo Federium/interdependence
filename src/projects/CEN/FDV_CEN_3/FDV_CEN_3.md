@@ -4,9 +4,9 @@ id: 3
 slug: integral-conductive-fabric
 title: "Integral Conductive Fabric"
 subtitle: "Knitting Conductive Threads: A New Material Expressions"
-project_website: "nan"
+project_website: ""
 degree: "Master's Degree Program in Design"
-course: "nan"
+course: ""
 ay: "2024"
 team: ["Tamami Sato"]
 faculty: ["Suomiya Bao", "Setsu Ito", "Kuniko Otomo", "Kyota Yamada"]

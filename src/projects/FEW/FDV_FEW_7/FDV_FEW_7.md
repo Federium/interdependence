@@ -4,7 +4,7 @@ id: 7
 slug: redefining-limits
 title: "Redefining Limits"
 subtitle: "Paralympics’ Impact on Disability Perception"
-project_website: "nan"
+project_website: ""
 degree: "MSc Interior and Spatial Design"
 course: "New Interiors 2"
 ay: "2023/2024"

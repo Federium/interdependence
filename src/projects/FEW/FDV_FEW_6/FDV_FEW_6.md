@@ -12,8 +12,8 @@ team: ["Avani Chaturvedi", "Michael Ho", "June Kulwadee Pruksananonda", "Grace P
 faculty: ["Carlos Teixeira", "Deaa Bataineh"]
 school: "Illinois Tech, Institute of Design, Chicago, IL, United States of America"
 school_website: "https://www.sustainablesolutions.design/    https://id.iit.edu/"
-hasVideo: "nan"
-videoLink: "nan"
+hasVideo: "false"
+videoLink: ""
 ---
 
 Embedded Finance for a Cashless Society explores how design can navigate exclusivity and inclusivity in embedded finance by creating flexible systems that broaden access while addressing unique needs. Inclusive design in a cashless society means balancing the accessibility of digital services with protections for those lacking digital access, bridging the gap for marginalized groups. By fostering alternative pathways, such as mobile banking and community-supported profiles, design mitigates disparities, ensuring financial tools are not only available but also adaptable, nurturing equity without reinforcing privilege.

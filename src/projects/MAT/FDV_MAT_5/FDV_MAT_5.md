@@ -6,7 +6,7 @@ title: "Apuá"
 subtitle: "Changing the Climate of Play"
 project_website: "https://www.youtube.com/watch?v=rNJgLphC3dQ"
 degree: "Bachelor's Degree"
-course: "nan"
+course: ""
 ay: "2024"
 team: ["Ana Clara Pasqua Paulino", "Maryanne Cerqueira", "Keyske Higa", "João Vitor de Sá", "Gabriel Codognato"]
 faculty: ["Denise Dantas", "Sara Goldchmit"]

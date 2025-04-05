@@ -12,8 +12,8 @@ team: ["Riya Verma", "Kalven Owen", "Tioluwani Fabunmi", "Keira Huffman", "Andre
 faculty: ["Leighton Beaman"]
 school: "Cornell University, College of Human Ecology, Department of Human Centered Design, Ithaca, NY, United States of America"
 school_website: "https://www.human.cornell.edu/hcd"
-hasVideo: "nan"
-videoLink: "nan"
+hasVideo: "false"
+videoLink: ""
 ---
 
 Space for Others is an interdisciplinary design research studio exploring the dynamics of co-creating spaces, focusing on the balance of individual agency and collective collaboration. The project uses aggregate building systems and intuitive assembly grammars to explore this dichotomy. Through computational modeling, digital fabrication, and participatory play scenarios, the studio developed toy-scale, 3D printed prototypes for collaborative studies. These experiments consequently informed a full-scale kit, now tested in public play workshops to refine approaches to inclusivity, accessibility, and shared authorship.

@@ -13,12 +13,9 @@ import categoriesData from "../../assets/data/categories.json";
 const projects = await getCollection("projects");
 const categoriesMap = new Map(categoriesData.map(category => [category.id, category]));
 const categories = [...new Set(projects.map(project => project.data.category))];
-import { ClientRouter } from "astro:transitions";
 
 ---
-<head>
-    <ClientRouter />
-</head>
+
 <Contenuto name="Catalogue" subsection={true}, subsectionActive={1}>
 
     <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false}>

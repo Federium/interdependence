@@ -4,9 +4,9 @@ id: 1
 slug: bio-diverse-enclaves
 title: "Bio-diverse Enclaves"
 subtitle: "Returning Urban Spaces to the Local Biocenose"
-project_website: "nan"
+project_website: ""
 degree: "Bachelor's Degree"
-course: "nan"
+course: ""
 ay: "2023/2024"
 team: ["Zuzanna Szymłowska"]
 faculty: ["Wojciech Małolepszy"]

@@ -4,9 +4,9 @@ id: 9
 slug: a-life
 title: "A-Life"
 subtitle: "Speculative Design Study for Future “Life-Afterlife”"
-project_website: "nan"
+project_website: ""
 degree: "Industrial Design"
-course: "nan"
+course: ""
 ay: "2024"
 team: ["Sachika Kiyama"]
 faculty: ["Yasuyuki Hirai"]

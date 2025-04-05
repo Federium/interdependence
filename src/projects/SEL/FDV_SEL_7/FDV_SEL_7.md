@@ -4,7 +4,7 @@ id: 7
 slug: we-say-stop
 title: "We Say Stop"
 subtitle: "Between Violence and Discrimination"
-project_website: "nan"
+project_website: ""
 degree: "BSc Communication Design"
 course: "Final Synthesis Design Studio - Sect. 2"
 ay: "2024/2025"
@@ -12,8 +12,8 @@ team: ["S. Crescenzo", "F. Genovese", "Z. Li", "J. Mo", "L. Palatiello", "S. Xu"
 faculty: ["Valeria Bucchetti", "Francesca Casnati", "Umberto Tolino", "Pamela Visconti"]
 school: "Politecnico di Milano, School of Design, Milan, Italy"
 school_website: "www.designdellacomunicazione.polimi.it"
-hasVideo: "nan"
-videoLink: "nan"
+hasVideo: "false"
+videoLink: ""
 ---
 
 We Say Stop: Between Violence and Discrimination is a path that focused on the social responsibility of communication designers through the creation of campaigns aimed at informing and raising community’s awareness on gender-based violence and the forms of discrimination connected to it, implicitly developing the reflection on the relationship between selfness and otherness. /n Each editorial artifact explores and delves into one of the many forms of gender-based violence: psychological abuse, stalking, cyberstalking, sexting coercion, revenge porn, sexual violence, till more recent and lesser-known phenomena such as sexually themed deepfake, providing an in-depth overview of the phenomenon, through definitions, data, useful elements to recognize it, and available support channels.

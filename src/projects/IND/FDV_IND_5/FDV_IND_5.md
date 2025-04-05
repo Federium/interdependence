@@ -4,9 +4,9 @@ id: 5
 slug: harmony-chairs
 title: "Harmony Chairs"
 subtitle: "Interactive Rocking Chairs for Shared Musical Experiences"
-project_website: "nan"
+project_website: ""
 degree: "Master's Degree Program in Design"
-course: "nan"
+course: ""
 ay: "2024"
 team: ["Miwa Yoshihara"]
 faculty: ["Shinichi Koyama"]

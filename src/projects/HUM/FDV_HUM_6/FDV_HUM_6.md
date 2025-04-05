@@ -4,7 +4,7 @@ id: 6
 slug: rhythmic-design-for-aging-communities
 title: "Rhythmic Design for Aging Communities"
 subtitle: "The Anshan Community Example"
-project_website: "nan"
+project_website: ""
 degree: "Bachelor Degree"
 course: "Graduation Project: Sound Landscape"
 ay: "2024"

@@ -4,7 +4,7 @@ id: 6
 slug: courage-is-absurd
 title: "Courage is ABSURD"
 subtitle: "Design is Courage"
-project_website: "nan"
+project_website: ""
 degree: "MSc Interior and Spatial Design"
 course: "Landscape and Interior - Spatial Design 2"
 ay: "2023/2024"

@@ -4,7 +4,7 @@ id: 7
 slug: nights
 title: "NightS"
 subtitle: "Making Nighttime Scooter Riding Safer"
-project_website: "nan"
+project_website: ""
 degree: "MSc Design for the Fashion System"
 course: "Design for the Fashion System - Advanced Manufacturing for Sustainable Fashion"
 ay: "2024/2025"

@@ -4,7 +4,7 @@ id: 7
 slug: wormhole-museum-experience
 title: "Wormhole Museum Experience"
 subtitle: "Interactive Digital Experiences for Enhanced Visitor Engagement"
-project_website: "nan"
+project_website: ""
 degree: "MSc Digital & Interaction Design"
 course: "Digital Design Studio (DI2)"
 ay: "2023/2024"

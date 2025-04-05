@@ -4,9 +4,9 @@ id: 5
 slug: threshold-a-call-for-action
 title: "Threshold: A Call for Action"
 subtitle: "Addressing Manual Scavengers' Exploitation"
-project_website: "nan"
+project_website: ""
 degree: "Bachelors of Design"
-course: "nan"
+course: ""
 ay: "2024"
 team: ["Priya Chaudhary"]
 faculty: ["Anusha Dhawan"]

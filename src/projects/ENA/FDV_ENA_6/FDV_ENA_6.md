@@ -4,7 +4,7 @@ id: 6
 slug: balance
 title: "Balancê"
 subtitle: "Body Extensions, Identity Expression, and Well-Being of the Elderly"
-project_website: "nan"
+project_website: ""
 degree: "Bachelor's Degree"
 course: "Product and Innovation Design"
 ay: "2024"

@@ -4,7 +4,7 @@ id: 9
 slug: squeak
 title: "SQUEAK"
 subtitle: "For Your Rabbit"
-project_website: "nan"
+project_website: ""
 degree: "BSc Product Design"
 course: "Metadesign - Studio (P4)"
 ay: "2024/2025"

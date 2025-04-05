@@ -4,7 +4,7 @@ id: 12
 slug: courage-is-resilience
 title: "Courage is RESILIENCE"
 subtitle: "Design is Courage"
-project_website: "nan"
+project_website: ""
 degree: "MSc Interior and spatial design"
 course: "Landscape and Interior - Spatial Design 2"
 ay: "2023/2024"

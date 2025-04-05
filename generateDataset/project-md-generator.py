@@ -37,16 +37,20 @@ df = pd.read_csv(CSV_FILE, delimiter=";", encoding="utf-8", quoting=3, on_bad_li
 
 # 🔄 Converte ogni riga in un file .md
 for _, row in df.iterrows():
-    # Gestisce i NaN per 'global_id' e 'category_id' e li converte in interi
+    # Gestisce i NaN per 'id' e 'category_id' e li converte in interi
     project_id = int(row["id"]) if pd.notna(row["id"]) else 0  # Fallback a 0 se NaN
-   # category_id = int(row["category_id"]) if pd.notna(row["category_id"]) else 0  # Fallback a 0 se NaN
-    folder_dir = f"{OUTPUT_DIR}/{row["category"]}/FDV_{row["category"]}_{project_id}/"
-    os.makedirs(folder_dir, exist_ok=True)
-    os.makedirs(f"{folder_dir}/img/", exist_ok=True) # crea directory immagini
+    title = row["title"] if pd.notna(row["title"]) else "Untitled"  # Fallback a "Untitled" se NaN
+    subtitle = row["subtitle"] if pd.notna(row["subtitle"]) else ""  # Fallback a stringa vuota se NaN
+    project_website = row["project_website"] if pd.notna(row["project_website"]) else ""  # Fallback a stringa vuota se NaN
+    degree = row["degree"] if pd.notna(row["degree"]) else ""  # Fallback a stringa vuota se NaN
+    course = row["course"] if pd.notna(row["course"]) else ""  # Fallback a stringa vuota se NaN
+    ay = row["ay"] if pd.notna(row["ay"]) else ""  # Fallback a stringa vuota se NaN
+    school = row["school"] if pd.notna(row["school"]) else ""  # Fallback a stringa vuota se NaN
+    school_website = row["school_website"] if pd.notna(row["school_website"]) else ""  # Fallback a stringa vuota se NaN
+    hasVideo = row["hasVideo"] if pd.notna(row["hasVideo"]) else "false"  # Fallback a "false" se NaN
+    videoLink = row["video_link"] if pd.notna(row["video_link"]) else ""  # Fallback a stringa vuota se NaN
+    description = row["description"] if pd.notna(row["description"]) else ""  # Fallback a stringa vuota se NaN
 
-    filename = f"{folder_dir}/FDV_{row["category"]}_{project_id}.md"
-
-    # 📄 Struttura del Markdown con frontmatter YAML
     # Gestione del campo 'team' come array
     team_list = row["team"].split(',') if pd.notna(row["team"]) else []
     team_array = ', '.join([f'"{member.strip()}"' for member in team_list])
@@ -55,27 +59,36 @@ for _, row in df.iterrows():
     faculty_list = row["faculty"].split(',') if pd.notna(row["faculty"]) else []
     faculty_array = ', '.join([f'"{member.strip()}"' for member in faculty_list])
 
-    # Contenuto del file Markdown
+    # Crea la cartella per il progetto
+    folder_dir = f"{OUTPUT_DIR}/{row['category']}/FDV_{row['category']}_{project_id}/"
+    os.makedirs(folder_dir, exist_ok=True)
+    os.makedirs(f"{folder_dir}/img/", exist_ok=True)  # crea directory immagini
+
+    # Crea il nome del file
+    filename = f"{folder_dir}/FDV_{row['category']}_{project_id}.md"
+
+    # 📄 Struttura del Markdown con frontmatter YAML
     content = f"""---
-category: {row["category"]}
+category: {row['category']}
 id: {project_id}
-slug: {generate_slug(row["title"])}
-title: "{row["title"]}"
-subtitle: "{row["subtitle"]}"
-project_website: "{row["project_website"]}"
-degree: "{row["degree"]}"
-course: "{row["course"]}"
-ay: "{row["ay"]}"
+slug: {generate_slug(title)}
+title: "{title}"
+subtitle: "{subtitle}"
+project_website: "{project_website}"
+degree: "{degree}"
+course: "{course}"
+ay: "{ay}"
 team: [{team_array}]
 faculty: [{faculty_array}]
-school: "{row["school"]}"
-school_website: "{row["school_website"]}"
-hasVideo: "{row["hasVideo"]}"
-videoLink: "{row["video_link"]}"
+school: "{school}"
+school_website: "{school_website}"
+hasVideo: "{hasVideo}"
+videoLink: "{videoLink}"
 ---
 
-{row["description"]}
+{description}
 """
+
     # ✍️ Scrive il file
     with open(filename, "w", encoding="utf-8") as f:
         f.write(content)
