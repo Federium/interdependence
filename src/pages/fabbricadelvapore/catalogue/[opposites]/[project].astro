@@ -55,11 +55,13 @@ const getYouTubeEmbedUrl = (id) => {
 
 
 <Contenuto name="Catalogue" subsection={true}, subsectionActive={1} darkbg={"high"}>
-  <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
+  
+  <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false} >
   </Heading>
-  <ProjectsLayout category={category} isSingleProject = {true}>
 
+  <ProjectsLayout category={category} isSingleProject = {true}>
     <div class="project-container">
+      
       <div class="project-row">
           <div class="col-4" id="nome-progetto">
             <!-- Modal toggle -->
@@ -175,9 +177,13 @@ const getYouTubeEmbedUrl = (id) => {
     
 
   </ProjectsLayout>
+      <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex>
+    </Heading>
+
   {images.length > 0 && images[0].data.images && images[0].data.images.length > 0 && (
 <Modal gallery={images[0].data.images}></Modal>
   )}
+  
 </Contenuto>
 
 <script>

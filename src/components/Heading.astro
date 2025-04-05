@@ -8,9 +8,11 @@ export interface Props {
   mobile?:boolean;
   id?:string;
   zIndex?: boolean;
+  relative? : boolean;
+  catalogue?: boolean;
 }
 
-const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false, id="", zIndex = false } = Astro.props as Props;
+const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false, id="", zIndex = false, relative=false, catalogue=false } = Astro.props as Props;
 ---
 
 {
@@ -22,7 +24,7 @@ background && mobile && <>
 </>
 }
 
-<div class={`header-container ${mobile ? '' : 'nascondi'}`}  id={"testi-"+id}>
+<div class={`header-container ${mobile ? '' : 'nascondi'} ${relative ? 'relative' : ''}`}  id={"testi-"+id}>
     <h2 class="title">{title}</h2>
     {
     subtitle && <>
@@ -45,8 +47,10 @@ background && mobile && <>
         height: 35vh;
         z-index: -2 !important;
         transition: transform 0.5s ease;
-       
-    }
+        &zIndex {
+            z-index: 0 !important;
+        }  
+    } 
 
     .header-gradient {
         z-index: 0 !important;
@@ -74,6 +78,8 @@ background && mobile && <>
         position: fixed;
         margin-top: 20px;
         margin-bottom: 30px;
+        width: 100vw;
+        max-width: 1200px;
         transition: transform 0.5s ease;
 
 
@@ -90,12 +96,21 @@ background && mobile && <>
         font-weight: normal;
         padding-top: 0;
     }
+
+    .relative {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1 !important;
+    }
     
     @media (min-width: 769px) {
         #testi-header-mobile-2 {
         top: 0;
-        left: 10vw;
-    }
+left: max(
+    10vw, 
+    calc((100vw - 1200px) / 2)
+  ); }
 
         #back-header-mobile-2.animated-background
         {
@@ -142,7 +157,7 @@ background && mobile && <>
     }
 
     #testi-header-mobile-2 {
-        padding-left: 20px;
+        /* padding-left: 20px; */
     
     }
 
@@ -164,3 +179,4 @@ background && mobile && <>
 </script>
 
 </>}
+

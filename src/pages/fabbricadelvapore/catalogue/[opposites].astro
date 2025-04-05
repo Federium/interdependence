@@ -32,8 +32,9 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
 ---
 
  <Contenuto name="Catalogue" subsection={true}, subsectionActive={1}>
-  <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
+  <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false}>
   </Heading>
+
   
   <ProjectsLayout category={category} isSingleProject = {false}>
 
@@ -73,7 +74,10 @@ const projects = await getCollection('projects', (entry) => entry.data.category 
   </div>
   </ProjectsLayout>
 
-  
+  <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex>
+  </Heading>
+
+
 
   </div>
   </div>

@@ -18,10 +18,12 @@ const categories = [...new Set(projects.map(project => project.data.category))];
 
 <Contenuto name="Catalogue" subsection={true}, subsectionActive={1}>
 
-    <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false}>
-    </Heading>
+        <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false}>
+        </Heading>
+
 
     <div class="text-container">
+        
         <p class="txt-small">
             At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.
             <br/>The exhibition collects 150 projects and is animated by a palimpsest of initiatives.
@@ -67,7 +69,7 @@ const categories = [...new Set(projects.map(project => project.data.category))];
     </div>
     </div>
 
-    <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2">
+    <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex>
     </Heading>
 
 </Contenuto>
