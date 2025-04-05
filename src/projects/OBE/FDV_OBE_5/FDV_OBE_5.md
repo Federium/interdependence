@@ -13,7 +13,7 @@ faculty: ["Francesco Guida", "Pietro Buffa", "Alessandro Masserdotti", "Giacomo 
 school: "Politecnico di Milano, School of Design, Milan, Italy"
 school_website: "www.designdellacomunicazione.polimi.it"
 hasVideo: "youtube"
-videoLink: "https://www.youtube.com/watch?v=g1wQLu-o2zA"
+videoLink: "g1wQLu-o2zA"
 ---
 
 Partito del Pomodoro, or PdP, is a nationalist party that idolizes the tomato as a symbol of Italian cuisine and tradition, with the goal of promoting exploitation. Led by the charismatic tomato-leader Pomì, the PdP spreads its ideology through the R.O.S.S.A., a device that allows its supporters, known as “pummaroli,” to visualize the changes the party seeks to implement. Through irony, Partito del Pomodoro wants to serve as a powerful tool to oppose the status quo and signal dissent by highlighting the absurdity of certain ideologies.

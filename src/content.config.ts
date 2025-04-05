@@ -34,17 +34,7 @@ const projects = defineCollection({
     faculty: z.array(z.string()),
     school: z.string(),
     hasVideo: z.string().optional().transform((val) => (val && val.trim() !== "" ? val : "false")),
-    videoLink: z.string().optional().transform((val) => {
-      if (val) {
-        try {
-          new URL(val);  // Verifica se è un URL valido
-          return val;  // Se valido, restituisce il valore originale
-        } catch {
-          return '';  // Se non è valido, restituisce 'none'
-        }
-      }
-      return undefined;
-    }),
+    videoLink: z.string().optional(),
     images: z.array(z.string()).optional(),  // Array per le immagini
   }),
 });

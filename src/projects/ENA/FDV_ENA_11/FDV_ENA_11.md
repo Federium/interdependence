@@ -13,7 +13,7 @@ faculty: ["Francesco Zurlo", "Barbara Del Curto", "Alessandro Perrone"]
 school: "Politecnico di Milano, School of Design, Milan, Italy"
 school_website: "www.productdesign.polimi.it/laurea-magistrale"
 hasVideo: "youtube"
-videoLink: "https://www.youtube.com/watch?v=ST2o69LzwM4&t=3s"
+videoLink: "ST2o69LzwM4"
 ---
 
 OstoKit addresses the lack of aesthetics in colostomy devices with a personalized, reusable patch and a 3D-scan subscription service. Prioritizing comfort, customization, and responsible consumption, it reduces stigmatization while enhancing user experience, inclusivity and disability pride, especially in sexual and fitness contexts.

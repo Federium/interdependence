@@ -42,6 +42,12 @@ const images = await getCollection('images', (entry) =>
   entry.data.category === data.category && entry.data.id === data.id
 );
 
+const getYouTubeEmbedUrl = (id) => {
+  `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&rel=0&modestbranding=1`;
+
+}
+
+
 
 ---
 
@@ -71,14 +77,49 @@ const images = await getCollection('images', (entry) =>
             </div>
           
           </div>
-            <div class="col-right">
+            <div class="col-right" id="gallery-container">
 
            
+{
+  data.hasVideo === "youtube" || data.hasVideo ==="file"  ? (
+  <a id="video-toggle">
+              
+              <label>SEE VIDEO</label>
+            </a>
+) : null
+} 
+              
 
               {images.length > 0 && images[0].data.images && images[0].data.images.length > 0 && (
-                <ImageGallery gallery={images[0].data.images} />
+                <ImageGallery gallery={images[0].data.images} id="photogallery" />
               )}
-              
+
+
+               
+
+                {                  
+                data.hasVideo === "youtube" ? (
+                  
+              <iframe type="text/html"
+              width="100%"
+              height="400"
+              src={ "https://www.youtube-nocookie.com/embed/"+data.videoLink+"?rel=0&modestbranding=1`"}
+              frameborder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              id="video"
+              ></iframe>
+
+
+              ) : data.hasVideo === "file" ? (
+              // <ButtonSmall href={data.videoLink} label="PROJECT VIDEO" target="_blank"></ButtonSmall>
+              <video width="100%" height="400" controls id="video">
+              <source src={"/assets/project-videos/FDV_"+data.category+"_"+data.id+".mp4"} type="video/mp4" />
+              Il tuo browser non supporta il tag video.
+              </video>
+
+              ) : null}
+
             </div>
 
       </div>
@@ -123,19 +164,7 @@ const images = await getCollection('images', (entry) =>
               <></>
             )}
 
-            {
-                        data.hasVideo === "youtube" ? (
-            <iframe 
-              src={data.videoLink} 
-              frameborder="0" 
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen 
-              title="Project Video"
-              style={{ width: '100%', height: '500px' }}
-            ></iframe>
-            ) : data.hasVideo === "file" ? (
-            <ButtonSmall href={data.videoLink} label="PROJECT VIDEO" target="_blank"></ButtonSmall>
-            ) : null}
+          
         </div>
         
       </div>
@@ -272,6 +301,32 @@ const images = await getCollection('images', (entry) =>
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleLabel = document.querySelector("#video-toggle label");
+
+    const toggleButton = document.getElementById("video-toggle");
+    const photoGallery = document.getElementById("gallery");
+    const video = document.getElementById("video");
+
+    let isVideoVisible = false;
+
+    toggleButton.addEventListener("click", function () {
+      isVideoVisible = !isVideoVisible;
+
+      if (isVideoVisible) {
+        photoGallery.style.display = "none";
+        video.style.display = "block";
+        toggleLabel.textContent = "SEE PHOTOS";
+      } else {
+        video.style.display = "none";
+        photoGallery.style.display = "block";
+        toggleLabel.textContent = "SEE VIDEO";
+      }
+    });
+  });
+</script>
+
 <style>
   * {
     z-index: 0;
@@ -352,6 +407,8 @@ font-size: 1em !important%;  }
 
       }
 
+   
+
       .icon {
         display: flex;
         align-items: center;
@@ -370,6 +427,21 @@ font-size: 1em !important%;  }
       }
     }
   }
+
+  #video-toggle {
+    width: 100%;
+    text-align: right;
+    label{
+         
+         font-size: 1.2em;
+         text-decoration: none;
+         transition: all 0.5s ease;
+         padding-left: 0.3em;
+         padding-left: 0.3em;
+       
+       }
+  }
+
 
   .img-container {
     width: 100%;
@@ -402,6 +474,21 @@ font-size: 1em !important%;  }
     font-size: 1em;
   }
 
+    #video {
+      display: none;
+      height: 100$;
+    }
+
+    #video-toggle {
+      display: block;
+    }
+
+    #gallery-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
   @media (max-width:768px) {
     .col-right {
     width: 100%;

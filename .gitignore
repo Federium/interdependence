@@ -22,3 +22,6 @@ pnpm-debug.log*r
 
 # jetbrains setting folder
 .idea/
+
+# public/assets/project-images/
+public/assets/project-videos/
