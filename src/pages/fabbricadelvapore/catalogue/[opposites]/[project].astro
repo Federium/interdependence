@@ -300,14 +300,16 @@ const getYouTubeEmbedUrl = (id) => {
     });
   });
 </script>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggleLabel = document.querySelector("#video-toggle label");
-
     const toggleButton = document.getElementById("video-toggle");
     const photoGallery = document.getElementById("gallery");
     const video = document.getElementById("video");
+
+    const localVideo = video.querySelector("video"); // se c'è un <video> locale
+    const ytIframe = video.querySelector("iframe"); // se c'è un iframe YouTube
+    let ytPlayer = null;
 
     let isVideoVisible = false;
 
@@ -322,10 +324,39 @@ const getYouTubeEmbedUrl = (id) => {
         video.style.display = "none";
         photoGallery.style.display = "block";
         toggleLabel.textContent = "SEE VIDEO";
+
+        // Ferma video locale
+        if (localVideo && !localVideo.paused) {
+          localVideo.pause();
+        }
+
+        // Ferma video YouTube
+        if (ytPlayer) {
+          ytPlayer.stopVideo(); // o pauseVideo() se vuoi riprendere da dove era
+        }
       }
     });
+
+    // Carica l'API YouTube se c'è un iframe
+    if (ytIframe) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = function () {
+        ytPlayer = new YT.Player(ytIframe, {
+          events: {
+            onReady: () => {
+              // console.log("YouTube Player pronto");
+            },
+          },
+        });
+      };
+    }
   });
 </script>
+
 
 <style>
   * {
@@ -431,6 +462,7 @@ font-size: 1em !important%;  }
   #video-toggle {
     width: 100%;
     text-align: right;
+    padding-bottom: 0.5em;
     label{
          
          font-size: 1.2em;

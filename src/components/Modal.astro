@@ -9,11 +9,11 @@ const { gallery } = Astro.props;
         <!-- Dynamically render images from the gallery prop -->
         {gallery.map((image, index) => (
             <div class="hidden duration-700 ease-in-out modal-carousel-item " id={`modal-carousel-item-${index}`} data-carousel-item={index === 0 ? "active" : ""}>
-                <Image 
-                    src={image} 
-                    alt={`Image ${index + 1}`}
-                    class="absolute block object-contain -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                />
+              <Image 
+  src={image} 
+  alt={`Image ${index + 1}`}
+  class="w-full h-full object-contain"
+/>
             </div>
         ))}
     </div>
