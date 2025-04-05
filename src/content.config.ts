@@ -27,7 +27,7 @@ const projects = defineCollection({
         return 'none';  // Se non è valido, restituisce 'none'
       }
     }),
-    degree: z.string(),
+    degree: z.string().optional(),
     course: z.string().optional(),
     ay: z.string(),
     team: z.array(z.string()),

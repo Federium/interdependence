@@ -5,8 +5,8 @@ import Contenuto from '../../../../layouts/Contenuto.astro';
 import Heading from '../../../../components/Heading.astro';
 import ProjectsLayout from '../../../../layouts/ProjectsLayout.astro';
 import ImageGallery from '../../../../components/ImageGallery.astro'; // Importa il componente React
-
-
+import Modal from '../../../../components/Modal.astro'; // Importa il componente React
+import ButtonSmall from '../../../../components/ButtonSmall.astro';
 // 1. Generiamo correttamente i percorsi con entrambi i parametri
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -47,6 +47,8 @@ const images = await getCollection('images', (entry) =>
 ---
 
 
+
+
 <Contenuto name="Catalogue" subsection={true}, subsectionActive={1} darkbg={"high"}>
   <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true}>
   </Heading>
@@ -55,6 +57,9 @@ const images = await getCollection('images', (entry) =>
     <div class="project-container">
       <div class="project-row">
           <div class="col-4" id="nome-progetto">
+            <!-- Modal toggle -->
+
+
             <a href="javascript:history.back()" class="close-button">
               <div class="icon">
                 <Image src = {close} alt="Close"></Image>
@@ -103,42 +108,180 @@ const images = await getCollection('images', (entry) =>
             </div>
 
             <div class="info-container">
-              <p class="txt-small em">{data.school}</p>
-            </div>
+              <p class="txt-small em">
+                {data.school_website ? (
+                  <a id="schoolLink" href={data.school_website} target="_blank" rel="noopener noreferrer">{data.school}</a>
+                ) : (
+                  data.school
+                )}
+              </p>            </div>
         </div>
         <div class="col-right" id="descrizione">
             <p class="txt-small">{project.body}</p>
+            {data.project_website ? (
+              <ButtonSmall href={data.project_website} label="PROJECT WEBSITE" target="_blank"></ButtonSmall>
+            ) : (
+              <></>
+            )}
         </div>
+        
       </div>
 
     </div>
 
-    <!-- <h1>{data.title}</h1>
-    <p><strong>Categoria:</strong> {data.category}</p>
-    <p><strong>Anno:</strong> {data.ay}</p>
+  
     
-    {data.project_website && (
-      <p><a href={data.project_website} target="_blank">Sito del progetto</a></p>
-    )}
-
-    {data.school_website && (
-      <p><a href={data.school_website} target="_blank">Sito della scuola</a></p>
-    )}
-
-    <article>
-    </article> -->
 
   </ProjectsLayout>
-
+<Modal gallery={images[0].data.images}></Modal>
 </Contenuto>
 
+<script>
+  
+  // Importare il modulo Carousel di Flowbite
+  import { Carousel } from 'flowbite';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // Riferimenti agli elementi
+    const modal = document.getElementById('gallery-full');
+    const closeModalBtn = document.getElementById('close-modal');
+    const galleryElement = document.getElementById('gallery');
+    
+    // Inizializzazione del carousel principale
+    // Prepara gli elementi del carousel principale
+    const mainItems = [];
+    document.querySelectorAll('#gallery [data-carousel-item]').forEach((item, index) => {
+      mainItems.push({
+        position: index,
+        el: item
+      });
+    });
+    
+    // Opzioni per il carousel principale
+    const mainOptions = {
+      defaultPosition: 0,
+      interval: 3000,
+      onNext: () => {
+        console.log('Prossima slide nella galleria principale');
+      },
+      onPrev: () => {
+        console.log('Slide precedente nella galleria principale');
+      },
+      onChange: () => {
+        console.log('Slide cambiata nella galleria principale');
+      }
+    };
+    
+    // Crea una nuova istanza del carousel principale
+    const mainCarousel = new Carousel(galleryElement, mainItems, mainOptions);
+    
+    // Variabile per il carousel del modal
+    let modalCarousel = null;
+    
+    // Funzione per mostrare/nascondere il modal e gestire il carousel
+    const toggleModal = (index = 0) => {
+      modal.classList.toggle('hidden');
+      
+      if (modal.classList.contains('hidden')) {
+        document.body.style.overflow = ''; // Riabilita lo scorrimento
+      } else {
+        document.body.style.overflow = 'hidden'; // Disabilita lo scorrimento quando il modal è aperto
+        
+        // Inizializza il carousel del modal se non è già stato fatto
+        if (!modalCarousel) {
+          const modalCarouselElement = document.getElementById('gallery-full');
+          
+          // Prepara gli elementi del carousel del modal
+          const modalItems = [];
+          document.querySelectorAll('.modal-carousel-item').forEach((item, index) => {
+            modalItems.push({
+              position: index,
+              el: item
+            });
+          });
+
+          console.log(modalItems);
+          
+          // Opzioni per il carousel del modal
+          const modalOptions = {
+            defaultPosition: 0,
+            interval: 3000,
+            onNext: () => {
+              console.log('Prossima slide nel modal');
+            },
+            onPrev: () => {
+              console.log('Slide precedente nel modal');
+            },
+            onChange: () => {
+              console.log('Slide cambiata nel modal');
+            }
+          };
+          
+          // Crea una nuova istanza del carousel del modal
+          modalCarousel = new Carousel(modalCarouselElement, modalItems, modalOptions);
+        }
+        console.log(modalCarousel);
+        
+        // Vai alla slide selezionata usando slideTo
+        modalCarousel.slideTo(index);
+      }
+    };
+    
+    // Apri il modal quando fai clic sulle immagini della galleria
+    galleryElement.addEventListener('click', (e) => {
+      const clickedItem = e.target.closest('[data-carousel-item]');
+      if (clickedItem) {
+        const index = parseInt(clickedItem.getAttribute('data-index'));
+        toggleModal(index);
+      }
+    });
+    
+    // Chiudi il modal quando fai clic sul pulsante di chiusura
+    closeModalBtn.addEventListener('click', () => {
+      toggleModal();
+    });
+    
+    // Chiudi il modal quando fai clic all'esterno del carousel
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        toggleModal();
+      }
+    });
+    
+    // Chiudi il modal con il tasto Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        toggleModal();
+      }
+    });
+  });
+</script>
 
 <style>
+  * {
+    z-index: 0;
+  }
+
+  #schoolLink {
+    text-decoration: underline solid rgb(0, 0, 0) 1px;
+    text-underline-offset: 5px
+  }
+  .fixed.inset-0.z-40 {
+    z-index: 1000 !important;
+  }
   h1,p,h4 {
     color: rgb(0, 0, 0);
 
 
   }
+
+  #descrizione {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #descrizione label {
+font-size: 1em !important;  }
 
   .project-container {
     display: flex;

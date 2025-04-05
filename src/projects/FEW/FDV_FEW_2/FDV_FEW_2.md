@@ -1,19 +1,19 @@
 ---
 category: FEW
 id: 2
-slug: passepartout
-title: "Passepartout"
-subtitle: "Inclusive Art Museum Experiences for Visually Impaired Visitors"
-project_website: "nan"
-degree: "MSc Product Service System Design (PSSD)"
-course: "Final Synthesis Design Studio (PS2)"
-ay: "2024/2025"
-team: ["Kairui Chen", "Lorenzo Mangili", "Ganjar Satrio", "Bianca Selvatici", "Francesco Tomio", "Laura Margarida Faria Vieira"]
-faculty: ["Daniela Sangiorgi", "Beatrice Villari", "Davide Fassi", "Claudio Dell’Era"]
-school: "Politecnico di Milano, School of Design, Milan, Italy"
-school_website: "www.pssd.polimi.it"
-hasVideo: "youtube"
-videoLink: "https://youtu.be/AR_75xVVFSA?feature=shared"
+slug: space-for-others
+title: "Space for Others"
+subtitle: "Intuitive Grammars for Inclusive Space-Making"
+project_website: "https://www.materialpropositions.org/space-for-others"
+degree: "Bachelor of Science, Design + Environmental Analysis"
+course: "Magnifying Small Spaces Studio"
+ay: "2024/2025 "
+team: ["Riya Verma", "Kalven Owen", "Tioluwani Fabunmi", "Keira Huffman", "Andrea Porubcin", "Iason Diogenous", "Chloe Jung", "Alice Huiwen Ho"]
+faculty: ["Leighton Beaman"]
+school: "Cornell University, College of Human Ecology, Department of Human Centered Design, Ithaca, NY, United States of America"
+school_website: "https://www.human.cornell.edu/hcd"
+hasVideo: "nan"
+videoLink: "nan"
 ---
 
-Passepartout explores the tension between exclusivity and inclusivity in the context of art museums. It tackles the challenge of unequal access to cultural content and expression particularly looking at the inaccessibility faced by visually impaired individuals. Through a system that integrates human verification and advanced AI tools, the project provides consistent and coherent artwork descriptions, bridging access gaps and allowing independent visits for visually impaired individuals. This innovative approach fosters a more inclusive museum experience, ensuring that all visitors, regardless of ability, can engage with art in meaningful ways.
+Space for Others is an interdisciplinary design research studio exploring the dynamics of co-creating spaces, focusing on the balance of individual agency and collective collaboration. The project uses aggregate building systems and intuitive assembly grammars to explore this dichotomy. Through computational modeling, digital fabrication, and participatory play scenarios, the studio developed toy-scale, 3D printed prototypes for collaborative studies. These experiments consequently informed a full-scale kit, now tested in public play workshops to refine approaches to inclusivity, accessibility, and shared authorship.

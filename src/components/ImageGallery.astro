@@ -1,8 +1,10 @@
 ---
 import { Image } from 'astro:assets';
+import Modal from './Modal.astro';
 
 const { gallery } = Astro.props;
-console.log(gallery)
+
+
 ---
   
 
@@ -10,12 +12,14 @@ console.log(gallery)
     <!-- Carousel wrapper -->
     <div class="relative h-96 overflow-hidden md:h-96">
         
-        {gallery.map((image) => (
-             <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        {gallery.map((image,index) => (
+             <div   id={`carousel-item-${index}`} class="hidden duration-700 ease-in-out" data-carousel-item data-index={index}>
+
              <Image 
             src={image} 
             alt=""
             class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            
             />
             </div>
         
@@ -39,6 +43,11 @@ console.log(gallery)
         </span>
     </button>
 </div>
+
+<!-- Modal --></div>
+
+
+<!-- MODALE -->
 
 
 <style>

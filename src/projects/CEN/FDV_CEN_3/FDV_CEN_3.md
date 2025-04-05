@@ -1,19 +1,19 @@
 ---
 category: CEN
 id: 3
-slug: wimbe
-title: "WIMBE"
-subtitle: "When Water Rise so Does Our Support"
+slug: integral-conductive-fabric
+title: "Integral Conductive Fabric"
+subtitle: "Knitting Conductive Threads: A New Material Expressions"
 project_website: "nan"
-degree: "MSc Product Service System Design (PSSD)"
-course: "Innovation Studio"
-ay: "2024/2025"
-team: ["Carlo Morgan Capobianco", "Yi Chen", "Allison Eom", "Soyoung Jeon", "Ottavia Steffanini", "Elena Tittarelli"]
-faculty: ["Valentina Auricchio", "Stefana Broadbent", "Marta Corubolo", "Fabio Di Liberto", "Ilkka Suppanen"]
-school: "Politecnico di Milano, School of Design, Milan, Italy"
-school_website: "www.pssd.polimi.it"
+degree: "Master's Degree Program in Design"
+course: "nan"
+ay: "2024"
+team: ["Tamami Sato"]
+faculty: ["Suomiya Bao", "Setsu Ito", "Kuniko Otomo", "Kyota Yamada"]
+school: "University of Tsukuba, Graduate School of Comprehensive Human Sciences, Tsukuba, Japan"
+school_website: "https://www.geijutsu.tsukuba.ac.jp/dpd/"
 hasVideo: "file"
-videoLink: "https://polimi365-my.sharepoint.com/:v:/g/personal/10838320_polimi_it/EQQCRF2p3E9Lg2LA-DzJL8EBLAI-tvkdhNr-o7x0EP6iAw?e=4HXj8u"
+videoLink: "https://drive.google.com/file/d/14ItAmCldbC7YtgoEsebbUxbDMPwtzlHT/view?usp=sharing"
 ---
 
-Developed to support rural Ugandan villages during flood emergencies, WIMBE is a product-service system designed to address the urgent challenge of protecting communities from devastating floods. In a world where climate emergencies deepen social inequalities, WIMBE provides villagers with survival vests essential for safely fleeing inundated areas. Beyond the vest, WIMBE offers critical information on optimal escape routes and educates about post-disaster housing security. Emphasizing inclusivity, the project ensures vulnerable populations, who often lack access to adequate support during climate crises, are equipped and empowered to respond effectively.
+Integral Conductive Fabric proposes the creation of knit materials using conductive threads to integrate fashion and technology. Conventionally, such garments struggle to merge fabric and mechanical components, affecting both appearance and comfort. By knitting conductive threads into fabric, the design blends electrical functionality with textile material. These threads can function as circuits or sensors. As circuits, they power LEDs when fabrics overlap, or the garment is fastened. As sensors, they light up LEDs upon skin contact, reflecting human interactions with clothing in its design.
