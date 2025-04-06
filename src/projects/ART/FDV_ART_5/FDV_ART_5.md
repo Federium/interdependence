@@ -4,7 +4,7 @@ id: 5
 slug: aurita-cyanobacteria-cleaner
 title: "AURITA: Cyanobacteria Cleaner"
 subtitle: "The Intelligent Bionic Cyanobacteria Cleaning Robot"
-project_website: ""
+project_website: "https://youtu.be/zIM8KsL8b6c"
 degree: "Bachelor Degree"
 course: "Graduation Project"
 ay: "2024"

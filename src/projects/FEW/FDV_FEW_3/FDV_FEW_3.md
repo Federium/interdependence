@@ -12,7 +12,7 @@ team: ["Jin Wang", "Ningning Zheng", "Qian Luo"]
 faculty: ["Xun Gao", "Zaixing Liu", "Li Gu", "Zeqiang Yuan"]
 school: "Guangzhou Academy of Fine Arts,  DaVinci Innovation Academy, Guangzhou, China"
 school_website: "https://www.gzarts.edu.cn/index.htm"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

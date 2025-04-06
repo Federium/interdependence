@@ -1,9 +1,9 @@
 ---
 category: CEN
 id: 1
-slug: liquo-filter-syringe-for-dry-vaccines
-title: "Liquo: Filter Syringe for Dry Vaccines"
-subtitle: "Improving Vaccination Access in the Periphery"
+slug: liquo
+title: "Liquo"
+subtitle: "Filter Syringe for Dry Vaccines, Improving Vaccination Access in the Periphery"
 project_website: "-"
 degree: "BA Design"
 course: "Industrial Manufacturing"

@@ -4,7 +4,7 @@ id: 5
 slug: apua
 title: "Apuá"
 subtitle: "Changing the Climate of Play"
-project_website: ""
+project_website: "https://www.youtube.com/watch?v=rNJgLphC3dQ"
 degree: "Bachelor's Degree"
 course: ""
 ay: "2024"

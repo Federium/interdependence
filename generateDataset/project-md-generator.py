@@ -26,7 +26,7 @@ import pandas as pd
 
 
 # 📂 Percorso del file CSV e della cartella di output
-CSV_FILE = "projects-utf16.csv"
+CSV_FILE = "projects.csv"
 OUTPUT_DIR = "/Users/filippo/Documents/GitHub/interdependence/src/projects"
 
 # 📁 Crea la cartella di output se non esiste

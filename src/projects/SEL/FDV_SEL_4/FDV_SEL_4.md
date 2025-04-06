@@ -16,4 +16,4 @@ hasVideo: "youtube"
 videoLink: "2t2PvgUhPBs"
 ---
 
-Trauma teaches us from an early age to suppress our feelings and build an invisible barrier to the outside world. This facade serves as self-protection to skillfully ward off danger. Seemingly cheerful and carefree, but often vulnerable and isolated. Deceiving Happiness explores social protection mechanisms and translates them into physical space.  Playful, organic shapes made of soft materials envelop the body. Stuffed and padded, they invite you to cuddle them but disguise the fact that they are armor. A role that we take on. A fictional character.
+Trauma teaches us from an early age to suppress our feelings and build an invisible barrier to the outside world. This facade serves as self-protection to skillfully ward off danger. Seemingly cheerful and carefree, but often vulnerable and isolated. Deceiving Happiness explores social protection mechanisms and translates them into physical space. Playful, organic shapes made of soft materials envelop the body. Stuffed and padded, they invite you to cuddle them but disguise the fact that they are armor. A role that we take on. A fictional character.

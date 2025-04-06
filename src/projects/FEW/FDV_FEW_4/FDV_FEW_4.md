@@ -12,7 +12,7 @@ team: ["Leah Kampkes"]
 faculty: ["Diana Albarran Gonzalez", "Mairi Gunn", "Ayla Hoeta", "Gabriela Baron", "Xin Cheng"]
 school: "The University of Auckland - Waipapa Taumata Rau, Faculty of Engineering and Design, Auckland, New Zealand"
 school_website: "https://www.auckland.ac.nz/en/creative/about-the-faculty/design-programme.html"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

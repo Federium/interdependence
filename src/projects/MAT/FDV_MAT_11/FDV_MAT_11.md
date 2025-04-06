@@ -12,7 +12,7 @@ team: ["Sara Nakano"]
 faculty: ["Yasuyuki Hirai"]
 school: "Kyushu University, School of Design, Fukuoka, Japan"
 school_website: "https://www.design.kyushu-u.ac.jp/"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

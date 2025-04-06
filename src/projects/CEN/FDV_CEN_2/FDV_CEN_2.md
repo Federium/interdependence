@@ -12,7 +12,7 @@ team: ["Mariann Hendrikson", "Helen Bender"]
 faculty: ["Maarja Mõtus", "Kristjan Mändmaa", "Gijs Ipres"]
 school: "Estonian Academy of Arts, Faculty of Design, Tallinn, Estonia"
 school_website: "www.artun.ee"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

@@ -12,7 +12,7 @@ team: ["Hillevi Hesseldahl"]
 faculty: ["Martin Avila", "Katja Pettersson"]
 school: "Konstfack, Department of Design, Interior Architecture and Visual Communication, Stockholm, Sweden"
 school_website: "https://www.konstfack.se/sv/"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

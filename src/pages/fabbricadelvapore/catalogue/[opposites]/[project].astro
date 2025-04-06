@@ -159,7 +159,7 @@ const getYouTubeEmbedUrl = (id) => {
               </p>            </div>
         </div>
         <div class="col-right" id="descrizione">
-            <p class="txt-small">{project.body}</p>
+            <p class="txt-small" set:html={project.body}></p>
             {data.project_website ? (
               <ButtonSmall href={data.project_website} label="PROJECT WEBSITE" target="_blank"></ButtonSmall>
             ) : (

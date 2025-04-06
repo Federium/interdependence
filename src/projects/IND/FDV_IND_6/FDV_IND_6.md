@@ -12,7 +12,7 @@ team: ["Silvia Caramola", "Giorgia Carrino", "Marco Convento", "Riccardo Daminat
 faculty: ["Francesca Piredda", "Mariana Ciancia", "Katia Goldoni", "Marco Ronchi"]
 school: "Politecnico di Milano, School of Design, Milan, Italy"
 school_website: "www.designdellacomunicazione.polimi.it"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

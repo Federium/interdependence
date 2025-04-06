@@ -3,7 +3,7 @@ category: ENA
 id: 5
 slug: raizplesis
 title: "Raižplēsis"
-subtitle: "Empwering Children To Overcome Medical Fears Through Stories and Play."
+subtitle: "Empwering Children To Overcome Medical Fears Through Stories and Play"
 project_website: "https://drive.google.com/file/d/1ge3jiV6JzqOfRjiKRl7Fjk5NjAZ-jx2h/view?usp=sharing"
 degree: "Bachelors Ddegree in Graphic Design"
 course: "Graduation Project"

@@ -12,7 +12,7 @@ team: ["Martin Caillaut"]
 faculty: ["Anne Bugugnani", "Chloe Louisin"]
 school: "STRATE, Sevres, France"
 school_website: "https://www.strate.design/"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 

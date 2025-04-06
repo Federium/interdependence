@@ -12,8 +12,8 @@ team: ["Leo Rosina"]
 faculty: ["Pierre Maffi", "Gia Tran"]
 school: "STRATE, Sevres, France"
 school_website: "https://www.strate.design/"
-hasVideo: "false"
+hasVideo: "file"
 videoLink: ""
 ---
 
-"""Chercher ses mots"" is a project that addresses linguistic discrimination, examining power dynamics between languages and writing systems. It explores how linguistic identities are shaped by colonial legacies, leading to polarization and animosity between communities. Using the ""Mbind"" typeface, inspired by Senegalese culture, the project navigates the tension between individual and collective identities. It proposes design as a medium for decolonial emancipation, bridging divides, respecting diversity, and fostering dialogue to create a more inclusive society."
+"Chercher ses mots is a project that addresses linguistic discrimination, examining power dynamics between languages and writing systems. It explores how linguistic identities are shaped by colonial legacies, leading to polarization and animosity between communities. Using the ""Mbind"" typeface, inspired by Senegalese culture, the project navigates the tension between individual and collective identities. It proposes design as a medium for decolonial emancipation, bridging divides, respecting diversity, and fostering dialogue to create a more inclusive society."

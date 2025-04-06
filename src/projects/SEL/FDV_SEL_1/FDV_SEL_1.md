@@ -4,7 +4,7 @@ id: 1
 slug: buzz-beyond-borders
 title: "Buzz Beyond Borders"
 subtitle: "Transborder Realities: Stories of Resilience and Connection Across Borders"
-project_website: "https://www.newschool.edu/parsons/profile/frida-moreNO-and-skylar-wang/"
+project_website: "https://www.instagram.com/buzzbeyondborders/       -https://www.newschool.edu/parsons/profile/frida-moreNO-and-skylar-wang/"
 degree: "MFA Transdisciplinary Design"
 course: "Borders Media and Boundaries - Thesis Studio"
 ay: "2024"
