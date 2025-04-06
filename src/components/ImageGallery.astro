@@ -18,7 +18,7 @@ const { gallery } = Astro.props;
              <Image 
             src={image} 
             alt=""
-            class="w-full h-full object-contain"
+            class="w-96 h-full md:w-full md:object-contain object-cover"
             
             />
             </div>
@@ -26,16 +26,16 @@ const { gallery } = Astro.props;
           ))}
     </div>
     <!-- Slider controls -->
-    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-10 cursor-pointer group bg-gradient-to-r from-white/10 to-transparent hover:from-white/40 hover:to-transparent focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-start w-10 h-10  group-focus:outline-none">
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-2 cursor-pointer group  focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-radial from-white/30 to-transparent hover:from-white/90 hover:to-transparent    group-focus:outline-none">
             <svg class="w-4 h-4 text-white  rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                 <path stroke="gray"  stroke-width="2" d="M5 1 1 5l4 4"/>
             </svg>
             <span class="sr-only">Previous</span>
         </span>
     </button>
-    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-10 cursor-pointer group bg-gradient-to-l from-white/10 to-transparent hover:from-white/40 hover:to-transparent focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-end w-10 h-10   group-focus:outline-none">
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-2 cursor-pointer group  focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-radial from-white/30 to-transparent hover:from-white/90 hover:to-transparent    group-focus:outline-none">
             <svg class="w-4 h-4 text-white  rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                 <path stroke="gray"  stroke-width="2" d="m1 9 4-4-4-4"/>
             </svg>

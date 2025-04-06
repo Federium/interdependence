@@ -16,7 +16,7 @@ const projects = defineCollection({
         new URL(val);  // Verifica se è un URL valido
         return val;  // Se valido, restituisce il valore originale
       } catch {
-        return 'none';  // Se non è valido, restituisce 'none'
+        return '';  // Se non è valido, restituisce 'none'
       }
     }),
     school_website: z.string().transform((val) => {
@@ -24,7 +24,7 @@ const projects = defineCollection({
         new URL(val);  // Verifica se è un URL valido
         return val;  // Se valido, restituisce il valore originale
       } catch {
-        return 'none';  // Se non è valido, restituisce 'none'
+        return '';  // Se non è valido, restituisce 'none'
       }
     }),
     degree: z.string().optional(),
