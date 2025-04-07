@@ -10,6 +10,7 @@ import arrow from '/src/assets/icons/arrow-right-black.svg';
 import { getCollection } from "astro:content";
 import categoriesData from "../../assets/data/categories.json";
 
+import locations from "../../assets/data/location.json";
 const projects = await getCollection("projects");
 const categoriesMap = new Map(categoriesData.map(category => [category.id, category]));
 const categories = [...new Set(projects.map(project => project.data.category))];
@@ -25,8 +26,7 @@ const categories = [...new Set(projects.map(project => project.data.category))];
     <div class="text-container">
         
         <p class="txt-small">
-            At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.
-            <br/>The exhibition collects 90 projects and is animated by a palimpsest of initiatives.
+            {locations[0].description}
         </p>
     </div>
          

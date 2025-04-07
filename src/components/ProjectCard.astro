@@ -20,8 +20,10 @@ const images = await getCollection('images', (entry) =>
   entry.data.category === category && entry.data.id === projectId
 );
 
-const image = images.length > 0 ? images[0].data.images[0] : null;
-
+// const image = images.length > 0 ? images[0].data.images[0] : null;
+const image = images.length > 0
+  ? (images[0].data.images.find(img => img.src.includes("cover")) || images[0].data.images[0])
+  : null;
 const imageSrc = image?.src;
 ---
 

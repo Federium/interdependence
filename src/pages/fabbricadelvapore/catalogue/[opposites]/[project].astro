@@ -82,14 +82,15 @@ const getYouTubeEmbedUrl = (id) => {
             <div class="col-right" id="gallery-container">
 
            
-{
-  data.hasVideo === "youtube" || data.hasVideo ==="file"  ? (
-  <a id="video-toggle">
-              
-              <label>SEE VIDEO</label>
-            </a>
-) : null
-} 
+          {
+            data.hasVideo === "youtube" || data.hasVideo ==="file"  ? (
+            <div id="media-toggle">
+              <button id="photo-btn" class="active">PHOTO</button>
+              <button id="video-btn">VIDEO</button>
+            </div>
+
+          ) : null
+          } 
               
 
               {images.length > 0 && images[0].data.images && images[0].data.images.length > 0 && (
@@ -306,44 +307,47 @@ const getYouTubeEmbedUrl = (id) => {
     });
   });
 </script>
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const toggleLabel = document.querySelector("#video-toggle label");
-    const toggleButton = document.getElementById("video-toggle");
+    const photoBtn = document.getElementById("photo-btn");
+    const videoBtn = document.getElementById("video-btn");
     const photoGallery = document.getElementById("gallery");
     const video = document.getElementById("video");
 
-    const localVideo = video.querySelector("video"); // se c'è un <video> locale
-    const ytIframe = video.querySelector("iframe"); // se c'è un iframe YouTube
+    const localVideo = video.querySelector("video");
+    const ytIframe = video.querySelector("iframe");
     let ytPlayer = null;
 
-    let isVideoVisible = false;
+    function showPhotos() {
+      photoGallery.style.display = "block";
+      video.style.display = "none";
+      photoBtn.classList.add("active");
+      videoBtn.classList.remove("active");
 
-    toggleButton.addEventListener("click", function () {
-      isVideoVisible = !isVideoVisible;
-
-      if (isVideoVisible) {
-        photoGallery.style.display = "none";
-        video.style.display = "block";
-        toggleLabel.textContent = "SEE PHOTOS";
-      } else {
-        video.style.display = "none";
-        photoGallery.style.display = "block";
-        toggleLabel.textContent = "SEE VIDEO";
-
-        // Ferma video locale
-        if (localVideo && !localVideo.paused) {
-          localVideo.pause();
-        }
-
-        // Ferma video YouTube
-        if (ytPlayer) {
-          ytPlayer.stopVideo(); // o pauseVideo() se vuoi riprendere da dove era
-        }
+      if (localVideo && !localVideo.paused) {
+        localVideo.pause();
       }
-    });
 
-    // Carica l'API YouTube se c'è un iframe
+      if (ytPlayer) {
+        ytPlayer.stopVideo();
+      }
+    }
+
+    function showVideo() {
+      photoGallery.style.display = "none";
+      video.style.display = "block";
+      videoBtn.classList.add("active");
+      photoBtn.classList.remove("active");
+    }
+
+    photoBtn.addEventListener("click", showPhotos);
+    videoBtn.addEventListener("click", showVideo);
+
+    // Inizialmente mostra le foto
+    showPhotos();
+
     if (ytIframe) {
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
@@ -351,17 +355,12 @@ const getYouTubeEmbedUrl = (id) => {
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
       window.onYouTubeIframeAPIReady = function () {
-        ytPlayer = new YT.Player(ytIframe, {
-          events: {
-            onReady: () => {
-              // console.log("YouTube Player pronto");
-            },
-          },
-        });
+        ytPlayer = new YT.Player(ytIframe);
       };
     }
   });
 </script>
+
 
 
 <style>
@@ -465,12 +464,12 @@ font-size: 1em !important%;  }
     }
   }
 
-  #video-toggle {
+  #media-toggle {
     width: 100%;
     text-align: right;
     padding-bottom: 0.5em;
-    label{
-         
+    button{
+         color:rgb(157, 157, 157);
          font-size: 1.2em;
          text-decoration: none;
          transition: all 0.5s ease;
@@ -478,6 +477,11 @@ font-size: 1em !important%;  }
          padding-left: 0.3em;
        
        }
+      button.active {
+        color: black
+      }
+
+    
   }
 
 
@@ -531,7 +535,7 @@ font-size: 1em !important%;  }
     .col-right {
     width: 100%;
   }
-  #video-toggle {
+  #media-toggle {
     width: 100%;
     text-align: center; }
   .titolo-sottotitolo-container {
@@ -539,6 +543,17 @@ font-size: 1em !important%;  }
     margin-bottom: 2em;
   }
   }
-
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .col-right {
+      width: 100%;
+    }
+    #media-toggle {
+      width: 100%;
+      text-align: center; }
+    .titolo-sottotitolo-container {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+  }
 
 </style>

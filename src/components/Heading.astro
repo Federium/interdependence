@@ -10,14 +10,17 @@ export interface Props {
   zIndex?: boolean;
   relative? : boolean;
   catalogue?: boolean;
+  aboutbg?: boolean;
+  creditsbg?: boolean;
+
 }
 
-const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false, id="", zIndex = false, relative=false, catalogue=false } = Astro.props as Props;
+const { title, subtitle, description, background=false, mobile=true, backgroundMobile=false, id="", zIndex = false, relative=false, catalogue=false, aboutbg=false, creditsbg=false } = Astro.props as Props;
 ---
 
 {
 background && mobile && <>
-<div class={`animated-background ${backgroundMobile ? '' : 'nascondi'} ${zIndex ? 'zIndex' : ''}`} id={"back-"+id}>
+<div class={`animated-background ${backgroundMobile ? '' : 'nascondi'} ${zIndex ? 'zIndex' : ''}  ${aboutbg ? 'about' : ''} ${creditsbg ? 'credits' : ''}`} id={"back-"+id}>
     <div id="p5-canvas"></div>
     <div class="header-gradient"></div>
 </div>
@@ -115,22 +118,48 @@ left: max(
         #back-header-mobile-2.animated-background
         {
             height: 22vh;
-        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.108) 80%, transparent 100%);
+        mask-image: linear-gradient(to bottom,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.108) 80%, transparent 100%);
+        
         z-index: 0 !important;
         pointer-events: none;
     }
 
     .header-gradient {
         z-index: 0 !important;
-        background: linear-gradient(to top, white 90%,  rgba(255, 255, 255, 0.8) 100%);
+        background: linear-gradient(to top, white 90%,  rgba(255, 255, 255, 0.043) 100%);
         height: 100vh;
 
 
     }
+
+    .about {
+        z-index: 0 !important;
+        mix-blend-mode: difference;
+        height: 50vh;
     }
 
-    
+    .about #p5-canvas {
+        height: 100vh;
+        mix-blend-mode: difference;
+        -webkit-mask-image: linear-gradient(to left,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.366) 25%, transparent 50%);
+        mask-image: linear-gradient(to left,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.366) 25%, transparent 50%);
+
+    }
+
+    .credits #p5-canvas {
+      
+        -webkit-mask-image: linear-gradient(to top,rgba(0, 0, 0, 0.366) 0%, rgba(0, 0, 0, 0.366) 25%, transparent 50%);
+        mask-image: linear-gradient(to top,rgba(0, 0, 0, 0.366) 0%, rgba(0, 0, 0, 0.366) 5%, transparent 50%);
+
+    }
+
+    .about .header-gradient {
+        display: none;
+        
+    }
+
+}
 
 
     @media (max-width: 768px) {
@@ -169,14 +198,35 @@ left: max(
 
 
 
-{background && <>
-<script>
-    import p5 from 'p5'
-    import { mySketch } from '../scripts/sketch.js'
+
+
+
+{background && !aboutbg &&<>
+    <script>
+        import p5 from 'p5'
+        import { mySketch } from '../scripts/sketch.js'
+        console.log(' about"');
     
-    console.log('"=^.^="');
-    new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'));
-</script>
+        
+        new p5(mySketch(window.innerWidth,window.innerHeight), document.getElementById('p5-canvas'));
+    </script>
+    
+    
+    
+    </>}
 
-</>}
+{background && aboutbg &&<>
+    <script>
+        import p5 from 'p5'
+        import { mySketch } from '../scripts/sketch.js'
+        console.log('non about"');
+    
+        
+        new p5(mySketch(window.innerWidth,0.35*window.innerHeight), document.getElementById('p5-canvas'));
+    </script>
+    
+    
+    
+    </>}
 
+    

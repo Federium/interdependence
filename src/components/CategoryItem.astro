@@ -13,20 +13,21 @@ const { category, isHeading="false" } = Astro.props as Props;
 
 <div class="category-container">
   {!isHeading ? (
+            <Image src={arrow} alt="Freccia a destra" />
+
     <a class="category-subcontainer" href={`/fabbricadelvapore/catalogue/${category.slug}`}>
       <span>
-        <Image src={arrow} alt="Freccia a destra" />
-        {category.opposite1} /
+        {category.opposite1} /&#160;
       </span>
       <span class="opposite2">
-        &#160;{category.opposite2}
+      {category.opposite2}
       </span>
     </a>
   ) : (
     <a class="category-subcontainer isHeading" href="/fabbricadelvapore/catalogue">
       <span>
         <Image src={arrow} alt="Freccia a destra" />
-        {category.opposite1} /
+        {category.opposite1} /&#160;
       </span>
       <span class="opposite2">
         &#160;{category.opposite2}
@@ -103,6 +104,12 @@ const { category, isHeading="false" } = Astro.props as Props;
   @media (max-width:768px) {
     .category-container span {
     font-size: 1.6em;
+  }
+
+  .category-subcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
   }
 </style>

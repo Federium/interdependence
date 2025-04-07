@@ -10,18 +10,18 @@ const { gallery } = Astro.props;
 
 <div id="gallery" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-100 overflow-hidden md:h-100">
+    <div class="relative h-100 overflow-hidden">
         
         {gallery.map((image,index) => (
-             <div   id={`carousel-item-${index}`} class="hidden duration-700 ease-in-out" data-carousel-item data-index={index}>
+             <a   id={`carousel-item-${index}`} class="hidden duration-700 ease-in-out" data-carousel-item data-index={index}>
 
              <Image 
             src={image} 
             alt=""
-            class="w-96 h-full md:w-full md:object-contain object-cover"
+            class=" h-full w-full object-contain"
             
             />
-            </div>
+            </a>
         
           ))}
     </div>
