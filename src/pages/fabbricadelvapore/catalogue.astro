@@ -60,21 +60,20 @@ const categories = [...new Set(projects.map(project => project.data.category))];
                 </div>
             )
         })} -->
-      <style>
-        .categories-container {
-          margin-top: 20px;
-          margin-bottom: 20px;
-        }
-      </style>
+        <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex>
+        </Heading>
     </div>
     </div>
 
-    <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2">
-    </Heading>
+   
 
 </Contenuto>
 
 <style>
+        .categories-container {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
     .text-container {
         max-width: 1200px;
         padding-top: 15vh;
@@ -98,7 +97,7 @@ const categories = [...new Set(projects.map(project => project.data.category))];
 
     @media (max-width: 768px) {
         .text-container {
-        padding-top: 15vh;
+        padding-top: 22vh;
     }
 
        

@@ -10,9 +10,12 @@ export interface Props {
   title?: string;
   active?: string;
   subsectionActive?: number;
-  headerBg?:boolean}
+  headerBg?:boolean;
+  hideHeaderWhileScrollingMobile?: boolean
+};
 
-const { subsection = false, title = 'interdependence – exploring opposites', active="0", subsectionActive = 0, headerBg=false  } = Astro.props as Props;
+
+const { subsection = false, title = 'interdependence – exploring opposites', active="0", subsectionActive = 0, headerBg=false, hideHeaderWhileScrollingMobile=true  } = Astro.props as Props;
 
 ---
 
@@ -37,7 +40,7 @@ const { subsection = false, title = 'interdependence – exploring opposites', a
   <div class="content-wrapper">
     <slot />
     <Footer></Footer>
-    <Header subsection={subsection} active={active} subsectionActive={subsectionActive} background={headerBg}></Header>
+    <Header subsection={subsection} active={active} subsectionActive={subsectionActive} background={headerBg} hideHeaderWhileScrollingMobile={hideHeaderWhileScrollingMobile}></Header>
   </div>
   <Cursor></Cursor>
 

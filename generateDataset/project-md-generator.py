@@ -28,12 +28,13 @@ import pandas as pd
 # 📂 Percorso del file CSV e della cartella di output
 CSV_FILE = "projects.csv"
 OUTPUT_DIR = "/Users/filippo/Documents/GitHub/interdependence/src/projects"
+# OUTPUT_DIR = "src/projects"
 
 # 📁 Crea la cartella di output se non esiste
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 📖 Legge il CSV
-df = pd.read_csv(CSV_FILE, delimiter=";", encoding="utf-8", quoting=3, on_bad_lines="skip")
+df = pd.read_csv(CSV_FILE, delimiter=";", encoding="utf-8", quoting=0, on_bad_lines="skip",escapechar='\\')
 
 # 🔄 Converte ogni riga in un file .md
 for _, row in df.iterrows():

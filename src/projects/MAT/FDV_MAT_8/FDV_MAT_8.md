@@ -16,4 +16,4 @@ hasVideo: "false"
 videoLink: ""
 ---
 
-"Shoes are more than material possessions: they shape our identity and movement through the world. Sole and Soul investigates the duality of the material and the spiritual in footwear utilizing Kyushu’s regional materials and Vibram’s advanced technology. Guided by a Design Narratives Worldmaking (DNW) approach, the project explores how shoes can go beyond function to embody cultural narratives, values, and the interplay between physical craftsmanship and deeper meaning."
+Shoes are more than material possessions&#59; they shape our identity and movement through the world. Sole and Soul investigates the duality of the material and the spiritual in footwear utilizing Kyushu’s regional materials and Vibram’s advanced technology. Guided by a Design Narratives Worldmaking (DNW) approach, the project explores how shoes can go beyond function to embody cultural narratives, values, and the interplay between physical craftsmanship and deeper meaning.
