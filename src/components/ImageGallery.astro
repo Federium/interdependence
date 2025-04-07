@@ -8,7 +8,7 @@ const { gallery } = Astro.props;
 ---
   
 
-<div id="gallery" class="relative w-full" data-carousel="slide">
+<div id="gallery" class="relative w-full bg-white z-25" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-100 overflow-hidden">
         
@@ -26,6 +26,8 @@ const { gallery } = Astro.props;
           ))}
     </div>
     <!-- Slider controls -->
+    {gallery.length > 1 && (
+  <>
     <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-2 cursor-pointer group  focus:outline-none" data-carousel-prev>
         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-radial from-white/30 to-transparent hover:from-white/90 hover:to-transparent    group-focus:outline-none">
             <svg class="w-4 h-4 text-white  rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -42,6 +44,8 @@ const { gallery } = Astro.props;
             <span class="sr-only">Next</span>
         </span>
     </button>
+    </>
+)}
 </div>
 
 <!-- Modal --></div>

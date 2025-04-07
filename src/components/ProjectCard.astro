@@ -21,10 +21,13 @@ const images = await getCollection('images', (entry) =>
 );
 
 // const image = images.length > 0 ? images[0].data.images[0] : null;
+console.log(images[0].data.images);
 const image = images.length > 0
   ? (images[0].data.images.find(img => img.src.includes("cover")) || images[0].data.images[0])
   : null;
 const imageSrc = image?.src;
+console.log(imageSrc);
+
 ---
 
 
