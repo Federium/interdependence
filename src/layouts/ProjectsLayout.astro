@@ -8,12 +8,17 @@ export interface Props {
 }
 
 const { category, isSingleProject="false" } = Astro.props as Props;
----
+// import { ClientRouter } from "astro:transitions";
 
-<div class="projects-layout">
-  <CategoryItem category={category} isHeading={true} />
-  <p class="col-8 description main-description">{category.description}</p>
-  <p class="col-8 description txt-small">{category.descriptionExtra}</p>
+---
+<head>
+  <!-- <ClientRouter /> -->
+
+</head>
+<div class="projects-layout" >
+  <CategoryItem category={category} isHeading={true}transition:persist  />
+  <p class="col-8 description main-description" transition:persist>{category.description}</p>
+  <p class="col-8 description txt-small" transition:persist>{category.descriptionExtra}</p>
   <hr>
   <slot />
 </div>
