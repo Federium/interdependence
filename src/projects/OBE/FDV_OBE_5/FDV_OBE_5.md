@@ -9,7 +9,7 @@ degree: "BSc Communication Design"
 course: "Final Synthesis Design Studio - Sect. 1"
 ay: "2023/2024"
 team: ["Caterina di Noia", "Luna Macelloni", "Martina Stucchi", "Mauro Van Reusel", "Giada Vercesi", "Alexandra Zotica"]
-faculty: ["Francesco Guida", "Pietro Buffa", "Alessandro Masserdotti", "Giacomo Scandolare"]
+faculty: ["Francesco Guida", "Pietro Buffa", "Alessandro Masserdotti", "Giacomo Scandolara"]
 school: "Politecnico di Milano, School of Design, Milan, Italy"
 school_website: "www.designdellacomunicazione.polimi.it"
 hasVideo: "youtube"

@@ -3,6 +3,7 @@ import '../style/global.css';
 import Cursor from '../components/Cursor.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Cookie from '../components/Cookie.astro';
 // import { ClientRouter } from "astro:transitions";
 
 export interface Props {
@@ -15,7 +16,7 @@ export interface Props {
 };
 
 
-const { subsection = false, title = 'interdependence – exploring opposites', active="0", subsectionActive = 0, headerBg=false, hideHeaderWhileScrollingMobile=true  } = Astro.props as Props;
+const { subsection = false, title = 'interdependence – exploring opposites', active = "0", subsectionActive = 0, headerBg=false, hideHeaderWhileScrollingMobile=true  } = Astro.props as Props;
 
 ---
 
@@ -36,7 +37,7 @@ const { subsection = false, title = 'interdependence – exploring opposites', a
   
   </head>
 <body>
-
+<Cookie></Cookie>
   <div class="content-wrapper">
     <slot />
     <Footer></Footer>

@@ -47,14 +47,14 @@ const getYouTubeEmbedUrl = (id) => {
 
 }
 
-
+const backpage = category.slug;
 
 ---
 
 
 
 
-<Contenuto name={data.title} subsection={true}, subsectionActive={1} darkbg={"high"}>
+<Contenuto name={data.title} subsection={true} active={"3"} subsectionActive={1} darkbg={"high"}>
   
   <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false} >
   </Heading>
@@ -67,7 +67,7 @@ const getYouTubeEmbedUrl = (id) => {
             <!-- Modal toggle -->
 
 
-            <a href="javascript:history.back()" class="close-button">
+            <a href="../" class="close-button"> <!-- javascript:history.back() -->
               <div class="icon">
                 <Image src = {close} alt="Close"></Image>
               </div>
@@ -106,7 +106,7 @@ const getYouTubeEmbedUrl = (id) => {
               <iframe type="text/html"
               width="100%"
               height="400"
-              src={ "https://www.youtube-nocookie.com/embed/"+data.videoLink+"?rel=0&modestbranding=1`"}
+              data-src={ "https://www.youtube-nocookie.com/embed/"+data.videoLink+"?rel=0&modestbranding=1`"}
               frameborder="0"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -369,8 +369,11 @@ const getYouTubeEmbedUrl = (id) => {
   }
 
   #schoolLink {
-    text-decoration: underline solid rgb(0, 0, 0) 1px;
-    text-underline-offset: 5px
+        text-decoration-line: underline;
+    text-decoration-color: black;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+        text-underline-offset: 5px
   }
   .fixed.inset-0.z-40 {
     z-index: 1000 !important;
