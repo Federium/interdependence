@@ -1,0 +1,562 @@
+---
+import { getCollection } from 'astro:content';
+import categories from '../../../../assets/data/categories.json';
+import Contenuto from '../../../../layouts/Contenuto.astro';
+import Heading from '../../../../components/Heading.astro';
+import ProjectsLayout from '../../../../layouts/ProjectsLayout.astro';
+import ImageGallery from '../../../../components/ImageGallery.astro'; // Importa il componente React
+import Modal from '../../../../components/Modal.astro'; // Importa il componente React
+import ButtonSmall from '../../../../components/ButtonSmall.astro';
+// 1. Generiamo correttamente i percorsi con entrambi i parametri
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map(project => {
+    const categoryInfo = categories.find(cat => cat.id === project.data.category);
+    if (!categoryInfo) throw new Error(`Categoria non trovata per ID: ${project.data.category}`);
+    
+    return {
+      params: { 
+        opposites: categoryInfo.slug,
+        project: project.data.slug 
+      },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+
+const { data } = project;
+
+const category = categories.find(cat => cat.id === data.category);
+if (!category) {
+  throw new Error(`Categoria non trovata per ID: ${data.category}`);
+} 
+
+
+import { Image } from 'astro:assets';
+import close from "../../../../assets/icons/close.svg"
+
+const images = await getCollection('images', (entry) => 
+  entry.data.category === data.category && entry.data.id === data.id
+);
+
+const getYouTubeEmbedUrl = (id) => {
+  `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&rel=0&modestbranding=1`;
+
+}
+
+const backpage = category.slug;
+
+---
+
+
+
+
+<Contenuto name={data.title} subsection={true} active={"3"} subsectionActive={1} darkbg={"high"}>
+  
+  <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false} >
+  </Heading>
+
+  <ProjectsLayout category={category} isSingleProject = {true}>
+    <div class="project-container">
+      
+      <div class="project-row">
+          <div class="col-4" id="nome-progetto">
+            <!-- Modal toggle -->
+
+
+            <a href="../" class="close-button"> <!-- javascript:history.back() -->
+              <div class="icon">
+                <Image src = {close} alt="Close"></Image>
+              </div>
+              <label>CLOSE</label>
+            </a>
+            <div class="titolo-sottotitolo-container">
+              <h2 class="gradient-text">{data.title}</h2>
+              <h3 class="gradient-text light">{data.subtitle}</h3>
+            </div>
+          
+          </div>
+            <div class="col-right" id="gallery-container">
+
+           
+          {
+            data.hasVideo === "youtube" || data.hasVideo ==="file"  ? (
+            <div id="media-toggle">
+              <button id="photo-btn" class="active">PHOTO</button>
+              <button id="video-btn">VIDEO</button>
+            </div>
+
+          ) : null
+          } 
+              
+
+              {images.length > 0 && images[0].data.images && images[0].data.images.length > 0 && (
+                <ImageGallery gallery={images[0].data.images} id="photogallery" />
+              )}
+  
+
+               
+
+                {                  
+                data.hasVideo === "youtube" ? (
+                  
+              <iframe type="text/html"
+              width="100%"
+              height="400"
+              data-src={ "https://www.youtube-nocookie.com/embed/"+data.videoLink+"?rel=0&modestbranding=1`"}
+              frameborder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              id="video"
+              ></iframe>
+
+
+              ) : data.hasVideo === "file" ? (
+              // <ButtonSmall href={data.videoLink} label="PROJECT VIDEO" target="_blank"></ButtonSmall>
+              <video width="100%" height="400" controls id="video">
+              <source src={"/assets/project-videos/FDV_"+data.category+"_"+data.id+".mp4"} type="video/mp4" />
+              Il tuo browser non supporta il tag video.
+              </video>
+
+              ) : null}
+
+            </div>
+
+      </div>
+      <div class="project-row">
+        <div class="col-4">
+            <div class="info-container">
+              <h4 class="txt-small" >TEAM</h4>
+              {data.team && data.team.map((member) => (
+                <p class="txt-small em">{member}</p>
+              ))}
+            </div>
+
+            <div class="info-container">
+              <h4>CONTEXT</h4>
+              <p class="txt-small em">{data.degree}</p>
+              <p class="txt-small em">{data.course}</p>
+              <p class="txt-small em">{data.ay}</p>
+
+            </div>
+
+            <div class="info-container">
+              <h4>PROFESSORS</h4>
+              {data.faculty && data.faculty.map((prof) => (
+                <p class="txt-small em">{prof}</p>
+              ))}
+            </div>
+
+            <div class="info-container">
+              <p class="txt-small em">
+                {data.school_website ? (
+                  <a id="schoolLink" href={data.school_website} target="_blank" rel="noopener noreferrer">{data.school}</a>
+                ) : (
+                  data.school
+                )}
+              </p>            </div>
+        </div>
+        <div class="col-right" id="descrizione">
+            <p class="txt-small" set:html={project.body}></p>
+            {data.project_website ? (
+              <ButtonSmall href={data.project_website} label="PROJECT WEBSITE" target="_blank"></ButtonSmall>
+            ) : (
+              <></>
+            )}
+
+          
+        </div>
+        
+      </div>
+
+    </div>
+
+  
+    
+
+  </ProjectsLayout>
+      <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex>
+    </Heading>
+
+  {images.length > 0 && images[0].data.images && images[0].data.images.length > 0 && (
+<Modal gallery={images[0].data.images}></Modal>
+  )}
+  
+</Contenuto>
+
+<script>
+  
+  // Importare il modulo Carousel di Flowbite
+  import { Carousel } from 'flowbite';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // Riferimenti agli elementi
+    const modal = document.getElementById('gallery-full');
+    const closeModalBtn = document.getElementById('close-modal');
+    const galleryElement = document.getElementById('gallery');
+    
+    // Inizializzazione del carousel principale
+    // Prepara gli elementi del carousel principale
+    const mainItems = [];
+    document.querySelectorAll('#gallery [data-carousel-item]').forEach((item, index) => {
+      mainItems.push({
+        position: index,
+        el: item
+      });
+    });
+    
+    // Opzioni per il carousel principale
+    const mainOptions = {
+      defaultPosition: 0,
+      interval: 3000,
+      onNext: () => {
+        console.log('Prossima slide nella galleria principale');
+      },
+      onPrev: () => {
+        console.log('Slide precedente nella galleria principale');
+      },
+      onChange: () => {
+        console.log('Slide cambiata nella galleria principale');
+      }
+    };
+    
+    // Crea una nuova istanza del carousel principale
+    const mainCarousel = new Carousel(galleryElement, mainItems, mainOptions);
+    
+    // Variabile per il carousel del modal
+    let modalCarousel = null;
+    
+    // Funzione per mostrare/nascondere il modal e gestire il carousel
+    const toggleModal = (index = 0) => {
+      modal.classList.toggle('hidden');
+      
+      if (modal.classList.contains('hidden')) {
+        document.body.style.overflow = ''; // Riabilita lo scorrimento
+      } else {
+        document.body.style.overflow = 'hidden'; // Disabilita lo scorrimento quando il modal è aperto
+        
+        // Inizializza il carousel del modal se non è già stato fatto
+        if (!modalCarousel) {
+          const modalCarouselElement = document.getElementById('gallery-full');
+          
+          // Prepara gli elementi del carousel del modal
+          const modalItems = [];
+          document.querySelectorAll('.modal-carousel-item').forEach((item, index) => {
+            modalItems.push({
+              position: index,
+              el: item
+            });
+          });
+
+          console.log(modalItems);
+          
+          // Opzioni per il carousel del modal
+          const modalOptions = {
+            defaultPosition: 0,
+            interval: 3000,
+            onNext: () => {
+              console.log('Prossima slide nel modal');
+            },
+            onPrev: () => {
+              console.log('Slide precedente nel modal');
+            },
+            onChange: () => {
+              console.log('Slide cambiata nel modal');
+            }
+          };
+          
+          // Crea una nuova istanza del carousel del modal
+          modalCarousel = new Carousel(modalCarouselElement, modalItems, modalOptions);
+        }
+        console.log(modalCarousel);
+        
+        // Vai alla slide selezionata usando slideTo
+        modalCarousel.slideTo(index);
+      }
+    };
+    
+    // Apri il modal quando fai clic sulle immagini della galleria
+    galleryElement.addEventListener('click', (e) => {
+      const clickedItem = e.target.closest('[data-carousel-item]');
+      if (clickedItem) {
+        const index = parseInt(clickedItem.getAttribute('data-index'));
+        toggleModal(index);
+      }
+    });
+    
+    // Chiudi il modal quando fai clic sul pulsante di chiusura
+    closeModalBtn.addEventListener('click', () => {
+      toggleModal();
+    });
+    
+    // Chiudi il modal quando fai clic all'esterno del carousel
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        toggleModal();
+      }
+    });
+    
+    // Chiudi il modal con il tasto Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        toggleModal();
+      }
+    });
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const photoBtn = document.getElementById("photo-btn");
+    const videoBtn = document.getElementById("video-btn");
+    const photoGallery = document.getElementById("gallery");
+    const video = document.getElementById("video");
+
+    const localVideo = video.querySelector("video");
+    const ytIframe = video.querySelector("iframe");
+    let ytPlayer = null;
+
+    function showPhotos() {
+      photoGallery.style.display = "block";
+      video.style.display = "none";
+      photoBtn.classList.add("active");
+      videoBtn.classList.remove("active");
+
+      if (localVideo && !localVideo.paused) {
+        localVideo.pause();
+      }
+
+      if (ytPlayer) {
+        ytPlayer.stopVideo();
+      }
+    }
+
+    function showVideo() {
+      photoGallery.style.display = "none";
+      video.style.display = "block";
+      videoBtn.classList.add("active");
+      photoBtn.classList.remove("active");
+    }
+
+    photoBtn.addEventListener("click", showPhotos);
+    videoBtn.addEventListener("click", showVideo);
+
+    // Inizialmente mostra le foto
+    showPhotos();
+
+    if (ytIframe) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = function () {
+        ytPlayer = new YT.Player(ytIframe);
+      };
+    }
+  });
+</script>
+
+
+
+<style>
+  * {
+    z-index: 0;
+  }
+
+  #schoolLink {
+        text-decoration-line: underline;
+    text-decoration-color: black;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+        text-underline-offset: 5px
+  }
+  .fixed.inset-0.z-40 {
+    z-index: 1000 !important;
+  }
+  h1,p,h4 {
+    color: rgb(0, 0, 0);
+
+
+  }
+
+  #descrizione {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #descrizione label {
+font-size: 1em !important%;  }
+
+  .project-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap:2em;
+    margin-top: 1.5em;
+  
+  }
+
+  .project-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 400px;
+
+  }
+
+  .col-right {
+    width: 60%;
+    display: flex;
+  }
+
+  #nome-progetto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    h3 {
+      padding-bottom: 0;
+      margin-top: 0em;
+      padding-top: 0.3em;
+    }
+
+    .close-button {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      label {
+        font-size: 1.2em;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        padding-left: 0.3em;
+        padding-left: 0.3em;
+
+      }
+
+   
+
+      .icon {
+        display: flex;
+        align-items: center;
+
+        opacity: 30;
+        transition: all 0.5s ease;
+      }
+
+      &:hover img {
+        opacity: 100;
+      }
+
+      &:hover label{
+        padding-left: 1em;
+
+      }
+    }
+  }
+
+  #media-toggle {
+    width: 100%;
+    text-align: right;
+    padding-bottom: 0.5em;
+    button{
+         color:rgb(157, 157, 157);
+         font-size: 1.2em;
+         text-decoration: none;
+         transition: all 0.5s ease;
+         padding-left: 0.3em;
+         padding-left: 0.3em;
+       
+       }
+      button.active {
+        color: black
+      }
+
+    
+  }
+
+
+  .img-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    gap: 1em;
+    min-height: 400px;
+
+    img {
+      height: 100%;
+    }
+
+
+  }
+
+  .info-container {
+    margin-bottom: 1.5em;
+    h4 {
+      font-size: 1em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .em {
+    font-size: 1em;
+  }
+
+    #video {
+      display: none;
+      height: 100$;
+    }
+
+    #video-toggle {
+      display: block;
+    }
+
+    #gallery-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  @media (max-width:768px) {
+    .col-right {
+    width: 100%;
+  }
+  #media-toggle {
+    width: 100%;
+    text-align: center; }
+  .titolo-sottotitolo-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .col-right {
+      width: 100%;
+    }
+    #media-toggle {
+      width: 100%;
+      text-align: center; }
+    .titolo-sottotitolo-container {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+  }
+
+</style>

@@ -1,0 +1,125 @@
+body{
+    color: black;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: underline;
+}
+
+.spacer-piccolo-testi{
+    height: 1vh;
+}
+
+
+ /* DESKTOP */
+@media (min-width: 744px) {
+
+    .titoli{
+        position: relative;
+        /* left: 50%;  */
+        margin: auto;
+        margin-top: 2vh;
+        /* width: 100%; */
+        font-family: "Milligram Bold";
+        font-size: 2.7rem;
+        text-align: center;
+        color:white;
+        mix-blend-mode: difference;
+      }
+
+#credits-container {
+    width: 96vw;
+    position: relative;
+    display: flex;
+    color: black;
+    text-align: left;
+    font-family: "Milligram Text";
+    font-size: 1.1rem;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    padding: 0;
+}
+
+
+
+.partnerLogos{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-top: 2vh;
+    height: 20vh;
+    width: auto;
+    
+    align-items: center;
+  }
+
+  .partnerLogos img{
+    height: 100%;
+    width: auto;
+    mix-blend-mode: difference;
+  }
+
+  #col-1, #col-2, #col-3, #col-4 {
+    width: 100%;
+    margin-left: 1vw;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 743px) {
+
+    #credits-container {
+        width: 92vw;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        color: black;
+        text-align: left;
+        font-family: "Milligram Text";
+        font-size: 1.1rem;
+        margin-left: 4vw;
+        margin-right: 4vw;
+        padding: 0;
+    }
+
+    .titoli{
+        position: relative;
+        margin: auto;
+        width: 50%;
+        margin: 8vh 10vw 0vh 10vw;
+        text-align: center;
+        width: auto;
+        font-family: "Milligram Bold";
+        font-size: 2.7rem;
+        color:white;
+        mix-blend-mode: difference;
+      }
+
+  .partnerLogos{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 2vh;
+    height: 10vh;
+    width: auto;
+    mix-blend-mode: difference;
+    align-items: center;
+  }
+
+  .partnerLogos img{
+    height: 90%;
+    width: auto;
+    mix-blend-mode: difference;
+  }
+
+  #col-1, #col-2, #col-3, #col-4 {
+    width: 100%;
+    margin-left: 1vw;
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "faculty": [
+    {
+      "section": "Professors",
+      "people": [
+        "Francesco E. Guida",
+        "Pietro Buffa di Castelalto",
+        "Alessandro Masserdotti",
+        "Giacomo Scandolara"
+      ]
+    },
+    {
+      "section": "Teaching Assistants",
+      "people": [
+        "Marcello J. Biffi",
+        "Davide Bruno",
+        "Martina Esposito",
+        "Pietro Forino",
+        "Antonio Garosi",
+        "Enrico Isidori",
+        "Adele Mazzali",
+        "Claudia Tranti"
+      ]
+    }
+  ],
+  "exhibition": [
+    {
+      "section": "Exhibition Curated by",
+      "people": [
+        "Enrico Isidori",
+        "Martina Esposito",
+        "Claudia Tranti"
+      ]
+    },
+    {
+      "section": "Technical Support",
+      "people": [
+        "Davide Bruno",
+        "Pietro Forino"
+      ]
+    },
+    {
+      "section": "Exhibition setup",
+      "people": [
+        "Simona Invitti",
+        "Elisa Paganoni"
+      ]
+    }
+  ],
+  "students": [
+    {
+      "section": "A.Y. 2022-2023",
+      "people": [
+        "Guglielmo Basile",
+        "Ginevra Bernasconi",
+        "Giulia Bonalumi",
+        "Francesco Bonetti",
+        "Andrea Borsato",
+        "Camilla Brusadin",
+        "Matteo Dell'Agostino",
+        "Jacopo Domenichini",
+        "Martina Esposito",
+        "Federico Gajo",
+        "Emiliano Garibaldi",
+        "Enrico Isidori",
+        "Arianna Marenghi",
+        "Chiara Mazzeo",
+        "Marta Piatti",
+        "Cecilia Pizzagalli",
+        "Chiara Provana",
+        "Anita Maria Ruggiu",
+        "Agostino Sanna",
+        "Marco Ernesto Taino",
+        "Camilla Tosi",
+        "Ilaria Urgesi",
+        "Andrea Francesco Vitali",
+        "Davide Vitrano"
+      ]
+    },
+    {
+      "section": "A.Y. 2023-2024",
+      "people": [
+        "Arianna Albertini",
+        "Fabio Ammassari",
+        "Chiara Branca",
+        "Elisa Bruschi",
+        "Sonia Cattaneo",
+        "Sara Chini",
+        "Alice Conti",
+        "Benedetta Crociani",
+        "Matilde Davoli",
+        "Caterina di Noia",
+        "Giulia Giannetti",
+        "Marialisa Giavitto",
+        "Simona Invitti",
+        "Letizia Luraghi",
+        "Luna Macelloni",
+        "Alessandro Noè",
+        "Elisa Paganoni",
+        "Matilde Senra",
+        "Martina Stucchi",
+        "Rachele Tarateo",
+        "Mauro Van Reusel",
+        "Giada Vercesi",
+        "Eleonora Versitano",
+        "Alexandra Zotica"
+      ]
+    }
+  ]
+}

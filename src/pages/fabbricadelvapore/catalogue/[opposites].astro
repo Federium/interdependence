@@ -1,0 +1,93 @@
+---
+
+import Contenuto from "../../../layouts/Contenuto.astro";
+import Heading from "../../../components/Heading.astro";
+import ProjectsLayout from "../../../layouts/ProjectsLayout.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+
+import { getCollection } from 'astro:content';
+import categories from '../../../assets/data/categories.json'; 
+import Project from "./[opposites]/[project].astro";
+import { promise } from "astro:schema";
+
+// Funzione per generare i percorsi statici per ogni categoria a partire dallo slug
+export async function getStaticPaths() { 
+  return categories.map(category => ({
+    params: { opposites: category.slug },
+    props: { category },
+  }));
+}
+
+const { opposites } = Astro.params; // prende lo slug dalla URL
+
+const category = categories.find(cat => cat.slug === opposites);
+
+if (!category) {
+  throw new Error(`Categoria non trovata per slug: ${opposites}`);
+}
+
+// Prendiamo tutti i progetti che appartengono a questa categoria
+const projects = await getCollection('projects', (entry) => entry.data.category === category.id);
+
+---
+
+ <Contenuto name="Catalogue" subsection={true} active={"3"} subsectionActive={1}>
+  <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false}>
+  </Heading>
+
+  
+  <ProjectsLayout category={category} isSingleProject = {false}>
+
+
+  <!-- <div class="projects-container"> 
+    {projects.map((project) => (
+      <ProjectCard 
+        id = {project.id}
+        projectId={project.data.id}
+        title={project.data.title}
+        folder={opposites}
+        slug={project.data.slug}
+        category={project.data.category}
+      />
+    ))}
+  </div> -->
+
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    {[0, 1, 2, 3].map((colIndex) => (
+      <div class="grid gap-4" key={colIndex}>
+        {projects
+          .filter((_, i) => i % 4 === colIndex) // prende solo i progetti di questa "colonna"
+          .map((project) => (
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              projectId={project.data.id}
+              title={project.data.title}
+              folder={opposites}
+              slug={project.data.slug}
+              category={project.data.category}
+            />
+          ))}
+      </div>
+    ))}
+  </div>
+  </ProjectsLayout>
+
+  <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex >
+  </Heading>
+
+
+
+  </div>
+  </div>
+
+</Contenuto>
+
+<style>
+  .projects-container {
+    display: flex;
+    gap:1em;
+    flex-wrap: wrap;
+  }
+</style>

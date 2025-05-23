@@ -1,0 +1,263 @@
+---
+import '../style/global.css';
+import Layout from './Layout.astro';
+import type { string } from 'astro:schema';
+import ButtonSmall from '../components/ButtonSmall.astro';
+import { Image } from 'astro:assets';
+
+import arrow from '../assets/icons/arrow-right-black.svg';
+
+
+export interface Props {
+    subsection?: boolean;
+    index: string;
+    place: string;
+    name?: string;
+    opening?: string;
+    location: string;
+    dates: string;
+    description: string;
+    locationUrl: string;
+    backgroundImg: string;
+    hours?: object;
+    subsectionActive?: number;
+}
+
+const {subsection = false, index, place, name, opening, location, dates, description, locationUrl, backgroundImg, hours, subsectionActive = 0 } = Astro.props as Props;
+const title = place + " – interdependence"; 
+const infos = [
+    opening && {
+        label: "OPENING",
+        txt: opening,
+        url:""
+    },
+    {
+        label: "LOCATION",
+        txt: location,
+        url: locationUrl
+    },
+    {
+        label: "DATES",
+        txt: dates,
+        url:""
+    }
+].filter(Boolean);
+---
+
+<Layout subsection = {subsection} title = {title} active = {index} subsectionActive = {subsectionActive} headerBg={false}>
+    <div class="background-image"></div>
+    <div class="content">
+        <div class="gradient-overlay">
+            <div class="text-container">
+                <h1 class="gradient-text">{name}</h1>
+                <h2 class="main-title">
+                    <div class="interdependence gradient-text right">interdependence </div>
+                    <div class="place"> @ {place}</div>
+                </h2>
+                <div class="info-container">
+                    {
+                        infos.map(info => (
+                            info.url ? (
+                                <a href={info.url} target="_blank" class="info-container-element linked">
+                                    <div class="info-label gradient-text light">{info.label}</div>
+                                    <div class="info-txt">{info.txt}</div>
+                                    <span><Image src={arrow} alt = "Freccia a destra"/></span>
+                                </a>
+                            ) : (
+                                <div class="info-container-element" id={"info-"+info.label}>
+                                    <div class="info-label gradient-text light">{info.label}</div>
+                                    <div class="info-txt">{info.txt}</div>
+                                </div>
+                            )
+                        ))
+                    }
+                       {hours && (
+                        <div class="info-container-element" id="hours">
+                    <div class="info-label gradient-text light"></div>
+                     
+                     <div class="info-txt">
+                          <table class="hours-table">
+                             <tbody>
+                              {hours.map(hour => (
+                                   <tr>
+                                     <td>{hour.day || hour.days}</td>
+                                     <td>{hour.time}</td>
+                                 </tr>
+                           ))}
+                             </tbody>
+                              </table>
+                         </div>
+                        </div>
+                            
+                     
+
+                    )}
+
+                 
+    
+                </div>
+
+            </div>
+        </div>
+        <div class="details">
+            <p class="txt-small">
+                {description}
+            </p>
+
+            <slot/>
+        </div>
+    </div>
+</Layout>
+
+<style define:vars={{"bg-img": `url('${backgroundImg}')`}}>
+    .background-image {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-img) center/cover no-repeat;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, black 10%, black 90%, rgba(0, 0, 0, 0.3));
+
+        }
+
+        .content {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        .gradient-overlay {
+            position: relative;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to top, white 5%, rgba(255, 255, 255, 0.884) 25%, transparent 90%);
+        }
+
+        .main-title {
+            display: flex;
+            flex-wrap: wrap;
+            h2 {
+                padding: 0;
+            }
+        }
+        .place {
+        }
+        .text-container {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            color: black;
+            font-size: 1.3rem;
+            padding: 20px 10%;
+
+        }
+        
+        .interdependence {
+            padding-right: 12px;
+            font-family: 'Milligram Macro';
+            color: var(--gradient);
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-container-element { 
+            display: flex;
+            padding: 10px 0;
+            &#info-DATES {
+                padding-bottom: 0;
+            }
+        }
+
+        .info-container-element#hours {
+            padding-top: 0;
+        }
+        .info-label {
+            width: 20%;
+            font-weight: bold;
+            color: var(--gradient);
+            padding-right: 10px;
+            min-width: 150px;
+            margin-bottom: 0.5em ;
+        }
+        .info-txt {
+            padding-right: 10px;
+        }
+        .details {
+            padding: 3em 10%;
+
+            padding-bottom: min(15rem, 18%);
+            background-color: white;
+        }
+
+        .details p {
+            max-width: 1024px;
+        }
+
+        span {
+        position: relative;
+        top:0em;
+        padding-left: 0;
+        transition: all 0.5s ease;
+    
+        }
+
+        .linked:hover span {
+            padding-left: 60px;
+        }
+
+        td {
+            padding-left: 0;
+            padding-right: 2em;
+            color: rgb(92, 92, 92);
+            border: 0;
+        }
+        table {
+            text-indent: 0;
+            border-spacing: 0;
+
+        }
+        
+        h1,h2 {margin:0}
+
+        .main-title {
+            margin-bottom: 1em;
+        }
+        @media(max-width:768px) {
+            .background-image {
+                height: 50%;
+                -webkit-mask-image: linear-gradient(to bottom,black 0%, transparent 100%);
+                mask-image: linear-gradient(to bottom, black 0%, transparent 100%) ; 
+            }
+
+            .info-container-element {
+                flex-direction: column;
+            }
+
+            .text-container {
+                font-size: 1.2rem;
+                padding: min(5rem,6%) 15px      
+
+
+            }
+            h1 {
+                font-size: 1.6em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            span {
+        position: relative;
+        left:-0.3em;
+
+    
+        }
+        .details{
+            padding: min(5rem,6%) 15px;
+
+        }
+        }
+
+</style>

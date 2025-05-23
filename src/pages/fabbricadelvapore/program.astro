@@ -1,0 +1,415 @@
+---
+import Contenuto from "../../layouts/Contenuto.astro";
+import Heading from "../../components/Heading.astro";
+import {Image} from 'astro:assets';
+import arrow from "../../assets/icons/arrow-right-black.svg";
+
+import programData from "../../assets/data/program.json";
+
+---
+
+<Contenuto name="Program" subsection={true}, active={"3"} subsectionActive={2}>
+    <div class="program-container">
+        <div class="col-4 days">
+            <Heading title="Program" subtitle="Fabbrica del Vapore" background={false} mobile={false} ></Heading>
+            <div class="day-selector">
+                {programData.days.map((dayData, index) => (
+                    <div class="day" id={`day-${dayData.index}`} key={dayData.index}>
+                        <h3>{dayData.day}</h3>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="col-8 events">
+
+            <div class="mask">
+                {programData.days.map((dayData) => (
+                    <div class="events-day" id={`events-day-${dayData.index}`} key={dayData.index}>
+                        <h2>{dayData.weekday}, {dayData.day} <hr  /></h2>
+                        {dayData.events.map((event) => {
+                            // Recuperiamo i dati dell'evento in base all'event-id
+                            const eventDetails = programData["metadata-events"][event["event-id"]];
+        
+                            return (
+                                <div class="event" key={event.time}>
+                                    <div class="event-date">
+                                        <span class="time">{event.time}</span>
+                                    </div>
+                                    <div class="event-title">
+                                        <h2>{eventDetails.title}</h2>
+                                    </div>
+                                    {eventDetails.subtitle && (
+                                        <div class="event-subtitle">
+                                        <h2>{eventDetails.subtitle}</h2>
+                                    </div>
+                                    )}
+                                    {eventDetails.people && (
+                                        <div class="event-name">
+                                            {eventDetails.people}
+                                        </div>
+                                    )}
+                                   
+                                    {eventDetails.description && (
+                                        <div class="event-description">
+                                             {eventDetails.note && (
+                                        <p class="event-note">
+                                            {eventDetails.note}
+                                        </p>
+                                    )}
+                                           <p class="main-description">{eventDetails.description}                                             </p> 
+
+                                           {eventDetails["extra-description"] && (
+                                                 
+                                                <p class="main-description extra-description" set:html={eventDetails["extra-description"]}></p>
+                                                
+                                            )}
+                                             {eventDetails["extra-description"] && (
+                                                 
+                                                 <br>
+                                      
+                                            <a class="toggle-extra-description">
+                                                    <span id="toggle-content">SHOW MORE</span>
+                                                    <Image id="arrow" src = {arrow} alt="show"></Image>
+
+                                                </a>
+                                           
+                                                 
+                                             )}
+                                            </div>
+
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                ))}
+            </div>
+         
+        </div>
+    </div>
+    <Heading title="Program" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} zIndex>
+
+    </Heading>
+
+</Contenuto>
+
+<style>
+    hr {
+        margin-top: 0.3em;
+        margin-bottom: 1em;
+    }
+    #arrow {
+        height: 1.2em;
+        position: relative;
+        
+        opacity: 0.7;
+        transform: rotate(90deg);
+        transition: all 0.5s ease;
+        display: inline;
+        &.rotate {
+            transform: rotate(-90deg);
+        }
+    }
+   
+    .program-container {
+        display: flex;
+        
+       
+    }
+    .days {
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+    }
+    .day {
+        transition: all 0.3s ease;
+        align-items: center;
+        position: sticky;
+    }
+    .day h3 {
+        color: black;
+        opacity: 0.3;
+        transition: opacity 0.3s;
+        font-weight: normal;
+        font-size: 1.3em;
+    }
+    .day-selector {
+        position: fixed;
+        top: 12vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .active-day:not(.disable),
+    .selected-day:not(.disable) {
+        padding-bottom: 2em;
+
+        &:not(#day-1) {
+            padding-top: 2em;
+
+        }
+        padding-bottom: 2em;
+        h3 {
+            opacity: 1;
+
+        }
+    }
+ 
+    .events {
+        margin-top: 12vh;
+        margin-bottom: 15vh;
+        
+
+    }
+    .events-day>h2 {
+        font-weight: normal;
+        margin-bottom: 0em;
+    }
+    .event {
+        margin-bottom: 6em;
+        
+    }
+    .event-date,
+    .event-name,
+    .event-note {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-right: 1em;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-right: 1em;
+        padding-top: 0.2em;
+    }
+    .event-note {
+        color: #8d8d8d;
+        font-weight: normal;
+        font-family: "Milligram Text";
+        font-size: 1.2em;
+    }
+
+    .event-name {
+        padding-bottom: 1em;
+    }
+
+    .event-date {
+        padding-bottom: 0em;
+
+    
+    }
+    .time {
+        font-weight: normal;
+    }
+    .event-title h2 {
+        margin-bottom: 0;
+        padding-bottom: 0em;
+        font-size: 1.8em;
+
+    }
+    .event-subtitle h2 {
+        margin-bottom: 0;
+        padding-bottom: 0.3em;
+        padding-top: 0.1em;
+        font-weight: normal;
+        font-size: 1.8em;
+
+    }
+    .event-description {
+        padding-top: .5em;
+    }
+    
+    .event-description .main-description {
+        font-size: 1.2em;
+    }
+    .main-description {
+        margin-bottom: 0;
+    
+        
+    }
+    .extra-description {
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.5s ease;
+        margin-top: 0;
+        pointer-events: none;
+        
+    }
+
+    .show-extra-description {
+        max-height: 500px;
+        height: auto;
+        opacity: 1;
+        background-color: white;
+
+    }
+
+    .event-description li {
+        padding-inline-start: 0 !important;
+        color: red;
+    }
+
+    .toggle-extra-description  {
+        color: #8d8d8d;
+        margin-top: 0.5em;
+      
+
+    }
+    
+    .toggle-extra-description:hover {
+        color: #595959;
+    }
+  
+    @media (max-width: 768px) or (max-height: 768px) {
+
+.events {
+        margin-top: 18vh;
+        
+
+    }
+        .program-container {
+            flex-wrap: wrap;
+        }
+
+        .header-container,
+        .day-selector {
+            position:fixed;
+        }
+
+      
+    .days {
+        display: none;
+            /* width: 100%;
+            height: auto; */
+    }
+    
+    .events {
+        z-index: 0 !important;
+
+
+    }
+
+    .mask {
+            
+   
+    }
+
+
+
+        .day-selector {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-height:768px) and (min-width:769px) {
+      .events {
+        margin-top: 2em;
+        
+
+    }
+    }
+
+</style>
+
+<script>
+    document.querySelectorAll('.day').forEach(day => {
+        day.addEventListener('mouseover', () => {
+            document.querySelectorAll('.day').forEach(d => {
+                d.classList.remove('active-day');
+                d.classList.add('disable');
+            });
+            day.classList.add('active-day');
+            day.classList.remove('disable');
+        });
+
+        day.addEventListener('mouseout', () => {
+            document.querySelectorAll('.day').forEach(d => {
+                d.classList.remove('disable');
+                d.classList.remove('active-day');
+
+            });
+        });
+    });
+</script>
+
+<script>
+import { gsap } from "gsap";
+
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+
+
+document.querySelectorAll('.day').forEach(day => {
+    day.addEventListener('click', () => {
+        const dayId = day.id;
+        const eventId = `#events-${dayId}`;
+        console.log(eventId);
+            gsap.to(window, { 
+                duration: 0.5, 
+                scrollTo: { 
+                    y: eventId, 
+                    autoKill: false 
+                } 
+            });
+
+    });
+});
+
+
+// Create ScrollTrigger for each events-day
+document.querySelectorAll('.events-day').forEach((eventsDay) => {
+    gsap.to('.day', {
+        scrollTrigger: {
+            trigger: eventsDay,
+            start: 'top 30%',
+            end: 'bottom 30%',
+            onEnter: () => {
+                const dayId = eventsDay.id.replace('events-day-', '');
+                document.querySelectorAll('.day').forEach(d => d.classList.remove('selected-day'));
+                const dayElement = document.querySelector(`#day-${dayId}`);
+                if (dayElement) {
+                    dayElement.classList.add('selected-day');
+                }
+            },
+            onEnterBack: () => {
+                const dayId = eventsDay.id.replace('events-day-', '');
+                document.querySelectorAll('.day').forEach(d => d.classList.remove('selected-day'));
+                const dayElement = document.querySelector(`#day-${dayId}`);
+                if (dayElement) {
+                    dayElement.classList.add('selected-day');
+                }
+            }
+        }
+    });
+});
+</script>
+
+
+<script>
+   const toggleButtons = document.querySelectorAll('.toggle-extra-description');
+
+toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Trova il genitore che contiene l'evento e il relativo .extra-description
+        const eventContainer = button.closest('.event'); // Supponiamo che il genitore abbia la classe "event"
+        const extraDescription = eventContainer.querySelector('.extra-description'); // Trova l'elemento .extra-description all'interno
+        const arrow = eventContainer.querySelector('#arrow');
+        const content = eventContainer.querySelector('#toggle-content');
+
+        // Aggiungi o rimuovi la classe per mostrare/nascondere l'extra-description
+        extraDescription.classList.toggle('show-extra-description');
+
+        // Cambia il testo del pulsante
+        if (extraDescription.classList.contains('show-extra-description')) {
+            content.textContent = 'SHOW LESS';
+            arrow.classList.add('rotate');
+        } else {
+            content.textContent = 'SHOW MORE';
+            arrow.classList.remove('rotate');
+
+        }
+    });
+});
+
+</script>

@@ -1,0 +1,195 @@
+---
+import CategorySection from '../components/CategorySection.astro';
+import categories from "../assets/data/categories.json";
+---
+
+
+
+<div class="container" id="opposti">
+  <!-- <div class="col-4">
+      <p>
+        At the Fabbrica del Vapore, INTERDEPENDENCE takes the shape of an international exhibition mixing and matching the projects of the students of Politecnico di Milano (Design, Architecture, and Engineering) with those of students from almost 50 design universities from all over the world.The exhibition collects 150 projects and is animated by a palimpsest of initiatives. The opening of the exhibition will be on Tuesday, April 16, at 18:30.
+        The Campus Bovisa Durando hosts the DesignXDesigners exhibition, with a display of works by students from the Polimi Design System.
+        At the Salone Satellite, a dedicated stand presents the study programs of the School of Design and showcases student’s works through an interactive installation.
+      </p>
+      <h2>
+        How can design deal with opposites and polarizations? How can design deal with the nuances in-between polarities?
+      </h2>
+      <p>
+        We may consider a few pairs of polarities that recur in design research and practice, such as:
+      </p>
+      <div class = "categories-container">
+        {
+            categories.map(category => (
+                <div class = "category-container">
+                    <div class="category-name">
+                      <span class="category">
+                        {category.opposite1} /
+                      </span>
+                      <span class="opposite2 category">
+                        &#160;{category.opposite2}
+                    </span>
+                    </div>
+                    <div class="category-description">
+                        &#160;{category.description}
+                    </div>
+                </div>
+        ))}
+    </div>
+  </div> -->
+
+  <div class = "categories-container">
+    {
+        categories.map((category, index) => (
+        <CategorySection index={index} opposite1={category.opposite1} opposite2={category.opposite2} description={category.description} descriptionExtra={category.descriptionExtra}></CategorySection>
+    ))}
+</div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.category-container');
+    
+    containers.forEach((container, index) => {
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top center+=100",
+        end: "bottom center",
+        scrub: 1,
+        markers: false,
+        onUpdate: (self) => {
+          // Calculate opacity based on scroll position
+          const opacity = gsap.utils.clamp(
+            0.3, 
+            1, 
+            0.3 + (0.7 * self.progress)
+          );
+          
+          container.style.opacity = opacity;
+
+          // Get category elements
+          const categoryOpposites = container.querySelectorAll(".category-opposite");
+          const description = container.querySelector('.category-description');
+
+          // Animate width and borders based on scroll progress
+          if (self.progress > 0.5) {
+            categoryOpposites.forEach(opposite => {
+              opposite.style.width = '100%';
+              console.log("animato");
+            });
+            description.classList.add('invert-borders');
+          } else {
+            categoryOpposites.forEach(opposite => {
+              opposite.style.width = `${opposite.children[0].offsetWidth}px`;
+            });
+            description.classList.remove('invert-borders');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+
+
+<style>
+  .categories-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        align-items: center;
+
+
+    }
+    #opposti {
+      justify-content: center;
+    }
+    
+    .category-container {
+        display: flex;
+        margin-bottom: 10px;
+        color: gray;
+        text-wrap: nowrap;
+    }
+
+    .category {
+      text-wrap: nowrap;
+    }
+
+    .opposite2 {
+        text-align: right;
+        flex: 0;
+        transition: all 0.3s ease;
+
+    }
+
+    
+
+    .category-container:hover .opposite2 {
+        flex: 1;
+        transition: all 0.3s ease;
+    }
+
+    .category-container:hover {
+        color: black;
+    }
+   
+
+.categories-container {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: gray;
+}
+
+
+.category-name {
+  font-family: 'Milligram';
+  font-size: 1.5em;
+  color: var(--gradient);
+  padding-top: 20px;
+  padding-bottom: 5px;
+  display: flex;
+    width: 100%;
+}
+
+.category-description {
+  margin-top: 10px;
+  font-family: 'Milligram Text';
+  font-size: 1.2em;
+  width: 100%;
+    color: var(--gradient);
+    text-align: left;
+height: auto;
+max-height: 0;
+opacity: 0;
+transition: all 1s ease;
+
+}
+.category-description.show {
+  opacity: 1;
+  max-height: 500px;
+
+  height: calc-size(auto);
+
+  transition: all 1s ease;
+} 
+
+@media (max-width:768px) {
+  #opposti {
+    width: 100%;
+  }
+}
+</style>

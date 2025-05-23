@@ -1,0 +1,59 @@
+---
+// filepath: /Users/filippo/Documents/GitHub/interdependence/src/layouts/ProjectsLayout.astro
+import CategoryItem from "../components/CategoryItem.astro";
+
+export interface Props {
+  category: { id: string, slug: string, opposite1: string, opposite2: string, description: string, descriptionExtra:string };
+  isSingleProject?: boolean;
+}
+
+const { category, isSingleProject="false" } = Astro.props as Props;
+// import { ClientRouter } from "astro:transitions";
+
+---
+<head>
+  <!-- <ClientRouter /> -->
+
+</head>
+<div class="projects-layout" >
+  <CategoryItem category={category} isHeading={true}transition:persist  />
+  <p class="col-8 description main-description" transition:persist>{category.description}</p>
+  <p class="col-8 description txt-small" transition:persist>{category.descriptionExtra}</p>
+  <hr>
+  <slot />
+</div>
+
+<style>
+  .projects-layout {
+    padding-top: 15vh;
+    width: 100%;
+    &::after {
+      content:"";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+    
+  }
+  .description {
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 2em;
+    &.main-description {
+      margin-bottom: 1em;
+    }
+  }
+  .main-description {
+    font-family: "Milligram";
+  }
+  hr {
+    margin-bottom: 1em;
+  }
+
+  @media (max-width: 768px) {
+    .projects-layout {
+    padding-top: 22vh;
+
+  }
+  }
+</style>

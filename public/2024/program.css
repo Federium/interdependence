@@ -1,0 +1,166 @@
+
+@font-face {
+    font-family: "Milligram Bold";
+    src: url('font/Milligram-Bold.ttf');
+  }
+  @font-face {
+    font-family: "Milligram Text";
+    src: url('font/Milligram-Text-Regular.ttf');
+  }
+  @font-face {
+    font-family: "Milligram Macro Bold";
+    src: url('font/milligram_macro_bold.otf');
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+  }
+
+  html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+    overflow-x: hidden;
+    background-color: white;
+    color: white;
+  }
+
+  .footer-desktop a {
+    text-decoration: underline;
+  }
+  
+
+  #back{
+    /* font-family: Arial, Helvetica, sans-serif; */
+      position: relative;
+      width:fit-content;
+      margin:2vh 2vw;
+      padding: 0 2vh;
+      border-radius: 100vh;
+  /* mix-blend-mode: normal; */
+      background-color: white;
+      color:black;
+      text-decoration: none;
+      /* font-size: 2rem; */
+  }
+
+
+a{
+    color:white;
+    text-decoration: none;
+    mix-blend-mode: difference;
+}
+
+#main-title{
+  font-family: "Milligram Macro Bold";
+  font-size: 13.2vw;
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+
+#program_container{
+margin:0 16vw ;
+padding-bottom: 4vh;
+}
+
+p {
+  /* background-color: white; */
+  mix-blend-mode: difference;
+  font-family: "Milligram Text";
+  width: 100%;
+  margin:0.5vh 0;
+  font-size: 1.2rem;
+}
+.titoli{
+  font-size: 2.7rem;
+}
+
+.program.titoli{
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 0;
+}
+.program.titoletti{
+  text-align: center;
+  margin: 0;
+}
+  
+.dDay{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.pDay.titoli{
+    margin:8vh 0 2vh 0;
+}
+
+.titoletti{
+    font-family: "Milligram Bold";
+    font-size: 2rem;
+    margin: 2vh 0 0 0;
+  }
+
+  .name{
+    font-family: "Milligram Bold";
+    margin-top: 1vh;
+  }
+
+  .time{
+    /* background-color: black; */
+    /* color:black; */
+    mix-blend-mode: normal;
+    width:fit-content;
+    padding: 0.5vh 2vh;
+    margin-bottom:1vh;
+    border-radius: 100vh;
+  }
+
+  .incontro{
+   padding: 4vh 0; 
+   border-bottom: black 1px solid;
+  }
+  
+
+  @media (max-width: 744px) {
+    #program_container{
+      margin:4vw;
+      padding-bottom: 4vh;
+      }
+      
+      .program.titoli{
+        /* line-height: 80%; */
+        margin-top: 8vh;
+    }
+    .program.titoletti{
+      text-align: center;
+      justify-content: center;
+      margin-bottom: 8vh;
+      padding: 0;
+    }
+
+      .pDay.titoli{
+        font-size:2.7rem;
+        margin:4vh 0 0.5vh 0;
+    }
+
+    .titoletti{
+      font-size: 1.5rem;
+    }
+    .incontro{
+      padding:2vh 0;
+    }
+    
+    p{
+      margin:1vh 0;
+    }
+  }

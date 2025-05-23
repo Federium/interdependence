@@ -1,0 +1,110 @@
+---
+
+import Contenuto from "../../layouts/Contenuto.astro";
+import Heading from "../../components/Heading.astro";
+import CategoryItem from "../../components/CategoryItem.astro";
+
+import { Image } from 'astro:assets';
+import arrow from '/src/assets/icons/arrow-right-black.svg';
+
+import { getCollection } from "astro:content";
+import categoriesData from "../../assets/data/categories.json";
+
+import locations from "../../assets/data/location.json";
+const projects = await getCollection("projects");
+const categoriesMap = new Map(categoriesData.map(category => [category.id, category]));
+const categories = [...new Set(projects.map(project => project.data.category))];
+
+---
+
+<Contenuto name="Catalogue" subsection={true} active={"3"} subsectionActive={1}>
+
+        <Heading title="" subtitle="" background={true} backgroundMobile={true} mobile={false}>
+        </Heading>
+
+
+    <div class="text-container">
+        
+        <p class="txt-small">
+            {locations[0].description}
+        </p>
+    </div>
+         
+
+    <div class="categories-container">
+        {categories.map(categoryId => (
+          <CategoryItem category={categoriesMap.get(categoryId)} isHeading={false} />
+        ))}
+      </div>
+
+
+
+      
+
+      <!-- <div class="categories-container">
+        {categories.map(categoryId => {
+            const category = categoriesMap.get(categoryId);
+            return (
+                <div class="category-container">
+                    <a href={`/fabbricadelvapore/catalogue/${category.slug}`}>
+                        <span>
+                            {category.opposite1} /
+                        </span>
+                        <span class="opposite2">
+                            &#160;{category.opposite2}
+                            <Image src={arrow} alt = "Freccia a destra"/>
+                            
+                        </span>
+                    </a>
+
+                </div>
+            )
+        })} -->
+        <Heading title="Catalogue" subtitle="Fabbrica del Vapore" background={true} backgroundMobile={true} id="header-mobile-2" zIndex>
+        </Heading>
+    </div>
+    </div>
+
+   
+
+</Contenuto>
+
+<style>
+        .categories-container {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+    .text-container {
+        max-width: 1200px;
+        padding-top: 15vh;
+        z-index: -5 !important;
+        margin-bottom: 4em;
+    }
+
+    .categories-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+    
+    .category-container {
+        display: flex;
+        margin-bottom: 20px;
+        color: gray;
+    }
+
+
+
+    @media (max-width: 768px) {
+        .text-container {
+        padding-top: 22vh;
+    }
+
+       
+    }
+    
+
+        
+
+    
+</style>

@@ -1,0 +1,115 @@
+---
+// filepath: /Users/filippo/Documents/GitHub/interdependence/src/components/CategoryItem.astro
+import { Image } from 'astro:assets';
+import arrow from '../assets/icons/arrow-right-black.svg';
+
+export interface Props {
+  category: { id: string, slug: string, opposite1: string, opposite2: string };
+  isHeading?: boolean;
+}
+
+const { category, isHeading="false" } = Astro.props as Props;
+---
+
+<div class="category-container">
+  {!isHeading ? (
+            <Image src={arrow} alt="Freccia a destra" />
+
+    <a class="category-subcontainer" href={`/fabbricadelvapore/catalogue/${category.slug}`}>
+      <span>
+        {category.opposite1} /&#160;
+      </span>
+      <span class="opposite2">
+      {category.opposite2}
+      </span>
+    </a>
+  ) : (
+    <a class="category-subcontainer isHeading" href="/fabbricadelvapore/catalogue">
+      <span>
+        <Image src={arrow} alt="Freccia a destra" />
+        {category.opposite1} /&#160;
+      </span>
+      <span class="opposite2">
+        &#160;{category.opposite2}
+      </span>
+    </a>
+  )}
+</div>
+
+<style>
+  .category-container {
+    display: flex;
+    margin-bottom: 1em;
+  }
+
+  span {
+    color: gray;
+  }
+
+  .category-subcontainer {
+    display: flex;
+    width: 100%;
+  }
+  
+  .opposite2 {
+    text-align: right;
+    white-space: nowrap;
+    flex: 0;
+    transition: all 0.3s ease;
+    justify-content: flex-end;
+  }
+  .isHeading span {
+    color: black;
+  }
+  
+  .isHeading img {
+    transform: rotate(90deg);
+    transition: transform 0.5s ease;
+    margin-right: 0.2em;
+  }
+  .category-container:hover .opposite2,
+  .isHeading .opposite2
+   {
+    flex: 1;
+    transition: all 0.5s ease;
+  }
+
+  .isHeading:hover .opposite2
+   {
+    flex: 0;
+    transition: all 0.5s ease;
+  }
+
+  .isHeading:hover img
+   {
+    transform: rotate(180deg);
+
+  }
+
+
+
+
+  .category-container:hover span {
+    color: black;
+    transition: color 0.s ease;
+  }
+  .category-container span {
+    white-space: nowrap;
+    font-size: 2.2em;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  @media (max-width:768px) {
+    .category-container span {
+    font-size: 1.6em;
+  }
+
+  .category-subcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  }
+</style>

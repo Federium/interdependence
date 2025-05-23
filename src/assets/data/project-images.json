@@ -1,0 +1,18 @@
+{
+  "test1": {
+    "test3": {
+      "_images": [
+        "/assets/projects/img/test1/test3/fabbricadelvapore.jpg"
+      ]
+    },
+    "_images": []
+  },
+  "test2": {
+    "test4": {
+      "_images": [
+        "/assets/projects/img/test2/test4/salonesatellite.jpeg"
+      ]
+    },
+    "_images": []
+  }
+}

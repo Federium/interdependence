@@ -1,0 +1,240 @@
+---
+
+import {Image} from 'astro:assets';
+import logoPolimi from '../assets/logos/logo_poli_uniti.svg';
+import logoPoliDesign from '../assets/logos/Poli.design.svg';
+
+---
+
+<div class="footer-desktop">
+    
+  <div class="website-container">
+    <div class="website-spacer credits"> Interdependence is the result of a team work, in the true spirit of the initiative. </div>
+    <div class="website-spacer footer-text credits"> 
+      <a href="/credits">All credits.</a>
+    </div>
+
+    <div class="website-spacer footer-text">&#169; 2025 Politecnico di Milano </div>
+ 
+  </div>
+
+  <div class="website-container website">
+    <div class="website-spacer section">Website</div>
+
+    <div class="footer-text">
+      <a href="https://www.design.polimi.it/en" target="_blank">design.polimi</a>
+    </div>
+    <div class="footer-text">
+      <a href="https://dipartimentodesign.polimi.it/en" target="_blank">dipartimentodesign.polimi</a>
+    </div>
+    <div class="footer-text">
+      <a href="https://www.polidesign.net/en/" target="_blank">polidesign.net</a>
+    </div>
+    <div class="website-spacer footer-text">
+      <a href="https://dipartimentodesign.polimi.it/it/magazine/design-week-2025" target="_blank">Milano Design Week 2025</a>
+    </div>
+    <div class="website-spacer footer-text">
+      <a href="/2024/index.html" target="_blank">2024 edition</a>
+    </div>
+    
+  </div>
+  
+  <div class="website-container social">
+    <div class="section">Social</div>
+    <!-- <div class="first" id="credits"><a href="">credits</a></div> -->
+    <div class="footer-text">
+      <a href="https://www.instagram.com/interdependence.polimi/" target="_blank">@interdependence.polimi</a>
+    </div>
+    <div class="footer-text">
+      <a href="https://www.instagram.com/school.design.polimi/" target="_blank">@school.design.polimi</a>
+    </div>
+    <div class="footer-text">
+      <a href="https://www.instagram.com/designxdesigners/" target="_blank">@designxdesigners </a>
+    </div>
+  </div>
+
+  <div class="website-container poli">
+    <div class="text-container section">from an idea by</div>
+    <div class="logo-container">
+      <div>
+        <Image src={logoPolimi} alt="Politecnico di Milano" class="img" id="logo-polimi"></Image>
+      </div>
+      <div>
+        <Image src={logoPoliDesign} alt="Poli.Design" class="img" id="logo-polidesign"></Image>      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+
+*{
+    
+    z-index: 0 !important;
+  }
+  .footer-desktop {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: clamp(2rem, 5vw, 5rem) 10%;
+    /* background: linear-gradient(to top, #000000, #333333); */
+    background-color: #0a0a0a;
+    overflow-x: hidden;
+    font-family: 'Milligram';
+    /* z-index: 99 !important; */
+    /* margin-top: min(5rem, 6%);; */
+  }
+
+  .website-container {
+    
+    width: 25%;
+    font-family: "Milligram Text";
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: white;
+    &.poli .text-container {
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  .section {
+    font-family: 'milligram';
+    font-weight: bold;
+  }
+
+  .credits {
+    padding-right: clamp(1rem, 6vw, 6rem);
+  }
+
+  .website-spacer {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: fit-content;
+    text-align: left;
+  }
+
+  .text-container {
+    width: fit-content;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .footer-text {
+    margin-top: clamp(1rem, 2vh, 2rem);
+    color: white !important;
+  }
+
+
+  .footer-text a {
+    color: white !important;
+    transition: opacity 0.3s ease;
+    text-decoration: underline solid rgb(255, 255, 255) 1px;
+    text-underline-offset: 5px;
+
+   
+  }
+
+  .footer-text a:hover {
+    opacity: 1;
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+    height: fit-content;
+    gap: clamp(1rem, 2vw, 2rem);
+    padding-top: clamp(1rem, 2vh, 2rem);
+    align-content: end;
+    div {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .img {
+    width: 100%;
+    min-width: 0;
+    object-fit: contain;
+    max-width: 150px;
+
+  }
+
+
+  #logo-polidesign {
+      filter: invert(1);
+      max-width: 100px;
+    }
+  #logo-polimi {
+    filter: invert(1);
+    height: auto;
+    }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .footer-desktop {
+      padding: 3vh 3rem 6vh;
+      gap: 2rem;
+    }
+
+    .website-container {
+      width: 50%;
+    }
+
+    .footer-desktop {
+      flex-wrap: wrap;
+    }
+
+    .img {
+      max-width: 120px;
+    }
+
+    .credits {
+      padding-right: 2rem;
+    }
+
+    .website-container.poli {
+      width: fit-content;
+     
+        .logo-container {
+          flex-direction: row;
+        }
+    }
+
+    .website-container.poli .text-container {
+          text-align: left;
+          width: 50%;
+        }
+  
+
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .footer-desktop {
+      padding: 4vh 2rem 8vh;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .website-container {
+      width: 100%;
+      margin: 0;
+    }
+
+    .logo-container {
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .img {
+      max-width: 100px;
+    }
+  }
+</style>

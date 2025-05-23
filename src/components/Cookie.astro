@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import close from "../assets/icons/close.svg"
+
+---
+
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 0px 50px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 9999;
+  max-width: 500px;
+  margin: auto;
+">
+  <p style="margin: 0 0 8px 0; font-size: 1em" >By continuing to browse this site, you automatically accept cookies.
+</p>
+
+
+  <button href="../" class="close-button" id="accept-cookies-btn"> <!-- javascript:history.back() -->
+    <div class="icon">
+      <Image src = {close} alt="Close"></Image>
+    </div>
+    <label>CLOSE</label>
+</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const button = document.getElementById("accept-cookies-btn");
+
+    function loadEmbeds() {
+      const lazyIframes = document.querySelectorAll('iframe[data-src]');
+      lazyIframes.forEach(iframe => {
+        iframe.setAttribute('src', iframe.getAttribute('data-src'));
+        iframe.removeAttribute('data-src');
+      });
+    }
+
+    if (localStorage.getItem("cookieAccepted")) {
+      loadEmbeds();
+    } else {
+      banner.style.display = "block";
+    }
+
+    button.addEventListener("click", function () {
+      localStorage.setItem("cookieAccepted", "true");
+      banner.style.display = "none";
+      loadEmbeds();
+    });
+  });
+</script>
+
+<style>
+        .close-button {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      label {
+        font-size: 1em;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        padding-left: 0.3em;
+        padding-left: 0.3em;
+
+      }
+</style>

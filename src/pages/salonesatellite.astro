@@ -1,0 +1,95 @@
+---
+import PaginaLuogo from '../layouts/PaginaLuogo.astro'
+
+import bckImg from "/src/assets/img/salonesatellite.webp";
+import locations from '../assets/data/location.json'
+
+import ButtonSmall from '../components/ButtonSmall.astro';
+
+import {Image} from "astro:assets";
+import anthropogenic from "../assets/logos/anthropogenic.png";
+import rawscenarios from "../assets/logos/rawscenarios.svg";
+import arrow from '../assets/icons/arrow-right-black.svg';
+
+
+const location = locations[2];
+
+const info = {
+    index: location.index,
+    place: location.place,
+    name: location.title,
+    location: location.location,
+    dates: location.dates,
+    description: location.description,
+    locationUrl: location.locationurl,
+    backgroundImg: bckImg,
+    hours: location.hours
+}
+
+
+---
+
+<PaginaLuogo index = {info.index} place = {info.place} name = {info.name} opening = {info.opening} location = {info.location} dates = {info.dates} description = {info.description} locationUrl = {info.locationUrl} backgroundImg = {info.backgroundImg.src} hours={info.hours}>
+
+<div class="button-container">
+    <!-- <a class="button button-evento" href="https://anthropogenicnarratives.labsintesi-c1.info/" target="_blank">
+        <Image class="event-logo" src={anthropogenic} alt="Anthropogenic Narratives"></Image>
+        <span><Image src={arrow} class="arrow" alt = "Freccia a destra"/></span>
+    </a>
+    <a class="button button-evento" href="https://rawscenarios.labsintesi-c1.info/" target="_blank">
+        <Image class="event-logo grande"  src={rawscenarios} alt="Raw Scenarios"></Image>
+        <span><Image src={arrow} class="arrow" alt = "Freccia a destra"/></span>
+
+    </a> -->
+    <ButtonSmall label="ANTHROPOGENIC NARRATIVES" href="http://anthropogenicnarratives.labsintesi-c1.info/" target="_blank"></ButtonSmall>
+    <ButtonSmall label="RAW SCENARIOS" href="http://rawscenarios.labsintesi-c1.info/" target="_blank"></ButtonSmall>
+
+</div>
+
+
+</PaginaLuogo>
+
+
+<style>
+    .button-container {
+        margin-top: 3em;
+        /* height: 5em; */
+    }
+    .button {
+        display: flex;
+        margin-bottom: 2em;
+        max-width: 15em;
+        align-items: center;
+        img {
+            width: 100%;
+            height: auto;
+           
+        }
+        .event-logo {
+            margin-right: 1em;
+        }
+        opacity: 0.5;
+        mix-blend-mode: luminosity;
+        transition: all 0.5s ease;
+    }
+
+    span {
+        transition: all 0.5s ease;
+    }
+    img.grande {
+        width: 110%;
+    }
+    
+    .button:hover {
+        opacity: 1;
+        mix-blend-mode: normal;
+        span {
+            margin-left: 2em;
+        }
+    }
+
+    img.arrow{
+        width: 50px;
+    }
+    
+</style>

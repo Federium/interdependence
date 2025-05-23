@@ -1,0 +1,646 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import categories from "../assets/data/categories.json";
+import locations from '../assets/data/location.json';
+import IndexCategory from '../components/IndexCategory.astro';
+import ButtonSmall from '../components/ButtonSmall.astro';
+import IndexMap from '../components/IndexMap.astro';
+import IndexMapDesktop from '../components/IndexMapDesktop.astro';
+import IndexMapMobile from '../components/IndexMapMobile.astro';
+import Logos from '../components/Logos.astro';
+
+/* const textContent = location.map(loc => ({
+  title: loc.title,
+  place: loc.place,
+  description: loc.description
+})); */
+
+---
+
+
+<Layout hideHeaderWhileScrollingMobile={false}>
+	
+  <div class="section mostra">
+    <Hero></Hero>
+    <div class="gradient-head"></div>
+
+  </div>
+
+
+<section class="container-section">
+    <!-- SECTION 1 -->
+    <section class="text-section section" id="section-1">
+      <!-- LOGOS -->
+      
+      <div class="container">
+        
+        <div class="logos">
+          <Logos></Logos>
+        </div>
+
+        <div class="col-8">
+          <h2 class="gradient-text quote">
+            In a society characterized by a growing sense of increasing polarization, how can design deal with opposites and the nuances in-between polarities to drive towards constructive change? 
+          </h2>
+          <p>The Polimi Design System (the School of Design, the Department of Design, and POLI.Design) presents <b>“INTERDEPENDENCE: exploring opposites”</b>, a set of initiatives to reflect on how design interacts with <b>polarities</b> and <b>contrasting dimensions</b>, through a selection of projects by students from Politecnico and from a network of about 40 design universities around the world.  
+          </p>                
+          <p>
+            All the exhibited projects do not seek to provide answers or certainties, rather challenge us to <b>imagine new questions and rethink both the present and the future</b>.
+          </p> 
+          <div style="padding-top: 1.5em">
+            <ButtonSmall label="READ MORE" href="/about"></ButtonSmall>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- <section class="map-section section">
+    <IndexMap></IndexMap>
+  </section> -->
+  <section class="map-section section">
+    <div class="map-desktop">
+      <IndexMapDesktop></IndexMapDesktop>
+    </div>
+    <div class="map-mobile">
+      <IndexMapMobile></IndexMapMobile>
+    </div>
+  </section>
+
+
+
+  
+  <!-- SECTION 3 -->
+  <section class="text-section section" id="opposites-section">
+      <!-- <h1 class="gradient-text right"><span style="font-family: 'Milligram Macro';padding-right: 0.7em">interdependence </span> <span style="font-weight: normal;">exploring opposites</span></h1> -->
+      <div class="col-8">
+        <p>The polarities of <b>"INTERDEPENDENCE: exploring opposites"</b> span various realms and dimensions of life, including:</p>
+      </div>
+    <IndexCategory></IndexCategory>
+  </section>
+</section>
+
+</Layout>
+
+
+
+
+
+
+
+
+<!-- ---------- SCROLL ---------- -->
+<!-- ---------- SCROLL ---------- -->
+<!-- ---------- SCROLL ---------- -->
+
+<!-- scroll con scrolltrigger -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    // Register plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    // Get all sections
+    const sections = gsap.utils.toArray<HTMLElement>('.section');
+      function goToSection(index: number) {
+      console.log(index);
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: sections[index],
+          autoKill: true
+        },
+        ease: "power2.inOut"
+      });
+    }
+    // Create ScrollTrigger for each section
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "5% 95%", 
+        end: "95% 5%",
+        // markers: true,
+        preventOverlaps: true,
+        fastScrollEnd: true, // Better handling of fast scrolling
+        onEnter: () => goToSection(i),
+        onEnterBack: () => goToSection(i)
+      });
+    });
+
+    function mostra(index: number){
+      sections.forEach((section, i) => {
+        if (i === index) {
+          section.classList.add("mostra");
+        } else {
+          section.classList.remove("mostra");
+        }
+      });
+
+    // Function to animate to a specific section
+    
+  }
+  });
+</script> -->
+
+<!-- scroll con scroll to -->
+<!-- <script>
+  import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const sections = document.querySelectorAll(".section");
+  let currentIndex = 0;
+  let isAnimating = false;
+
+  function goToSection(index) {
+    if (isAnimating) return;
+
+    isAnimating = true;
+    currentIndex = index;
+
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: {
+        y: sections[index],
+        autoKill: false
+      },
+      ease: "power2.inOut",
+      onComplete: () => {
+        isAnimating = false;
+      }
+    });
+  }
+
+  function handleWheel(event) {
+    if (isAnimating) return;
+
+    const currentSection = sections[currentIndex];
+    const isScrollingDown = event.deltaY > 0;
+    const scrollTop = window.scrollY;
+    const sectionTop = currentSection.offsetTop;
+    const sectionBottom = sectionTop + currentSection.offsetHeight;
+    const viewportBottom = scrollTop + window.innerHeight;
+
+    if (currentSection.offsetHeight > window.innerHeight) {
+      // Sezione più alta del viewport → permette lo scroll fino ai limiti
+      if ((isScrollingDown && viewportBottom < sectionBottom) || (!isScrollingDown && scrollTop > sectionTop)) {
+        return; // Permette lo scroll naturale
+      }
+    }
+
+    // Cambia sezione solo quando si arriva ai limiti
+    if (isScrollingDown && currentIndex < sections.length - 1) {
+      event.preventDefault();
+      goToSection(currentIndex + 1);
+    } else if (!isScrollingDown && currentIndex > 0) {
+      event.preventDefault();
+      goToSection(currentIndex - 1);
+    }
+  }
+
+  window.addEventListener("wheel", handleWheel, { passive: false });
+
+  // Vai alla prima sezione all'inizio
+  goToSection(0);
+});
+
+</script> -->
+
+<!-- !!! Scroll to section from hero !!! -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+    const hero = document.querySelector(".mostra");
+    const firstSection = document.querySelector(".text-section");
+    let isInHero = true;
+    let isAnimating = false;
+
+    function goToSection(target: HTMLElement) {
+      if (isAnimating) return;
+      
+      isAnimating = true;
+      
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+          y: target,
+          autoKill: false
+        },
+        ease: "power2.inOut",
+        onComplete: () => {
+          isAnimating = false;
+          isInHero = target === hero;
+        }
+      });
+    }
+
+    function handleWheel(e: WheelEvent) {
+      if (isAnimating) return;
+
+
+  
+
+      const isScrollingDown = e.deltaY > 0;
+      
+      if (isInHero && isScrollingDown) {
+        e.preventDefault();
+        if (firstSection) {
+          goToSection(firstSection as HTMLElement);
+        }
+      } else if (!isInHero && !isScrollingDown && firstSection && window.scrollY <= (firstSection as HTMLElement).offsetTop) {
+        e.preventDefault();
+        if (hero) {
+          goToSection(hero as HTMLElement);
+        }
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  });
+</script> -->
+
+
+
+<!-- ---------- ANIMAZIONE HEADER ---------- -->
+<!-- ---------- ANIMAZIONE HEADER ---------- -->
+<!-- ---------- ANIMAZIONE HEADER ---------- -->
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".left-sidebar", {
+    x: -100,
+    opacity: 1,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 0%",
+      toggleActions: "restart none none reverse",
+      //  markers: true,
+    },
+  }); 
+
+  gsap.from(".right-sidebar", {
+    x: 100,
+    opacity: 1,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 0%",
+      toggleActions: "restart none none reverse",
+      // markers: true,
+    },
+  }); 
+
+
+
+  });
+
+
+</script>
+
+<!-- ANIMAZIONE HEADER MOBILE -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".header_mobile", {
+    y: -100,
+    opacity: 1,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left 20%",
+      toggleActions: "restart none none reverse",
+       markers: false,
+    },
+  }); 
+
+
+  });
+
+
+</script>
+
+
+
+<!-- ---------- ANIMAZIONE TESTI ---------- -->
+<!-- ---------- ANIMAZIONE TESTI ---------- -->
+<!-- ---------- ANIMAZIONE TESTI ---------- -->
+
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+
+  gsap.from(".quote", {
+    y: 100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".text-section",
+      start: "left left",
+      toggleActions: "restart none none reverse",
+      //  markers: true,
+    },
+  }); 
+
+  });
+
+
+</script>
+
+
+
+
+
+<style>
+
+ .mostra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .container-section {
+    -webkit-mask-image: linear-gradient(to top, rgb(255, 255, 255) 94%, transparent 100%);
+  
+  /* mask-image: linear-gradient(to top, black 90%, transparent 100%); */
+    position: relative;
+    z-index: 2;
+    margin-top: 100vh;
+    background-color: #ffffff;
+    padding: 0;
+  }
+
+  
+  .text-section {
+    z-index: 2;
+  }
+
+  .map-section {
+    z-index: 2;
+  }
+
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: min(5rem, 6%);
+    padding-bottom: min(15rem,18%);;
+    z-index: 1;
+    /* margin-bottom: min(5rem, 6%); */
+}
+
+#section-1 {
+
+
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1024px;
+    margin: 0;
+    z-index: 1;
+
+}
+
+h1,h2,h3,h4,h5,h6, p{
+    color:var(--text-color);
+}
+
+#opposites-section {
+  padding-top: min(15rem,18%)
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 85%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+
+.text-section {
+    /* background: #f4f4f4; */
+    color: #333;
+}
+.gradient-head {
+  position: relative;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  width: 100vw;
+  height: 20vh;
+}
+
+/* ---------- MAP SECTION ---------- */
+/* ---------- MAP SECTION ---------- */
+/* ---------- MAP SECTION ---------- */
+
+.map-section {
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  min-height: max(70vw,100vh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.logos {
+  margin-top: 24rem;
+  width: 100%;
+}
+/* Logo section container */
+.logos-section {
+  display: flex;
+  width: 100%;
+  gap: 4rem;
+  padding: 2rem 0;
+  margin-top: 24rem;
+}
+
+/* Left and right columns */
+.logos-left,
+.logos-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Right logos container */
+.right-logos-container {
+  display: flex;
+  gap: 4rem;
+}
+
+/* Logo group container */
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Logo group header */
+.logo-group h4 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* Logo row container */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Base logo styles */
+.logo-row img {
+  height: 50px;
+  width: auto;
+}
+
+/* Specific logo adjustments */
+#logoMottola {
+  height: 40px;
+}
+
+#logoNavigare {
+  height: 30px;
+
+}
+
+#logoComune {
+  height: 60px;
+}
+
+#logoCampoteatrale {
+  height: 50px;
+}
+
+#logoFdV {
+  height: 35px;
+}
+
+#logoDesignWeek {
+  height: 40px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .logos-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .logos {
+    margin-top: 18rem;
+  }
+
+  .right-logos-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .logo-group h4 {
+    text-align: center;
+  }
+
+  .logo-row {
+    justify-content: center;
+  }
+
+  /* Slightly smaller logos on mobile */
+  .logo-row img {
+    height: 40px;
+  }
+
+  #logoMottola {
+    height: 32px;
+  }
+
+  #logoNavigare {
+    height: 24px;
+  }
+
+  #logoComune {
+    height: 48px;
+  }
+
+  #logoCampoteatrale {
+    height: 40px;
+  }
+
+  #logoFdV {
+    height: 28px;
+  }
+
+  #logoDesignWeek {
+    height: 32px;
+  }
+}
+
+</style>
+
+
+
+
+

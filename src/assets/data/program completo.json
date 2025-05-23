@@ -1,0 +1,218 @@
+{
+    "metadata-events": [
+      {
+        "event-id": 0,
+        "title": "Grand Opening",
+        "description": "Opening and introduction to the exhibition."
+       },
+      {
+        "event-id": 1,
+        "title": "Somewhere, Between",
+        "people": "Campo Teatrale",
+        "note": "Event in English and Italian",
+        "description": "Beings do not precede relationships but are born together with them, mutually shaping one another in the infinite weaving of threads that tangle and give rise to worlds upon worlds. Some call it entanglement, but here, it’s just a game—you’re about to step inside.",
+        "extra-description": " “Somewhere, Between” is a participatory audio-visual performance where audience and performers blur together, boundaries fade, and opposites reveal themselves to be inextricably intertwined in a co-becoming entanglement. The performance, produced by Campo Teatrale for the event INTERDEPENDENCE, is conceived and created by Usine Baug in collaboration with Pietro Francesco Pingitore (visual artist) and Matrix (New Media Artist – Interactive Sound & Visuals)."
+      },
+      {
+        "event-id": 2,
+        "title": "NCAD Alumni Connectivity",
+        "people": "National College of Art and Design",
+        "description": "A panel of Ireland's National College of Art & Design (NCAD) faculty and alumni.",
+        "extra-description": "During the panel, NCAD alumni and staff will join together to discuss design practices, establishing studios in the world, and design that demonstrates the vitality of being interdependent in society, globally, and with communities and nature. Panelists will include: Dobrawa Brach Kaluzna (Designer, NCAD Alumni); Jack Brady (Designer, NCAD Alumni); Kathy Mooney (NCAD, Design for Body and Environment), and Sam Russell (NCAD, Product Design)."
+      },
+      {
+        "event-id": 3,
+        "title": "Mirror Effect",
+        "people": "Arte e Magia",
+        "description": "Mirror Effect is a mentalism show created and performed by the Arte & Magia group, where psychological experiments and a touch of comedy intertwine to unveil the mystery of the mirror effect.",
+        "extra-description": "Through various interactions with the audience, who will play an active role, the show explores how our mind reflects and absorbs thoughts, emotions, and sensations. A journey through suggestion and perception, where nothing is as it seems… or maybe it is!"
+      },
+      {
+        "event-id": 4,
+        "people": "Creatives for Climate",
+        "title": "INDIVIDUAL/COLLECTIVE voices for impact",
+        "description": "“Selling sustainability” means finding the right balance between two apparent polarities: promoting long-term, collective 'planetary' well-being and highlighting the immediate, concrete, and personal benefits for 'consumers'. Focusing exclusively on one side risks relegating sustainable initiatives to a niche or diluting their broader impact. The goal, then, is to integrate both perspectives, creating a narrative that appeals to personal motivations while fostering a collective commitment to sustainability.",
+        "extra-description": "A roundtable moderated by Angela De Marco, with Francesco Zurlo, Anna Luciano, Ilaria Giuliani, Chiara Barozzi, Elisa Flamini, Giancarlo Fabbro, Mattia Battagion, Laura Corà, Matteo Brambilla."
+      },
+      {
+        "event-id": 5,
+        "title": "Designing together",
+        "subtitle": "Intedependences of diverse design cultures",
+        "people": "James Postell (Politecnico di Milano)",
+        "description": "Visit to the exhibition and discussion with the students of the Blended Intensive Programme “Designing together”, coordinated by Politecnico di Milano."
+      },
+      {
+        "event-id": 6,
+        "title": "From Contrast to identity",
+        "subtitle": "Create Your Logo",
+        "people": "JEMP - Junior Enterprise of Politecnico di Milano",
+        "description": "JEMP, the Junior Enterprise of Politecnico di Milano, presents From contrast to identity: Create your logo, an interactive workshop to design a personalized logo or illustration.",
+        "extra-description": "The activity aligns with the exhibition’s theme, offering a hands-on experience in the world of Brand Identity. Participants will explore design and visual communication through a dynamic and immersive approach."
+      },
+      {
+        "event-id": 7,
+        "title": "Design & autism",
+        "people": "Venanzio Arquilla, Federica Caruso, Davide Genco & Students (Politecnico di Milano)",
+        "description": "A showcase and panel featuring student projects exploring the intersection of design and autism through an inclusive and multidisciplinary approach.",
+        "extra-description": "Developed within the research group “Cometa” at the Department of Design of Politecnico di Milano, these projects are collected in the volume Design & Autism and on the platform opencometa.com, dedicated to sharing projects for autism."
+      },
+      {
+        "event-id": 8,
+        "title": "Towards PDC.2026",
+        "subtitle": "Design Diplomacy: Comprising Opposites",
+        "description": "A shared reflection on the role of design as an activity of institutional organizations in situations of conflict and opposition. A conversation in anticipation of the Participatory Design Conference 2026, themed “Peace, Dialogue, and Coexistence.”"
+      },
+      {
+        "event-id": 9,
+        "title": "WE MED: We Mediterranean",
+        "people": "We Mediterranean",
+        "description": "A story curated by We Mediterranean. Limits and opportunities of a contemporary utopia, between limits, activism and a sense of community."
+      },
+      {
+        "event-id": 10,
+        "title": "Unveiling Future",
+        "subtitle": "Interaction Design Beyond the Human",
+        "people": "POLIMI - Digital and Interaction Design: Davide Spallazzo, Marco Ajovalasit, Elisa Giaccardi & Students (Politecnico di Milano)",
+        "description": "From self-driving cars to more-than-human ecologies — glimpse the futures of interaction design.",
+        "extra-description": "Join us for an interactive session that peeks beyond the horizon of today, offering a window into the possible futures of humanity and our entanglements with the environment. From the future of mobility to radical visions of multispecies governance, this session will traverse the evolving landscape of design—moving from human-centred approaches to more-than-human ways of thinking and making.<br><b>Lightning talks</b><br>18:00 – Digital and Interaction Design by Davide Spallazzo<br>18:10 – Mobility Futures by Marco Ajovalasit<br>18:20 – More-than-human Bodies by Elisa Giaccardi"
+      },
+      {
+        "event-id": 11,
+        "title": "Nazareno e il club della Noia",
+        "subtitle": "Live performance",
+        "people": "Nazareno e il club della Noia "
+      },
+      {
+        "event-id": 12,
+        "title": "Raddice",
+        "subtitle": "Live performance",
+        "people": "Raddice"
+      }
+    ],
+    "days": [
+      {
+        "index": "1",
+        "day": "April 5",
+        "weekday": "Saturday",
+        "events": [
+          {
+            "event-id": 0,
+            "time": "17:00–19:00"
+          }
+        ]
+      },
+      {
+        "index": "2",
+        "day": "April 6",
+        "weekday": "Sunday",
+        "events": [
+          {
+            "event-id": 1,
+            "time": "Replicas: 14:30, 16:00, 18:00"
+          }
+        ]
+      },
+      {
+        "index": "3",
+        "day": "April 7",
+        "weekday": "Monday",
+        "events": [
+          {
+            "event-id": 2,
+            "time": "14:30–16:30"
+          },
+          {
+            "event-id": 4,
+            "time": "18:00–21:00"
+          }
+        ]
+      },
+      {
+        "index": "4",
+        "day": "April 8",
+        "weekday": "Tuesday",
+        "events": [
+          {
+            "event-id": 3,
+            "time": "19:00–20:00"
+          }
+        ]
+      },
+      {
+        "index": "5",
+        "day": "April 9",
+        "weekday": "Wednesday",
+        "events": [
+          {
+            "event-id": 5,
+            "time": "16:00–17:30"
+          },
+          {
+            "event-id": 1,
+            "time": "Replicas: 18:00, 20:00"
+          }
+        ]
+      },
+      {
+        "index": "6",
+        "day": "April 10",
+        "weekday": "Thursday",
+        "events": [
+          {
+            "event-id": 6,
+            "time": "14:30–16:30"
+          },
+          {
+            "event-id": 8,
+            "time": "17:30–19:00"
+          },
+          {
+            "event-id": 12,
+            "time": "20:00–22:00"
+          }
+        ]
+      },
+      {
+        "index": "7",
+        "day": "April 11",
+        "weekday": "Friday",
+        "events": [
+          {
+            "event-id": 7,
+            "time": "12:00–14:00"
+          },
+          {
+            "event-id": 10,
+            "time": "14:30–19:30"
+          },
+          {
+            "event-id": 11,
+            "time": "20:00–22:00"
+          }
+        ]
+      },
+      {
+        "index": "8",
+        "day": "April 12",
+        "weekday": "Saturday",
+        "events": [
+          {
+            "event-id": 1,
+            "time": "Replicas: 12:30, 14:30, 16:00, 18:00, 20:00"
+          }
+        ]
+      },
+      {
+        "index": "9",
+        "day": "April 13",
+        "weekday": "Sunday",
+        "events": [
+          {
+            "event-id": 9,
+            "time": "11:00–13:00"
+          }
+        ]
+      }
+    ]
+  }
+  

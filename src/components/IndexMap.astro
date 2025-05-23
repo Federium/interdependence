@@ -1,0 +1,433 @@
+---
+
+
+import locations from '../assets/data/location.json';
+import ButtonSmall from '../components/ButtonSmall.astro';
+
+import {Image} from 'astro:assets';
+
+import mappa from  '../assets/img/MapImage_cut.png';
+
+---
+  
+  
+  
+  
+  
+  
+  <!-- MAP SECTION -->
+  
+    <div class="map-1">
+      <div class="map-bg">
+        <div class="pointer-blur"></div>
+        <Image src={mappa}   quality={5} id="map" alt="Mappa" loading={'eager'}  /> <!--eager-->
+      </div>
+      <div class="paragraph-container">
+        <div class="paragraph-box " id="box-0">
+          {
+              <h2 id="location-title">{locations[0].title}</h2>
+              <p class="txt-small" id="location-description">{locations[0].description}</p>
+              <a href="${locations[step].innerLink}" class="see-more-link">
+         <ButtonSmall  label="SEE MORE" href={"/"+locations[0].slug} id="map-button"></ButtonSmall>
+       </a>
+          }
+        </div>
+        <div class="paragraph-box "  id="box-1">
+          {
+              <h2 id="location-title">{locations[1].title}</h2>
+              <p class="txt-small" id="location-description">{locations[1].description}</p>
+              <a href="${locations[step].innerLink}" class="see-more-link">
+         <ButtonSmall  label="SEE MORE" href={"/"+locations[1].slug} id="map-button"></ButtonSmall>
+
+       </a>
+          }
+        </div>
+        <div class="paragraph-box "  id="box-2">
+          {
+              <h2 id="location-title">{locations[2].title}</h2>
+              <p class="txt-small" id="location-description">{locations[2].description}</p>
+              <a href="${locations[step].innerLink}" class="see-more-link">
+         <ButtonSmall  label="SEE MORE" href={"/"+locations[2].slug} id="map-button"></ButtonSmall>
+         
+       </a>
+          }
+        </div>
+      </div>
+      {
+      <div class="title-container">
+        <div>
+          <div class="title-box">
+          <div class="title-gradient">  <h3 style="text-align: center; margin: 0;">{locations[0].place}</h3></div>
+          
+          
+
+        </div>
+        </div>
+       
+      </div>      
+      }
+
+    </div>
+  </section>
+
+
+
+
+
+<!-- ---------- MAP ---------- -->
+<!-- ---------- MAP ---------- -->
+<!-- ---------- MAP ---------- -->
+
+<!-- Script vecchio -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const map = document.getElementById("map");
+  
+      // Create timeline for map animation
+      const mapTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".map-section",
+          start: "top top",
+          end: "+=200%", // Controls how long the animation takes to complete
+          pin: true,
+          pinSpacing: true,
+          scrub: 1, // Links animation progress to scroll position
+          anticipatePin: 1
+        }
+      });
+      
+      // Add animations to timeline
+      mapTimeline
+        .fromTo(map, {
+          scale: 1,
+          x: 0,
+          y: 0
+        }, {
+          scale: 1.5,
+          x: -200,
+          y: -100,
+          ease: "none" // Remove easing for smoother scroll control
+        })
+        .to(map, {
+          scale: 2,
+          x: 200,
+          y: 100,
+          ease: "none"
+        });
+  });
+</script> -->
+
+<!-- Script meno vecchio con animazioni testo -->
+<!-- <script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const map = document.getElementById("map");
+    const paragraphBox = document.querySelector(".paragraph-box");
+    const titleBox = document.querySelector(".title-box");
+    
+    // Array of text content for each snap point
+    const textContent = [
+      { title: "Location 1", place: "Place 1", description: "Description 1" },
+      { title: "Location 2", place: "Place 2", description: "Description 2" },
+      { title: "Location 3", place: "Place 3", description: "Description 3" },
+      { title: "Location 4", place: "Place 4", description: "Description 4" }
+    ];
+
+    // Create timeline for map animation
+    const mapTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".map-section",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: true,
+        scrub: 1,
+        anticipatePin: 1,
+        markers: true,
+        snap: {
+          snapTo: [0, 0.33, 0.66, 1],
+          duration: { min: 0.2, max: 0.8 },
+          delay: 0,
+          onSnap: (progress) => updateText(Math.round(progress * 3)) // Calculate snap index
+        }
+      }
+    });
+
+    // Function to update text content with animation
+    function updateText(index) {
+      const content = textContent[index];
+      
+      // Animate out current text
+      gsap.to([paragraphBox, titleBox], {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        onComplete: () => {
+          // Update text content
+          titleBox.querySelector('h3').textContent = content.place;
+          titleBox.querySelector('h4').textContent = content.title;
+          paragraphBox.querySelector('h3').textContent = content.title;
+          paragraphBox.querySelector('h4').textContent = content.place;
+          paragraphBox.querySelector('h6').textContent = content.description;
+          
+          // Animate in new text
+          gsap.to([paragraphBox, titleBox], {
+            opacity: 1,
+            y: 0,
+            duration: 0.3
+          });
+        }
+      });
+    }
+    
+    // Add map animations to timeline
+    mapTimeline
+      .fromTo(map, {
+        scale: 1,
+        x: 0,
+        y: 0,
+        opacity: 1
+      },{
+        scale: 1.2,
+        x: 100,
+        y: 0,
+        opacity: 1
+      })
+      .to(map, {
+        scale: 1.5,
+        x: -200,
+        y: -100,
+        opacity: 1
+      })
+      .to(map, {
+        scale: 2,
+        x: 600,
+        y: 200,
+        opacity: 1
+      });
+  });
+</script> -->
+
+
+<!-- <script src="../scripts/map.js"></script> -->
+
+
+
+
+<style>
+  .map-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-size: cover; */
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: normal;
+}
+
+#map {
+  /* width: 200%;
+  height: auto; */
+  width: auto;
+  height: 100%;
+  /* transform-origin: center; */
+  mix-blend-mode: normal;
+  transition: all 1s ease;
+  ::after {
+
+  }
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%,black 10%, black 90%, transparent 100%) ;
+
+}
+
+.paragraph-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: min(5rem, 6%);
+  display: flex;
+}
+
+
+
+
+
+
+/* VECCHIO 
+.paragraph-box {
+  background-color: #ffffff;
+  width: 60%;
+  height: auto;
+  padding: 2vh;
+  box-shadow: 0 0 100px -50px;
+  h2 {
+    margin-bottom: 0;
+  }
+  opacity:0;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
+} */
+
+.paragraph-box {
+  background-color: #ffffff;
+  position: absolute;
+  bottom:min(5rem, 6%);
+
+  width: 50%;
+  height: auto;
+  padding: clamp(2rem, 5vw, 5rem);
+  box-shadow: 0 0 100px -50px;
+  h2 {
+    margin-bottom: 0;
+  }
+  opacity:0;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.paragraph-box.show {
+transform: translateY(0px);
+opacity:1;
+pointer-events: all;
+
+}
+
+.paragraph-box.hide {
+  opacity:0;
+transform: translateY(-100px);
+pointer-events: none;
+
+}
+
+
+
+.title-container {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  >div {
+    width: auto;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+background-blend-mode: darken;
+  }
+}
+
+.title-box {
+  background: rgb(0, 0, 0); 
+  /* background: linear-gradient(to top, #1a1a1a 0%, #2e2e2e 100%); */
+
+  width: auto;
+  height: auto;
+  padding:  1vh 1.3vh ;
+  box-shadow: 0 0 50px -20px;
+  /* &:hover {
+    box-shadow: 0 0 100px 5px;
+
+  } */
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s;
+
+
+  h3 {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    
+
+  }
+
+  /* &:hover 
+  {
+    box-shadow: 0 0 40px 0px;
+
+  } */
+  
+
+}
+
+.map-section h1,
+.map-section h2,
+.map-section h3,
+.map-section h4,
+.map-section h5,
+.map-section h6 {
+  color: black;
+}
+
+
+
+.pointer-blur {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(208, 208, 208);
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: 1 !important;
+  top: 30vh;
+  transform: translateY(-50%) ;
+  mix-blend-mode: difference;
+  position: absolute;
+}
+
+@media (max-width: 1024px) {
+
+#location-title {
+  font-size: 1.5em;
+}
+
+
+
+#location-description {
+  font-size: 1em;
+}
+
+
+.paragraph-box {
+  width:calc(100% - 2*min(5rem, 6%)) !important;
+}
+
+.title-container {
+  top: 15%;
+}
+.pointer-blur {
+  top: 23vh;
+}
+.map-bg {
+  -webkit-mask-image: linear-gradient(to bottom,black 80%, transparent 90%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 90%) ;
+}
+
+
+</style>
